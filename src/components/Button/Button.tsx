@@ -1,24 +1,21 @@
 import React from 'react'
-import 'Buttton.scss'
+import './Button.scss'
 
 export interface ButtonProps {
-	variant?: string
-	disabled?: boolean
 	size?: string
-	children?: React.ReactNode
 	className?: string
+	disabled?: boolean
+	children?: string | React.ReactNode
 	style?: React.CSSProperties
+	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'warning'
 	onClick: (e: MouseEvent) => void
 }
 
-const Button: React.FC<ButtonProps> = ({ variant, size, ...props }) => {
-	const mode = `${variant}`
+const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
 			type='button'
-			className={['storybook-button', `storybook-button--${size}`, mode].join(
-				' '
-			)}
+			className={`button-${props.variant} ${props.className}`}
 			style={props.style}
 		>
 			{props.children}
