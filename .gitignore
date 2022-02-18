@@ -3,5 +3,3 @@ package-lock.json
 .vscode
 *.lock
 .DS_Store
-stories
-.storybook
