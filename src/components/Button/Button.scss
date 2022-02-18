@@ -1,0 +1,53 @@
+.positive-button {
+	padding: 0.6rem 2rem;
+	background-color: #1ea0bc;
+	border-radius: 32.3333px;
+	border: none;
+	&:hover {
+		background-color: #208ba1;
+	}
+}
+
+.positive-button-changed {
+	@extend .positive-button;
+	max-width: 100%;
+	background-color: #d7972e;
+	&:hover {
+		background-color: #c8881f;
+	}
+}
+
+.positive-button-disabled {
+	@extend .positive-button;
+	box-sizing: border-box;
+	border-radius: 32.3333px;
+	pointer-events: none;
+	filter: brightness(0.8);
+}
+
+.outlined-button {
+	padding: calc(0.6rem - 2px) 2rem;
+	background-color: transparent;
+	border-radius: 32.3333px;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	box-sizing: border-box;
+	&:hover {
+		background: #00000040;
+	}
+}
+
+.outlined-button-disabled {
+	@extend .outlined-button;
+	box-sizing: border-box;
+	border-radius: 32.3333px;
+	pointer-events: none;
+	filter: brightness(0.8);
+}
+@media screen and (max-width: 1440px), screen and (max-height: 940px) {
+	.positive-button {
+		padding: 0.5rem 1.6rem;
+	}
+	.outlined-button {
+		padding: calc(0.5rem - 2px) 1.6rem;
+	}
+}
