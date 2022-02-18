@@ -1,149 +1,111 @@
 // Colors for the app
-.color-teal {
-	color: #1da0bc;
-}
+@use "sass:map";
 
-.color-teal100 {
-	color: #147084;
-}
+// teal
+$teal: #33b0cb;
+$teal100: #1da0bc;
+$teal200: #147084;
+$teal300: #0e505e;
 
-.color-teal200 {
-	color: #0e505e;
-}
+// grey
+$grey100: #c1c1c1;
+$grey200: #bbbbbb;
+$grey300: #808080;
+$grey400: #666666;
+$grey500: #393939;
+$grey600: #363636;
+$grey700: #323232;
+$grey800: #262626;
+$grey900: #1b1b1b;
 
-.color-grey {
-	color: #1b1b1b;
-}
+// white
+$white: #ffffff;
+$offWhite: rgba(255, 255, 255, 0.7);
 
-.color-grey100 {
-	color: #262626;
-}
+$yellow100: #e7a523;
+$yellow200: #d6963a;
 
-.color-grey200 {
-	color: #323232;
-}
+$dirtyGreen: #b4b060;
+
+$red100: #ec6d62;
+$red200: #cf564d;
+
+$transparent: transparent;
 
 .color-white {
-	color: #ffffff;
+  color: $white;
 }
 
-.color-white100 {
-	color: #c1c1c1;
-}
+// backgrounds
 
-.color-white200 {
-	color: #808080;
-}
-
-.color-grey {
-	color: #bbbbbb;
-}
-
-.color-off-white {
-	color: rgba(255, 255, 255, 0.7);
-}
-
-.color-1b {
-	color: #1b1b1b;
-}
-
-.color-orangeish {
-	color: #e7a523;
-}
-
-.color-yellow-greenish {
-	color: #b4b060;
-}
-
-.color-red {
-	color: #ec6d62;
-}
-
-// Background colors of the app
 .bg-transparent {
-	background-color: transparent !important;
-}
-
-.bg-white {
-	background-color: white !important;
+  background-color: $transparent;
 }
 
 .bg-teal {
-	background-color: #1da0bc !important;
+  background-color: $teal;
 }
 
-.bg-red {
-	background-color: #cf564d !important;
+.bg-teal100 {
+  background-color: $teal100;
 }
 
-.bg-yellow {
-	background-color: #d6963a !important;
+.bg-teal200 {
+  background-color: $teal300;
 }
 
-.bg-1b {
-	background-color: #1b1b1b !important;
+.bg-teal300 {
+  background-color: $teal300;
 }
 
-.bg-26 {
-	background-color: #262626 !important;
+.bg-grey100 {
+  background-color: $grey100;
 }
 
-.bg-32 {
-	background-color: #323232 !important;
+.bg-grey200 {
+  background-color: $grey200;
 }
 
-.bg-36 {
-	background-color: #363636 !important;
+.bg-grey300 {
+  background-color: $grey300;
 }
 
-.bg-38 {
-	background-color: #383838 !important;
+.bg-grey400 {
+  background-color: $grey400;
 }
 
-.bg-3b {
-	background-color: #3b3b3b !important;
+.bg-grey500 {
+  background-color: $grey500;
 }
 
-.bg-40 {
-	background-color: #404040 !important;
+.bg-grey600 {
+  background-color: $grey600;
 }
 
-.bg-43 {
-	background-color: #434343 !important;
+.bg-grey700 {
+  background-color: $grey700;
 }
 
-.bg-49 {
-	background-color: #494949 !important;
+.bg-grey800 {
+  background-color: $grey800;
 }
 
-.bg-60 {
-	background-color: #606060 !important;
+.bg-grey900 {
+  background-color: $grey900;
 }
 
-.bg-66 {
-	background-color: #666666 !important;
+.bg-red100 {
+  background-color: $red100;
 }
 
-.bg-7d {
-	background-color: #7d7d7d !important;
+.bg-red200 {
+  background-color: $red200;
 }
 
-.bg-80 {
-	background-color: #808080 !important;
+.bg-yellow100 {
+  background-color: $yellow100;
 }
 
-.bg-r27 {
-	background-color: rgba(27, 27, 27, 0.95) !important;
-}
-
-.bg-r38 {
-	background-color: rgba(38, 38, 38, 0.8) !important;
-}
-
-.bg-r64 {
-	background-color: rgba(64, 64, 64, 0.8) !important;
-}
-
-.bg-r128 {
-	background-color: rgba(128, 128, 128, 0.5) !important;
+.bg-yellow200 {
+  background-color: $yellow200;
 }
