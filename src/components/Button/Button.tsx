@@ -1,18 +1,18 @@
-import React from 'react';
-import 'Buttton.scss';
+import React from 'react'
+import 'Buttton.scss'
 
 export interface ButtonProps {
-	variant?: string;
-	disabled?: boolean;
-	size?: string;
-	children?: React.ReactNode;
-	className?: string;
-	style?: React.CSSProperties;
-	onClick: (e: MouseEvent) => void;
+	variant?: string
+	disabled?: boolean
+	size?: string
+	children?: React.ReactNode
+	className?: string
+	style?: React.CSSProperties
+	onClick: (e: MouseEvent) => void
 }
 
 const Button: React.FC<ButtonProps> = ({ variant, size, ...props }) => {
-	const mode = `${variant}`;
+	const mode = `${variant}`
 	return (
 		<button
 			type='button'
@@ -23,8 +23,8 @@ const Button: React.FC<ButtonProps> = ({ variant, size, ...props }) => {
 		>
 			{props.children}
 		</button>
-	);
-};
+	)
+}
 
 Button.defaultProps = {
 	variant: 'primary',
@@ -32,6 +32,6 @@ Button.defaultProps = {
 	size: 'medium',
 	style: {},
 	onClick: () => {},
-};
+}
 
-export default Button;
+export default Button
