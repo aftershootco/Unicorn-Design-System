@@ -3,3 +3,4 @@ package-lock.json
 .vscode
 *.lock
 .DS_Store
+dist
