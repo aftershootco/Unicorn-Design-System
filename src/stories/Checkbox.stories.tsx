@@ -1,16 +1,16 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import Switch, { SwitchProps } from '../components/Switch'
+import Checkbox, { CheckboxProps } from '../components/Checkbox'
 
 export default {
-	title: 'component/Switch',
-	component: Switch,
+	title: 'component/Checkbox',
+	component: Checkbox,
 	argTypes: {
 		onChange: { action: 'onChange', description: 'returns a boolean value' },
 	},
 } as Meta
 
-const Template: Story<SwitchProps> = (args) => <Switch {...args} />
+const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

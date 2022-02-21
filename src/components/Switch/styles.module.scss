@@ -1,55 +1,55 @@
-@import "../../styles/colors.scss";
+@import '../../styles/colors.scss';
 
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 24px;
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 24px;
 
-  /* The slider */
-  .slider {
-    @extend .bg-grey300;
+	/* The slider */
+	.slider {
+		@extend .bg-grey300;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: 0.4s;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transition: 0.4s;
 
-    cursor: pointer;
-  }
+		cursor: pointer;
+	}
 
-  .slider:before {
-    @extend .bg-grey100;
+	.slider:before {
+		@extend .bg-grey100;
 
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 3px;
+		position: absolute;
+		content: '';
+		height: 18px;
+		width: 18px;
+		left: 4px;
+		bottom: 3px;
 
-    transition: 0.4s;
-  }
+		transition: 0.4s;
+	}
 
-  &.active {
-    .slider {
-      @extend .bg-teal100;
-    }
+	&.active {
+		.slider {
+			@extend .bg-teal100;
+		}
 
-    .slider:before {
-      @extend .bg-white;
-      transform: translateX(14px);
-    }
-  }
+		.slider:before {
+			@extend .bg-white;
+			transform: translateX(14px);
+		}
+	}
 
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 20px;
-  }
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 20px;
+	}
 
-  .slider.round:before {
-    border-radius: 50%;
-  }
+	.slider.round:before {
+		border-radius: 50%;
+	}
 }
