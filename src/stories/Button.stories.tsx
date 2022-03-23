@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import Button, { ButtonProps } from '../components/Button/Button'
+import { Button, ButtonProps } from '../components'
 
 export default {
 	title: 'component/Button',

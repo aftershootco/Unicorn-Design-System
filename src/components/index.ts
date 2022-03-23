@@ -1,3 +1,5 @@
-import Button from './Button'
+import Button, { ButtonProps } from './Button/Button'
+import Checkbox, { CheckboxProps } from './Checkbox/Checkbox'
+import Switch, { SwitchProps } from './Switch/Switch'
 
-export { Button }
+export { Button, ButtonProps, Checkbox, CheckboxProps, Switch, SwitchProps }
