@@ -1,1 +1,7 @@
-@import 'size', 'colors';
+@import 'size.scss', 'colors.scss', 'text.scss';
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
