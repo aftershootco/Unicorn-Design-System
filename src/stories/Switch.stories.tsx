@@ -1,17 +1,15 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import { Switch, SwitchProps } from '../components'
-import TextInput, { TextInputProps } from '../components/TextInput/TextInput'
+import { Switch,SwitchProps } from '../components'
 
 export default {
 	title: 'component/Switch',
-	component: TextInput,
-	argTypes: {
-		onChange: { action: 'onChange', description: 'returns a boolean value' },
-	},
+	component: Switch,
 } as Meta
 
-const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
+const Template: Story<SwitchProps> = (args: SwitchProps) => <Switch {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+	defaultValue:false
+}
