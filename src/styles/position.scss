@@ -1,0 +1,44 @@
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.opacity-0 {
+	opacity: 0;
+}
+
+.opacity-50 {
+	opacity: 0.5;
+}
+
+.opacity-100 {
+	opacity: 1;
+}
+
+.object-cover {
+	object-fit: cover;
+}
+
+.object-contain {
+	object-fit: contain;
+}
+
+.outline-none {
+	outline: none;
+}
+
+.z-10 {
+	z-index: 10;
+}
+
+.z-index-1301 {
+	position: relative;
+	z-index: 1301 !important;
+}
