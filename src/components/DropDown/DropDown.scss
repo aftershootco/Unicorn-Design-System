@@ -1,48 +1,58 @@
 @import '../../styles/index.scss';
 
-.selector-field-container {
+.input-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@extend .p-5-lr;
+	@extend .text-h4;
+	@extend .bg-transparent;
 	@extend .br-100;
 	@extend .w-100;
 
+	color: $offWhite;
 	height: 2.8rem;
-	z-index: 0;
+	border: 1px solid $grey300;
 
-	& > svg {
-		@extend .absolute;
-		@extend .color-white;
-		@extend .m-2-r;
-		right: 0;
-		z-index: -1;
+	&:hover,
+	&:active {
+		color: $white;
+		filter: brightness(1.5);
 	}
 
-	& > select {
-		@extend .text-h4;
-		@extend .color-white;
-		@extend .p-5-lr;
-		@extend .w-100;
-		@extend .h-100;
-		@extend .cursor-pointer;
-		@extend .bg-transparent;
-		@extend .outline-none;
+	& > div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		z-index: 1;
+		cursor: pointer;
+	}
+
+	& > input:hover {
 		border: none;
-	}
-
-	&:hover {
+		color: $white;
 		filter: brightness(1.5);
 	}
 }
 
-select {
-	-webkit-appearance: none;
-	appearance: none;
+.dropDown {
+	position: absolute;
+	max-height: 10rem;
+	overflow-y: auto;
+	width: -webkit-fill-available;
+	border-radius: 10px;
+	border: 1px solid #666666;
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
-	background: url('../../assets/svg/DropDown.svg') no-repeat right;
-}
+	.options {
+		background: #262626 !important;
+		height: 2.8rem;
+	}
 
-select:focus {
-	-webkit-appearance: none;
-	appearance: none;
-	background: url('../../assets/svg/DropUp.svg') no-repeat right;
+	.options:hover {
+		background: #333333 !important;
+	}
 }
