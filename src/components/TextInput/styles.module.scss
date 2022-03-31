@@ -1,9 +1,9 @@
 @import '../../styles/index.scss';
 
 .inputBox {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@extend .flex;
+	@extend .align-center;
+	@extend .justify-center;
 
 	@extend .p-5-lr;
 	@extend .text-h4;

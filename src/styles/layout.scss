@@ -1,19 +1,57 @@
 .cursor-pointer {
 	cursor: pointer;
 }
-.flex-row {
+
+.flex {
 	display: flex;
+}
+
+.flex-row {
+	@extend .flex;
 	flex-direction: row;
 }
 
-.justify-between {
-	justify-content: space-between;
+.flex-col {
+	@extend .flex;
+	flex-direction: column;
+}
+
+.align-start {
+	align-items: flex-start;
+}
+
+.align-end {
+	align-items: flex-end;
 }
 
 .align-center {
 	align-items: center;
 }
 
-select::-ms-expand {
-	display: none;
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
+.self-center {
+	align-self: center;
 }

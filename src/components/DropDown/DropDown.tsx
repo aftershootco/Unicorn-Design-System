@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { DownArrow, UpArrow } from '../../assets/svg'
-import './DropDown.scss'
+import styles from './styles.module.scss'
 export interface DropDownProps {
 	value: string
 	data: Array<string>
@@ -26,7 +26,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange }: DropDownPr
 	return (
 		<div className='relative'>
 			<div className='relative'>
-				<input value={value} onClick={() => setState((state) => !state)} className='input-box cursor-pointer' readOnly ref={inputRef} />
+				<input value={value} onClick={() => setState((state) => !state)} className={styles.inputBox} readOnly ref={inputRef} />
 				{!state ? (
 					<img src={DownArrow} style={{ position: 'absolute', top: 'calc(50% - 8px)', right: '8px' }} />
 				) : (
@@ -35,10 +35,10 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange }: DropDownPr
 			</div>
 
 			{state && (
-				<ul className='dropDown'>
+				<ul className={styles.dropDown}>
 					{data.map((item) => {
 						return (
-							<li key={item} className='options flex-col  p-2-l p-2-b p-2-t w-100' onClick={(e) => handleChange(e, item)}>
+							<li key={item} className={styles.options} onClick={(e) => handleChange(e, item)}>
 								{item}
 							</li>
 						)

@@ -1,8 +1,8 @@
-@import '../../styles/colors.scss';
-
+@import '../../styles/index.scss';
 .checkbox {
+	@extend .cursor-pointer;
+	@extend .relative;
 	display: inline-block;
-	position: relative;
 
 	width: 25px;
 	height: 25px;
@@ -11,10 +11,9 @@
 	border-radius: 5px;
 
 	overflow: hidden;
-	cursor: pointer;
 
 	.checkmark {
-		position: absolute;
+		@extend .absolute;
 		top: 0;
 		left: 0;
 
@@ -40,8 +39,8 @@
 	}
 
 	&.active .checkmark:after {
+		@extend .absolute;
 		content: '';
-		position: absolute;
 		left: 9px;
 		top: 5px;
 		width: 5px;
