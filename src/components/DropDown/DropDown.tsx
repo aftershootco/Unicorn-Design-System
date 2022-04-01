@@ -18,11 +18,6 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange }: DropDownPr
 		onChange(item)
 	}
 
-	function handle(event) {
-		event.preventDefault()
-		setState((state) => !state)
-	}
-
 	return (
 		<div className='relative'>
 			<div className='relative'>
@@ -34,6 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange }: DropDownPr
 				)}
 			</div>
 
+			{state && <div className='optionsPage' onClick={() => setState(false)}></div>}
 			{state && (
 				<ul className={styles.dropDown}>
 					{data.map((item) => {

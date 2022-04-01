@@ -37,6 +37,21 @@
 	}
 }
 
+.optionsPage {
+	position: fixed;
+
+	@extend .fixed;
+	@extend .flex-row;
+	@extend .align-center;
+	@extend .justify-center;
+	@extend .cursor-pointer;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 0;
+}
+
 .dropDown {
 	position: absolute;
 	max-height: 10rem;
