@@ -30,8 +30,6 @@ $dirtyGreen: #b4b060;
 $red100: #ec6d62;
 $red200: #cf564d;
 
-$transparent: transparent;
-
 .color-white {
 	color: $white;
 }
@@ -39,7 +37,7 @@ $transparent: transparent;
 // backgrounds
 
 .bg-transparent {
-	background-color: $transparent;
+	background-color: transparent;
 }
 
 .bg-white {

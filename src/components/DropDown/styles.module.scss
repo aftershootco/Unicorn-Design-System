@@ -1,79 +1,77 @@
-@import '../../styles/index.scss';
+@import './../../styles/index.scss';
 
-.inputBox {
+.divBox {
 	@extend .flex;
 	@extend .align-center;
+	@extend .justify-between;
 
-	@extend .p-5-lr;
-	@extend .text-h4;
-	@extend .bg-transparent;
-	@extend .br-100;
-	@extend .w-100;
+	height: 2.4rem;
+	border: 1px solid #808080;
 
-	@extend .cursor-pointer;
-
-	color: $offWhite;
-	height: 2.8rem;
-	border: 1px solid $grey300;
-
-	&:hover,
-	&:active {
-		color: $white;
+	&:hover {
+		color: #ffffff;
 		filter: brightness(1.5);
 	}
 
-	& > div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		cursor: pointer;
-	}
-
-	& > input:hover {
+	.selectInput {
+		@extend .text-h4;
+		@extend .bg-transparent;
+		@extend .color-white;
+		@extend .br-100;
+		@extend .w-100;
+		color: rgba(255, 255, 255, 0.7);
+		height: 2.8rem;
 		border: none;
-		color: $white;
-		filter: brightness(1.5);
+		&:hover {
+			filter: brightness(1.5);
+		}
+		&:focus {
+			border: none;
+		}
+	}
+
+	.arrowUp {
+		-webkit-transform: rotate(-180deg);
+		-moz-transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
+		-o-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+		transition: 0.3s;
+	}
+	.arrowDown {
+		transition: 0.3s;
 	}
 }
 
-.optionsPage {
-	position: fixed;
-
+.closeOptions {
 	@extend .fixed;
-	@extend .flex-row;
+	@extend .flex;
 	@extend .align-center;
-	@extend .justify-center;
-	@extend .cursor-pointer;
+	@extend .justify-between;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	top: 0;
+	background: transparent;
 	z-index: 0;
+}
+
+.options {
+	background: #323232 !important;
+	height: 2.4rem;
+	@extend .justify-center;
+	&:hover {
+		background: #333333 !important;
+	}
 }
 
 .dropDown {
 	position: absolute;
 	max-height: 10rem;
 	overflow-y: auto;
-	@extend .w-100;
 	border-radius: 10px;
-	border: 1px solid $grey400;
+	border: 1px solid #666666;
 	&::-webkit-scrollbar {
 		display: none;
-	}
-
-	.options {
-		@extend .flex;
-		@extend .align-center;
-		@extend .p-5-lr;
-		@extend .p-2-b;
-		@extend .p-2-t;
-		@extend .w-100;
-		background: $grey800 !important;
-		height: 2.8rem;
-		&:hover {
-			background: $grey333 !important;
-		}
 	}
 }
