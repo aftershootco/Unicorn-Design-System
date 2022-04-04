@@ -8,7 +8,7 @@ export interface DropDownProps {
 	style?: React.CSSProperties
 }
 
-const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, style = {} }: DropDownProps) => {
+const DropDown: React.FC<DropDownProps> = ({ value = 'India', data, onChange }: DropDownProps) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
 
@@ -20,7 +20,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, style = {} }
 	}
 
 	return (
-		<div className='w-100'>
+		<div className='w-100 relative'>
 			<div
 				className={`${styles.divBox} cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b`}
 				onClick={() => {
@@ -34,16 +34,12 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, style = {} }
 
 			{state && <div className={`${styles.closeOptions} cursor-pointer`} onClick={() => setState(false)}></div>}
 			{state && (
-				<ul className={`${styles.dropDown}`} style={style}>
+				<ul className={`${styles.dropDown} absolute w-100`}>
 					{data.map((item) => {
 						return (
-							<option
-								key={item}
-								className={`${styles.options} flex-col  p-2-l p-2-b p-2-t w-100`}
-								onClick={(e) => handleChange(e, item)}
-							>
+							<li key={item} className={`${styles.options} flex-col p-5-lr p-2-b p-2-t w-100`} onClick={(e) => handleChange(e, item)}>
 								{item}
-							</option>
+							</li>
 						)
 					})}
 				</ul>

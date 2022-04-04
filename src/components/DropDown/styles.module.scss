@@ -6,10 +6,10 @@
 	@extend .justify-between;
 
 	height: 2.4rem;
-	border: 1px solid #808080;
+	border: 1px solid $grey300;
 
 	&:hover {
-		color: #ffffff;
+		color: $white;
 		filter: brightness(1.5);
 	}
 
@@ -19,7 +19,7 @@
 		@extend .color-white;
 		@extend .br-100;
 		@extend .w-100;
-		color: rgba(255, 255, 255, 0.7);
+		color: $offWhite;
 		height: 2.8rem;
 		border: none;
 		&:hover {
@@ -28,13 +28,12 @@
 		&:focus {
 			border: none;
 		}
+		&.active {
+			border: none;
+		}
 	}
 
 	.arrowUp {
-		-webkit-transform: rotate(-180deg);
-		-moz-transform: rotate(-180deg);
-		-ms-transform: rotate(-180deg);
-		-o-transform: rotate(-180deg);
 		transform: rotate(-180deg);
 		transition: 0.3s;
 	}
@@ -53,24 +52,24 @@
 	bottom: 0;
 	top: 0;
 	background: transparent;
-	z-index: 0;
+	z-index: 1;
 }
 
 .options {
-	background: #323232 !important;
+	background: $grey700 !important;
 	height: 2.4rem;
 	@extend .justify-center;
 	&:hover {
-		background: #333333 !important;
+		background: $grey333 !important;
 	}
 }
 
 .dropDown {
-	position: absolute;
 	max-height: 10rem;
 	overflow-y: auto;
 	border-radius: 10px;
-	border: 1px solid #666666;
+	border: 1px solid $grey400;
+	z-index: 2;
 	&::-webkit-scrollbar {
 		display: none;
 	}
