@@ -1,0 +1,19 @@
+@import './../../styles/index.scss';
+
+.selected-option {
+	background: #1da0bc;
+	// @extend .bg-teal100;
+	border: 1px solid #1da0bc;
+}
+
+.selected-option-extreme {
+	background: #bf4d64;
+	border: 1px solid #bf4d64;
+}
+
+.unselected-option {
+	@extend .bg-transparent;
+	border: 1px solid $grey300;
+}
+.duplicatesGrouping {
+}
