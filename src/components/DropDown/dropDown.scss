@@ -1,15 +1,15 @@
 @import './../../styles/index.scss';
 
-.divBox {
+.div-box {
 	@extend .flex;
 	@extend .align-center;
 	@extend .justify-between;
 
 	height: 2.4rem;
-	border: 1px solid $grey300;
+	border: 1px solid #808080;
 
 	&:hover {
-		color: $white;
+		color: #ffffff;
 		filter: brightness(1.5);
 	}
 
@@ -19,17 +19,11 @@
 		@extend .color-white;
 		@extend .br-100;
 		@extend .w-100;
-		color: $offWhite;
+		color: rgba(255, 255, 255, 0.7);
 		height: 2.8rem;
 		border: none;
 		&:hover {
 			filter: brightness(1.5);
-		}
-		&:focus {
-			border: none;
-		}
-		&.active {
-			border: none;
 		}
 	}
 
@@ -55,22 +49,31 @@
 	z-index: 1;
 }
 
-.options {
-	background: $grey700 !important;
-	height: 2.4rem;
-	@extend .justify-center;
-	&:hover {
-		background: $grey333 !important;
-	}
-}
-
 .dropDown {
-	max-height: 10rem;
-	overflow-y: auto;
-	border-radius: 10px;
-	border: 1px solid $grey400;
+	overflow-y: scroll;
+
+	border: 1px solid #666666;
 	z-index: 2;
 	&::-webkit-scrollbar {
 		display: none;
+	}
+	.options {
+		background: #323232 !important;
+		height: 2.4rem;
+		outline: none;
+		border: none;
+		@extend .justify-center;
+		color: #ffffff;
+		&:hover {
+			background: #565656 !important;
+		}
+
+		&:active {
+			background: #565656 !important;
+		}
+
+		&:focus {
+			background: #565656 !important;
+		}
 	}
 }
