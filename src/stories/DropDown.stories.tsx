@@ -14,4 +14,5 @@ Default.args = {
 	value: 'India',
 	data: ['India', 'Russia', 'Ukraine'],
 	onChange: () => {},
+	variant: 'default',
 }
