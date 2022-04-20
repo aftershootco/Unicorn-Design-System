@@ -1,107 +1,177 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { DownArrow } from '../../assets/svg'
 import './dropDown.scss'
+import { PowerProfileIcons, DownArrow } from '../../assets/svg'
+
 export interface DropDownProps {
-	value: string
-	data: Array<string>
+	value: any
+	data: any
 	onChange: (value: string) => void
+	styles?: React.CSSProperties
+	className?: string
+	variant?: string
 }
 
-const DropDown: React.FC<DropDownProps> = ({ value = 'INDIA', data, onChange }: DropDownProps) => {
+const DropDown = ({ value, data, onChange, variant = 'default' }) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
-	const listRef = useRef(null)
+	const firstElement = useRef(null)
+	const nodeRef = useRef(null)
+	const lastElement = useRef(null)
 
 	const [height, setHeight] = useState(0)
 
 	useEffect(() => {
-		let keyVal = listRef?.current?.value
-		const node = listRef.current
+		nodeRef.current = firstElement?.current
+
+		let keyVal = firstElement?.current?.textContent
+
+		firstElement.current && firstElement.current.focus()
 
 		const keyShort = (e) => {
-			if (e.key === 'ArrowDown' && listRef.current.nextSibling) {
-				listRef.current.nextSibling.focus()
-				keyVal = listRef.current.nextSibling.value
-				console.log(keyVal, 'log22')
-				listRef.current.nextSibling ? (listRef.current = listRef.current.nextSibling) : (listRef.current = node)
-			} else if (e.key === 'ArrowUp' && listRef.current.previousSibling) {
-				listRef.current = listRef.current.previousSibling
-				listRef.current.focus()
-				keyVal = listRef.current.value
+			if (e.key === 'ArrowDown') {
+				firstElement.current.nextSibling
+					? (firstElement.current = firstElement.current.nextSibling)
+					: (firstElement.current = nodeRef.current)
+
+				firstElement.current.focus()
+				keyVal = firstElement.current.textContent
+			} else if (e.key === 'ArrowUp') {
+				firstElement.current.previousSibling
+					? (firstElement.current = firstElement.current.previousSibling)
+					: (firstElement.current = lastElement.current)
+
+				firstElement.current.focus()
+				keyVal = firstElement.current.textContent
 			} else if (e.key === 'Enter') {
 				onChange(keyVal)
 				keyVal = ''
 				inputRef.current.click()
-				listRef.current = null
+
+				firstElement.current = null
+				lastElement.current = null
 			} else if (e.key === 'Escape') {
-				listRef.current = null
-				setState(false)
+				keyVal = ''
+				inputRef.current.click()
+
+				firstElement.current = null
+				lastElement.current = null
 			}
 		}
 
-		const viewportOffset = inputRef.current.getBoundingClientRect()
+		function measureHeight() {
+			const viewportOffset = inputRef.current.getBoundingClientRect()
 
-		setHeight(viewportOffset.top + 65)
+			setHeight(viewportOffset.top + 65)
+		}
+
+		variant === 'default' && measureHeight()
 
 		state &&
-			listRef.current &&
+			firstElement.current &&
 			Promise.resolve().then(() => {
 				document.addEventListener('keydown', keyShort)
 			})
-
-		state && listRef.current && listRef.current.focus()
 
 		return () => {
 			document.removeEventListener('keydown', keyShort)
 		}
 	}, [state])
 
-	//saves values onClick on list element
 	const handleChange = (e, item) => {
 		e.preventDefault()
-		inputRef.current.click()
-		listRef.current = null
 		onChange(item)
+
+		inputRef.current.click()
+		firstElement.current = null
+		lastElement.current = null
 	}
 
 	return (
 		<div className='w-100 relative'>
-			<div
-				className='div-box cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b'
-				onClick={() => {
-					setState((state) => !state)
-				}}
-			>
-				<input value={value} className='selectInput cursor-pointer' ref={inputRef} readOnly />
+			{variant === 'default' && (
+				<div
+					className='default-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b'
+					onClick={() => {
+						setState((state) => !state)
+					}}
+				>
+					<div className='selectInput cursor-pointer' ref={inputRef}>
+						{value}
+					</div>
 
-				<img src={DownArrow} className={state ? 'arrowUp' : 'arrowDown'} />
-			</div>
+					<img src={DownArrow} className={state ? 'arrowUp' : 'arrowDown'} />
+				</div>
+			)}
+			{variant === 'icons' && (
+				<div
+					className='icons-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white'
+					onClick={() => {
+						setState((state) => !state)
+					}}
+				>
+					{/* <img src={PowerProfileIcons[value.ProfileEnabled]} className='m-2-r' style={{ width: '0.75rem', minHeight: ' 0.75rem' }} /> */}
+					<div className='selectInput cursor-pointer' ref={inputRef}>
+						{value.profile}
+					</div>
 
+					<img
+						src={DownArrow}
+						className={(state ? 'arrowUp' : 'arrowDown') + ' m-2-l'}
+						style={{ width: '0.75rem', minHeight: ' 0.75rem' }}
+					/>
+				</div>
+			)}
+			{/* {The z-index must be greater than titlebar's z-index} */}
 			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)}></div>}
-			{state && (
+			{/* {Drop Down for Accountdetails, Settings} */}
+			{variant === 'default' && state && (
 				<div className='dropDown absolute w-100 br-10' style={{ maxHeight: `calc(100vh - ${height}px)` }}>
-					{data.map((item, i) => {
-						return i === 0 ? (
-							<input
-								readOnly
-								ref={listRef}
-								key={item}
-								className='options flex-col  p-5-lr p-2-b p-2-t w-100'
+					{Object.keys(data).map((item, i) => {
+						let objectLength = Object.keys(data).length
+						return (
+							<button
+								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
+								key={data[item]}
+								className='options flex-row align-center justify-start p-5-lr p-2-b p-2-t w-100'
 								onClick={(e) => handleChange(e, item)}
-								value={item}
-							/>
-						) : (
-							<input
-								readOnly
-								key={item}
-								className='options flex-col  p-5-lr p-2-b p-2-t w-100'
-								onClick={(e) => handleChange(e, item)}
-								value={item}
-							/>
+								value={data[item]}
+							>
+								{data[item]}
+							</button>
 						)
 					})}
 				</div>
 			)}
+			{/* {Drop Down for titlebar} */}
+			{variant === 'icons' && state && (
+				<div className='dropDownIcons absolute w-100 br-10'>
+					{Object.keys(data).map((item, i) => {
+						const pro = data[item]
+
+						let objectLength = Object.keys(data).length
+
+						return (
+							<button
+								className='optionsIcons flex-row align-center p-2-l br-10 relative w-100'
+								style={{ fontSize: '0.875rem', height: '2.275rem' }}
+								onClick={(e) => handleChange(e, item)}
+								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
+								key={pro.profile}
+							>
+								<img
+									src={pro.profile === value.profile ? PowerProfileIcons[pro.ProfileEnabled] : PowerProfileIcons[pro.profile]}
+									className='m-2-l'
+									style={{ width: '0.75rem', minHeight: ' 0.75rem' }}
+								/>
+
+								<div key={item} className='flex-row align-center p-5-lr p-2-b p-2-t w-100 bg-transparent color-white'>
+									{pro.profile}
+								</div>
+							</button>
+						)
+					})}
+				</div>
+			)}{' '}
 		</div>
 	)
 }

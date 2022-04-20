@@ -1,6 +1,27 @@
 @import './../../styles/index.scss';
+.up {
+	transform: rotate(-180deg);
+	transition: 0.3s;
+}
+.down {
+	transition: 0.3s;
+}
+.closeOptions {
+	@extend .fixed;
+	@extend .flex;
+	@extend .align-center;
+	@extend .justify-between;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: transparent;
+	z-index: 1600;
+}
 
-.div-box {
+// default dropDown style
+
+.default-dropDown {
 	@extend .flex;
 	@extend .align-center;
 	@extend .justify-between;
@@ -14,11 +35,15 @@
 	}
 
 	.selectInput {
+		@extend .flex-row;
+
 		@extend .text-h4;
 		@extend .bg-transparent;
 		@extend .color-white;
 		@extend .br-100;
 		@extend .w-100;
+		align-items: center;
+		justify-content: flex-start;
 		color: rgba(255, 255, 255, 0.7);
 		height: 2.8rem;
 		border: none;
@@ -28,32 +53,17 @@
 	}
 
 	.arrowUp {
-		transform: rotate(-180deg);
-		transition: 0.3s;
+		@extend .up;
 	}
 	.arrowDown {
-		transition: 0.3s;
+		@extend .down;
 	}
-}
-
-.closeOptions {
-	@extend .fixed;
-	@extend .flex;
-	@extend .align-center;
-	@extend .justify-between;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	background: transparent;
-	z-index: 1;
 }
 
 .dropDown {
 	overflow-y: scroll;
-
 	border: 1px solid #666666;
-	z-index: 2;
+	z-index: 1700;
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -62,7 +72,7 @@
 		height: 2.4rem;
 		outline: none;
 		border: none;
-		@extend .justify-center;
+		justify-content: flex-start;
 		color: #ffffff;
 		&:hover {
 			background: #565656 !important;
@@ -75,5 +85,43 @@
 		&:focus {
 			background: #565656 !important;
 		}
+	}
+}
+
+//icons dropDown
+
+.icons-dropDown {
+	@extend .flex;
+	@extend .align-center;
+	@extend .justify-between;
+
+	.arrowUp {
+		@extend .up;
+	}
+	.arrowDown {
+		@extend .down;
+	}
+}
+
+.dropDownIcons {
+	z-index: 1700;
+	color: #ffffff;
+	top: 2.5rem;
+	min-width: 110px;
+	background-color: #282828;
+
+	.activeOption {
+	}
+
+	.optionsIcons:hover {
+		background-color: #343333 !important;
+	}
+
+	.optionsIcons:active {
+		background-color: #343333 !important;
+	}
+
+	.optionsIcons:focus {
+		background-color: #343333 !important;
 	}
 }
