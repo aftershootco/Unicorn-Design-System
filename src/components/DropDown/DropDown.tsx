@@ -11,7 +11,7 @@ export interface DropDownProps {
 	variant?: string
 }
 
-const DropDown = ({ value, data, onChange, variant = 'default' }) => {
+const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'default' }: DropDownProps) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
