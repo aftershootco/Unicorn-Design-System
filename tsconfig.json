@@ -17,5 +17,6 @@
 		"strictPropertyInitialization": false,
 		"strictNullChecks": false,
 		"noImplicitAny": false
-	}
+	},
+	"exclude": ["node_modules", "src/**/*.stories.tsx"]
 }

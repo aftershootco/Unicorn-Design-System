@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { Children } from 'react'
 import styles from './styles.module.scss'
-
+import clsx from 'clsx'
 export interface PreferenceButtonProps {
-	text: string
+	children?: string | React.ReactNode
 	className?: string
-	onClick?: (val: number) => void
-	index: number
+	variant: string
+	onClick: () => void
 }
 
-const PreferenceButton: React.FC<PreferenceButtonProps> = ({ text, className, onClick, index }: PreferenceButtonProps) => {
+const PreferenceButton: React.FC<PreferenceButtonProps> = ({ children, className, onClick, variant }: PreferenceButtonProps) => {
 	function handleClick() {
-		onClick(index)
+		onClick()
 	}
 	return (
-		<button key={text} className={`text-h5 color-white cursor-pointer p-1-tb p-5-lr m-4-r br-10 ${styles[className]}`} onClick={handleClick}>
-			{text}
+		<button
+			className={`text-h5 color-white cursor-pointer p-1-tb p-5-lr m-4-r br-10 ${clsx('preferenceButton-' + variant, className)}`}
+			onClick={handleClick}
+		>
+			{children}
 		</button>
 	)
 }

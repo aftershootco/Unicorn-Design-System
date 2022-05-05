@@ -1,10 +1,15 @@
-import svg from 'rollup-plugin-svg'
-
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
+import { terser } from 'rollup-plugin-terser'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import svg from 'rollup-plugin-svg'
 import postcss from 'rollup-plugin-postcss'
+import url from '@rollup/plugin-url'
+import postcssUrl from 'postcss-url'
+import svgr from '@svgr/rollup'
+import babel from 'rollup-plugin-babel'
 
 const packageJson = require('./package.json')
 
@@ -15,23 +20,33 @@ export default [
 			{
 				file: packageJson.main,
 				format: 'cjs',
-				sourcemap: true,
 			},
 			{
 				file: packageJson.module,
 				format: 'esm',
-				sourcemap: true,
 			},
 		],
 		plugins: [
 			resolve(),
+			peerDepsExternal(),
 			commonjs(),
 			svg(),
+			svgr(),
+			url(),
 			postcss({
-				extract: true,
-				use: ['sass'],
+				minimize: true,
+				modules: {
+					generateScopedName: '[hash:base64:5]',
+				},
+			}),
+			postcssUrl({
+				url: 'inline',
 			}),
 			typescript({ tsconfig: './tsconfig.json' }),
+			terser(),
+			babel({
+				exclude: ['node_modules/**', 'src/stories/**'],
+			}),
 		],
 	},
 

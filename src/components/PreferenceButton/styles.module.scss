@@ -1,19 +1,16 @@
 @import './../../styles/index.scss';
 
-.selected-option {
+.preferenceButton-primary {
 	background: #1da0bc;
-	// @extend .bg-teal100;
 	border: 1px solid #1da0bc;
 }
 
-.selected-option-extreme {
+.preferenceButton-secondary {
 	background: #bf4d64;
 	border: 1px solid #bf4d64;
 }
 
-.unselected-option {
+.preferenceButton-tertiary {
 	@extend .bg-transparent;
 	border: 1px solid $grey300;
-}
-.duplicatesGrouping {
 }

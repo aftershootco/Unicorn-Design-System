@@ -9,12 +9,21 @@ export interface ButtonProps {
 	children?: string | React.ReactNode
 	style?: React.CSSProperties
 	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'warning'
-	onClick: (e: MouseEvent) => void
+	onClick: () => void
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
+	const handleClick = () => {
+		props.onClick()
+	}
 	return (
-		<button type='button' className={clsx('button-' + props.variant, props.className)} style={props.style} disabled={props.disabled}>
+		<button
+			onClick={handleClick}
+			type='button'
+			className={clsx('button-' + props.variant, props.className)}
+			style={props.style}
+			disabled={props.disabled}
+		>
 			{props.children}
 		</button>
 	)

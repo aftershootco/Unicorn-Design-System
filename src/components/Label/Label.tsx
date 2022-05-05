@@ -2,7 +2,7 @@ import React from 'react'
 export interface LabelProps {
 	label: string
 	className?: string
-	children?: React.ReactNode
+	children?: React.ReactNode | string
 }
 
 const Label: React.FC<LabelProps> = ({ label, className, children }: LabelProps) => {

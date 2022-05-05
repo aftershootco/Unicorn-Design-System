@@ -10,11 +10,12 @@ export interface CheckboxProps {
 const Checkbox: React.FC<CheckboxProps> = ({ defaultValue = false, onChange }) => {
 	const [state, setState] = useState(defaultValue)
 	const onClick = useCallback(
-		() =>
+		(e) => {
 			setState((state) => {
 				onChange(!state)
 				return !state
-			}),
+			})
+		},
 		[setState, onChange]
 	)
 

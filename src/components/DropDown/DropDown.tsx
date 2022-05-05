@@ -1,7 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './dropDown.scss'
-import { PowerProfileIcons, DownArrow } from '../../assets/svg'
-
+import { ReactComponent as DownArrow } from '../../assets/svg/DownArrow.svg'
+import { ReactComponent as UpArrow } from '../../assets/svg/UpArrow.svg'
+import { ReactComponent as High } from '../../assets/svg/power-modes/high.svg'
+import { ReactComponent as HighEnabled } from '../../assets/svg/power-modes/high-enabled.svg'
+import { ReactComponent as Low } from '../../assets/svg/power-modes/low.svg'
+import { ReactComponent as LowEnabled } from '../../assets/svg/power-modes/low-enabled.svg'
+import { ReactComponent as Medium } from '../../assets/svg/power-modes/mid.svg'
+import { ReactComponent as MediumEnabled } from '../../assets/svg/power-modes/mid-enabled.svg'
 export interface DropDownProps {
 	value: any
 	data: any
@@ -85,6 +91,18 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 		firstElement.current = null
 		lastElement.current = null
 	}
+	const arrow = { upArrow: <UpArrow />, downArrow: <DownArrow /> }
+
+	const PowerProfileIcons = {
+		Low: <Low />,
+		LowEnabled: <LowEnabled />,
+
+		Medium: <Medium />,
+		MediumEnabled: <MediumEnabled />,
+
+		High: <High />,
+		HighEnabled: <HighEnabled />,
+	}
 
 	return (
 		<div className='w-100 relative'>
@@ -99,7 +117,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						{value}
 					</div>
 
-					<img src={DownArrow} className={state ? 'arrowUp' : 'arrowDown'} />
+					{!state ? arrow.downArrow : arrow.upArrow}
 				</div>
 			)}
 			{variant === 'icons' && (
@@ -109,7 +127,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						setState((state) => !state)
 					}}
 				>
-					{/* <img src={PowerProfileIcons[value.ProfileEnabled]} className='m-2-r' style={{ width: '0.75rem', minHeight: ' 0.75rem' }} /> */}
+					<img src={PowerProfileIcons[value.ProfileEnabled]} className='m-2-r' style={{ width: '0.75rem', minHeight: ' 0.75rem' }} />
 					<div className='selectInput cursor-pointer' ref={inputRef}>
 						{value.profile}
 					</div>
@@ -131,12 +149,11 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						return (
 							<button
 								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
-								key={data[item]}
-								className='options flex-row align-center justify-start p-5-lr p-2-b p-2-t w-100'
+								key={item}
+								className='options text-left word-break-all flex-row align-center justify-start p-5-lr p-2-b p-2-t w-100'
 								onClick={(e) => handleChange(e, item)}
-								value={data[item]}
 							>
-								{data[item]}
+								{item}
 							</button>
 						)
 					})}
