@@ -1,0 +1,43 @@
+.selected {
+	background: #1da0bc;
+}
+.unselected {
+	background: #1b1b1b;
+}
+.buttonStyle {
+	border-radius: 100px;
+	border: none;
+	line-height: 19px;
+	width: 50%;
+	padding: 5% 0;
+	transition: 0.1s;
+}
+.toggler {
+	border: 2px solid #323232;
+	border-radius: 100px;
+	margin: 2% 0%;
+	padding: 0.2%;
+	position: relative;
+
+	.yearly {
+		position: absolute;
+		@extend .buttonStyle;
+		@extend .unselected;
+	}
+	.monthly {
+		position: absolute;
+		margin-left: 118px;
+		@extend .buttonStyle;
+		@extend .unselected;
+	}
+	.toggle_button {
+		@extend .buttonStyle;
+		@extend .selected;
+		z-index: 1;
+	}
+
+	.toggleButton {
+		transform: translateX(118px);
+		@extend .selected;
+	}
+}

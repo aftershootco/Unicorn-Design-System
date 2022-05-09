@@ -117,7 +117,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						{value}
 					</div>
 
-					{!state ? arrow.downArrow : arrow.upArrow}
+					<div className={!state ? 'arrowDown' : 'arrowUp'}>{arrow.downArrow}</div>
 				</div>
 			)}
 			{variant === 'icons' && (
@@ -127,16 +127,16 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						setState((state) => !state)
 					}}
 				>
-					<img src={PowerProfileIcons[value.ProfileEnabled]} className='m-2-r' style={{ width: '0.75rem', minHeight: ' 0.75rem' }} />
+					<div className='m-2-r' style={{ width: '0.75rem', minHeight: ' 0.75rem' }}>
+						{PowerProfileIcons[value.ProfileEnabled]}
+					</div>
 					<div className='selectInput cursor-pointer' ref={inputRef}>
 						{value.profile}
 					</div>
 
-					<img
-						src={DownArrow}
-						className={(state ? 'arrowUp' : 'arrowDown') + ' m-2-l'}
-						style={{ width: '0.75rem', minHeight: ' 0.75rem' }}
-					/>
+					<div className={(state ? 'arrowUp' : 'arrowDown') + ' m-2-l'} style={{ width: '0.75rem', minHeight: ' 0.75rem' }}>
+						{arrow.downArrow}
+					</div>
 				</div>
 			)}
 			{/* {The z-index must be greater than titlebar's z-index} */}
@@ -150,7 +150,10 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 							<button
 								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
 								key={item}
-								className='options text-left word-break-all flex-row align-center justify-start p-5-lr p-2-b p-2-t w-100'
+								className={
+									'options text-left word-break-all flex-row align-center justify-start p-5-lr p-2-b p-2-t w-100' +
+									(value === item ? ' bg-grey700B' : ' bg-grey700')
+								}
 								onClick={(e) => handleChange(e, item)}
 							>
 								{item}
@@ -169,18 +172,22 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 
 						return (
 							<button
-								className='optionsIcons flex-row align-center p-2-l br-10 relative w-100'
-								style={{ fontSize: '0.875rem', height: '2.275rem' }}
+								className={
+									'optionsIcons flex-row align-center p-2-l relative w-100' +
+									(pro.profile === value.profile ? ' bg-grey1200' : ' bg-grey1000')
+								}
+								style={{
+									fontSize: '0.875rem',
+									height: '2.275rem',
+									borderRadius: i === 0 ? '10px 10px 0 0' : i === objectLength - 1 ? '0 0 10px 10px' : null,
+								}}
 								onClick={(e) => handleChange(e, item)}
 								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
 								key={pro.profile}
 							>
-								<img
-									src={pro.profile === value.profile ? PowerProfileIcons[pro.ProfileEnabled] : PowerProfileIcons[pro.profile]}
-									className='m-2-l'
-									style={{ width: '0.75rem', minHeight: ' 0.75rem' }}
-								/>
-
+								<div className='m-2-l' style={{ width: '0.75rem', minHeight: ' 0.75rem' }}>
+									{pro.profile === value.profile ? PowerProfileIcons[pro.ProfileEnabled] : PowerProfileIcons[pro.profile]}
+								</div>
 								<div key={item} className='flex-row align-center p-5-lr p-2-b p-2-t w-100 bg-transparent color-white'>
 									{pro.profile}
 								</div>

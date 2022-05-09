@@ -37,7 +37,7 @@
 
 	&:hover {
 		cursor: pointer;
-		background-color: $grey500;
+		background-color: $grey500B;
 	}
 	&:disabled {
 		pointer-events: none;
@@ -49,15 +49,15 @@
 	@extend .bg-transparent;
 	border: 1px solid transparent;
 
-	&:hover {
-		cursor: pointer;
-		@extend .bg-grey500;
-	}
+	// &:hover {
+	// 	cursor: pointer;
+	// 	@extend .bg-grey500;
+	// }
 
-	&:disabled {
-		color: $grey400;
-		pointer-events: none;
-	}
+	// &:disabled {
+	// 	color: $grey400;
+	// 	pointer-events: none;
+	// }
 }
 
 .button-alert {
@@ -95,5 +95,25 @@
 		border: 1px solid $grey400;
 
 		pointer-events: none;
+	}
+}
+
+.button-pause {
+	@extend .button;
+	background-color: #bf4d64;
+	max-width: 100%;
+
+	&:hover {
+		background-color: #b03e55;
+	}
+}
+
+.button-save {
+	@extend .button;
+	background-color: #d7972e;
+	max-width: 100%;
+	cursor: pointer;
+	&:hover {
+		background-color: #c8881f;
 	}
 }

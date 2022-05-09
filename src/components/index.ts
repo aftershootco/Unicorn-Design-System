@@ -1,16 +1,16 @@
 import Button, { ButtonProps } from './Button/Button'
-import Checkbox, { CheckboxProps } from './Checkbox/Checkbox'
+import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Switch, { SwitchProps } from './Switch/Switch'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
-
+import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Label, { LabelProps } from './Label/Label'
-
+import Toggle, { ToggleProps } from './Toggle/Toggle'
 import PreferenceButton, { PreferenceButtonProps } from './PreferenceButton/PreferenceButton'
 export {
 	Button,
 	ButtonProps,
-	Checkbox,
-	CheckboxProps,
+	CheckBox,
+	CheckBoxProps,
 	Switch,
 	SwitchProps,
 	Label,
@@ -19,4 +19,8 @@ export {
 	DropDownProps,
 	PreferenceButton,
 	PreferenceButtonProps,
+	TextInput,
+	TextInputProps,
+	Toggle,
+	ToggleProps,
 }

@@ -9,6 +9,10 @@ export interface SwitchProps {
 
 const Switch: React.FC<SwitchProps> = ({ defaultValue = false, onChange }) => {
 	const [state, setState] = useState(defaultValue)
+
+	React.useEffect(() => {
+		setState(defaultValue)
+	}, [defaultValue])
 	const onClick = useCallback(() => {
 		setState((state) => {
 			onChange(!state)

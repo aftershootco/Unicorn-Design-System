@@ -1,13 +1,13 @@
 import clsx from 'clsx'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import styles from './styles.module.scss'
-
-export interface CheckboxProps {
+import { ReactComponent as CheckMark } from '../../assets/svg/CheckMark.svg'
+export interface CheckBoxProps {
 	defaultValue?: boolean
 	onChange: (e: boolean) => void
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ defaultValue = false, onChange }) => {
+const CheckBox: React.FC<CheckBoxProps> = ({ defaultValue = false, onChange }) => {
 	const [state, setState] = useState(defaultValue)
 	const onClick = useCallback(
 		(e) => {
@@ -19,11 +19,15 @@ const Checkbox: React.FC<CheckboxProps> = ({ defaultValue = false, onChange }) =
 		[setState, onChange]
 	)
 
+	useEffect(() => {
+		setState(defaultValue)
+	}, [defaultValue])
+
 	return (
 		<div className={clsx(styles.checkbox, { [styles.active]: state })} onClick={onClick}>
-			<span className={styles.checkmark}></span>
+			{defaultValue && <CheckMark />}
 		</div>
 	)
 }
 
-export default Checkbox
+export default CheckBox

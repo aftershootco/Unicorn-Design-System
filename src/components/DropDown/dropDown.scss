@@ -1,7 +1,7 @@
 @import './../../styles/index.scss';
 .up {
-	transform: rotate(-180deg);
-	transition: 0.3s;
+	transform: rotate(180deg);
+	transition: 0.2s;
 }
 .down {
 	transition: 0.3s;
@@ -68,20 +68,13 @@
 		display: none;
 	}
 	.options {
-		background: #323232 !important;
 		height: 2.4rem;
 		outline: none;
 		border: none;
 		justify-content: flex-start;
 		color: #ffffff;
-		&:hover {
-			background: #565656 !important;
-		}
-
-		&:active {
-			background: #565656 !important;
-		}
-
+		&:hover,
+		&:active,
 		&:focus {
 			background: #565656 !important;
 		}
@@ -109,18 +102,8 @@
 	top: 2.5rem;
 	min-width: 110px;
 	background-color: #282828;
-
-	.activeOption {
-	}
-
-	.optionsIcons:hover {
-		background-color: #343333 !important;
-	}
-
-	.optionsIcons:active {
-		background-color: #343333 !important;
-	}
-
+	.optionsIcons:hover,
+	.optionsIcons:active,
 	.optionsIcons:focus {
 		background-color: #343333 !important;
 	}

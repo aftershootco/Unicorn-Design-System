@@ -29,8 +29,8 @@
 	}
 
 	&.active {
-		@extend .bg-teal100;
-		border: 1px solid $teal100;
+		// @extend .bg-teal100;
+		// border: 1px solid $teal100;
 	}
 
 	&.active .checkmark,

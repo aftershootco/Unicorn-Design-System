@@ -17,6 +17,10 @@ $grey700: #323232;
 $grey800: #262626;
 $grey900: #1b1b1b;
 $grey333: #333333;
+$grey500B: #00000040;
+$grey700B: #565656;
+$grey1000: #282828;
+$grey1200: #343333;
 
 // white
 $white: #ffffff;
@@ -34,6 +38,9 @@ $red200: #cf564d;
 	color: $white;
 }
 
+.color-red {
+	color: #ec6d62;
+}
 // backgrounds
 
 .bg-transparent {
@@ -96,6 +103,17 @@ $red200: #cf564d;
 	background-color: $grey900;
 }
 
+.bg-grey700B {
+	background-color: $grey700B;
+}
+
+.bg-grey1000 {
+	background-color: $grey1000 !important;
+}
+
+.bg-grey1200 {
+	background-color: $grey1200 !important;
+}
 .bg-red100 {
 	background-color: $red100;
 }
