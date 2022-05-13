@@ -8,7 +8,7 @@ export interface ButtonProps {
 	disabled?: boolean
 	children?: string | React.ReactNode
 	style?: React.CSSProperties
-	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'warning' | 'pause' | 'save'
+	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'warning' | 'pause' | 'save' | 'save-disable' | 'disable'
 	onClick: () => void
 }
 

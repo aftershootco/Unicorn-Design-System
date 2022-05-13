@@ -47,6 +47,16 @@ $val: 0.25rem;
 	border-radius: 1000px;
 }
 
+$val: 0.25rem;
+@for $i from 0 through 10 {
+	.w-#{$i} {
+		width: $i * $val !important;
+	}
+	.h-#{$i} {
+		height: $i * $val !important;
+	}
+}
+
 // Padding and Margin classes
 @for $i from 0 through 10 {
 	.p-#{$i} {
@@ -169,6 +179,16 @@ $val: 0.25rem;
 		.m-#{$i}-tb {
 			margin-top: $i * $val !important;
 			margin-bottom: $i * $val !important;
+		}
+	}
+
+	$val: 0.2rem;
+	@for $i from 0 through 10 {
+		.w-#{$i} {
+			width: $i * $val !important;
+		}
+		.h-#{$i} {
+			height: $i * $val !important;
 		}
 	}
 }

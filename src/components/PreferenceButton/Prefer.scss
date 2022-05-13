@@ -1,16 +1,16 @@
 @import './../../styles/index.scss';
 
-.preferenceButton-primary {
+.prefer-primary {
 	background: #1da0bc;
 	border: 1px solid #1da0bc;
 }
 
-.preferenceButton-secondary {
+.prefer-secondary {
 	background: #bf4d64;
 	border: 1px solid #bf4d64;
 }
 
-.preferenceButton-tertiary {
+.prefer-tertiary {
 	@extend .bg-transparent;
 	border: 1px solid $grey300;
 }

@@ -1,12 +1,19 @@
 @import '../../styles/index.scss';
 @import './../../styles/colors.scss';
 
+.adornmentEnd {
+	right: 10%;
+	top: 50%;
+}
+
+.adornmentStart {
+	left: 0.75rem;
+	top: calc(50% - 0.6rem);
+}
 .inputBox {
 	@extend .flex;
 	@extend .align-center;
 	@extend .justify-center;
-
-	@extend .m-2-b;
 	@extend .p-5-lr;
 	@extend .text-h4;
 	@extend .bg-transparent;

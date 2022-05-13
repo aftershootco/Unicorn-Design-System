@@ -5,7 +5,8 @@ $teal: #33b0cb;
 $teal100: #1da0bc;
 $teal200: #147084;
 $teal300: #0e505e;
-
+$teal400: #1ea0bc;
+$teal500: #208ba1;
 // grey
 $grey100: #c1c1c1;
 $grey200: #bbbbbb;
@@ -24,6 +25,7 @@ $grey1200: #343333;
 
 // white
 $white: #ffffff;
+$white100: #c1c1c1;
 $offWhite: rgba(255, 255, 255, 0.7);
 
 $yellow100: #e7a523;
@@ -36,6 +38,10 @@ $red200: #cf564d;
 
 .color-white {
 	color: $white;
+}
+
+.color-white100 {
+	color: $white100;
 }
 
 .color-red {
@@ -67,6 +73,13 @@ $red200: #cf564d;
 	background-color: $teal300;
 }
 
+.bg-teal400 {
+	background-color: $teal400;
+}
+
+.bg-teal500 {
+	background-color: $teal500;
+}
 .bg-grey100 {
 	background-color: $grey100;
 }
@@ -128,4 +141,8 @@ $red200: #cf564d;
 
 .bg-yellow200 {
 	background-color: $yellow200;
+}
+
+.caret-transparent {
+	caret-color: transparent;
 }

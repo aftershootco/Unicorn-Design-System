@@ -5,9 +5,9 @@ export interface LabelProps {
 	children?: React.ReactNode | string
 }
 
-const Label: React.FC<LabelProps> = ({ label, className, children }: LabelProps) => {
+const Label: React.FC<LabelProps> = ({ label, className = '', children }: LabelProps) => {
 	return (
-		<div className='flex-col m-4-lr' style={{ flex: '1' }}>
+		<div className='flex-col' style={{ flex: '1' }}>
 			<div className={`${className}`}>{label}</div>
 			{children}
 		</div>
