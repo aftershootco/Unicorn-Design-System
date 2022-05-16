@@ -127,6 +127,7 @@
 }
 
 .button-save-disable {
+	@extend .button;
 	background-color: #c8881f;
 	pointer-events: none;
 	filter: brightness(0.8);
