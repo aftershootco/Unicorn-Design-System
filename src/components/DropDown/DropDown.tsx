@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './dropDown.scss'
-import { ReactComponent as DownArrow } from '../../assets/svg/DownArrow.svg'
-import { ReactComponent as UpArrow } from '../../assets/svg/UpArrow.svg'
-import { ReactComponent as High } from '../../assets/svg/power-modes/high.svg'
-import { ReactComponent as HighEnabled } from '../../assets/svg/power-modes/high-enabled.svg'
-import { ReactComponent as Low } from '../../assets/svg/power-modes/low.svg'
-import { ReactComponent as LowEnabled } from '../../assets/svg/power-modes/low-enabled.svg'
-import { ReactComponent as Medium } from '../../assets/svg/power-modes/mid.svg'
-import { ReactComponent as MediumEnabled } from '../../assets/svg/power-modes/mid-enabled.svg'
+
+import LowEnabled from '../SVG/LowEnabled'
+import Low from '../SVG/Low'
+import DownArrow from '../SVG/DownArrow'
+import Medium from '../SVG/Medium'
+import MediumEnabled from '../SVG/MediumEnabled'
+import High from '../SVG/High'
+import HighEnabled from '../SVG/HighEnabled'
+
 export interface DropDownProps {
 	value: any
 	data: any
@@ -91,17 +92,17 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 		firstElement.current = null
 		lastElement.current = null
 	}
-	const arrow = { upArrow: <UpArrow />, downArrow: <DownArrow /> }
+	const arrow = { downArrow: <DownArrow /> }
 
 	const PowerProfileIcons = {
-		Low: <Low />,
-		LowEnabled: <LowEnabled />,
+		Low: <Low className='w-4 h-4' />,
+		LowEnabled: <LowEnabled className='w-4 h-4' />,
 
-		Medium: <Medium />,
-		MediumEnabled: <MediumEnabled className='object-contain' />,
+		Medium: <Medium className='w-4 h-4' />,
+		MediumEnabled: <MediumEnabled className='w-4 h-4' />,
 
-		High: <High />,
-		HighEnabled: <HighEnabled />,
+		High: <High className='w-4 h-4' />,
+		HighEnabled: <HighEnabled className='w-4 h-4' />,
 	}
 
 	return (
@@ -127,7 +128,8 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 						setState((state) => !state)
 					}}
 				>
-					<div className='flex-row align-center justify-center  m-2-r w-4 h-4'>{PowerProfileIcons[value.ProfileEnabled]}</div>
+					<div className='flex-row align-center justify-center m-2-r w-4 h-4'>{PowerProfileIcons[value.ProfileEnabled]}</div>
+
 					<div className='selectInput cursor-pointer' ref={inputRef}>
 						{value.profile}
 					</div>
