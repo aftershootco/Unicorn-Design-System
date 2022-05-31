@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import styles from './styles.module.scss'
 
 export interface SwitchProps {
@@ -8,23 +8,15 @@ export interface SwitchProps {
 }
 
 const Switch: React.FC<SwitchProps> = ({ defaultValue = false, onChange }) => {
-	const [state, setState] = useState(defaultValue)
-
-	React.useEffect(() => {
-		setState(defaultValue)
-	}, [defaultValue])
 	const onClick = useCallback(() => {
-		setState((state) => {
-			onChange(!state)
-			return !state
-		})
-	}, [onChange, setState])
+		onChange(!defaultValue)
+	}, [onChange])
 
 	return (
-		<label className={clsx(styles.switch, { [styles.active]: state })} onClick={onClick}>
+		<label className={clsx(styles.switch, { [styles.active]: defaultValue })} onClick={onClick}>
 			<span className={clsx(styles.round, styles.slider)}></span>
 		</label>
 	)
 }
 
-export default Switch
+export default React.memo(Switch)

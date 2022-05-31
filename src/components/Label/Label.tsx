@@ -5,7 +5,7 @@ export interface LabelProps {
 	children?: React.ReactNode | string
 }
 
-const Label: React.FC<LabelProps> = ({ label, className = '', children }: LabelProps) => {
+const Label: React.FC<LabelProps> = ({ label, className = '', children }) => {
 	return (
 		<div className='flex-col' style={{ flex: '1' }}>
 			<div className={`${className}`}>{label}</div>
@@ -14,4 +14,4 @@ const Label: React.FC<LabelProps> = ({ label, className = '', children }: LabelP
 	)
 }
 
-export default Label
+export default React.memo(Label)

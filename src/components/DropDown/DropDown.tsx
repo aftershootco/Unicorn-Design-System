@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './dropDown.scss'
-
 import LowEnabled from '../SVG/LowEnabled'
 import Low from '../SVG/Low'
 import DownArrow from '../SVG/DownArrow'
@@ -18,7 +17,7 @@ export interface DropDownProps {
 	variant?: string
 }
 
-const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'default', className = '' }: DropDownProps) => {
+const DropDown: React.FC<DropDownProps> = (props) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
@@ -26,6 +25,11 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 	const lastElement = useRef(null)
 
 	const [height, setHeight] = useState(0)
+	const measureHeight = React.useCallback(() => {
+		const viewportOffset = inputRef.current.getBoundingClientRect()
+
+		setHeight(viewportOffset.top + 65)
+	}, [])
 
 	useEffect(() => {
 		nodeRef.current = firstElement?.current
@@ -50,7 +54,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 				firstElement.current.focus()
 				keyVal = firstElement.current.textContent
 			} else if (e.key === 'Enter') {
-				onChange(keyVal)
+				props.onChange(keyVal)
 				keyVal = ''
 				inputRef.current.click()
 
@@ -65,13 +69,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 			}
 		}
 
-		function measureHeight() {
-			const viewportOffset = inputRef.current.getBoundingClientRect()
-
-			setHeight(viewportOffset.top + 65)
-		}
-
-		variant === 'default' && measureHeight()
+		props.variant === 'default' && measureHeight()
 
 		state &&
 			firstElement.current &&
@@ -84,14 +82,14 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 		}
 	}, [state])
 
-	const handleChange = (e, item) => {
+	const handleChange = React.useCallback((e, item) => {
 		e.preventDefault()
-		onChange(item)
+		props.onChange(item)
 
 		inputRef.current.click()
 		firstElement.current = null
 		lastElement.current = null
-	}
+	}, [])
 	const arrow = { downArrow: <DownArrow /> }
 
 	const PowerProfileIcons = {
@@ -107,31 +105,31 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 
 	return (
 		<div className='w-100 relative'>
-			{variant === 'default' && (
+			{props.variant === 'default' && (
 				<div
-					className={'default-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b ' + className}
+					className={'default-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b ' + props.className}
 					onClick={() => {
 						setState((state) => !state)
 					}}
 				>
 					<div className='selectInput cursor-pointer' ref={inputRef}>
-						{value}
+						{props.value}
 					</div>
 
 					<div className={!state ? 'arrowDown' : 'arrowUp'}>{arrow.downArrow}</div>
 				</div>
 			)}
-			{variant === 'icons' && (
+			{props.variant === 'icons' && (
 				<div
 					className='icons-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white'
 					onClick={() => {
 						setState((state) => !state)
 					}}
 				>
-					<div className='flex-row align-center justify-center m-2-r w-4 h-4'>{PowerProfileIcons[value.ProfileEnabled]}</div>
+					<div className='flex-row align-center justify-center m-2-r w-4 h-4'>{PowerProfileIcons[props.value.ProfileEnabled]}</div>
 
 					<div className='selectInput cursor-pointer' ref={inputRef}>
-						{value.profile}
+						{props.value.profile}
 					</div>
 
 					<div className={(state ? 'arrowUp' : 'arrowDown') + ' m-5-l'} style={{ width: '0.75rem', minHeight: ' 0.75rem' }}>
@@ -142,17 +140,17 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 			{/* {The z-index must be greater than titlebar's z-index} */}
 			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)}></div>}
 			{/* {Drop Down for Accountdetails, Settings} */}
-			{variant === 'default' && state && (
+			{props.variant === 'default' && state && (
 				<div className='dropDown absolute w-100 br-10' style={{ maxHeight: `calc(100vh - ${height}px)` }}>
-					{Object.keys(data).map((item, i) => {
-						let objectLength = Object.keys(data).length
+					{Object.keys(props.data).map((item, i) => {
+						let objectLength = Object.keys(props.data).length
 						return (
 							<button
 								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
 								key={item}
 								className={
 									'options text-left word-break-all flex-row align-center justify-start p-5-lr w-100' +
-									(value === item ? ' bg-grey700B' : ' bg-grey700')
+									(props.value === item ? ' bg-grey700B' : ' bg-grey700')
 								}
 								onClick={(e) => handleChange(e, item)}
 							>
@@ -163,18 +161,18 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 				</div>
 			)}
 			{/* {Drop Down for titlebar} */}
-			{variant === 'icons' && state && (
+			{props.variant === 'icons' && state && (
 				<div className='dropDownIcons absolute w-100 br-10'>
-					{Object.keys(data).map((item, i) => {
-						const pro = data[item]
+					{Object.keys(props.data).map((item, i) => {
+						const pro = props.data[item]
 
-						let objectLength = Object.keys(data).length
+						let objectLength = Object.keys(props.data).length
 
 						return (
 							<button
 								className={
 									'optionsIcons flex-row align-center p-2-l relative w-100' +
-									(pro.profile === value.profile ? ' bg-grey1200' : ' bg-grey1000')
+									(pro.profile === props.value.profile ? ' bg-grey1200' : ' bg-grey1000')
 								}
 								style={{
 									fontSize: '0.875rem',
@@ -186,7 +184,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 								key={pro.profile}
 							>
 								<div className='m-2-l' style={{ width: '0.75rem', minHeight: ' 0.75rem' }}>
-									{pro.profile === value.profile ? PowerProfileIcons[pro.ProfileEnabled] : PowerProfileIcons[pro.profile]}
+									{pro.profile === props.value.profile ? PowerProfileIcons[pro.ProfileEnabled] : PowerProfileIcons[pro.profile]}
 								</div>
 								<div key={item} className='flex-row align-center p-2-l p-5-r p-2-b p-2-t w-100 bg-transparent color-white'>
 									{pro.profile}
@@ -200,4 +198,4 @@ const DropDown: React.FC<DropDownProps> = ({ value, data, onChange, variant = 'd
 	)
 }
 
-export default DropDown
+export default React.memo(DropDown)

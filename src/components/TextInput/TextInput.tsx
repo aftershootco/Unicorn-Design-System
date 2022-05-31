@@ -15,33 +15,22 @@ export interface TextInputProps {
 	adornmentEndStyle?: {}
 }
 
-const TextInput: React.FC<TextInputProps> = ({
-	placeholder,
-	type = 'text',
-	onChange,
-	value,
-	disable = false,
-	variant = 'primary',
-	onClick,
-	inputProperties = '',
-	adornmentStartStyle = {},
-	adornmentEndStyle = {},
-}) => {
-	const [showPassword, setShowPassword] = useState(type === 'password')
+const TextInput: React.FC<TextInputProps> = (props) => {
+	const [showPassword, setShowPassword] = useState(props.type === 'password')
 	return (
 		<>
-			{(variant === 'primary' || variant === 'secondary') && (
+			{(props.variant === 'primary' || props.variant === 'secondary') && (
 				<div className='relative m-2-b'>
 					<input
-						type={showPassword ? 'text' : type}
-						className={`${type === 'password' && 'relative'} ${styles.inputBox} ${inputProperties}`}
-						value={value}
-						placeholder={placeholder}
-						onChange={variant === 'primary' ? (e) => onChange(e) : null}
-						onClick={variant === 'secondary' ? () => onClick() : null}
-						disabled={disable}
+						type={showPassword ? 'text' : props.type}
+						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
+						value={props.value}
+						placeholder={props.placeholder}
+						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : null}
+						onClick={props.variant === 'secondary' ? () => props.onClick() : null}
+						disabled={props.disable}
 					/>
-					{type === 'password' && (
+					{props.type === 'password' && (
 						<div className={`${styles.adornmentEnd} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
 							{!showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
@@ -49,19 +38,19 @@ const TextInput: React.FC<TextInputProps> = ({
 				</div>
 			)}
 
-			{variant === 'tertiary' && (
+			{props.variant === 'tertiary' && (
 				<div className='relative m-2-b'>
 					<input
 						type='text'
-						className={`${styles.inputBox} ${inputProperties} relative`}
-						value={value}
-						placeholder={placeholder}
-						onChange={(e) => onChange(e)}
-						disabled={disable}
+						className={`${styles.inputBox} ${props.inputProperties} relative`}
+						value={props.value}
+						placeholder={props.placeholder}
+						onChange={(e) => props.onChange(e)}
+						disabled={props.disable}
 					/>
 
 					<div className={`${styles.adornmentStart} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
-						<div className='w-6 h-6 br-1000' style={adornmentStartStyle}></div>
+						<div className='w-6 h-6 br-1000' style={props.adornmentStartStyle}></div>
 					</div>
 				</div>
 			)}

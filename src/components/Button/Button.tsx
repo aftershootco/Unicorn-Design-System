@@ -13,12 +13,9 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-	const handleClick = () => {
-		props.onClick()
-	}
 	return (
 		<button
-			onClick={handleClick}
+			onClick={props.onClick}
 			type='button'
 			className={clsx('button-' + props.variant, props.className)}
 			style={props.style}
@@ -37,4 +34,4 @@ Button.defaultProps = {
 	onClick: () => {},
 }
 
-export default Button
+export default React.memo(Button)

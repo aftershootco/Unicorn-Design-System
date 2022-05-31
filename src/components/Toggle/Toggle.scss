@@ -26,7 +26,7 @@
 	}
 	.monthly {
 		position: absolute;
-		margin-left: 118px;
+		margin-left: 116px;
 		@extend .buttonStyle;
 		@extend .unselected;
 	}
@@ -37,7 +37,7 @@
 	}
 
 	.toggleButton {
-		transform: translateX(118px);
+		transform: translateX(116px);
 		@extend .selected;
 	}
 }

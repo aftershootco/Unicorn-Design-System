@@ -9,15 +9,16 @@ export interface PreferenceButtonProps {
 	style?: React.CSSProperties
 }
 
-const PreferenceButton: React.FC<PreferenceButtonProps> = ({ children, className, onClick, variant, style = {} }: PreferenceButtonProps) => {
-	function handleClick() {
-		onClick()
-	}
+const PreferenceButton: React.FC<PreferenceButtonProps> = (props) => {
 	return (
-		<button className={'text-h5 color-white cursor-pointer br-10 ' + clsx('prefer-' + variant, className)} onClick={handleClick} style={style}>
-			{children}
+		<button
+			className={'text-h5 color-white cursor-pointer br-10 ' + clsx('prefer-' + props.variant, props.className)}
+			onClick={props.onClick}
+			style={props.style}
+		>
+			{props.children}
 		</button>
 	)
 }
 
-export default PreferenceButton
+export default React.memo(PreferenceButton)
