@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import React, { useCallback, useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { ReactComponent as CheckMark } from '../../assets/svg/CheckMark.svg'
+
 export interface CheckBoxProps {
 	defaultValue?: boolean
 	onChange: (e: boolean) => void
