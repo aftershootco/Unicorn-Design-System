@@ -32,54 +32,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [])
 
 	useEffect(() => {
-		nodeRef.current = firstElement?.current
-
-		let keyVal = firstElement?.current?.textContent
-
-		firstElement.current && firstElement.current.focus()
-
-		const keyShort = (e) => {
-			if (e.key === 'ArrowDown') {
-				firstElement.current.nextSibling
-					? (firstElement.current = firstElement.current.nextSibling)
-					: (firstElement.current = nodeRef.current)
-
-				firstElement.current.focus()
-				keyVal = firstElement.current.textContent
-			} else if (e.key === 'ArrowUp') {
-				firstElement.current.previousSibling
-					? (firstElement.current = firstElement.current.previousSibling)
-					: (firstElement.current = lastElement.current)
-
-				firstElement.current.focus()
-				keyVal = firstElement.current.textContent
-			} else if (e.key === 'Enter') {
-				props.onChange(keyVal)
-				keyVal = ''
-				inputRef.current.click()
-
-				firstElement.current = null
-				lastElement.current = null
-			} else if (e.key === 'Escape') {
-				keyVal = ''
-				inputRef.current.click()
-
-				firstElement.current = null
-				lastElement.current = null
-			}
-		}
-
 		props.variant === 'default' && measureHeight()
-
-		state &&
-			firstElement.current &&
-			Promise.resolve().then(() => {
-				document.addEventListener('keydown', keyShort)
-			})
-
-		return () => {
-			document.removeEventListener('keydown', keyShort)
-		}
 	}, [state])
 
 	const handleChange = React.useCallback((e, item) => {
