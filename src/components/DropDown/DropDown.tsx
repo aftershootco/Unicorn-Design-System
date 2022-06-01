@@ -92,7 +92,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [])
 
 	const value = useMemo(() => {
-		return Object.keys(props.data).find((key) => props.data[key] === value)
+		return Object.keys(props.data).find((key) => props.data[key] === props.value)
 	}, [props.value, props.data])
 
 	const PowerProfileIcons = useMemo(() => {
@@ -148,7 +148,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 						let objectLength = Object.keys(props.data).length
 						return (
 							<button
-								ref={(i === 0 ? firstElement : null) || (i === objectLength - 1 ? lastElement : null)}
+								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
 								className={
 									'options text-left word-break-all flex-row align-center justify-start p-5-lr w-100' +
