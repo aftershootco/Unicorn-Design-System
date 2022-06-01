@@ -73,10 +73,14 @@
 		border: none;
 		justify-content: flex-start;
 		color: #ffffff;
-		&:hover,
+
 		&:active,
 		&:focus {
 			background: #565656 !important;
+		}
+
+		&:hover {
+			background: #626262 !important;
 		}
 	}
 }
