@@ -104,8 +104,8 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
 								className={
-									'options text-left word-break-all flex-row align-center justify-start p-5-lr w-100' +
-									(props.value === props.data[item] ? ' bg-grey700B' : ' bg-grey700')
+									'options text-left word-break-all flex-row align-center justify-start p-5-lr w-100 cursor-pointer ' +
+									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
 							>
