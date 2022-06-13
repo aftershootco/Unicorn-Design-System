@@ -65,7 +65,9 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 		<div className='w-100 relative'>
 			{props.variant === 'default' && (
 				<div
-					className={'default-dropDown cursor-pointer p-5-lr text-h4 bg-transparent br-100 w-100 color-off-white m-2-b ' + props.className}
+					className={
+						'default-dropDown  m-2-b p-5-lr p-2-tb text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer' + props.className
+					}
 					onClick={() => setState((state) => !state)}
 				>
 					<div className='selectInput cursor-pointer' ref={inputRef}>
@@ -104,7 +106,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
 								className={
-									'options text-left word-break-all flex-row align-center justify-start p-5-lr w-100 cursor-pointer ' +
+									'flex-row align-center justify-start options text-left word-break-all p-5-lr p-3-tb w-100 cursor-pointer ' +
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
