@@ -1,6 +1,5 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import { Switch, SwitchProps } from '../components'
 import TextInput, { TextInputProps } from '../components/TextInput/TextInput'
 
 export default {
@@ -15,6 +14,6 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-	type:'password',
-	placeholder:"name"
+	type: 'password',
+	placeholder: 'name',
 }
