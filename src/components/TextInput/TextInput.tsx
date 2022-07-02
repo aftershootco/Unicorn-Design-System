@@ -5,6 +5,7 @@ import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 export interface TextInputProps {
 	type?: 'text' | 'password'
 	placeholder?: string
+	className?: string
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 	onClick?: () => void
 	value: string
@@ -20,7 +21,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	return (
 		<>
 			{(props.variant === 'primary' || props.variant === 'secondary') && (
-				<div className='relative m-2-b'>
+				<div className={`relative ${props?.className}`}>
 					<input
 						type={showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
@@ -39,7 +40,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			)}
 
 			{props.variant === 'tertiary' && (
-				<div className='relative m-2-b'>
+				<div className={`relative ${props?.className}`}>
 					<input
 						type='text'
 						className={`${styles.inputBox} ${props.inputProperties} relative`}
