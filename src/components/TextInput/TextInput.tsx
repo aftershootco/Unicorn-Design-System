@@ -36,7 +36,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						style={props.style}
 					/>
 					{props.type === 'password' && (
-						<div className={`${styles.adornmentEnd} cursor-pointer`} onClick={() => setShowPassword((state) => !state)}>
+						<div className={`${styles.adornmentEnd} cursor-pointer relative`} onClick={() => setShowPassword((state) => !state)}>
 							{!showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
 					)}
