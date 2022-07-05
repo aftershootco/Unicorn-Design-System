@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react'
+import React, { useState, memo, JSXElementConstructor } from 'react'
 import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
@@ -15,6 +15,7 @@ export interface TextInputProps {
 	adornmentStartStyle?: {}
 	adornmentEndStyle?: {}
 	style?: {}
+	prefix?: JSX.Element
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
@@ -23,6 +24,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 		<>
 			{(props.variant === 'primary' || props.variant === 'secondary') && (
 				<div className={`relative ${props?.className}`}>
+					{props.prefix}
 					<input
 						type={showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
