@@ -1,8 +1,7 @@
 import React, { useState, memo, JSXElementConstructor } from 'react'
 import styles from './styles.module.scss'
-import EyeOff from '../../assets/svg/EyeOff.svg'
-import EyeOn from '../../assets/svg/EyeOn.svg'
-
+import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
+import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 export interface TextInputProps {
 	type?: 'text' | 'password'
 	placeholder?: string
@@ -38,8 +37,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 					/>
 					{props.type === 'password' && (
 						<div className={`${styles.adornmentEnd} cursor-pointer`} onClick={() => setShowPassword((state) => !state)}>
-							{/* {!showPassword ? <EyeOn /> : <EyeOff />} */}
-							{!showPassword ? <img className='w-5 h-5' src={EyeOn} /> : <img className='w-5 h-5' src={EyeOff} />}
+							{!showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
 					)}
 				</div>
