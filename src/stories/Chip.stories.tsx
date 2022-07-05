@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 import Chip, { ChipProps } from '../components/Chip/Chip'
 
 export default {
-	title: 'component/PreferenceBtn',
+	title: 'component/Chip',
 	component: Chip,
 } as Meta
 
