@@ -14,10 +14,11 @@ export interface TextInputProps {
 	inputProperties?: string
 	adornmentStartStyle?: {}
 	adornmentEndStyle?: {}
+	style?: {}
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
-	const [showPassword, setShowPassword] = useState(props.type === 'password')
+	const [showPassword, setShowPassword] = useState(props.type !== 'password')
 	return (
 		<>
 			{(props.variant === 'primary' || props.variant === 'secondary') && (
@@ -30,6 +31,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : null}
 						onClick={props.variant === 'secondary' ? () => props.onClick() : null}
 						disabled={props.disable}
+						style={props.style}
 					/>
 					{props.type === 'password' && (
 						<div className={`${styles.adornmentEnd} cursor-pointer absolute flex-row align-center`} onClick={() => setShowPassword((state) => !state)}>
@@ -48,6 +50,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						placeholder={props.placeholder}
 						onChange={(e) => props.onChange(e)}
 						disabled={props.disable}
+						style={props.style}
 					/>
 
 					<div className={`${styles.adornmentStart} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
