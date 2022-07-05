@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import './Prefer.scss'
-export interface PreferenceButtonProps {
+import './Chip.scss'
+export interface ChipProps {
 	children?: string | React.ReactNode
 	className?: string
 	variant?: 'primary' | 'secondary' | 'tertiary'
@@ -9,7 +9,7 @@ export interface PreferenceButtonProps {
 	style?: React.CSSProperties
 }
 
-const PreferenceButton: React.FC<PreferenceButtonProps> = (props) => {
+const Chip: React.FC<ChipProps> = (props) => {
 	return (
 		<button
 			className={'text-h5 color-white cursor-pointer br-10 ' + clsx('prefer-' + props.variant, props.className)}
@@ -21,4 +21,4 @@ const PreferenceButton: React.FC<PreferenceButtonProps> = (props) => {
 	)
 }
 
-export default React.memo(PreferenceButton)
+export default React.memo(Chip)

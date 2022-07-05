@@ -1,13 +1,13 @@
 import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import PreferenceButton, { PreferenceButtonProps } from '../components/PreferenceButton/PreferenceButton'
+import Chip, { ChipProps } from '../components/Chip/Chip'
 
 export default {
 	title: 'component/PreferenceBtn',
-	component: PreferenceButton,
+	component: Chip,
 } as Meta
 
-const Template: Story<PreferenceButtonProps> = (args: PreferenceButtonProps) => <PreferenceButton {...args} />
+const Template: Story<ChipProps> = (args: ChipProps) => <Chip {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
