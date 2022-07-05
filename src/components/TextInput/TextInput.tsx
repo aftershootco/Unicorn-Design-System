@@ -1,7 +1,8 @@
 import React, { useState, memo, JSXElementConstructor } from 'react'
 import styles from './styles.module.scss'
-import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
-import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
+import EyeOff from '../../assets/svg/EyeOff.svg'
+import EyeOn from '../../assets/svg/EyeOn.svg'
+
 export interface TextInputProps {
 	type?: 'text' | 'password'
 	placeholder?: string
