@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 export interface TextInputProps {
-	type?: 'text' | 'password'
+	type?: 'text' | 'password' | 'number' | 'file'
 	placeholder?: string
 	className?: string
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -15,18 +15,19 @@ export interface TextInputProps {
 	adornmentStartStyle?: {}
 	adornmentEndStyle?: {}
 	style?: {}
+	accept?: string
 	prefix?: JSX.Element
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
-	const [showPassword, setShowPassword] = useState(props.type !== 'password')
+	const [showPassword, setShowPassword] = useState(props.type === 'password')
 	return (
 		<>
 			{(props.variant === 'primary' || props.variant === 'secondary') && (
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
-						type={showPassword ? 'text' : props.type}
+						type={!showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
@@ -34,10 +35,11 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						onClick={props.variant === 'secondary' ? () => props.onClick() : null}
 						disabled={props.disable}
 						style={props.style}
+						accept={props.accept}
 					/>
 					{props.type === 'password' && (
-						<div className={`${styles.adornmentEnd} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)} style={{display:'flex', alignItems:"center", justifyContent:'center'}}>
-							{!showPassword ? <EyeOn /> : <EyeOff />}
+						<div className={`${styles.adornmentEnd} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)} style={{top:"28%", left:"88%"}}>
+							{showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
 					)}
 				</div>
