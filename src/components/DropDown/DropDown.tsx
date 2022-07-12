@@ -3,13 +3,37 @@ import './dropDown.scss'
 import DownArrow from '../SVG/DownArrow'
 
 export interface DropDownProps {
+	/**
+	 * Value of the dropdown
+	 */
 	value: string
-	data: Object
+	/**
+	 * Options to be shown when dropdown is opened. Eg: { 'option1': 'Option 1', 'option2': 'Option 2' }
+	 */
+	data: {
+		[key:string]:string
+	}
+	/**
+	 * Classes to be applied to the dropdown
+	 */
 	className?: string
+	/**
+	 * Style to be applied to the dropdown.
+	 */
 	styles?: React.CSSProperties
+	/**
+	 * Which type of dropdown is it? Default dropdown is 'default'
+	 */
 	variant?: string
+	/**
+	 * Function to be called when any option is clicked
+	 */
 	onChange: (value: string) => void
 }
+
+/**
+ * Dropdown component - Shows a list of options.
+ */
 const DropDown: React.FC<DropDownProps> = (props) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)

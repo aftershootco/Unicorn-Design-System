@@ -1,7 +1,17 @@
 import React from 'react'
+
 export interface LabelProps {
+	/**
+	 * Label of the associated input.
+	 */
 	label: string
+	/**
+	 * Classes to be applied.
+	 */
 	className?: string
+	/**
+	 * 
+	 */
 	children?: React.ReactNode | string
 }
 

@@ -2,23 +2,65 @@ import React, { useState, memo, JSXElementConstructor } from 'react'
 import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
+
 export interface TextInputProps {
+	/**
+	 * Type of the input
+	 */
 	type?: 'text' | 'password' | 'number' | 'file'
+	/**
+	 * Placeholder of the input
+	 */
 	placeholder?: string
+	/**
+	 * Classes to be applied to the input field.
+	 */
 	className?: string
+	/**
+	 * Event to be triggered when there is an input change
+	 */
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+	/**
+	 * Function to be called when hit input field.
+	 */
 	onClick?: () => void
+	/**
+	 * Value of the input
+	 */
 	value: string
+	/**
+	 * Is the input disabled?
+	 */
 	disable?: boolean
+	/**
+	 * Type of the input field.
+	 */
 	variant?: 'primary' | 'secondary' | 'tertiary'
+	/**
+	 * Inner properties of the input field. Will be added in the className.
+	 */
 	inputProperties?: string
+	/**
+	 * Will be added in the style of the input field with tertiary variant.
+	 */
 	adornmentStartStyle?: {}
-	adornmentEndStyle?: {}
+	/**
+	 * Styles to be applied to the input field.
+	 */
 	style?: {}
+	/**
+	 * what types of input field it will accept. Like in the case of file, what extensions will be accepted.
+	 */
 	accept?: string
+	/**
+	 * Any prefix code need to be added.
+	 */
 	prefix?: JSX.Element
 }
 
+/**
+ * Text Input component.
+ */
 const TextInput: React.FC<TextInputProps> = (props) => {
 	const [showPassword, setShowPassword] = useState(props.type === 'password')
 	return (

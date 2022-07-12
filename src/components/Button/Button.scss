@@ -26,6 +26,38 @@
 	}
 }
 
+.button-white-filled {
+	@extend .button;
+	@extend .bg-white;
+	@extend .color-black;
+	padding: 0.3rem 1.5rem;
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgb(181, 181, 181);
+		// border-color: rgb(181, 181, 181) !important;
+	}
+	&:disabled {
+		@extend .color-white200;
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		box-sizing: border-box;
+		border-radius: 32.3333px;
+	}
+}
+
+.button-facebook {
+	@extend .button;
+	@extend .color-white;
+	cursor: pointer;
+	background-color: #4267b2;
+	&:hover {
+		background-color: #35569a;
+	}
+}
+
 .button-disable {
 	@extend .button;
 	@extend .bg-teal400;
@@ -89,12 +121,12 @@
 .button-warning {
 	@extend .button;
 	@extend .bg-yellow200;
-	border: 1px solid $yellow200;
+	// border: 1px solid $yellow200;
 
 	&:hover {
 		cursor: pointer;
 		@extend .bg-yellow100;
-		border: 1px solid $yellow100;
+		// border: 1px solid $yellow100;
 	}
 
 	&:disabled {

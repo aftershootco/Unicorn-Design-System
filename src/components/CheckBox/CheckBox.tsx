@@ -4,10 +4,19 @@ import styles from './styles.module.scss'
 import { ReactComponent as CheckMark } from '../../assets/svg/CheckMark.svg'
 
 export interface CheckBoxProps {
+	/**
+	 * default value of the checkbox. Default is false
+	 */
 	defaultValue?: boolean
+	/**
+	 * Function to be called when checkbox is checked.
+	 */
 	onChange: (e: boolean) => void
 }
 
+/** 
+ * CheckBox component.
+ */
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	const onClick = useCallback(() => {
 		props.onChange(!props.defaultValue)
