@@ -4,10 +4,12 @@ import DownArrow from '../SVG/DownArrow'
 
 export interface DropDownProps {
 	value: string | number
-	data: any
+	data: {
+		[key: string]: string | number
+	}
 	className?: string
 	styles?: React.CSSProperties
-	onChange: (value: string | number) => void
+	onChange: (value: string) => void
 }
 
 const DropDown: React.FC<DropDownProps> = (props) => {
@@ -27,9 +29,9 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 		measureHeight()
 	}, [state])
 
-	const handleChange = React.useCallback((e, item) => {
+	const handleChange = React.useCallback((e, item: string | number) => {
 		e.preventDefault()
-		props.onChange(item)
+		props.onChange(String(item))
 
 		inputRef.current.click()
 		firstElement.current = null
