@@ -4,36 +4,39 @@ import DownArrow from '../SVG/DownArrow'
 
 export interface DropDownProps {
 	/**
-	 * Value of the dropdown
+	 * Current value selected of the dropdown
 	 */
 	value: string
+
 	/**
-	 * Options to be shown when dropdown is opened. Eg: { 'option1': 'Option 1', 'option2': 'Option 2' }
+	 * Options to be shown when dropdown is opened.
+	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
 	 */
 	data: {
-		[key:string]:string
+		[key: string]: string
 	}
+
 	/**
 	 * Classes to be applied to the dropdown
 	 */
 	className?: string
+
 	/**
 	 * Style to be applied to the dropdown.
 	 */
-	styles?: React.CSSProperties
+	style?: React.CSSProperties
+
 	/**
 	 * Which type of dropdown is it? Default dropdown is 'default'
 	 */
 	variant?: string
+
 	/**
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (value: string) => void
 }
 
-/**
- * Dropdown component - Shows a list of options.
- */
 const DropDown: React.FC<DropDownProps> = (props) => {
 	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
@@ -48,7 +51,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 
 	useEffect(() => {
 		props.variant === 'default' && measureHeight()
-		if (state) document.getElementById('apply')?.scrollIntoView({behavior: "auto", block: "center", inline: "nearest"});
+		if (state) document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
 	}, [state])
 
 	const handleChange = React.useCallback((e, item) => {
@@ -70,9 +73,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 					className={
 						'default-dropDown  m-2-b p-5-lr p-2-tb text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer' + props.className
 					}
-					onClick={() => {
-						setState((state) => !state);
-					}}
+					onClick={() => setState((state) => !state)}
 				>
 					<div className='selectInput cursor-pointer' ref={inputRef}>
 						{value}
@@ -82,7 +83,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 					</div>
 				</div>
 			)}
-			
+
 			{/* {The z-index must be greater than titlebar's z-index} */}
 			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)}></div>}
 			{/* {Drop Down for Accountdetails, Settings} */}

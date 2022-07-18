@@ -1,6 +1,7 @@
 @import '../../styles/size.scss';
 @import '../../styles/colors.scss';
 @import '../../styles/text.scss';
+
 .button {
 	box-sizing: border-box;
 	@extend .br-100;
@@ -37,7 +38,6 @@
 	&:hover {
 		cursor: pointer;
 		background-color: rgb(181, 181, 181);
-		// border-color: rgb(181, 181, 181) !important;
 	}
 	&:disabled {
 		@extend .color-white200;
@@ -61,7 +61,6 @@
 .button-disable {
 	@extend .button;
 	@extend .bg-teal400;
-
 	filter: brightness(0.8);
 }
 
@@ -74,10 +73,12 @@
 	@extend .text-h4-bold;
 	border: 2px solid rgba(255, 255, 255, 0.5);
 	padding: calc(0.6rem - 2px) 2rem;
+
 	&:hover {
 		cursor: pointer;
 		background-color: $grey500B;
 	}
+	
 	&:disabled {
 		pointer-events: none;
 	}
@@ -113,7 +114,6 @@
 	&:disabled {
 		@extend .bg-grey400;
 		border: 1px solid $grey400;
-
 		pointer-events: none;
 	}
 }
@@ -121,18 +121,15 @@
 .button-warning {
 	@extend .button;
 	@extend .bg-yellow200;
-	// border: 1px solid $yellow200;
 
 	&:hover {
 		cursor: pointer;
 		@extend .bg-yellow100;
-		// border: 1px solid $yellow100;
 	}
 
 	&:disabled {
 		@extend .bg-grey400;
 		border: 1px solid $grey400;
-
 		pointer-events: none;
 	}
 }

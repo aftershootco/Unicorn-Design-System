@@ -5,12 +5,14 @@ export interface LabelProps {
 	 * Label of the associated input.
 	 */
 	label: string
+
 	/**
 	 * Classes to be applied.
 	 */
 	className?: string
+
 	/**
-	 * 
+	 * Inside text or component to be rendered.
 	 */
 	children?: React.ReactNode | string
 }

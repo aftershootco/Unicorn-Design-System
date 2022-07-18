@@ -6,14 +6,17 @@ export interface ToggleProps {
 	 * Styles to be applied on the toggle.
 	 */
 	style: React.CSSProperties
+
 	/**
 	 * If true, first option is selected. Otherwise the other one.
 	 */
 	value: boolean
+
 	/**
 	 * Function to be called when toggle is changed.
 	 */
 	onClick: (value: boolean) => void
+
 	/**
 	 * Options name for the toggle.
 	 */
@@ -23,9 +26,6 @@ export interface ToggleProps {
 	}
 }
 
-/**
- * Toggle component, present in the My Subscription page.
- */
 const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 	return (
 		<div className='toggler flex-row' style={props.style}>
