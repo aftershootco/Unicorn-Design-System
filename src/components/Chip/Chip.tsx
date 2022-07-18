@@ -6,6 +6,7 @@ export interface ChipProps {
 	 * Text of the button.
 	 */
 	text?: string
+
 	/**
 	 * Inner component to be rendered inside the chip.
 	 */
