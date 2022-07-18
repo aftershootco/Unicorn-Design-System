@@ -27,36 +27,33 @@ export interface DropDownProps {
 	style?: React.CSSProperties
 
 	/**
-	 * Which type of dropdown is it? Default dropdown is 'default'
-	 */
-	variant?: string
-
-	/**
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (value: string) => void
 }
 
 const DropDown: React.FC<DropDownProps> = (props) => {
-	const [state, setState] = useState(false)
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
 
+	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
+
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
 		setHeight(viewportOffset.top + 65)
 	}, [])
 
 	useEffect(() => {
-		props.variant === 'default' && measureHeight()
+		measureHeight()
 		if (state) document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
 	}, [state])
 
-	const handleChange = React.useCallback((e, item) => {
+	const handleChange = React.useCallback((e, item: string | number) => {
 		e.preventDefault()
-		props.onChange(item)
+		props.onChange(String(item))
+
 		inputRef.current.click()
 		firstElement.current = null
 		lastElement.current = null
@@ -68,26 +65,23 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 
 	return (
 		<div className='w-100 relative'>
-			{props.variant === 'default' && (
-				<div
-					className={
-						'default-dropDown  m-2-b p-5-lr p-2-tb text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer' + props.className
-					}
-					onClick={() => setState((state) => !state)}
-				>
-					<div className='selectInput cursor-pointer' ref={inputRef}>
-						{value}
-					</div>
-					<div className={state ? 'arrowUp' : 'arrowDown'}>
-						<DownArrow />
-					</div>
+			<div
+				className={
+					'default-dropDown  m-2-b p-5-lr p-2-tb text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer' + props.className
+				}
+				onClick={() => setState((state) => !state)}
+			>
+				<div className='selectInput cursor-pointer' ref={inputRef}>
+					{value}
 				</div>
-			)}
-
+				<div className={state ? 'arrowUp' : 'arrowDown'}>
+					<DownArrow />
+				</div>
+			</div>
 			{/* {The z-index must be greater than titlebar's z-index} */}
-			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)}></div>}
+			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)} />}
 			{/* {Drop Down for Accountdetails, Settings} */}
-			{props.variant === 'default' && state && (
+			{state && (
 				<div className='dropDown absolute w-100 br-10' style={{ maxHeight: `calc(100vh - ${height}px)` }}>
 					{Object.keys(props.data).map((item, i) => {
 						let objectLength = Object.keys(props.data).length
