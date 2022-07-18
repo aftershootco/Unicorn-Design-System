@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import './prefer.scss'
+import './Prefer.scss'
 export interface PreferenceButtonProps {
 	children?: string | React.ReactNode
 	className?: string
