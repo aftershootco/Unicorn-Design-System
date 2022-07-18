@@ -1,18 +1,22 @@
-import React, { useState, memo } from 'react'
+import React, { useState, memo, JSXElementConstructor } from 'react'
 import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 export interface TextInputProps {
-	type?: 'text' | 'password'
+	type?: 'text' | 'password' | 'number' | 'file'
 	placeholder?: string
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-	onClick: () => void
+	className?: string
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+	onClick?: () => void
 	value: string
 	disable?: boolean
 	variant?: 'primary' | 'secondary' | 'tertiary'
 	inputProperties?: string
 	adornmentStartStyle?: {}
 	adornmentEndStyle?: {}
+	style?: {}
+	accept?: string
+	prefix?: JSX.Element
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
@@ -20,26 +24,29 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	return (
 		<>
 			{(props.variant === 'primary' || props.variant === 'secondary') && (
-				<div className='relative m-2-b'>
+				<div className={`relative ${props?.className}`}>
+					{props.prefix}
 					<input
-						type={showPassword ? 'text' : props.type}
+						type={!showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
 						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : () => {}}
 						onClick={props.variant === 'secondary' ? () => props.onClick() : () => {}}
 						disabled={props.disable}
+						style={props.style}
+						accept={props.accept}
 					/>
 					{props.type === 'password' && (
-						<div className={`${styles.adornmentEnd} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
-							{!showPassword ? <EyeOn /> : <EyeOff />}
+						<div className={`${styles.adornmentEnd} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)} style={{top:"28%", left:"88%"}}>
+							{showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
 					)}
 				</div>
 			)}
 
 			{props.variant === 'tertiary' && (
-				<div className='relative m-2-b'>
+				<div className={`relative ${props?.className}`}>
 					<input
 						type='text'
 						className={`${styles.inputBox} ${props.inputProperties} relative`}
@@ -47,6 +54,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						placeholder={props.placeholder}
 						onChange={(e) => props.onChange(e)}
 						disabled={props.disable}
+						style={props.style}
 					/>
 
 					<div className={`${styles.adornmentStart} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
@@ -58,4 +66,4 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	)
 }
 
-export default memo(TextInput)
+export default (TextInput)

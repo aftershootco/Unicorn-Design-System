@@ -5,7 +5,7 @@ import DropDown, { DropDownProps } from './DropDown/DropDown'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Label, { LabelProps } from './Label/Label'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
-import PreferenceButton, { PreferenceButtonProps } from './PreferenceButton/PreferenceButton'
+import Chip, { ChipProps } from './Chip/Chip'
 export {
 	Button,
 	ButtonProps,
@@ -17,8 +17,8 @@ export {
 	LabelProps,
 	DropDown,
 	DropDownProps,
-	PreferenceButton,
-	PreferenceButtonProps,
+	Chip,
+	ChipProps,
 	TextInput,
 	TextInputProps,
 	Toggle,
