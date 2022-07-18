@@ -9,7 +9,7 @@ export default {
 
 const Template: Story<ToggleProps> = (args: ToggleProps) => <Toggle {...args} />
 
-export const Default = Template.bind({})
+const Default = Template.bind({})
 Default.args = {
 	value: false,
 	onClick: () => {},
@@ -18,3 +18,5 @@ Default.args = {
         second: 'Second',
     }
 }
+
+export {Default}

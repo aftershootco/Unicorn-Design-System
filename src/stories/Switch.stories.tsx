@@ -9,7 +9,9 @@ export default {
 
 const Template: Story<SwitchProps> = (args: SwitchProps) => <Switch {...args} />
 
-export const Default = Template.bind({})
+const Default = Template.bind({})
 Default.args = {
 	defaultValue:false
 }
+
+export {Default}
