@@ -14,4 +14,4 @@ Default.args = {
 	defaultValue:false
 }
 
-export {Default}
+export { Default }

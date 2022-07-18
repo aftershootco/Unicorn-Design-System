@@ -16,4 +16,4 @@ Default.args = {
 	onChange: () => {},
 }
 
-export {Default}
+export { Default }

@@ -13,10 +13,10 @@ const Default = Template.bind({})
 Default.args = {
 	value: false,
 	onClick: () => {},
-    options: {
+	options: {
         first: 'First',
         second: 'Second',
-    }
+	}
 }
 
-export {Default}
+export { Default }

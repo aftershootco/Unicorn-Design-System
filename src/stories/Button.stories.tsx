@@ -17,4 +17,4 @@ Default.args = {
 	variant: 'primary',
 }
 
-export {Default}
+export { Default }

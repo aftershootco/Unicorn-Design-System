@@ -15,4 +15,4 @@ const Template: Story<CheckBoxProps> = (args) => <CheckBox {...args} />
 const Default = Template.bind({})
 Default.args = {}
 
-export {Default}
+export { Default }

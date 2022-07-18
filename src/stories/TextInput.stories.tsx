@@ -18,4 +18,4 @@ Default.args = {
 	placeholder: 'name',
 }
 
-export {Default}
+export { Default }
