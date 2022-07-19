@@ -1,5 +1,5 @@
 .toggler {
-	border: 2px solid #323232;
+	border: 2px solid #666666;
 	border-radius: 100px;
 	margin: 2% 0%;
 	padding: 0.2%;
@@ -8,37 +8,38 @@
 	.selected-toggle {
 		background: #1da0bc;
 	}
+
 	.unselected-toggle {
-		background: #1b1b1b;
 	}
+
 	.buttonStyle-toggle {
 		border-radius: 100px;
 		border: none;
 		line-height: 19px;
 		width: 50%;
 		padding: 5% 0;
-		transition: 0.1s;
+		transition: 0.2s ease-in;
 	}
 
 	.yearly {
-		position: absolute;
 		@extend .buttonStyle-toggle;
 		@extend .unselected-toggle;
 	}
+	
 	.monthly {
-		position: absolute;
-		margin-left: 116px;
 		@extend .buttonStyle-toggle;
 		@extend .unselected-toggle;
 	}
+
 	.toggle_button {
+		position: absolute;
 		@extend .buttonStyle-toggle;
 		@extend .selected-toggle;
 		z-index: 1;
 	}
 
 	.toggleButton {
-		transform: translateX(116px);
+		transform: translateX(99.3%);
 		@extend .selected-toggle;
 	}
 }
