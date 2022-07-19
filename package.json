@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "",
 	"repository": {
 		"url": "https://github.com/aftershootco/Unicorn-Design-System",
@@ -66,6 +66,5 @@
 		"dist"
 	],
 	"types": "dist/index.d.ts",
-	"dependencies": {
-	}
+	"dependencies": {}
 }
