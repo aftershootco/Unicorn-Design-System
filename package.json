@@ -67,6 +67,5 @@
 	],
 	"types": "dist/index.d.ts",
 	"dependencies": {
-		"clsx": "^1.1.1"
 	}
 }
