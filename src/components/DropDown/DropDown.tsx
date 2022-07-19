@@ -6,14 +6,14 @@ export interface DropDownProps {
 	/**
 	 * Current value selected of the dropdown
 	 */
-	value: string
+	value: string | number
 
 	/**
 	 * Options to be shown when dropdown is opened.
 	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
 	 */
 	data: {
-		[key: string]: string
+		[key: string]: string | number
 	}
 
 	/**
