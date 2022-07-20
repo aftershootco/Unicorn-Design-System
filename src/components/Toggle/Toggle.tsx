@@ -1,9 +1,25 @@
 import React from 'react'
 import './Toggle.scss'
+
 export interface ToggleProps {
+	/**
+	 * Styles to be applied on the toggle.
+	 */
 	style: React.CSSProperties
+
+	/**
+	 * If true, first option is selected. Otherwise the other one.
+	 */
 	value: boolean
+
+	/**
+	 * Function to be called when toggle is changed.
+	 */
 	onClick: (value: boolean) => void
+
+	/**
+	 * Options name for the toggle.
+	 */
 	options: {
 		first: string
 		second: string

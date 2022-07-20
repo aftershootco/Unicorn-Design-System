@@ -3,12 +3,32 @@ import './dropDown.scss'
 import DownArrow from '../SVG/DownArrow'
 
 export interface DropDownProps {
+	/**
+	 * Current value selected of the dropdown
+	 */
 	value: string | number
+
+	/**
+	 * Options to be shown when dropdown is opened.
+	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
+	 */
 	data: {
 		[key: string]: string | number
 	}
+
+	/**
+	 * Classes to be applied to the dropdown
+	 */
 	className?: string
-	styles?: React.CSSProperties
+
+	/**
+	 * Style to be applied to the dropdown.
+	 */
+	style?: React.CSSProperties
+
+	/**
+	 * Function to be called when any option is clicked
+	 */
 	onChange: (value: string) => void
 }
 
@@ -27,6 +47,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 
 	useEffect(() => {
 		measureHeight()
+		if (state) document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
 	}, [state])
 
 	const handleChange = React.useCallback((e, item: string | number) => {
@@ -68,6 +89,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 							<button
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
+								id={props.value === props.data[item] ? 'apply' : 'donot'}
 								className={
 									'flex-row align-center justify-start options text-left word-break-all p-5-lr p-3-tb w-100 cursor-pointer ' +
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')

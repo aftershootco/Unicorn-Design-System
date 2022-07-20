@@ -1,27 +1,77 @@
 import React from 'react'
-import clsx from 'clsx'
 import './Button.scss'
 
 export interface ButtonProps {
+	/**
+	 * Size of the button. Default is 'medium'
+	 */
 	size?: 'small' | 'medium' | 'large'
+
+	/**
+	 * Classes to be applied to the button
+	 */
 	className?: string
+
+	/**
+	 * Is button disabled?
+	 * @Default false
+	 */
 	disabled?: boolean
-	children?: string | React.ReactNode
+
+	/**
+	 * Text of the button
+	 */
+	text?: string
+
+	/**
+	 * Either a button text or a react component.
+	 */
+	children?: React.ReactNode
+
+	/**
+	 * Style to be applied to the button.
+	 */
 	style?: React.CSSProperties
-	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'warning' | 'pause' | 'save' | 'save-disable' | 'disable'
-	onClick: () => void
+
+	/**
+	 * Button varient.
+	 * @Default 'primary'
+	 */
+	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'pause' | 'save' | 'white-filled' | 'facebook'
+
+	/**
+	 * Function to be called when hit a button
+	 */
+	onClick: (e?: any) => void
+
+	/**
+	 * Type of the button.
+	 */
+	type?: 'button' | 'submit' | 'reset'
+
+	/**
+	 * To check which button is clicked with same onClick function.
+	 */
+	dataId?: string
+
+	/**
+	 * ID used to identify the button during testing.
+	 */
+	dataTestId?: string
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
-			onClick={props.onClick}
-			type='button'
-			className={clsx('button-' + props.variant, props.className)}
+			className={`button-${props.variant} ${props.className}`}
 			style={props.style}
+			type={props.type || 'button'}
+			data-id={props.dataId}
+			data-test-id={props.dataTestId}
 			disabled={props.disabled}
+			onClick={props.disabled ? null : props.onClick}
 		>
-			{props.children}
+			{props.text || props.children}
 		</button>
 	)
 }

@@ -23,9 +23,13 @@ $grey700B: #565656;
 $grey1000: #282828;
 $grey1200: #343333;
 
+// black
+$black: #000000;
+
 // white
 $white: #ffffff;
 $white100: #c1c1c1;
+$white200: #808080;
 $offWhite: rgba(255, 255, 255, 0.7);
 
 $yellow100: #e7a523;
@@ -44,6 +48,14 @@ $red200: #cf564d;
 	color: $white100;
 }
 
+.color-white200 {
+	color: $white200;
+}
+
+.color-black {
+	color: $black;
+}
+
 .color-red {
 	color: #ec6d62;
 }
@@ -55,6 +67,10 @@ $red200: #cf564d;
 
 .bg-white {
 	background-color: $white;
+}
+
+.bg-offWhite {
+	background-color: $offWhite;
 }
 
 .bg-teal {

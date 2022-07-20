@@ -1,20 +1,26 @@
-import clsx from 'clsx'
 import React, { useCallback } from 'react'
 import styles from './styles.module.scss'
 
 export interface SwitchProps {
-	defaultValue?: boolean
+	/**
+	 * Value of the switch
+	 */
+	value?: boolean
+
+	/**
+	 * Function to be called when switch is changed
+	 */
 	onChange: (e: boolean) => void
 }
 
-const Switch: React.FC<SwitchProps> = ({ defaultValue = false, onChange }) => {
+const Switch: React.FC<SwitchProps> = ({ value = false, onChange }) => {
 	const onClick = useCallback(() => {
-		onChange(!defaultValue)
+		onChange(!value)
 	}, [onChange])
 
 	return (
-		<label className={clsx(styles.switch, { [styles.active]: defaultValue })} onClick={onClick}>
-			<span className={clsx(styles.round, styles.slider)}></span>
+		<label className={`${styles.switch} ${value ? styles.active : ''}`} onClick={onClick}>
+			<span className={`${styles.round} ${styles.slider}`}></span>
 		</label>
 	)
 }
