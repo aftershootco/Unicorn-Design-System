@@ -1,7 +1,7 @@
 <div align="center">
     <img src="./src/assets/Images/Cover.png" alt="Unicorn Design System">
     <h1>Unicorn Design System</h1>
-    <strong>Unicorn Design System is Aftershoot's inbuilt library for using different react components with custom configurations in thier Desktop app.</strong>
+    <strong>Unicorn Design System is Aftershoot's inbuilt library for using different react components with custom configurations in their Desktop app.</strong>
 </div>
 <br>
 <div align="center">
