@@ -60,12 +60,5 @@
 		"dist"
 	],
 	"types": "dist/index.d.ts",
-<<<<<<< HEAD
-	"dependencies": {
-		"clsx": "^1.1.1",
-		"sass": "^1.52.1"
-	}
-=======
 	"dependencies": {}
->>>>>>> main
 }
