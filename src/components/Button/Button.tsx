@@ -63,7 +63,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
-			className={`button-${props.variant} ${props.className}`}
+			className={`${props.variant? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
 			style={props.style}
 			type={props.type || 'button'}
 			data-id={props.dataId}
