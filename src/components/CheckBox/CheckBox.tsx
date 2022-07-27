@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { ReactComponent as Check } from '../../assets/svg/Check.svg'
-import './styles.module.scss'
+import './CheckBox.scss'
 
 interface Props {
 	/**
