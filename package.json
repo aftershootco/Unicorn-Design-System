@@ -13,6 +13,10 @@
 	},
 	"author": "",
 	"license": "ISC",
+	"peerDependencies": {
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.18.2",
 		"@rollup/plugin-commonjs": "^22.0.0",
