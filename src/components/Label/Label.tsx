@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface LabelProps {
+export interface LabelProps {
 	/**
 	 * Label of the associated input.
 	 */

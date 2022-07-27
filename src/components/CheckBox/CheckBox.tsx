@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { ReactComponent as Check } from '../../assets/svg/Check.svg'
 import './CheckBox.scss'
 
-interface Props {
+export interface CheckBoxProps {
 	/**
 	 * Value of the checkbox.
 	 * @Default false
@@ -15,7 +15,7 @@ interface Props {
 	onChange: (value: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-const CheckBox: React.FC<Props> = (props) => {
+const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	const onClick = useCallback(() => {
 		props.onChange(!props.value)
 	}, [props.onChange, props.value])

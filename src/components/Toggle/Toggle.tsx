@@ -1,7 +1,7 @@
 import React from 'react'
 import './Toggle.scss'
 
-interface ToggleProps {
+export interface ToggleProps {
 	/**
 	 * Styles to be applied on the toggle.
 	 */

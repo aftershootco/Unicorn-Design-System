@@ -1,10 +1,27 @@
-import Button from './Button/Button'
-import CheckBox from './CheckBox/CheckBox'
-import Switch from './Switch/Switch'
-import DropDown from './DropDown/DropDown'
-import TextInput from './TextInput/TextInput'
-import Label from './Label/Label'
-import Toggle from './Toggle/Toggle'
-import Chip from './Chip/Chip'
+import Button, { ButtonProps } from './Button/Button'
+import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
+import Switch, { SwitchProps } from './Switch/Switch'
+import DropDown, { DropDownProps } from './DropDown/DropDown'
+import TextInput, { TextInputProps } from './TextInput/TextInput'
+import Label, { LabelProps } from './Label/Label'
+import Toggle, { ToggleProps } from './Toggle/Toggle'
+import Chip, { ChipProps } from './Chip/Chip'
 
-export { Button, CheckBox, Switch, Label, DropDown, Chip, TextInput, Toggle }
+export {
+	Button,
+	ButtonProps,
+	CheckBox,
+    CheckBoxProps,
+	Switch,
+	SwitchProps,
+	Label,
+	LabelProps,
+	DropDown,
+	DropDownProps,
+	Chip,
+	ChipProps,
+	TextInput,
+	TextInputProps,
+	Toggle,
+	ToggleProps,
+}
