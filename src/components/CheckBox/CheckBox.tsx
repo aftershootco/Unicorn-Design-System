@@ -12,7 +12,7 @@ export interface CheckBoxProps {
 	/**
 	 * Function to be called when checkbox is checked.
 	 */
-	onChange: (e: boolean) => void
+	onChange: (value: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
@@ -21,7 +21,13 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	}, [props.onChange])
 
 	return (
-		<div className={`${styles.checkbox} ${props.value ? styles.active : ''}`} onClick={onClick}>
+		<div
+			className={
+				'relative bg-transparent flex-col align-center justify-center cursor-pointer w-7 h-7 ' +
+				`${styles.checkbox} ${props.value ? styles.active : styles.notActive}`
+			}
+			onClick={onClick}
+		>
 			{props.value && <CheckMark />}
 		</div>
 	)
