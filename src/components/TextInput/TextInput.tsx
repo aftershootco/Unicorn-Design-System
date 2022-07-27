@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 
-export interface TextInputProps {
+interface TextInputProps {
 	/**
 	 * Type of the input
 	 */

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Chip.scss'
 
-export interface ChipProps {
+interface ChipProps {
 	/**
 	 * Text of the button.
 	 */

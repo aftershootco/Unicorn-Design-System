@@ -1,35 +1,36 @@
 import React, { useCallback } from 'react'
-import styles from './styles.module.scss'
-import { ReactComponent as CheckMark } from '../../assets/svg/CheckMark.svg'
+import { ReactComponent as Check } from '../../assets/svg/Check.svg'
+import './CheckBox.scss'
 
-export interface CheckBoxProps {
+interface Props {
 	/**
 	 * Value of the checkbox.
 	 * @Default false
 	 */
-	value?: boolean
+	value: boolean
 
 	/**
 	 * Function to be called when checkbox is checked.
 	 */
-	onChange: (e: boolean) => void
+	onChange: (value: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-const CheckBox: React.FC<CheckBoxProps> = (props) => {
+const CheckBox: React.FC<Props> = (props) => {
 	const onClick = useCallback(() => {
 		props.onChange(!props.value)
-	}, [props.onChange])
+	}, [props.onChange, props.value])
 
 	return (
-		<div className={`${styles.checkbox} ${props.value ? styles.active : ''}`} onClick={onClick}>
-			{props.value && <CheckMark />}
+		<div
+			className={
+				'asCheck relative bg-transparent flex-col align-center justify-center cursor-pointer w-7 h-7 ' +
+				(props.value ? 'as-checked' : 'as-unchecked')
+			}
+			onClick={onClick}
+		>
+			{props.value && <Check className='w-6' />}
 		</div>
 	)
-}
-
-CheckBox.defaultProps = {
-	value: false,
-	onChange: (e) => {},
 }
 
 export default React.memo(CheckBox)
