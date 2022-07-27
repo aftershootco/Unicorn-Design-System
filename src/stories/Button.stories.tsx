@@ -12,8 +12,7 @@ const Template: Story<ButtonProps> = (args: ButtonProps) => <Button {...args} />
 const Default = Template.bind({})
 Default.args = {
 	children: 'Button',
-	size: 'medium',
-	onClick: () => {},
+	onClick: null,
 	variant: 'primary',
 }
 

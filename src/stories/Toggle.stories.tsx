@@ -12,11 +12,11 @@ const Template: Story<ToggleProps> = (args: ToggleProps) => <Toggle {...args} />
 const Default = Template.bind({})
 Default.args = {
 	value: false,
-	onClick: () => {},
+	onClick: null,
 	options: {
-        first: 'First',
-        second: 'Second',
-	}
+		first: 'First',
+		second: 'Second',
+	},
 }
 
 export { Default }

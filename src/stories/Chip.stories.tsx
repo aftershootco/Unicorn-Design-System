@@ -12,8 +12,7 @@ const Template: Story<ChipProps> = (args: ChipProps) => <Chip {...args} />
 const Default = Template.bind({})
 Default.args = {
 	text: 'Lenient',
-	onClick: () => {},
-	className: 'selected-option',
+	onClick: null,
 	index: 1,
 }
 
