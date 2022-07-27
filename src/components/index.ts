@@ -1,5 +1,5 @@
 import Button, { ButtonProps } from './Button/Button'
-import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
+import CheckBox from './CheckBox/CheckBox'
 import Switch, { SwitchProps } from './Switch/Switch'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
@@ -10,7 +10,6 @@ export {
 	Button,
 	ButtonProps,
 	CheckBox,
-	CheckBoxProps,
 	Switch,
 	SwitchProps,
 	Label,

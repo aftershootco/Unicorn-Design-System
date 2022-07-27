@@ -1,68 +1,15 @@
-@import '../../styles/index.scss';
+.asCheck:hover {
+	filter: brightness(1.5);
+}
 
-.checkbox {
-	@extend .cursor-pointer;
-	@extend .relative;
-	display: inline-block;
-
-	width: 25px;
-	height: 25px;
-
-	border: 1px solid $grey400;
+.as-unchecked {
 	border-radius: 5px;
+	border: 1px solid #808080;
+	opacity: 0.5;
+}
 
-	overflow: hidden;
-
-	.checkmark {
-		@extend .absolute;
-		top: 0;
-		left: 0;
-
-		height: 25px;
-		width: 25px;
-
-		@extend .bg-transparent;
-	}
-
-	.checkmark,
-	.checkmark:after {
-		display: none;
-	}
-
-	&.active {
-		// @extend .bg-teal100;
-		// border: 1px solid $teal100;
-		border-radius: 5px;
-		border: 1px solid #808080;
-		opacity: 0.5;
-		opacity: 1;
-		border: 1px solid #ffffff;
-	}
-	.notActive{
-		border-radius: 5px;
-		border: 1px solid #808080;
-		opacity: 0.5;
-	}
-
-	&:hover{
-		filter: brightness(1.5);
-	}
-
-	&.active .checkmark,
-	&.active .checkmark:after {
-		display: block;
-	}
-
-	&.active .checkmark:after {
-		@extend .absolute;
-		content: '';
-		left: 9px;
-		top: 5px;
-		width: 5px;
-		height: 10px;
-		border: solid $white;
-		border-radius: 1px;
-		border-width: 0 2px 2px 0;
-		transform: rotate(45deg);
-	}
+.as-checked {
+	@extend .as-unchecked;
+	opacity: 1;
+	border: 1px solid #ffffff;
 }
