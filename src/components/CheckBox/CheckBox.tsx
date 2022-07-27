@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { Check } from '../../assets/svg'
+import { ReactComponent as Check } from '../../assets/svg/Check.svg'
 import './styles.module.scss'
 
 interface Props {
@@ -28,7 +28,7 @@ const CheckBox: React.FC<Props> = (props) => {
 			}
 			onClick={onClick}
 		>
-			{props.value && <img src={Check} className='w-6' />}
+			{props.value && <Check className='w-6' />}
 		</div>
 	)
 }
