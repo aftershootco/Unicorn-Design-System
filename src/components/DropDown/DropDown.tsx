@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useMemo } from 'react'
 import './dropDown.scss'
 import DownArrow from '../SVG/DownArrow'
 
-export interface DropDownProps {
+interface DropDownProps {
 	/**
 	 * Current value selected of the dropdown
 	 */

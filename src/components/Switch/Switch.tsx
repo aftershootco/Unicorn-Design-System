@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import styles from './styles.module.scss'
 
-export interface SwitchProps {
+interface SwitchProps {
 	/**
 	 * Value of the switch
 	 */
