@@ -29,15 +29,15 @@ export interface ToggleProps {
 const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 	return (
 		<div className='toggler flex-row'>
-			<button className='yearly cursor-pointer text-h4-bold color-white' onClick={() => props.onClick(!props.value)}>
+			<button className='yearly cursor-pointer text-h4-bold color-white' onClick={() => props.onClick(true)}>
 				{props.options.first}
 			</button>
-			<button className='monthly cursor-pointer two text-h4-bold color-white' onClick={() => props.onClick(!props.value)}>
+			<button className='monthly cursor-pointer two text-h4-bold color-white' onClick={() => props.onClick(false)}>
 				{props.options.second}
 			</button>
 
 			<button className={'toggle_button text-h4-bold color-white cursor-pointer' + (!props.value ? ' toggleButton' : '')}>
-				{!props.value ? props.options.second : props.options.first}
+				{props.value ? props.options.first : props.options.second}
 			</button>
 		</div>
 	)
