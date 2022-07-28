@@ -13,7 +13,7 @@ export interface DropDownProps {
 	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
 	 */
 	data: {
-		[key: string]: string
+		[key: string]: string | number
 	}
 
 	/**
