@@ -17,7 +17,6 @@ const Switch: React.FC<SwitchProps> = ({ value = false, onChange }) => {
 	const onClick = useCallback(() => {
 		onChange(!value)
 	}, [onChange])
-
 	return (
 		<label className={`${styles.switch} ${value ? styles.active : ''}`} onClick={onClick}>
 			<span className={`${styles.round} ${styles.slider}`}></span>
