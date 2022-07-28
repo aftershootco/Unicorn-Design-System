@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 
-interface TextInputProps {
+export interface TextInputProps {
 	/**
 	 * Type of the input
 	 */
@@ -82,8 +82,8 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
-						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : null}
-						onClick={props.variant === 'secondary' ? () => props.onClick() : null}
+						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : () => {}}
+						onClick={props.variant === 'secondary' ? () => props.onClick() : () => {}}
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}

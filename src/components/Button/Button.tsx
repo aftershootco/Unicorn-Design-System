@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.scss'
 
-interface ButtonProps {
+export interface ButtonProps {
 	/**
 	 * Classes to be applied to the button
 	 */
