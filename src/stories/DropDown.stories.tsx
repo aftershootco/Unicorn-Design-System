@@ -9,9 +9,10 @@ export default {
 
 const Template: Story<DropDownProps> = (args: DropDownProps) => <DropDown {...args} />
 
-export const Default = Template.bind({})
+const Default = Template.bind({})
 Default.args = {
-	value: 'India',
-	data: ['India', 'Russia', 'Ukraine'],
-	onChange: () => {},
+	data: { India: 'India', Russia: 'Russia', China: 'China' },
+	onChange: null,
 }
+
+export { Default }

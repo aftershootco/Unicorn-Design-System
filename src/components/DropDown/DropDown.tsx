@@ -6,7 +6,7 @@ export interface DropDownProps {
 	/**
 	 * Current value selected of the dropdown
 	 */
-	value: string
+	value: string | number
 
 	/**
 	 * Options to be shown when dropdown is opened.
@@ -47,7 +47,12 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 
 	useEffect(() => {
 		measureHeight()
-		if (state) document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
+		if (state) {
+			// document.getElementById('myDropDown').onkeyup = (e) => {
+			// 	document.getElementById(e.key.toUpperCase())?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			// }
+			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
+		}
 	}, [state])
 
 	const handleChange = React.useCallback((e, item: string | number) => {
@@ -64,11 +69,19 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [props.value, props.data])
 
 	return (
-		<div className='w-100 relative'>
+		<div
+			id='myDropDown'
+			className='w-100 relative'
+			onKeyUp={(e) => {
+				console.log('UDS')
+				// document.getElementById(e.key.toUpperCase())?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			}}
+		>
 			<div
 				className={
-					'default-dropDown  m-2-b p-5-lr p-2-tb text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer' + props.className
+					'default-dropDown  m-2-b p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className
 				}
+				style={{ paddingBottom: '9px' }}
 				onClick={() => setState((state) => !state)}
 			>
 				<div className='selectInput cursor-pointer' ref={inputRef}>
@@ -89,7 +102,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 							<button
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
-								id={props.value === props.data[item] ? 'apply' : 'donot'}
+								id={props.value === props.data[item] ? 'apply' : item[0]}
 								className={
 									'flex-row align-center justify-start options text-left word-break-all p-5-lr p-3-tb w-100 cursor-pointer ' +
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')

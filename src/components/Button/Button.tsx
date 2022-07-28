@@ -3,11 +3,6 @@ import './Button.scss'
 
 export interface ButtonProps {
 	/**
-	 * Size of the button. Default is 'medium'
-	 */
-	size?: 'small' | 'medium' | 'large'
-
-	/**
 	 * Classes to be applied to the button
 	 */
 	className?: string
@@ -63,7 +58,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
-			className={`button-${props.variant} ${props.className}`}
+			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
 			style={props.style}
 			type={props.type || 'button'}
 			data-id={props.dataId}
@@ -78,10 +73,6 @@ const Button: React.FC<ButtonProps> = (props) => {
 
 Button.defaultProps = {
 	variant: 'primary',
-	disabled: false,
-	size: 'medium',
-	style: {},
-	onClick: () => {},
 }
 
 export default React.memo(Button)

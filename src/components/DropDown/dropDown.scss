@@ -29,11 +29,6 @@
 
 	border: 1px solid #808080;
 
-	&:hover {
-		color: #ffffff;
-		filter: brightness(1.5);
-	}
-
 	.selectInput {
 		@extend .flex-row;
 
@@ -110,4 +105,8 @@
 	.optionsIcons:focus {
 		background-color: #343333 !important;
 	}
+}
+
+.bg-32 {
+	background-color: #323232 !important;
 }

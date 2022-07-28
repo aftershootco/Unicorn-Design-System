@@ -6,11 +6,12 @@ import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Label, { LabelProps } from './Label/Label'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 import Chip, { ChipProps } from './Chip/Chip'
+
 export {
 	Button,
 	ButtonProps,
 	CheckBox,
-	CheckBoxProps,
+    CheckBoxProps,
 	Switch,
 	SwitchProps,
 	Label,

@@ -9,10 +9,11 @@ export default {
 
 const Template: Story<ChipProps> = (args: ChipProps) => <Chip {...args} />
 
-export const Default = Template.bind({})
+const Default = Template.bind({})
 Default.args = {
 	text: 'Lenient',
-	onClick: () => {},
-	className: 'selected-option',
+	onClick: null,
 	index: 1,
 }
+
+export { Default }
