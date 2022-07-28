@@ -11,7 +11,8 @@ const Template: Story<SwitchProps> = (args: SwitchProps) => <Switch {...args} />
 
 const Default = Template.bind({})
 Default.args = {
-	value: false,
+	value: true,
+	varient: 'filled',
 }
 
 export { Default }

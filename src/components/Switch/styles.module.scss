@@ -51,6 +51,31 @@
 		}
 	}
 
+	&.outlined {
+		&.active {
+			.slider {
+				@extend .bg-teal100;
+				border: 1px solid #1da0bc;
+			}
+			.slider:before {
+				@extend .bg-white;
+				position: absolute;
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+		.slider {
+			background-color: transparent;
+			border: 1px solid #808080,
+		}
+		.slider:before {
+			background-color: #808080;
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+		}
+	}
+
 	/* Rounded sliders */
 	.slider.round {
 		border-radius: 20px;
