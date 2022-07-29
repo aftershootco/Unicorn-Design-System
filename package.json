@@ -1,72 +1,71 @@
 {
-    "name": "@aftershootco/unicorn-design-system",
-    "version": "1.0.17",
-    "description": "",
-    "repository": {
-        "url": "https://github.com/aftershootco/Unicorn-Design-System",
-        "type": "git"
-    },
-    "scripts": {
-        "build": "rollup -c",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
-    },
-    "author": "",
-    "license": "ISC",
-    "peerDependencies": {
-        "react": "^18.1.0",
-        "react-dom": "^18.1.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.18.2",
-        "@rollup/plugin-commonjs": "^22.0.1",
-        "@rollup/plugin-node-resolve": "^13.3.0",
-        "@rollup/plugin-typescript": "^8.3.4",
-        "@rollup/plugin-url": "^7.0.0",
-        "@storybook/addon-actions": "^6.5.9",
-        "@storybook/addon-essentials": "^6.5.9",
-        "@storybook/addon-interactions": "^6.5.9",
-        "@storybook/addon-links": "^6.5.9",
-        "@storybook/html": "^6.5.9",
-        "@storybook/preset-scss": "^1.0.3",
-        "@storybook/react": "^6.5.9",
-        "@storybook/testing-library": "^0.0.13",
-        "@svgr/rollup": "^6.3.1",
-        "@types/react": "^18.0.15",
-        "@types/react-dom": "^18.0.6",
-        "autoprefixer": "^10.4.7",
-        "babel-loader": "^8.2.5",
-        "css-loader": "^5.2.7",
-        "husky": "^8.0.1",
-        "node-sass": "^7.0.1",
-        "postcss": "^8.4.14",
-        "postcss-flexbugs-fixes": "^5.0.2",
-        "postcss-url": "^10.1.3",
-        "rollup": "^2.77.2",
-        "rollup-plugin-babel": "^4.4.0",
-        "rollup-plugin-dts": "^4.2.2",
-        "rollup-plugin-images": "^1.0.0",
-        "rollup-plugin-peer-deps-external": "^2.2.4",
-        "rollup-plugin-postcss": "^4.0.2",
-        "rollup-plugin-scss": "^3.0.0",
-        "rollup-plugin-svg": "^2.0.0",
-        "rollup-plugin-svg-import": "^1.6.0",
-        "rollup-plugin-terser": "^7.0.2",
-        "sass-loader": "^10.0",
-        "style-loader": "^2.0",
-        "tslib": "^2.4.0",
-        "typescript": "^4.7.4"
-    },
-    "main": "dist/index.cjs.js",
-    "module": "dist/index.esm.js",
-    "files": [
-        "dist"
-    ],
-    "types": "dist/index.d.ts",
-    "dependencies": {},
-    "keywords": [
-        "unicorn",
-        "aftershoot"
-    ]
+	"name": "@aftershootco/unicorn-design-system",
+	"version": "1.0.18",
+	"description": "",
+	"repository": {
+		"url": "https://github.com/aftershootco/Unicorn-Design-System",
+		"type": "git"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"author": "",
+	"license": "ISC",
+	"peerDependencies": {
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.18.2",
+		"@rollup/plugin-commonjs": "^22.0.1",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.3.4",
+		"@rollup/plugin-url": "^7.0.0",
+		"@storybook/addon-actions": "^6.5.9",
+		"@storybook/addon-essentials": "^6.5.9",
+		"@storybook/addon-interactions": "^6.5.9",
+		"@storybook/addon-links": "^6.5.9",
+		"@storybook/html": "^6.5.9",
+		"@storybook/preset-scss": "^1.0.3",
+		"@storybook/react": "^6.5.9",
+		"@storybook/testing-library": "^0.0.13",
+		"@svgr/rollup": "^6.3.1",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
+		"autoprefixer": "^10.4.7",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^5.2.7",
+		"husky": "^8.0.1",
+		"node-sass": "^7.0.1",
+		"postcss": "^8.4.14",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-url": "^10.1.3",
+		"rollup": "^2.77.2",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-dts": "^4.2.2",
+		"rollup-plugin-images": "^1.0.0",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-postcss": "^4.0.2",
+		"rollup-plugin-scss": "^3.0.0",
+		"rollup-plugin-svg": "^2.0.0",
+		"rollup-plugin-svg-import": "^1.6.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"sass-loader": "^10.0",
+		"style-loader": "^2.0",
+		"tslib": "^2.4.0",
+		"typescript": "^4.7.4"
+	},
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
+	"files": [
+		"dist"
+	],
+	"types": "dist/index.d.ts",
+	"dependencies": {},
+	"keywords": [
+		"unicorn",
+		"aftershoot"
+	]
 }
-
