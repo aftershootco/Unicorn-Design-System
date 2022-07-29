@@ -17,7 +17,7 @@ export interface CheckBoxProps {
 
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	const onClick = useCallback(
-		(e) => {
+		(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 			props.onChange(!props.value, e)
 		},
 		[props.onChange, props.value]
