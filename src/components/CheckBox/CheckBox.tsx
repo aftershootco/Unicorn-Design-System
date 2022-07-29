@@ -16,9 +16,12 @@ export interface CheckBoxProps {
 }
 
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
-	const onClick = useCallback(() => {
-		props.onChange(!props.value)
-	}, [props.onChange, props.value])
+	const onClick = useCallback(
+		(e) => {
+			props.onChange(!props.value, e)
+		},
+		[props.onChange, props.value]
+	)
 
 	return (
 		<div
