@@ -6,6 +6,7 @@ import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Label, { LabelProps } from './Label/Label'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 import Chip, { ChipProps } from './Chip/Chip'
+import Divider, { DividerProps } from './Divider/Divider'
 
 export {
 	Button,
@@ -24,4 +25,6 @@ export {
 	TextInputProps,
 	Toggle,
 	ToggleProps,
+	Divider,
+	DividerProps
 }

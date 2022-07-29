@@ -1,0 +1,15 @@
+@import '../../styles/size.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/text.scss';
+
+.horizontal {
+    @extend .bg-grey300;
+    height: 1px;
+    width: calc(100% - 5rem);
+}
+
+.vertical {
+    @extend .bg-grey300;
+    width: 1px;
+    height: auto;
+}
