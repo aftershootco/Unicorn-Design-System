@@ -92,7 +92,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						<div
 							className={`${styles.adornmentEnd} cursor-pointer absolute`}
 							onClick={() => setShowPassword((state) => !state)}
-							style={{ top: '28%', left: '88%' }}
+							style={{ top: '28%', left: '91%' }}
 						>
 							{showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
