@@ -22,6 +22,11 @@ export interface DropDownProps {
 	className?: string
 
 	/**
+	 * Width of the dropdown
+	 */
+	width?: string
+
+	/**
 	 * Style to be applied to the dropdown.
 	 */
 	style?: React.CSSProperties
@@ -48,9 +53,6 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	useEffect(() => {
 		measureHeight()
 		if (state) {
-			// document.getElementById('myDropDown').onkeyup = (e) => {
-			// 	document.getElementById(e.key.toUpperCase())?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
-			// }
 			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
 		}
 	}, [state])
@@ -69,14 +71,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [props.value, props.data])
 
 	return (
-		<div
-			id='myDropDown'
-			className='w-100 relative'
-			onKeyUp={(e) => {
-				console.log('UDS')
-				// document.getElementById(e.key.toUpperCase())?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
-			}}
-		>
+		<div id='myDropDown' className='w-100 relative'>
 			<div
 				className={
 					'default-dropDown  m-2-b p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className
@@ -95,7 +90,10 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)} />}
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
-				<div className='dropDown absolute w-100 br-10' style={{ maxHeight: `calc(100vh - ${height}px)` }}>
+				<div
+					className='dropDown absolute w-100 br-10'
+					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
+				>
 					{Object.keys(props.data).map((item, i) => {
 						let objectLength = Object.keys(props.data).length
 						return (
