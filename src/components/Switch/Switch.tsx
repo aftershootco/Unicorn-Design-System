@@ -22,13 +22,14 @@ export interface SwitchProps {
 	/**
 	 * Function to be called when switch is changed
 	 */
-	onChange: (e: boolean) => void
+	onChange: (value: boolean) => void
 }
 
 const Switch: React.FC<SwitchProps> = ({ varient, value = false, style, onChange }) => {
 	const onClick = useCallback(() => {
 		onChange(!value)
-	}, [onChange])
+	}, [onChange, value])
+
 	return (
 		<label
 			className={`${styles.switch} ${value ? styles.active : ''} ${varient === 'outlined' ? styles.outlined : ''}`}
