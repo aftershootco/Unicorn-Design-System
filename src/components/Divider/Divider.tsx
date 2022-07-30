@@ -7,10 +7,12 @@ export interface DividerProps {
 	 * @default horizontal
 	 */
 	varient?: 'horizontal' | 'vertical'
+
 	/**
-	 * c
+	 * Classes to be applied.
 	 */
 	className?: string
+
 	/**
 	 * Styles to be applied.
 	 */
@@ -18,7 +20,7 @@ export interface DividerProps {
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
-	return <div className={props.varient === 'vertical' ? 'vertical ' : 'horizontal ' + props.className} style={props.style}></div>
+	return <div className={props.varient && props.varient === 'vertical' ? 'vertical ' : 'horizontal ' + props.className} style={props.style}></div>
 }
 
 export default React.memo(Divider)
