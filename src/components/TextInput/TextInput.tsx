@@ -41,6 +41,7 @@ export interface TextInputProps {
 
 	/**
 	 * Type of the input field.
+	 * @default primary
 	 */
 	variant?: 'primary' | 'secondary' | 'tertiary'
 
@@ -102,6 +103,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 
 			{props.variant === 'tertiary' && (
 				<div className={`relative ${props?.className}`}>
+					{props.prefix}
 					<input
 						type='text'
 						className={`${styles.inputBox} ${props.inputProperties} relative`}
