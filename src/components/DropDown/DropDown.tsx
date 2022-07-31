@@ -79,7 +79,11 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 				style={{ paddingBottom: '9px' }}
 				onClick={() => setState((state) => !state)}
 			>
-				<div className='selectInput cursor-pointer' ref={inputRef}>
+				<div
+					className='selectInput cursor-pointer'
+					ref={inputRef}
+					style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', display: 'inline-block' }}
+				>
 					{value}
 				</div>
 				<div className={state ? 'arrowUp' : 'arrowDown'}>
