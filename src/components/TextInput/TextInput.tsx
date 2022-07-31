@@ -74,7 +74,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	const [showPassword, setShowPassword] = useState(props.type === 'password')
 	return (
 		<>
-			{(props.variant === 'primary' || props.variant === 'secondary') && (
+			{(!props.variant || props.variant === 'primary' || props.variant === 'secondary') && (
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
@@ -82,7 +82,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
-						onChange={props.variant === 'primary' ? (e) => props.onChange(e) : () => {}}
+						onChange={!props.variant || props.variant === 'primary' ? (e) => props.onChange(e) : () => {}}
 						onClick={props.variant === 'secondary' ? () => props.onClick() : () => {}}
 						disabled={props.disable}
 						style={props.style}

@@ -14,7 +14,6 @@ const Template: Story<TextInputProps> = (args) => <TextInput {...args} />
 
 const Default = Template.bind({})
 Default.args = {
-	variant: 'primary',
 	type: 'text',
 	placeholder: 'name',
 	style: { color: 'black' },
