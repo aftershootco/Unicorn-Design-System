@@ -25,16 +25,16 @@ export interface SwitchProps {
 	onChange: (value: boolean) => void
 }
 
-const Switch: React.FC<SwitchProps> = ({ varient, value = false, style, onChange }) => {
+const Switch: React.FC<SwitchProps> = (props) => {
 	const onClick = useCallback(() => {
-		onChange(!value)
-	}, [onChange, value])
+		props.onChange(!props.value)
+	}, [props.onChange, props.value])
 
 	return (
 		<label
-			className={`${styles.switch} ${value ? styles.active : ''} ${varient === 'outlined' ? styles.outlined : ''}`}
+			className={`${styles.switch} ${props.value ? styles.active : ''} ${props.varient === 'outlined' ? styles.outlined : ''}`}
 			onClick={onClick}
-			style={style}
+			style={props.style}
 		>
 			<span className={`${styles.round} ${styles.slider}`}></span>
 		</label>
