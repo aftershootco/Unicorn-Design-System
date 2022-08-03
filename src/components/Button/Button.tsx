@@ -45,6 +45,11 @@ export interface ButtonProps {
 	type?: 'button' | 'submit' | 'reset'
 
 	/**
+	 * Id of the div item.
+	 */
+	id?: string
+
+	/**
 	 * To check which button is clicked with same onClick function.
 	 */
 	dataId?: string
@@ -59,6 +64,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
 			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
+			id={props.id}
 			style={props.style}
 			type={props.type || 'button'}
 			data-id={props.dataId}

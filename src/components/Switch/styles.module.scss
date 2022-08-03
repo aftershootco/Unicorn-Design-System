@@ -3,9 +3,7 @@
 .switch {
 	position: relative;
 	display: inline-block;
-	// width: 31.54px;
 	width: 2.470588235294118rem;
-	// height: 20px;
 	height: 1.4705882352941179rem;
 
 	/* The slider */
@@ -23,16 +21,11 @@
 	}
 
 	.slider:before {
-		// @extend .bg-grey100;
 		@extend .bg-white;
 
 		position: absolute;
 		content: '';
-		// height: 18px;
-		// width: 1.0588235294117647rem;
 		width: 1.1rem;
-		// width: 18px;
-		// height: 1.0588235294117647rem;
 		height: 1.1rem;
 		left: 4px;
 		bottom: 3px;
@@ -66,7 +59,7 @@
 		}
 		.slider {
 			background-color: transparent;
-			border: 1px solid #808080,
+			border: 1px solid #808080;
 		}
 		.slider:before {
 			background-color: #808080;
