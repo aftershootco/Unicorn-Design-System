@@ -14,10 +14,12 @@
 .button-primary {
 	@extend .button;
 	@extend .bg-teal400;
+	border: 1px solid $teal400;
 
 	&:hover {
 		cursor: pointer;
 		@extend .bg-teal500;
+		border: 1px solid $teal500;
 	}
 
 	&:disabled {
@@ -78,7 +80,7 @@
 		cursor: pointer;
 		background-color: $grey500B;
 	}
-	
+
 	&:disabled {
 		pointer-events: none;
 	}
