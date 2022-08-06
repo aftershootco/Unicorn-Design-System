@@ -9,6 +9,7 @@
 	"scripts": {
 		"build": "rollup -c",
 		"storybook": "start-storybook -p 6006",
+		"publish": "yarn build && npm publish",
 		"build-storybook": "build-storybook"
 	},
 	"author": "",
