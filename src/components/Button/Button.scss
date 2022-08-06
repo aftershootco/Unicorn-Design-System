@@ -89,15 +89,9 @@
 	@extend .bg-transparent;
 	border: 1px solid transparent;
 
-	// &:hover {
-	// 	cursor: pointer;
-	// 	@extend .bg-grey500;
-	// }
-
-	// &:disabled {
-	// 	color: $grey400;
-	// 	pointer-events: none;
-	// }
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .button-alert {

@@ -12,8 +12,8 @@ const Template: Story<ChipProps> = (args: ChipProps) => <Chip {...args} />
 const Default = Template.bind({})
 Default.args = {
 	text: 'Lenient',
+	variant: 'primary',
 	onClick: null,
-	index: 1,
 }
 
 export { Default }
