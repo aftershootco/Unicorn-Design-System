@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
-import './dropDown.scss'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
+import './dropDown.scss'
 
 export interface DropDownProps {
 	/**
@@ -76,7 +76,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 				className={
 					'default-dropDown  m-2-b p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className
 				}
-				style={{ paddingBottom: '9px' }}
+				style={{ paddingBottom: '9px', ...props.style }}
 				onClick={() => setState((state) => !state)}
 			>
 				<div
