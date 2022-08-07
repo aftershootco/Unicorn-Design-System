@@ -33,13 +33,11 @@
 	@extend .button;
 	@extend .bg-white;
 	@extend .color-black;
-	padding: 0.3rem 1.5rem;
-	margin-top: 0.2rem;
-	margin-bottom: 0.2rem;
 
 	&:hover {
 		cursor: pointer;
-		background-color: rgb(181, 181, 181);
+		background-color: rgb(181, 181, 181) !important;
+		border: 1px solid rgb(181, 181, 181) !important;
 	}
 	&:disabled {
 		@extend .color-white200;
@@ -91,15 +89,9 @@
 	@extend .bg-transparent;
 	border: 1px solid transparent;
 
-	// &:hover {
-	// 	cursor: pointer;
-	// 	@extend .bg-grey500;
-	// }
-
-	// &:disabled {
-	// 	color: $grey400;
-	// 	pointer-events: none;
-	// }
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .button-alert {
