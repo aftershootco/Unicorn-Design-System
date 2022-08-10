@@ -3,12 +3,12 @@
 @import '../../styles/text.scss';
 
 .button {
+	border: none;
 	box-sizing: border-box;
+	padding: 0.6rem 2rem;
 	@extend .br-100;
 	@extend .text-h4-bold;
-	padding: 0.6rem 2rem;
 	@extend .color-white;
-	border: none;
 }
 
 .button-primary {
@@ -37,7 +37,6 @@
 	&:hover {
 		cursor: pointer;
 		background-color: rgb(181, 181, 181) !important;
-		border: 1px solid rgb(181, 181, 181) !important;
 	}
 	&:disabled {
 		@extend .color-white200;
@@ -45,6 +44,10 @@
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		box-sizing: border-box;
 		border-radius: 32.3333px;
+		&:hover {
+			background: transparent !important;
+			pointer-events: none;
+		}
 	}
 }
 
