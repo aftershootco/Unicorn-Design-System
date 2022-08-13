@@ -78,35 +78,3 @@
 		}
 	}
 }
-
-//icons dropDown
-
-.icons-dropDown {
-	@extend .flex;
-	@extend .align-center;
-	@extend .justify-between;
-
-	.arrowUp {
-		@extend .up;
-	}
-	.arrowDown {
-		@extend .down;
-	}
-}
-
-.dropDownIcons {
-	z-index: 1700;
-	color: #ffffff;
-	top: 2.5rem;
-	min-width: 110px;
-	background-color: #282828;
-	.optionsIcons:hover,
-	.optionsIcons:active,
-	.optionsIcons:focus {
-		background-color: #343333 !important;
-	}
-}
-
-.bg-32 {
-	background-color: #323232 !important;
-}
