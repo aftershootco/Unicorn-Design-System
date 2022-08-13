@@ -71,12 +71,12 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [props.value, props.data])
 
 	return (
-		<div id='myDropDown' className='w-100 relative'>
+		<div id='myDropDown' className='w-100 relative' style={{ ...props.style }}>
 			<div
 				className={
 					'default-dropDown  m-2-b p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className
 				}
-				style={{ paddingBottom: '9px', ...props.style }}
+				style={{ paddingBottom: '9px' }}
 				onClick={() => setState((state) => !state)}
 			>
 				<div
