@@ -73,9 +73,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	return (
 		<div id='myDropDown' className='w-100 relative'>
 			<div
-				className={
-					'default-dropDown m-2-b p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className
-				}
+				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
 				onClick={() => setState((state) => !state)}
 			>
@@ -95,7 +93,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
 				<div
-					className='dropDown absolute w-100 br-10'
+					className='dropDown absolute m-2-t w-100 br-10'
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
 				>
 					{Object.keys(props.data).map((item, i) => {
