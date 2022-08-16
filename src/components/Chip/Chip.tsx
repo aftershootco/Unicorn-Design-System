@@ -3,6 +3,31 @@ import './Chip.scss'
 
 export interface ChipProps {
 	/**
+	 * Key of a div
+	 */
+	key?: number
+
+	/**
+	 * Weather rthe button is clicked or not?
+	 */
+	selected?: boolean
+
+	/**
+	 * Is disabled?
+	 */
+	disabled?: boolean
+
+	/**
+	 * Type of the chip. Default is 'primary'
+	 */
+	variant?: 'primary' | 'secondary'
+
+	/**
+	 * Background color of the btn.
+	 */
+	backgroundColor?: string
+
+	/**
 	 * Text of the button.
 	 */
 	text?: string
@@ -10,7 +35,7 @@ export interface ChipProps {
 	/**
 	 * Inner component to be rendered inside the chip.
 	 */
-	children?: string | React.ReactNode
+	children?: React.ReactNode
 
 	/**
 	 * Classes to be applied to the button
@@ -18,27 +43,28 @@ export interface ChipProps {
 	className?: string
 
 	/**
-	 * Type of the chip. Default is 'primary'
+	 * Style to be applied to the button.
 	 */
-	variant?: 'primary' | 'secondary' | 'tertiary'
+	style?: React.CSSProperties
 
 	/**
 	 * Function to be called when hit a button
 	 */
 	onClick: () => void
-
-	/**
-	 * Style to be applied to the button.
-	 */
-	style?: React.CSSProperties
 }
 
-const Chip: React.FC<ChipProps> = (props) => {
+const Chip: React.FC<ChipProps> = ({ disabled = false, selected = true, ...props }) => {
 	return (
 		<button
-			className={'text-h5 color-white cursor-pointer br-10 ' + `prefer-${props.variant} ${props.className}`}
-			onClick={props.onClick}
-			style={props.style}
+			key={props.key}
+			className={
+				'text-h5 color-white cursor-pointer ' +
+				`prefer-${props.variant} ${props.className} ` +
+				`disabled-${disabled} ` +
+				`selected-${selected}`
+			}
+			style={{ background: `${props.backgroundColor}`, border: `1px solid ${props.backgroundColor}`, ...props.style }}
+			onClick={!disabled && props.onClick}
 		>
 			{props.text || props.children}
 		</button>
