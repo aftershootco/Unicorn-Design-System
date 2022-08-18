@@ -55,3 +55,9 @@
 .self-center {
 	align-self: center;
 }
+
+.hoverBright {
+	&:hover {
+		filter: brightness(1.2);
+	}
+}
