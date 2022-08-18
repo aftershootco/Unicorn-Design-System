@@ -42,3 +42,19 @@
 	position: relative;
 	z-index: 1301 !important;
 }
+
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+
+.overflow-x-scroll {
+	overflow-x: scroll;
+}
+
+.overflow-y-hidden {
+	overflow-y: hidden;
+}
+
+.overflow-y-scroll {
+	overflow-y: scroll;
+}

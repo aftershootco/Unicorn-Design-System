@@ -22,10 +22,10 @@ $grey500B: #00000040;
 $grey700B: #565656;
 $grey1000: #282828;
 $grey1200: #343333;
+$grey4343: #434343;
 
 // black
 $black: #000000;
-
 // white
 $white: #ffffff;
 $white100: #c1c1c1;
@@ -143,6 +143,11 @@ $red200: #cf564d;
 .bg-grey1200 {
 	background-color: $grey1200 !important;
 }
+
+.bg-43 {
+	background-color: $grey4343;
+}
+
 .bg-red100 {
 	background-color: $red100;
 }
