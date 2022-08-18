@@ -1,4 +1,4 @@
-import React, { useState, memo, JSXElementConstructor } from 'react'
+import React from 'react'
 import './Dialog.scss'
 
 import Button from '../Button/Button'
