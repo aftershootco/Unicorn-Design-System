@@ -27,7 +27,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
 					props.positiveClick()
 				}
 			}}
-			className='default-dialog'
+			className='default-dialog relative bg-grey800 p-10 p-8-b br-10'
 			style={props.style}
 		>
 			{props.children}
