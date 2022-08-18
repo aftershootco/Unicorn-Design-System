@@ -2,27 +2,44 @@ import React from 'react'
 import './LinearProgressBar.scss'
 
 export interface LinearProgressBarProps {
-	// variants 
-	variant?: 'indeterminant' | 'determinant'
+	// set the value to change between determinant and indeterminant
+	// 0 for indeterminant
+	value?: number
 
-	// set the progress for progress bar
-	progress?: number
+	// line color
+	lineBackgroundColor?: string
+
+	// subline color
+	sublineBackgroundColor?: string
 }
 
 const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 
+	const lineStyle = {
+		background: `${props.lineBackgroundColor}`,
+	}
+
+	const sublineStyle = {
+		background: `${props.sublineBackgroundColor}`,
+	}
+
+	const sublineStyleDeter = {
+		background: `${props.sublineBackgroundColor}`,
+		width: props.value + '%',
+	}
+
 	return (
 		<>
-			{(props.variant === 'indeterminant') ? (
+			{(props.value > 0) ? (
 				<div className='slider'>
-					<div className='line'></div>
-					<div className='subline inc'></div>
-					<div className='subline dec'></div>
+					<div className='line' style={lineStyle}></div>
+					<div className='subline' style={sublineStyleDeter}></div>
 				</div>
 			) : (
 				<div className='slider'>
-					<div className='line'></div>
-					<div className='subline' style={{width: props.progress + '%'}}></div>
+					<div className='line' style={lineStyle}></div>
+					<div className='subline inc' style={sublineStyle}></div>
+					<div className='subline dec' style={sublineStyle}></div>
 				</div>
 			)}
 		</>
@@ -30,7 +47,9 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 }
 
 LinearProgressBar.defaultProps = {
-	variant: 'indeterminant',
+	value: 0,
+	lineBackgroundColor: '#434343',
+	sublineBackgroundColor: '#1da0bc'
 }
 
 export default LinearProgressBar
