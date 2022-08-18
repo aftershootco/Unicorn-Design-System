@@ -1,5 +1,5 @@
-import React from 'react'
 import { Meta, Story } from '@storybook/react'
+import React from 'react'
 import { Toggle, ToggleProps } from '../components'
 
 export default {
