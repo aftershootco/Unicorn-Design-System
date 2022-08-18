@@ -1,7 +1,6 @@
 import React from 'react'
-import './Dialog.scss'
-
 import Button from '../Button/Button'
+import './Dialog.scss'
 
 export interface DialogProps {
 	/**
