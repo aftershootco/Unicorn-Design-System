@@ -7,28 +7,34 @@ export interface DialogProps {
 	 * @string Primary/First Button Text
 	 */
 	positiveText?: string
+
 	/**
 	 * @string Tertiary/Second Button Text
 	 */
 	negativeText?: string
+
 	/**
 	 * CSS style object
 	 */
-	style?: {}
+	style?: React.CSSProperties
+
 	/**
 	 * Children nodes to be passed as arguements to the dialog box
 	 */
 	children: React.ReactNode
+
 	/**
 	 * @function for onClose callback on the Dialog box
 	 */
 	onClose: () => void
+
 	/**
 	 * @function for onClick Callback on the primary button
 	 */
 	positiveClick?: () => void
+
 	/**
-	 * @string for onClick Callback on the tertiary button
+	 * @function for onClick Callback on the tertiary button
 	 */
 	negativeClick?: () => void
 }
@@ -50,15 +56,14 @@ const Dialog: React.FC<DialogProps> = (props) => {
 		>
 			{props.children}
 			<div className={'flex-col align-center ' + (props?.positiveText ? 'p-6-t' : 'p-0-t')}>
-				{props?.positiveText && (
-					<Button variant='primary' onClick={props.positiveClick} style={{ width: '50%' }}>
-						{props.positiveText}
-					</Button>
-				)}
-				{props?.negativeButton && (
-					<Button variant='tertiary' className='cursor-pointer hoverBright p-4-tb text-h4 color-white' onClick={props.negativeClick}>
-						{props.negativeText}
-					</Button>
+				{props?.positiveText && <Button variant='primary' text={props.positiveText} style={{ width: '50%' }} onClick={props.positiveClick} />}
+				{props?.negativeText && (
+					<Button
+						variant='tertiary'
+						className='cursor-pointer hoverBright p-4-tb text-h4 color-white'
+						text={props.negativeText}
+						onClick={props.negativeClick}
+					/>
 				)}
 			</div>
 		</dialog>
