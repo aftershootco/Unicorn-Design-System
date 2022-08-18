@@ -10,19 +10,19 @@ export interface DialogProps {
 	negativeText?: string
 	style?: {}
 	children: React.ReactNode
-	close: () => void
+	onClose: () => void
 	positiveClick?: () => void
 	negativeClick?: () => void
 }
 
-const GenericDialog: React.FC<DialogProps> = (props) => {
+const Dialog: React.FC<DialogProps> = (props) => {
 	return (
 		<dialog
 			open={true}
 			aria-labelledby='simple-dialog-title'
 			onKeyUp={(e) => {
 				if (e.key === 'Escape') {
-					props.close()
+					props.onClose()
 				} else if (e.key === 'Enter' && props.positiveClick) {
 					props.positiveClick()
 				}
@@ -38,7 +38,7 @@ const GenericDialog: React.FC<DialogProps> = (props) => {
 					</Button>
 				)}
 				{props.negativeButton && (
-					<Button variant='tertiary' className='hoverBright text-h4 color-white cursor-pointer p-4-tb' onClick={props.negativeClick}>
+					<Button variant='tertiary' className='cursor-pointer hoverBright p-4-tb text-h4 color-white' onClick={props.negativeClick}>
 						{props.negativeText}
 					</Button>
 				)}
@@ -47,4 +47,4 @@ const GenericDialog: React.FC<DialogProps> = (props) => {
 	)
 }
 
-export default React.memo(GenericDialog)
+export default React.memo(Dialog)

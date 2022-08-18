@@ -17,7 +17,7 @@ Default.args = {
 	negativeText: 'Cancel',
 	style: {},
 	children: <div>Are you good ?</div>,
-	close: null,
+	onClose: null,
 	positiveClick: null,
 	negativeClick: null,
 }
