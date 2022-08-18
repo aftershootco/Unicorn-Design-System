@@ -4,14 +4,33 @@ import './Dialog.scss'
 import Button from '../Button/Button'
 
 export interface DialogProps {
-	positiveButton: boolean
+	/**
+	 * @string Primary/First Button Text
+	 */
 	positiveText?: string
-	negativeButton?: boolean
+	/**
+	 * @string Tertiary/Second Button Text
+	 */
 	negativeText?: string
+	/**
+	 * CSS style object
+	 */
 	style?: {}
+	/**
+	 * Children nodes to be passed as arguements to the dialog box
+	 */
 	children: React.ReactNode
+	/**
+	 * @function for onClose callback on the Dialog box
+	 */
 	onClose: () => void
+	/**
+	 * @function for onClick Callback on the primary button
+	 */
 	positiveClick?: () => void
+	/**
+	 * @string for onClick Callback on the tertiary button
+	 */
 	negativeClick?: () => void
 }
 
@@ -31,13 +50,13 @@ const Dialog: React.FC<DialogProps> = (props) => {
 			style={props.style}
 		>
 			{props.children}
-			<div className={'flex-col align-center ' + (props.positiveButton ? 'p-6-t' : 'p-0-t')}>
-				{props.positiveButton && (
+			<div className={'flex-col align-center ' + (props?.positiveText ? 'p-6-t' : 'p-0-t')}>
+				{props?.positiveText && (
 					<Button variant='primary' onClick={props.positiveClick} style={{ width: '50%' }}>
 						{props.positiveText}
 					</Button>
 				)}
-				{props.negativeButton && (
+				{props?.negativeButton && (
 					<Button variant='tertiary' className='cursor-pointer hoverBright p-4-tb text-h4 color-white' onClick={props.negativeClick}>
 						{props.negativeText}
 					</Button>
