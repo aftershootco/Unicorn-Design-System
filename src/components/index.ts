@@ -5,6 +5,7 @@ import Dialog, { DialogProps } from './Dialog/Dialog'
 import Divider, { DividerProps } from './Divider/Divider'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
 import Label, { LabelProps } from './Label/Label'
+import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
@@ -30,4 +31,6 @@ export {
 	ToggleProps,
 	Divider,
 	DividerProps,
+	LinearProgressBar,
+	LinearProgressBarProps,
 }
