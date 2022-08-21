@@ -60,12 +60,13 @@ export interface ButtonProps {
 	dataTestId?: string
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = React.forwardRef((props, ref: any) => {
 	return (
 		<button
-			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
 			id={props.id}
+			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
 			style={props.style}
+			ref={ref}
 			type={props.type || 'button'}
 			data-id={props.dataId}
 			data-test-id={props.dataTestId}
@@ -75,7 +76,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 			{props.text || props.children}
 		</button>
 	)
-}
+})
 
 Button.defaultProps = {
 	variant: 'primary',
