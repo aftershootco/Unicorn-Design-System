@@ -63,6 +63,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = React.forwardRef((props, ref: any) => {
 	return (
 		<button
+			{...props}
 			id={props.id}
 			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
 			style={props.style}
