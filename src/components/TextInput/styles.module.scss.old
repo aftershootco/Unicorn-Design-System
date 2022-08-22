@@ -10,7 +10,6 @@
 	left: 0.75rem;
 	top: calc(50% - 0.6rem);
 }
-
 .inputBox {
 	@extend .flex;
 	@extend .align-center;

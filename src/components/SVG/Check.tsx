@@ -4,19 +4,19 @@ interface SVGProps {
   className?: string;
 }
 
-const DownArrow: React.FC<SVGProps> = ({ className }: SVGProps) => {
+const Check: React.FC<SVGProps> = ({ className }: SVGProps) => {
   return (
     <svg
-      width="12"
-      height="7"
-      viewBox="0 0 12 7"
+      width="17"
+      height="13"
+      viewBox="0 0 12 9"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <path
-        d="M11 1L6 6L1 1"
-        stroke="#999999"
+        d="M11 1L4.125 8L1 4.81818"
+        stroke="white"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -24,4 +24,4 @@ const DownArrow: React.FC<SVGProps> = ({ className }: SVGProps) => {
   );
 };
 
-export default DownArrow;
+export default Check;

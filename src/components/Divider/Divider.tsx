@@ -1,5 +1,5 @@
 import React from 'react'
-import './Divider.scss'
+// import './Divider.scss'
 
 export interface DividerProps {
 	/**

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import styles from './styles.module.scss'
+// import styles from './styles.module.scss'
 
 export interface SwitchProps {
 	/**
@@ -32,11 +32,11 @@ const Switch: React.FC<SwitchProps> = (props) => {
 
 	return (
 		<label
-			className={`${styles.switch} ${props.value ? styles.active : ''} ${props.varient === 'outlined' ? styles.outlined : ''}`}
+			// className={`${styles.switch} ${props.value ? styles.active : ''} ${props.varient === 'outlined' ? styles.outlined : ''}`}
 			onClick={onClick}
 			style={props.style}
 		>
-			<span className={`${styles.round} ${styles.slider}`}></span>
+			{/* <span className={`${styles.round} ${styles.slider}`}></span> */}
 		</label>
 	)
 }

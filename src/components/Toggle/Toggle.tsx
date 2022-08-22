@@ -1,5 +1,5 @@
 import React from 'react'
-import './Toggle.scss'
+// import './Toggle.scss'
 
 export interface ToggleProps {
 	/**
@@ -28,11 +28,11 @@ export interface ToggleProps {
 
 const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 	return (
-		<div className='toggler flex-row'>
-			<button className='yearly cursor-pointer text-h4-bold color-white' onClick={() => props.onClick(true)}>
+		<div className='flex-row toggler'>
+			<button className='cursor-pointer yearly text-h4-bold color-white' onClick={() => props.onClick(true)}>
 				{props.options.first}
 			</button>
-			<button className='monthly cursor-pointer two text-h4-bold color-white' onClick={() => props.onClick(false)}>
+			<button className='cursor-pointer monthly two text-h4-bold color-white' onClick={() => props.onClick(false)}>
 				{props.options.second}
 			</button>
 

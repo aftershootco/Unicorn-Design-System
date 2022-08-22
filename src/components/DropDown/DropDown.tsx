@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
-import './dropDown.scss'
+// import './dropDown.scss'
 
 export interface DropDownProps {
 	/**
@@ -71,14 +71,14 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [props.value, props.data])
 
 	return (
-		<div id='myDropDown' className='w-100 relative'>
+		<div id='myDropDown' className='relative w-100'>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
 				onClick={() => setState((state) => !state)}
 			>
 				<div
-					className='selectInput cursor-pointer'
+					className='cursor-pointer selectInput'
 					ref={inputRef}
 					style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', display: 'inline-block' }}
 				>
@@ -89,11 +89,11 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 				</div>
 			</div>
 			{/* {The z-index must be greater than titlebar's z-index} */}
-			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)} />}
+			{state && <div className='cursor-pointer closeOptions' onClick={() => setState(false)} />}
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
 				<div
-					className='dropDown absolute m-2-t w-100 br-10'
+					className='absolute dropDown m-2-t w-100 br-10'
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
 				>
 					{Object.keys(props.data).map((item, i) => {
