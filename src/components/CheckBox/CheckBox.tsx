@@ -1,8 +1,13 @@
 import React, { useCallback } from "react";
+import { classNames } from "../../utils";
 import Check from "../SVG/Check";
 // import './CheckBox.scss'
 
 export interface CheckBoxProps {
+  /**
+   * Classes to be applied to the button
+   */
+  className?: string;
   /**
    * Value of the checkbox.
    * @Default false
@@ -28,13 +33,13 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 
   return (
     <div
-      className={
-        "asCheck relative bg-transparent flex-col align-center justify-center cursor-pointer w-7 h-7 " +
-        (props.value ? "as-checked" : "as-unchecked")
-      }
+      className={classNames(
+        "relative bg-black flex-col align-center justify-center cursor-pointer w-7 h-7",
+        props.className
+      )}
       onClick={onClick}
     >
-      {props.value && <Check className="w-6" />}
+      {props.value && <Check className="w-6 text-black" />}
     </div>
   );
 };
