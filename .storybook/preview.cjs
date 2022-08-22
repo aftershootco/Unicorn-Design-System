@@ -1,3 +1,5 @@
+import "../src/index.css";
+import "../src/styles/custom.css";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
