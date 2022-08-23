@@ -1,6 +1,5 @@
 import React from 'react'
 import { classNames } from '../../utils'
-// import './Divider.scss'
 
 export interface DividerProps {
 	/**
@@ -23,9 +22,7 @@ export interface DividerProps {
 const Divider: React.FC<DividerProps> = (props) => {
 	return (
 		<div
-			className={
-				classNames(props.varient && props.varient === 'vertical' ? 'bg-grey w-[1px] h-100 ' : 'bg-grey h-[1px] w-100 ') + props.className
-			}
+			className={classNames(props.varient && props.varient === 'vertical' ? 'bg-grey w-[1px] h-100' : 'bg-grey h-[1px] w-100', props.className)}
 			style={props.style}
 		/>
 	)
