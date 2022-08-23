@@ -4,12 +4,57 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#00bcd4',
-				secondary: '#ff4081',
-				tertiary: '#ffeb3b',
-				alert: '#ffc107',
-				pause: '#ff9800',
-				save: '#ffeb3b',
+				// TEAL
+				teal: '#33b0cb',
+				teal100: '#1da0bc',
+				teal200: '#147084',
+				teal300: '#0e505e',
+				teal400: '#1ea0bc',
+				teal500: '#208ba1',
+
+				// GREY
+				grey100: '#c1c1c1',
+				grey200: '#bbbbbb',
+				grey300: '#808080',
+				grey400: '#666666',
+				grey500: '#393939',
+				grey600: '#363636',
+				grey700: '#323232',
+				grey800: '#262626',
+				grey900: '#1b1b1b',
+				grey333: '#333333',
+				grey500B: '#00000040',
+				grey700B: '#565656',
+				grey1000: '#282828',
+				grey1200: '#343333',
+				grey4343: '#434343',
+
+				// BLACK
+				black: '#000000',
+
+				// WHITE
+				white: '#ffffff',
+				white100: '#c1c1c1',
+				white200: '#808080',
+				offWhite: 'rgba(255, 255, 255, 0.5)',
+
+				// YELLOW
+				yellow100: '#e7a523',
+				yellow200: ' #d6963a',
+
+				// GREEN
+				dirtyGreen: '#b4b060',
+
+				// RED
+				red100: '#ec6d62',
+				red200: '#cf564d',
+
+				// PINK
+				pink700: '#bf4d64',
+
+				// BLUE
+				blue100: '#4267b2',
+				blue200: '#35569a',
 			},
 		},
 		animation: {
@@ -17,7 +62,6 @@ module.exports = {
 			dec: 'decrease 2s 0.5s infinite',
 		},
 		screens: {
-			// tablet: [{ raw: "(max-width: 600px)" }, { raw: "(max-height: 400px)" }],
 			tablet: [{ raw: '(max-width: 600px),(max-height: 400px)' }],
 		},
 		keyframes: {
