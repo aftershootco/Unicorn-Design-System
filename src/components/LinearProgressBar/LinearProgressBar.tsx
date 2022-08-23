@@ -37,8 +37,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 					<div
 						className={classNames(
 							'transition-[width] duration-[1500] absolute h-3 rounded-md bg-teal-400',
-							`bg-[${props.progressBarColor}]`,
-							`w-[calc(${props.value}%)]`
+							`bg-[${props.progressBarColor}]`
 						)}
 						style={{ width: props.value + '%' }}
 					/>
