@@ -8,11 +8,6 @@ export interface ChipProps {
 	text?: string
 
 	/**
-	 * Inner component to be rendered inside the chip.
-	 */
-	children?: string | React.ReactNode
-
-	/**
 	 * Classes to be applied to the button
 	 */
 	className?: string
@@ -23,14 +18,19 @@ export interface ChipProps {
 	variant?: 'primary' | 'secondary' | 'tertiary'
 
 	/**
-	 * Function to be called when hit a button
-	 */
-	onClick: () => void
-
-	/**
 	 * Style to be applied to the button.
 	 */
 	style?: React.CSSProperties
+
+	/**
+	 * Inner component to be rendered inside the chip.
+	 */
+	children?: string | React.ReactNode
+
+	/**
+	 * Function to be called when hit a button
+	 */
+	onClick: () => void
 }
 
 const Chip: React.FC<ChipProps> = (props) => {
