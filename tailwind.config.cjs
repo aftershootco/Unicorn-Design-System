@@ -4,13 +4,6 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#00bcd4',
-				secondary: '#ff4081',
-				tertiary: '#ffeb3b',
-				alert: '#ffc107',
-				pause: '#ff9800',
-				save: '#ffeb3b',
-
 				// TEAL
 				teal: '#33b0cb',
 				teal100: '#1da0bc',
@@ -43,7 +36,7 @@ module.exports = {
 				white: '#ffffff',
 				white100: '#c1c1c1',
 				white200: '#808080',
-				offWhite: 'rgba(255, 255, 255, 0.7)',
+				offWhite: 'rgba(255, 255, 255, 0.5)',
 
 				// YELLOW
 				yellow100: '#e7a523',
@@ -55,6 +48,13 @@ module.exports = {
 				// RED
 				red100: '#ec6d62',
 				red200: '#cf564d',
+
+				// PINK
+				pink700: '#bf4d64',
+
+				// BLUE
+				blue100: '#4267b2',
+				blue200: '#35569a',
 			},
 		},
 		animation: {
