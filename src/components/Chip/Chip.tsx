@@ -1,15 +1,11 @@
 import React from 'react'
+import { classNames } from '../../utils'
 
 export interface ChipProps {
 	/**
 	 * Text of the button.
 	 */
 	text?: string
-
-	/**
-	 * Inner component to be rendered inside the chip.
-	 */
-	children?: string | React.ReactNode
 
 	/**
 	 * Classes to be applied to the button
@@ -22,24 +18,39 @@ export interface ChipProps {
 	variant?: 'primary' | 'secondary' | 'tertiary'
 
 	/**
-	 * Function to be called when hit a button
-	 */
-	onClick: () => void
-
-	/**
 	 * Style to be applied to the button.
 	 */
 	style?: React.CSSProperties
+
+	/**
+	 * Inner component to be rendered inside the chip.
+	 */
+	children?: string | React.ReactNode
+
+	/**
+	 * Function to be called when hit a button
+	 */
+	onClick: () => void
 }
 
 const Chip: React.FC<ChipProps> = (props) => {
 	return (
 		<button
-			className={'text-h5 color-white cursor-pointer br-10 ' + `prefer-${props.variant} ${props.className}`}
+			className={classNames(
+				'text-sm font-normal text-white hover:cursor-pointer rounded-lg p-2',
+				props.variant === 'primary'
+					? 'bg-teal100 border-[1px] border-solid border-teal100'
+					: props.variant === 'secondary'
+					? 'bg-pink700 border-[1px] border-solid border-pink700'
+					: props.variant === 'tertiary'
+					? 'bg-transparent border-[1px] border-solid border-grey300'
+					: '',
+				props.className
+			)}
 			onClick={props.onClick}
 			style={props.style}
 		>
-			{props.text || props.children} <span className='bg-black'>Hello</span>
+			{props.text || props.children}
 		</button>
 	)
 }
