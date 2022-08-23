@@ -31,41 +31,37 @@ export interface LinearProgressBarProps {
 const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 	return (
 		<>
-			{props.value > 0 ? (
-				<div className={classNames('relative w-full h-3 mt-4 rounded-md overflow-x-hidden', props.className)} style={props.style}>
-					<div className={classNames('absolute w-full h-3 rounded-md bg-[#434343]', `bg-[${props.backgroundColor}]`)} />
+			<div className={classNames('relative w-full h-3 mt-4 rounded-md overflow-x-hidden', props.className)} style={props.style}>
+				<div className={classNames('absolute w-full h-3 bg-grey4343 rounded-md', `bg-[${props.backgroundColor}]`)} />
+				{props.value > 0 ? (
 					<div
-						className={classNames(
-							'transition-[width] duration-[1500] absolute h-3 rounded-md bg-teal-400',
-							`bg-[${props.progressBarColor}]`
-						)}
+						className={classNames('absolute h-3 bg-teal transition-[width] duration-[1500] rounded-md', `bg-[${props.progressBarColor}]`)}
 						style={{ width: props.value + '%' }}
 					/>
-				</div>
-			) : (
-				<div className={classNames('relative w-full h-3 mt-4 rounded-md overflow-x-hidden', props.className)} style={props.style}>
-					<div className={classNames('absolute w-full h-3 rounded-[10px] bg-[#434343]', `bg-[${props.backgroundColor}]`)} />
-					<div
-						className={classNames(
-							'transition-[width] duration-[1500ms] animate-inc absolute h-3 rounded-md bg-teal-400',
-							`bg-[${props.progressBarColor}]`
-						)}
-					/>
-					<div
-						className={classNames(
-							'transition-[width] duration-[1500ms] animate-dec absolute h-3 rounded-md bg-teal-400',
-							`bg-[${props.progressBarColor}]`
-						)}
-					/>
-				</div>
-			)}
+				) : (
+					<>
+						<div
+							className={classNames(
+								'absolute h-3 bg-teal transition-[width] duration-[1500ms] animate-inc rounded-md',
+								`bg-[${props.progressBarColor}]`
+							)}
+						/>
+						<div
+							className={classNames(
+								'absolute h-3 bg-teal transition-[width] duration-[1500ms] animate-dec rounded-md',
+								`bg-[${props.progressBarColor}]`
+							)}
+						/>
+					</>
+				)}
+			</div>
 		</>
 	)
 }
 
 LinearProgressBar.defaultProps = {
 	value: 0,
-	backgroundColor: '#434343',
+	// backgroundColor: '#434343',
 	progressBarColor: '#1da0bc',
 }
 

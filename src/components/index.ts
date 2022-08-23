@@ -4,7 +4,6 @@ import Chip, { ChipProps } from "./Chip/Chip";
 import Dialog, { DialogProps } from "./Dialog/Dialog";
 import Divider, { DividerProps } from "./Divider/Divider";
 import DropDown, { DropDownProps } from "./DropDown/DropDown";
-import Label, { LabelProps } from "./Label/Label";
 import Switch, { SwitchProps } from "./Switch/Switch";
 import TextInput, { TextInputProps } from "./TextInput/TextInput";
 import Toggle, { ToggleProps } from "./Toggle/Toggle";
@@ -13,7 +12,6 @@ export {
   Button,
   CheckBox,
   Switch,
-  Label,
   DropDown,
   Dialog,
   Chip,
@@ -25,7 +23,6 @@ export type {
   ButtonProps,
   CheckBoxProps,
   SwitchProps,
-  LabelProps,
   DropDownProps,
   DialogProps,
   ChipProps,
@@ -33,3 +30,4 @@ export type {
   ToggleProps,
   DividerProps,
 };
+

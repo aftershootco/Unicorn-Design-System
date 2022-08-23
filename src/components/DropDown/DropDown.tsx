@@ -57,7 +57,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 		}
 	}, [state])
 
-	const handleChange = React.useCallback((e, item: string | number) => {
+	const handleChange = React.useCallback((e: any, item: string | number) => {
 		e.preventDefault()
 		props.onChange(String(item))
 
