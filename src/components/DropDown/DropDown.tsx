@@ -1,9 +1,7 @@
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, SelectorIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { classNames } from '../../utils'
-import DownArrow from '../SVG/DownArrow'
-// import './dropDown.scss'
 
 export interface DropDownProps {
 	/**
@@ -109,7 +107,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 						</Listbox.Button>
 						<Transition
 							as={Fragment}
-							enter='transition ease-in duration-150'
+							enter='transition ease-in duration-100'
 							enterFrom=' -translate-y-2 opacity-0 '
 							enterTo='translate-y-0 opacity-100'
 							leave='transition ease-in duration-100'
