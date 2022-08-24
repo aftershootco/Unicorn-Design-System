@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react'
 import { Switch as HeadlessSwitch } from '@headlessui/react'
+import React from 'react'
 import { classNames } from '../../utils'
 
 export interface SwitchProps {
@@ -33,10 +33,6 @@ export interface SwitchProps {
 }
 
 const Switch: React.FC<SwitchProps> = (props) => {
-	// const onClick = useCallback(() => {
-	// props.onChange(!props.value)
-	// }, [props.onChange, props.value])
-
 	return (
 		<HeadlessSwitch
 			checked={props.value}

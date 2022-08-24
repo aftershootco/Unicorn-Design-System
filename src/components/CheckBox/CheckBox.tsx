@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
+import Check from '../../assets/Svg/Check'
 import { classNames } from '../../utils'
-import Check from '../SVG/Check'
 
 export interface CheckBoxProps {
 	/**
