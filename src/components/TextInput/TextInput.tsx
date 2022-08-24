@@ -104,7 +104,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							className={classNames(`absolute top-[28%] left-[91%] cursor-pointer`)}
 							onClick={() => setShowPassword((state) => !state)}
 						>
-							{showPassword ? <EyeIcon className="h-4 w-4 text-black" /> : <EyeOffIcon className='h-4 w-4 text-black' />} 
+							{showPassword ? <EyeIcon className="h-4 w-4 text-lg text-black" /> : <EyeOffIcon className='h-4 w-4 text-lg text-black' />} 
 						</div>
 					)}
 				</div>
