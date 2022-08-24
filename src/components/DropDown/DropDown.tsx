@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { classNames } from '../../utils'
-// import './dropDown.scss'
 
 export interface DropDownProps {
 	/**

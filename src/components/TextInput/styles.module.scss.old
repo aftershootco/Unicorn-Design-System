@@ -23,6 +23,7 @@
 	color: $offWhite;
 	height: 2.8rem;
 	border: 1px solid $grey300;
+	
 	&:hover,
 	&:active {
 		color: $white;
