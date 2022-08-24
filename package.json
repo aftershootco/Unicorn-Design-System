@@ -43,11 +43,23 @@
 		"@typescript-eslint/eslint-plugin": "^5.33.1",
 		"@typescript-eslint/parser": "^5.33.1",
 		"eslint": "^8.22.0",
-		"eslint-plugin-react": "^7.30.1"
+		"eslint-plugin-react": "^7.30.1",
+		"vite-plugin-dts": "^0.9.9"
 	},
 	"types": "dist/index.d.ts",
 	"keywords": [
 		"unicorn",
 		"aftershoot"
-	]
+	],
+	"files": [
+		"dist"
+	  ],
+	  "main": "./dist/my-lib.umd.js",
+	  "module": "./dist/my-lib.es.js",
+	  "exports": {
+		".": {
+		  "import": "./dist/my-lib.es.js",
+		  "require": "./dist/my-lib.umd.js"
+		}
+	  }
 }

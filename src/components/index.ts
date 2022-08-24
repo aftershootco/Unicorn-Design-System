@@ -4,9 +4,11 @@ import Chip, { ChipProps } from './Chip/Chip'
 import Dialog, { DialogProps } from './Dialog/Dialog'
 import Divider, { DividerProps } from './Divider/Divider'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
+import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 
-export { Button, CheckBox, Switch, DropDown, Dialog, Chip, TextInput, Toggle, Divider }
-export type { ButtonProps, CheckBoxProps, SwitchProps, DropDownProps, DialogProps, ChipProps, TextInputProps, ToggleProps, DividerProps }
+export { Button, CheckBox, Switch, DropDown, Dialog, Chip, TextInput, Toggle, Divider, LinearProgressBar }
+export type { ButtonProps, CheckBoxProps, SwitchProps, DropDownProps, DialogProps, ChipProps, TextInputProps, ToggleProps, DividerProps, LinearProgressBarProps }
+
