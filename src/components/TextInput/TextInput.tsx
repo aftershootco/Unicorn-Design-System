@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import EyeOff from "../SVG/EyeOff";
 import EyeOn from "../SVG/EyeOn";
 
+import { classNames } from "../../utils";
+
 export interface TextInputProps {
   /**
    * Type of the input
@@ -71,19 +73,21 @@ export interface TextInputProps {
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
+  
   const [showPassword, setShowPassword] = useState(props.type === "password");
+
   return (
     <>
       {(!props.variant ||
         props.variant === "primary" ||
         props.variant === "secondary") && (
-        <div className={`relative ${props?.className}`}>
+        <div className={classNames(`relative ${props?.className}`)}>
           {props.prefix}
           <input
             type={!showPassword ? "text" : props.type}
-            className={`${props.type === "password" && "relative"} ${
+            className={classNames(`${props.type === "password" && "relative"} ${
               props.inputProperties
-            }`}
+            }`)}
             value={props.value}
             placeholder={props.placeholder}
             onChange={
@@ -100,9 +104,8 @@ const TextInput: React.FC<TextInputProps> = (props) => {
           />
           {props.type === "password" && (
             <div
-              // className={`${styles.adornmentEnd} cursor-pointer absolute`}
+              className={classNames(`top-[28%] left-[91%] cursor-pointer absolute`)}
               onClick={() => setShowPassword((state) => !state)}
-              style={{ top: "28%", left: "91%" }}
             >
               {showPassword ? <EyeOn /> : <EyeOff />}
             </div>
@@ -111,11 +114,11 @@ const TextInput: React.FC<TextInputProps> = (props) => {
       )}
 
       {props.variant === "tertiary" && (
-        <div className={`relative ${props?.className}`}>
+        <div className={classNames(`relative ${props?.className}`)}>
           {props.prefix}
           <input
             type="text"
-            // className={`${styles.inputBox} ${props.inputProperties} relative`}
+            className={`flex items-center justify-center px-[1.25rem] font-['Lato'] font-normal leading-[150%] text-[1rem] bg-transparent rounded-[100px] w-[100%] text-offWhite h-[2.8rem] border-[1px] border-solid border-[] ${styles.inputBox} ${props.inputProperties} relative`}
             value={props.value}
             placeholder={props.placeholder}
             onChange={(e) => props.onChange(e)}
@@ -124,11 +127,11 @@ const TextInput: React.FC<TextInputProps> = (props) => {
           />
 
           <div
-            className={`cursor-pointer absolute`}
+            className={classNames(`cursor-pointer absolute`)}
             onClick={() => setShowPassword((state) => !state)}
           >
             <div
-              className="w-6 h-6 br-1000"
+              className={classNames("w-6 h-6 rounded-[1000]")}
               style={props.adornmentStartStyle}
             ></div>
           </div>
