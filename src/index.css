@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	:root {
+		--val: 0.25rem;
+	}
+	@media screen and (max-width: 1440px), screen and (max-height: 940px) {
+		:root {
+			--val: 0.2rem;
+		}
+	}
+}
