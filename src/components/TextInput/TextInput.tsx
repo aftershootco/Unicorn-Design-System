@@ -1,9 +1,5 @@
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
 import React, { useState } from 'react'
-// import EyeOff from '../SVG/EyeOff'
-// import EyeOn from '../SVG/EyeOn'
-
-import { EyeIcon,EyeOffIcon } from '@heroicons/react/solid'
-
 import { classNames } from '../../utils'
 
 export interface TextInputProps {
@@ -56,7 +52,7 @@ export interface TextInputProps {
 	/**
 	 * Will be added in the style of the input field with tertiary variant.
 	 */
-	adornmentStartStyle?: {}
+	adornmentStartStyle?: React.CSSProperties
 
 	/**
 	 * Styles to be applied to the input field.
@@ -76,7 +72,7 @@ export interface TextInputProps {
 
 const TextInput: React.FC<TextInputProps> = (props) => {
 	const [showPassword, setShowPassword] = useState(props.type === 'password')
-	console.log((!props.variant || props.variant === 'primary' || props.variant === 'secondary'))
+
 	return (
 		<>
 			{(!props.variant || props.variant === 'primary' || props.variant === 'secondary') && (
@@ -89,7 +85,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							`flex items-center justify-center px-[1.25rem] font-['Lato'] font-normal leading-[150%] text-[1rem] bg-transparent rounded-[100px] w-[100%] text-offWhite h-[2.8rem] border-[1px] border-solid border-grey300`,
 							`hover:text-white hover:brightness-150`,
 							`active:text-white active:brightness-150`,
-							`${props.inputProperties}`,
+							`${props.inputProperties}`
 						)}
 						value={props.value}
 						placeholder={props.placeholder}
@@ -104,7 +100,11 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							className={classNames(`absolute top-[28%] left-[91%] cursor-pointer`)}
 							onClick={() => setShowPassword((state) => !state)}
 						>
-							{showPassword ? <EyeIcon className="h-4 w-4 text-lg text-black" /> : <EyeOffIcon className='h-4 w-4 text-lg text-black' />} 
+							{showPassword ? (
+								<EyeIcon className='h-4 w-4 text-lg text-black' />
+							) : (
+								<EyeOffIcon className='h-4 w-4 text-lg text-black' />
+							)}
 						</div>
 					)}
 				</div>
@@ -119,7 +119,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							`relative flex items-center justify-center px-[1.25rem] font-['Lato'] font-normal leading-[150%] text-[1rem] bg-transparent rounded-[100px] w-[100%] text-offWhite h-[2.8rem] border-[1px] border-solid border-grey300`,
 							`hover:text-white hover:brightness-150`,
 							`active:text-white active:brightness-150`,
-							`${props.inputProperties}`,
+							`${props.inputProperties}`
 						)}
 						value={props.value}
 						placeholder={props.placeholder}
