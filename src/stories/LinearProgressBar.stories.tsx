@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import LinearProgressBar, { LinearProgressBarProps } from '../components/LinearProgressBar/LinearProgressBar'
+import { LinearProgressBar, LinearProgressBarProps } from '../'
 
 export default {
 	title: 'component/LinearProgressBar',

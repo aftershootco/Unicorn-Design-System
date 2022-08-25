@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import { DropDown, DropDownProps } from '../components'
+import { DropDown, DropDownProps } from '../'
 
 export default {
 	title: 'component/DropDown',

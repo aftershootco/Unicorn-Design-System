@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import { Toggle, ToggleProps } from '../components'
+import { Toggle, ToggleProps } from '../'
 
 export default {
 	title: 'component/Toggle',

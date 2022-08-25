@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import { Dialog, DialogProps } from '../components'
+import { Dialog, DialogProps } from '../'
 
 export default {
 	title: 'component/Dialog',
