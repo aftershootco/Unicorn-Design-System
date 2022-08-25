@@ -37,7 +37,7 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 			)}
 			onClick={onClick}
 		>
-			{props.value && <Check className='w-6 h-6' />}
+			{props.value && <Check className='w-6 h-6 p-1' />}
 		</div>
 	)
 }
