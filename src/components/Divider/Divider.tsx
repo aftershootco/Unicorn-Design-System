@@ -22,7 +22,10 @@ export interface DividerProps {
 const Divider: React.FC<DividerProps> = (props) => {
 	return (
 		<div
-			className={classNames(props.varient && props.varient === 'vertical' ? 'bg-grey w-[1px] h-100' : 'bg-grey h-[1px] w-100', props.className)}
+			className={classNames(
+				props.varient && props.varient === 'vertical' ? 'bg-grey300 w-[1px] h-full' : 'bg-grey300 h-[1px] w-full',
+				props.className
+			)}
 			style={props.style}
 		/>
 	)
