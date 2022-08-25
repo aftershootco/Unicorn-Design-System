@@ -1,4 +1,4 @@
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
 import React, { useState } from 'react'
 import { classNames } from '../../utils'
 
@@ -103,7 +103,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							{showPassword ? (
 								<EyeIcon className='h-4 w-4 text-lg text-black' />
 							) : (
-								<EyeOffIcon className='h-4 w-4 text-lg text-black' />
+								<EyeSlashIcon className='h-4 w-4 text-lg text-black' />
 							)}
 						</div>
 					)}

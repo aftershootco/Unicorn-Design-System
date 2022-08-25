@@ -1,5 +1,5 @@
 import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
 import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { classNames } from '../../utils'
 
