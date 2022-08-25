@@ -88,6 +88,7 @@ module.exports = {
 
 				// PINK
 				pink700: '#bf4d64',
+				pink800: '#9d174d',
 
 				// BLUE
 				blue100: '#4267b2',

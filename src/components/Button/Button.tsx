@@ -64,21 +64,21 @@ const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
 			className={classNames(
-				' border-none box-border rounded-full transition-colors ease-linear duration-100 text-white text-sm font-normal py-2 px-6 hover:cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none',
+				'box-border py-2 px-6 rounded-full text-sm font-normal text-white transition-colors ease-linear duration-100 hover:cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none',
 				props.variant === 'primary'
-					? 'bg-teal border-[1px] border-teal  hover:bg-teal500 hover:border-teal500 disabled:bg-grey400 disabled:border-grey400'
+					? 'bg-teal400 border-[1px] border-teal400  hover:bg-teal500 hover:border-teal500 disabled:bg-grey400 disabled:border-grey400'
 					: props.variant === 'secondary'
-					? 'bg-transparent text-white border-2 border-offWhite opacity-50 hover:bg-grey500B'
+					? 'bg-transparent text-white border-[1px] border-offWhite rounded-full hover:bg-grey500B'
 					: props.variant === 'tertiary'
 					? 'bg-transparent border-[1px] border-transparent'
 					: props.variant === 'alert'
 					? 'bg-red200 border-[1px] border-red200 hover:bg-red100 hover:border-red100'
 					: props.variant === 'pause'
-					? 'bg-pink700 border-[1px] border-pink700 max-w-full'
+					? 'bg-pink700 border-[1px] border-pink700 max-w-full hover:bg-pink800 hover:border-pink800'
 					: props.variant === 'save'
 					? 'bg-yellow200 max-w-full hover:bg-yellow100'
 					: props.variant === 'white-filled'
-					? 'text-black bg-white border-[1px] border-white hover:bg-grey200'
+					? 'text-black bg-white border-[1px] border-white hover:bg-grey200 hover:border-grey200'
 					: props.variant === 'facebook'
 					? 'text-white bg-blue100 hover:bg-blue200'
 					: '',
