@@ -31,7 +31,7 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	return (
 		<div
 			className={classNames(
-				'relative bg-transparent flex-col align-center justify-center border rounded-md cursor-pointer w-7 h-7 hover:brightness-50',
+				'relative w-7 h-7  bg-transparent flex-col align-center justify-center border rounded-md hover:brightness-75 hover:cursor-pointer',
 				props.value ? 'border-white opacity-100' : 'border-white200 opacity-50',
 				props.className
 			)}
