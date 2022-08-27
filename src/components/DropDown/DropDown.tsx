@@ -57,14 +57,17 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 		}
 	}, [state])
 
-	const handleChange = React.useCallback((e, item: string | number) => {
-		e.preventDefault()
-		props.onChange(String(item))
+	const handleChange = React.useCallback(
+		(e, item: string | number) => {
+			e.preventDefault()
+			props.onChange(String(item))
 
-		inputRef.current.click()
-		firstElement.current = null
-		lastElement.current = null
-	}, [])
+			inputRef.current.click()
+			firstElement.current = null
+			lastElement.current = null
+		},
+		[props.onChange]
+	)
 
 	const value = useMemo(() => {
 		return Object.keys(props.data).find((key) => props.data[key] === props.value)
