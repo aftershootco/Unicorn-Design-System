@@ -20,14 +20,6 @@
 	cursor: pointer;
 }
 
-.selected-true {
-	filter: brightness(1)
-}
-
-.selected-false {
-	filter: brightness(0.5)
-}
-
 .prefer-primary {
 	@extend .root;
 	background: #1da0bc;

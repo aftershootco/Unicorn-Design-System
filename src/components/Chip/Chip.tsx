@@ -8,11 +8,6 @@ export interface ChipProps {
 	key?: number
 
 	/**
-	 * Weather rthe button is clicked or not?
-	 */
-	selected?: boolean
-
-	/**
 	 * Is disabled?
 	 */
 	disabled?: boolean
@@ -53,15 +48,14 @@ export interface ChipProps {
 	onClick: () => void
 }
 
-const Chip: React.FC<ChipProps> = ({ disabled = false, selected = true, ...props }) => {
+const Chip: React.FC<ChipProps> = ({ disabled = false, ...props }) => {
 	return (
 		<button
 			key={props.key}
 			className={
 				'text-h5 color-white cursor-pointer ' +
-				`prefer-${props.variant} ${props.className} ` +
-				`disabled-${disabled} ` +
-				`selected-${selected}`
+				`prefer-${props.variant ? props.variant : 'primary'} ${props.className} ` +
+				`disabled-${disabled} `
 			}
 			style={{ background: `${props.backgroundColor}`, border: `1px solid ${props.backgroundColor}`, ...props.style }}
 			onClick={!disabled && props.onClick}
