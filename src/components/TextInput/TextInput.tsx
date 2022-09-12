@@ -88,6 +88,17 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
+						onKeyDown={(e: any) => {
+							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
+								e.target.select()
+							}
+							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
+								navigator.clipboard.writeText(e.target.value)
+							}
+							if (e.metaKey && e.key === 'v') {
+								navigator.clipboard.readText().then((text) => (e.target.value += text))
+							}
+						}}
 					/>
 					{props.type === 'password' && (
 						<div
