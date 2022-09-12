@@ -35,9 +35,14 @@ export interface DropDownProps {
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (value: string) => void
+
+	/**
+	 * ID for Playwright testing.
+	 */
+	dataTestId?: string
 }
 
-const DropDown: React.FC<DropDownProps> = (props) => {
+const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...props }) => {
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
@@ -74,7 +79,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [props.value, props.data])
 
 	return (
-		<div id='myDropDown' className='w-100 relative'>
+		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
@@ -111,6 +116,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
+								data-test-id={`${dataTestId}-${item}`}
 							>
 								{item}
 							</button>
