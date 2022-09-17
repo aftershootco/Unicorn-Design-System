@@ -1,7 +1,7 @@
-import React, { useState, memo, JSXElementConstructor } from 'react'
-import styles from './styles.module.scss'
+import React, { useState } from 'react'
 import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
+import styles from './styles.module.scss'
 
 export interface TextInputProps {
 	/**
@@ -73,6 +73,7 @@ export interface TextInputProps {
 
 const TextInput: React.FC<TextInputProps> = (props) => {
 	const [showPassword, setShowPassword] = useState(props.type === 'password')
+
 	return (
 		<>
 			{(!props.variant || props.variant === 'primary' || props.variant === 'secondary') && (
@@ -96,7 +97,11 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 								navigator.clipboard.writeText(e.target.value)
 							}
 							if (e.metaKey && e.key === 'v') {
-								navigator.clipboard.readText().then((text) => (e.target.value += text))
+								e.persist()
+								const initialText = e.target.value
+								navigator.clipboard.readText().then((text) => {
+									e.target.value = initialText + text
+								})
 							}
 						}}
 					/>
@@ -120,7 +125,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						className={`${styles.inputBox} ${props.inputProperties} relative`}
 						value={props.value}
 						placeholder={props.placeholder}
-						onChange={(e) => props.onChange(e)}
+						onChange={props.onChange}
 						disabled={props.disable}
 						style={props.style}
 					/>
