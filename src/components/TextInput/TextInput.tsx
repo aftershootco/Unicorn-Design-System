@@ -84,8 +84,8 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
-						onChange={!props.variant || props.variant === 'primary' ? (e) => props.onChange(e) : () => {}}
-						onClick={props.variant === 'secondary' ? () => props.onClick() : () => {}}
+						onChange={!props.variant || props.variant === 'primary' ? props.onChange : () => {}}
+						onClick={props.variant === 'secondary' ? props.onClick : () => {}}
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
@@ -97,10 +97,13 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 								navigator.clipboard.writeText(e.target.value)
 							}
 							if (e.metaKey && e.key === 'v') {
-								e.persist()
 								const initialText = e.target.value
 								navigator.clipboard.readText().then((text) => {
-									e.target.value = initialText + text
+									props.onChange({
+										target: {
+											value: initialText + text,
+										},
+									} as any)
 								})
 							}
 						}}
