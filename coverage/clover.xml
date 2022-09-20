@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1663678361781" clover="3.2.0">
+  <project timestamp="1663678361781" name="All files">
+    <metrics statements="133" coveredstatements="76" conditionals="123" coveredconditionals="7" methods="35" coveredmethods="1" elements="291" coveredelements="84" complexity="0" loc="133" ncloc="133" packages="13" files="13" classes="13"/>
+    <package name="components">
+      <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\index.ts">
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Button">
+      <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+      <file name="Button.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Button\Button.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="11" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.CheckBox">
+      <metrics statements="8" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="CheckBox.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\CheckBox\CheckBox.tsx">
+        <metrics statements="8" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Chip">
+      <metrics statements="5" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Chip.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Chip\Chip.tsx">
+        <metrics statements="5" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Dialog">
+      <metrics statements="10" coveredstatements="5" conditionals="23" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="Dialog.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Dialog\Dialog.tsx">
+        <metrics statements="10" coveredstatements="5" conditionals="23" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Divider">
+      <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Divider.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Divider\Divider.tsx">
+        <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.DropDown">
+      <metrics statements="31" coveredstatements="5" conditionals="23" coveredconditionals="0" methods="11" coveredmethods="0"/>
+      <file name="DropDown.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\DropDown\DropDown.tsx">
+        <metrics statements="31" coveredstatements="5" conditionals="23" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="45" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="61" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Label">
+      <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Label.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Label\Label.tsx">
+        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.LinearProgressBar">
+      <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="LinearProgressBar.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\LinearProgressBar\LinearProgressBar.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.SVG">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="DownArrow.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\SVG\DownArrow.tsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Switch">
+      <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="Switch.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Switch\Switch.tsx">
+        <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.TextInput">
+      <metrics statements="18" coveredstatements="6" conditionals="41" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <file name="TextInput.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\TextInput\TextInput.tsx">
+        <metrics statements="18" coveredstatements="6" conditionals="41" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="93" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="96" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="99" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.Toggle">
+      <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="Toggle.tsx" path="C:\Users\manis\Work\Aftershoot\Unicorn-Design-System\src\components\Toggle\Toggle.tsx">
+        <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
