@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing -> Chip to get snapshot 1`] = `
+<button
+  className="text-h5 color-white cursor-pointer prefer-primary undefined disabled-false "
+  onClick={[Function]}
+  style={
+    {
+      "background": "blue",
+      "border": "1px solid blue",
+    }
+  }
+/>
+`;

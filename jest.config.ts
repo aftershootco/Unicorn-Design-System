@@ -200,7 +200,7 @@ export default {
 		'^.+\\.(js|ts)$': 'babel-jest',
 	},
 	moduleNameMapper: {
-		'^.+\\.svg$': 'jest-svg-transformer',
+    "\\.svg": "<rootDir>/src/__test__/__mocks__/svg.js",
 		'\\.(css|scss)$': 'identity-obj-proxy',
 	},
 	moduleFileExtensions: ['ts', 'tsx', 'js'],
