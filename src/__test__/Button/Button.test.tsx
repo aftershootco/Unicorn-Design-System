@@ -5,9 +5,13 @@ import userEvent from '@testing-library/user-event';
 
 describe(`Testing -> Button`, () => {
     
-    it(`to be enabled`, () => {
-        render(<Button onClick={()=>{}} disabled={false} text='aftershoot'/>);
-        expect(screen.getByRole('button', {name: /aftershoot/i})).toBeEnabled();
+    it(`to be enabled`, async () => {
+        const logSpy = jest.spyOn(console, 'log');
+        render(<Button onClick={()=>{console.log('hello')}} disabled={false} text='aftershoot'/>);
+        const button = screen.getByRole('button', {name: /aftershoot/i}); 
+        expect(button).toBeEnabled();
+        await userEvent.click(button);
+        expect(logSpy).toHaveBeenCalled();
     })
 
     const variant: ('primary' | 'secondary' | 'tertiary' | 'alert' | 'pause' | 'save' | 'white-filled' | 'facebook' | undefined )[] = ['primary', 'secondary', 'tertiary', 'alert', 'pause', 'save', 'white-filled', 'facebook', undefined];
