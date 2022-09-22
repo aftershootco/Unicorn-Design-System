@@ -89,6 +89,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
+						data-testid='test1'
 						onKeyDown={(e: any) => {
 							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
 								e.target.select()
@@ -113,6 +114,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 							className={`${styles.adornmentEnd} cursor-pointer absolute`}
 							onClick={() => setShowPassword((state) => !state)}
 							style={{ top: '28%', left: '91%' }}
+							data-testid='test3'
 						>
 							{showPassword ? <EyeOn /> : <EyeOff />}
 						</div>
@@ -131,6 +133,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						onChange={props.onChange}
 						disabled={props.disable}
 						style={props.style}
+						data-testid='test2'
 					/>
 
 					<div className={`${styles.adornmentStart} cursor-pointer absolute`} onClick={() => setShowPassword((state) => !state)}>
