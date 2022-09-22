@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Chip } from '../../components';
 
 describe(`Testing -> Chip`, () => {
@@ -19,5 +20,14 @@ describe(`Testing -> Chip`, () => {
     it(`to be disabled`, () => {
         render(<Chip onClick={()=>{}} disabled={true}/>);
         expect(screen.getByRole('button')).toHaveClass('disabled-true');
+    })
+
+    it(`to check functionality of onClick`, () => {
+        const logSpy = jest.spyOn(console, 'log');
+        render(<Chip onClick={()=>{console.log('hello')}} disabled={true} />);
+        const chip = screen.getByRole('button');
+        expect(chip).toBeInTheDocument();
+        userEvent.click(chip);
+        expect(logSpy).not.toHaveBeenCalled();
     })
 })

@@ -44,7 +44,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
 		<dialog
 			open={true}
 			aria-labelledby='simple-dialog-title'
-			onKeyDown={(e) => {
+			onKeyUp={(e) => {
 				if (e.key === 'Escape') {
 					props.onClose()
 				} else if (e.key === 'Enter' && props.positiveClick) {

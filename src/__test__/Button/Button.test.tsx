@@ -1,17 +1,20 @@
 import React from 'react';
 import {Button} from '../../components';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe(`Testing -> Button`, () => {
-    
     it(`to be enabled`, async () => {
-        const logSpy = jest.spyOn(console, 'log');
-        render(<Button onClick={()=>{console.log('hello')}} disabled={false} text='aftershoot'/>);
+        render(<Button onClick={()=>{}} disabled={false} text='aftershoot'/>);
         const button = screen.getByRole('button', {name: /aftershoot/i}); 
         expect(button).toBeEnabled();
-        await userEvent.click(button);
-        expect(logSpy).toHaveBeenCalled();
+    })
+    
+    it(`to check for onClick`, async () => {
+        const logSpy = jest.spyOn(console, 'log');
+        render(<Button onClick={()=>{console.log('hello')}} disabled={false} text='aftershoot'/>);
+        await userEvent.click(screen.getByRole('button', {name: /aftershoot/i}));
+        expect(logSpy).toHaveBeenCalledWith('hello');
     })
 
     const variant: ('primary' | 'secondary' | 'tertiary' | 'alert' | 'pause' | 'save' | 'white-filled' | 'facebook' | undefined )[] = ['primary', 'secondary', 'tertiary', 'alert', 'pause', 'save', 'white-filled', 'facebook', undefined];
@@ -27,12 +30,9 @@ describe(`Testing -> Button`, () => {
         })
     }
 
-    it(`to have onclick disabled when button is disabled`, () => {
-        render(<Button onClick={() => {}} disabled={true}/>);
-        const button = screen.getByRole('button');
-        expect(button).toBeDisabled();
-
-        userEvent.click(button);
+    it(`to check whether button is disabled`, () => {
+        render(<Button dataTestId='test2' onClick={()=>{console.log('hello')}} disabled={true} text='aftershoot'/>);
+        const button = screen.getByTestId(/test2/i);
         expect(button).toBeDisabled();
     })
 })

@@ -70,9 +70,9 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props, ref: any) => {
 			ref={ref}
 			type={props.type || 'button'}
 			data-id={props.dataId}
-			data-test-id={props.dataTestId}
+			data-testid={props.dataTestId}
 			disabled={props.disabled}
-			onClick={props.disabled ? null : props.onClick}
+			onClick={!props.disabled && props.onClick}
 		>
 			{props.text || props.children}
 		</button>
