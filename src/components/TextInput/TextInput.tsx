@@ -94,14 +94,20 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 								e.target.select()
 							}
 							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
-								navigator.clipboard.writeText(e.target.value)
+								const selectedText = getSelection().toString()
+								if (selectedText.length > 0) navigator.clipboard.writeText(selectedText)
 							}
 							if (e.metaKey && e.key === 'v') {
 								const initialText = e.target.value
+								const selectedText = getSelection().toString()
+								const cursorPosiiton = e.target.selectionStart
 								navigator.clipboard.readText().then((text) => {
+									const finalValue = selectedText.length
+										? initialText.replace(selectedText, text)
+										: initialText.slice(0, cursorPosiiton) + text + initialText.slice(cursorPosiiton)
 									props.onChange({
 										target: {
-											value: initialText + text,
+											value: finalValue,
 										},
 									} as any)
 								})
