@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
 import './dropDown.scss'
 
@@ -49,6 +49,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 
 	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
+	const [prevKey, setPrevKey] = useState('')
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
@@ -58,7 +59,8 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	useEffect(() => {
 		measureHeight()
 		if (state) {
-			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
+			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			document.getElementById('apply')?.focus()
 		}
 	}, [state])
 
@@ -77,6 +79,27 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const value = useMemo(() => {
 		return Object.keys(props.data).find((key) => props.data[key] === props.value)
 	}, [props.value, props.data])
+
+	const onKeyDown = useCallback(
+		(e) => {
+			const currentKey = e.key.toString().toUpperCase()
+			const prevKeyDiv = document.getElementById(prevKey)
+			const currentKeyDiv = document.getElementById(currentKey)
+			const selectedKeyDiv = document.getElementById('apply')
+
+			prevKeyDiv?.classList.remove('bg-grey700B') // Remove bg from the prevKey
+
+			// If currentKey is first letter of the selected value
+			if (currentKey === props.value[0].toUpperCase()) {
+				selectedKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+				return
+			}
+			currentKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			currentKeyDiv?.classList.add('bg-grey700B')
+			setPrevKey(currentKey)
+		},
+		[prevKey]
+	)
 
 	return (
 		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
@@ -103,6 +126,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 				<div
 					className='dropDown absolute m-2-t w-100 br-10'
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
+					onKeyDown={onKeyDown}
 				>
 					{Object.keys(props.data).map((item, i) => {
 						let objectLength = Object.keys(props.data).length
