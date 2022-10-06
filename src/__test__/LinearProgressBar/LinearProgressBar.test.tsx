@@ -1,8 +1,14 @@
 import React from "react";
+import renderer from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
 import { LinearProgressBar } from "../../components";
 
 describe(`Testing -> LinearProgressBar`, () => {
+    it(`to get snapshot`, () => {
+		const tree = renderer.create(<LinearProgressBar />).toJSON()
+		expect(tree).toMatchSnapshot()
+	})
+
     it(`should be in the document`, () => {
         render(<LinearProgressBar />);
         expect(screen.getByTestId('test2')).toBeInTheDocument();

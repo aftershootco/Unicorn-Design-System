@@ -1,15 +1,16 @@
 import React from 'react'
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { DropDown } from '../../components'
 
 const tempData = {
-	key1: 1,
-	key2: 2,
-	key3: 3,
-	key4: 'hello',
-	gun: 4,
-    qweqweqwe: 'eqweqweqwe',
+	key1: 1665038443,
+	key2: 1665038444,
+	key3: 1665038445,
+	key4: 1665038446,
+	key5: 1665038447,
+    key6: 1665038448,
 }
 
 describe(`Testing -> DropDown`, () => {
@@ -22,7 +23,7 @@ describe(`Testing -> DropDown`, () => {
 
 	it(`to open dropdown on click and again close on click`, async () => {
 		window.HTMLElement.prototype.scrollIntoView = jest.fn()
-		render(<DropDown data={tempData} onChange={() => {}} value={2} dataTestId='test' />)
+		render(<DropDown data={tempData} onChange={() => {}} value={2} data-testId='test' />)
 		const clickDiv = screen.getByTestId('test1')
 		await userEvent.click(clickDiv)
 		expect(screen.getByTestId('test2')).toBeInTheDocument()

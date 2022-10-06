@@ -1,8 +1,14 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import { Label } from "../../components";
 
 describe(`Testing -> Label`, () => {
+    it(`to get snapshot`, () => {
+		const tree = renderer.create(<Label label='aftershoot'/>).toJSON()
+		expect(tree).toMatchSnapshot()
+	})
+
     it(`to be in the document`, () => {
         render(<Label label='aftershoot' />)
         expect(screen.getByText(/aftershoot/i)).toBeInTheDocument();

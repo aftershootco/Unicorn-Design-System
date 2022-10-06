@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing -> LinearProgressBar to get snapshot 1`] = `
+<div
+  className="relative w-100 h-3 m-4-t br-10 overflow-x-hidden undefined"
+  data-testid="test2"
+>
+  <div
+    className="absolute w-100 h-3 br-10 bg-43"
+    style={
+      {
+        "background": "#434343",
+      }
+    }
+  />
+  <div
+    className="subline inc absolute h-3 br-10 bg-teal100"
+    style={
+      {
+        "background": "#1da0bc",
+      }
+    }
+  />
+  <div
+    className="subline dec absolute h-3 br-10 bg-teal100"
+    style={
+      {
+        "background": "#1da0bc",
+      }
+    }
+  />
+</div>
+`;

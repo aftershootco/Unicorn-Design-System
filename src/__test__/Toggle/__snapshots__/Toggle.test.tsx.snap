@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing -> Toggle to get snapshot 1`] = `
+<div
+  className="toggler flex-row"
+  data-testid="test"
+>
+  <button
+    className="yearly cursor-pointer text-h4-bold color-white"
+    onClick={[Function]}
+  >
+    hello
+  </button>
+  <button
+    className="monthly cursor-pointer two text-h4-bold color-white"
+    onClick={[Function]}
+  >
+    world
+  </button>
+  <button
+    className="toggle_button text-h4-bold color-white cursor-pointer"
+  >
+    hello
+  </button>
+</div>
+`;

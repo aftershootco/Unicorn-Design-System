@@ -17,9 +17,14 @@ describe(`Testing -> Chip`, () => {
         expect(screen.getByText('aftershoot')).toHaveClass('prefer-primary');
     })
 
-    it(`to be disabled`, () => {
+    it(`to have disabled true`, () => {
         render(<Chip onClick={()=>{}} disabled={true}/>);
         expect(screen.getByRole('button')).toHaveClass('disabled-true');
+    })
+
+    it(`to have disabled false`, () => {
+        render(<Chip onClick={()=>{}} disabled={false}/>);
+        expect(screen.getByRole('button')).toHaveClass('disabled-false');
     })
 
     it(`to check functionality of onClick`, () => {

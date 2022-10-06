@@ -1,8 +1,14 @@
 import React from "react";
+import renderer from 'react-test-renderer';
 import { render, screen } from "@testing-library/react";
 import { TextInput } from "../../components";
 
 describe(`Testing -> TextInput`, () => {
+    it(`to get snapshot`, () => {
+		const tree = renderer.create(<TextInput value='aftershoot'/>).toJSON()
+		expect(tree).toMatchSnapshot()
+	})
+
     it(`should be in the document`, () => {
         render(<TextInput value='aftershoot'/>);
         expect(screen.getByTestId('test1')).toBeInTheDocument();

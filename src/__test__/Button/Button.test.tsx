@@ -1,9 +1,17 @@
 import React from 'react';
+import renderer from 'react-test-renderer'
 import {Button} from '../../components';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe(`Testing -> Button`, () => {
+    it(`to get snapshot`, () => {
+        const tree = renderer
+            .create(<Button onClick={()=>{}} />)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    })
+
     it(`to be enabled`, async () => {
         render(<Button onClick={()=>{}} disabled={false} text='aftershoot'/>);
         const button = screen.getByRole('button', {name: /aftershoot/i}); 
@@ -31,7 +39,7 @@ describe(`Testing -> Button`, () => {
     }
 
     it(`to check whether button is disabled`, () => {
-        render(<Button dataTestId='test2' onClick={()=>{console.log('hello')}} disabled={true} text='aftershoot'/>);
+        render(<Button data-testId='test2' onClick={()=>{console.log('hello')}} disabled={true} text='aftershoot'/>);
         const button = screen.getByTestId(/test2/i);
         expect(button).toBeDisabled();
     })
