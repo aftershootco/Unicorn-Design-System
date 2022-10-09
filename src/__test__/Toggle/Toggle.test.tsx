@@ -1,12 +1,12 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import React from 'react'
+import renderer from 'react-test-renderer'
 import { Toggle } from '../../components'
 
 describe(`Testing -> Toggle`, () => {
 	it(`to get snapshot`, () => {
-		const tree = renderer.create(<Toggle value={true} options={{ first: 'hello', second: 'world' }} onClick={()=>{}}/>).toJSON()
+		const tree = renderer.create(<Toggle value={true} options={{ first: 'hello', second: 'world' }} onClick={() => {}} />).toJSON()
 		expect(tree).toMatchSnapshot()
 	})
 

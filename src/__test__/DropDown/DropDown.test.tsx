@@ -1,7 +1,6 @@
-import React from 'react'
-import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import React from 'react'
 import { DropDown } from '../../components'
 
 const tempData = {
@@ -10,7 +9,7 @@ const tempData = {
 	key3: 1665038445,
 	key4: 1665038446,
 	key5: 1665038447,
-    key6: 1665038448,
+	key6: 1665038448,
 }
 
 describe(`Testing -> DropDown`, () => {
