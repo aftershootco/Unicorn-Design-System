@@ -1,15 +1,15 @@
-import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
-import dts from 'rollup-plugin-dts'
-import { terser } from 'rollup-plugin-terser'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import svg from 'rollup-plugin-svg'
-import postcss from 'rollup-plugin-postcss'
 import url from '@rollup/plugin-url'
-import postcssUrl from 'postcss-url'
 import svgr from '@svgr/rollup'
+import postcssUrl from 'postcss-url'
 import babel from 'rollup-plugin-babel'
+import dts from 'rollup-plugin-dts'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import postcss from 'rollup-plugin-postcss'
+import svg from 'rollup-plugin-svg'
+import { terser } from 'rollup-plugin-terser'
 
 const packageJson = require('./package.json')
 

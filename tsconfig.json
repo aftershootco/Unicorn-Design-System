@@ -19,5 +19,5 @@
 		"noImplicitAny": false
 	},
 	"exclude": ["node_modules", "src/**/*.stories.tsx"],
-	"types": ["node", "jest", "@testing-library/jest-dom"],
+	"types": ["node", "jest", "@testing-library/jest-dom"]
 }
