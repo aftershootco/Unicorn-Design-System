@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.43",
+	"version": "1.0.46",
 	"description": "",
 	"repository": {
 		"url": "https://github.com/aftershootco/Unicorn-Design-System",
@@ -73,7 +73,8 @@
 		"ts-jest": "^29.0.3",
 		"ts-node": "^10.9.1",
 		"tslib": "^2.4.0",
-		"typescript": "^4.8.4"
+		"typescript": "^4.8.4",
+		"webpack": "^5.74.0"
 	},
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
