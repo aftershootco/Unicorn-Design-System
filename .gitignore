@@ -4,4 +4,5 @@ package-lock.json
 *.lock
 .DS_Store
 dist
+coverage
 yarn-error.log
