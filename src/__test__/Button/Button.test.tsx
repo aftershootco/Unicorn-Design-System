@@ -1,15 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { Button } from '../../components'
 
 describe(`Testing -> Button`, () => {
-	it(`to get snapshot`, () => {
-		const tree = renderer.create(<Button onClick={() => {}} />).toJSON()
-		expect(tree).toMatchSnapshot()
-	})
-
 	it(`to be enabled`, async () => {
 		render(<Button onClick={() => {}} disabled={false} text='aftershoot' />)
 		const button = screen.getByRole('button', { name: /aftershoot/i })

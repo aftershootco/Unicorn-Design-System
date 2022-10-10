@@ -1,15 +1,9 @@
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { CheckBox } from '../../components'
 
 describe(`Testing -> CheckBox`, () => {
-	it(`to get snapshot`, () => {
-		const tree = renderer.create(<CheckBox onChange={() => {}} value={true} />).toJSON()
-		expect(tree).toMatchSnapshot()
-	})
-
 	it(`to be not checked at initial render`, async () => {
 		const { container } = render(<CheckBox value={false} onChange={() => {}} />)
 		const checkBox = container.querySelector('.asCheck')

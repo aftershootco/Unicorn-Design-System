@@ -1,21 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { Toggle } from '../../components'
 
-describe(`Testing -> Toggle`, () => {
-	it(`to get snapshot`, () => {
-		const tree = renderer.create(<Toggle value={true} options={{ first: 'hello', second: 'world' }} onClick={() => {}} />).toJSON()
-		expect(tree).toMatchSnapshot()
-	})
-
-	it(`to be on screen`, () => {
+describe('Testing -> Toggle', () => {
+	it('To be on screen', () => {
 		render(<Toggle value={true} options={{ first: 'hello', second: 'world' }} onClick={() => {}} />)
-		expect(screen.getByTestId('test')).toBeInTheDocument()
+		expect(screen.getByTestId('toggle')).toBeInTheDocument()
 	})
 
-	it(`to sync the value, options and onClick functionality with true value`, async () => {
+	it('To sync the value, options and onClick functionality with true value', async () => {
 		const logSpy = jest.spyOn(console, 'log')
 		const { container } = render(
 			<Toggle
@@ -32,7 +26,7 @@ describe(`Testing -> Toggle`, () => {
 		expect(button).toHaveTextContent('hello')
 	})
 
-	it(`to sync the value, options and onClick functionality with false value`, async () => {
+	it('To sync the value, options and onClick functionality with false value', async () => {
 		const logSpy = jest.spyOn(console, 'log')
 		const { container } = render(
 			<Toggle
@@ -49,7 +43,7 @@ describe(`Testing -> Toggle`, () => {
 		expect(button).toHaveTextContent('world')
 	})
 
-	it(`to show the required value in the toggle button`, () => {
+	it('To show the required value in the toggle button', () => {
 		const { container } = render(
 			<Toggle
 				value={false}

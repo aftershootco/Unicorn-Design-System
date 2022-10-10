@@ -3,7 +3,6 @@
 @import '../../styles/text.scss';
 
 .button {
-	-webkit-appearance: none;
 	border: none;
 	box-sizing: border-box;
 	padding: 0.6rem 2rem;
@@ -13,7 +12,6 @@
 }
 
 .button-primary {
-	-webkit-appearance: none;
 	@extend .button;
 	@extend .bg-teal400;
 	border: 1px solid $teal400;
