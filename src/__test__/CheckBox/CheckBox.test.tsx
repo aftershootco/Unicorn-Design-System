@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { CheckBox } from '../../components'
 
-describe(`Testing -> CheckBox`, () => {
-	it(`to be not checked at initial render`, async () => {
+describe('Testing -> CheckBox', () => {
+	it('To be not checked at initial render', async () => {
 		const { container } = render(<CheckBox value={false} onChange={() => {}} />)
 		const checkBox = container.querySelector('.asCheck')
 		expect(checkBox).toBeEnabled()
@@ -13,7 +13,7 @@ describe(`Testing -> CheckBox`, () => {
 		expect(checkBox).not.toHaveClass('as-checked')
 	})
 
-	it(`to get change on click`, async () => {
+	it('To get change on click', async () => {
 		const logSpy = jest.spyOn(console, 'log')
 		const { container } = render(
 			<CheckBox
@@ -27,7 +27,7 @@ describe(`Testing -> CheckBox`, () => {
 		expect(logSpy).toHaveBeenCalled()
 	})
 
-	it(`to be checked with prop as true value`, () => {
+	it('To be checked with prop as true value', () => {
 		const { container } = render(<CheckBox value={true} onChange={() => {}} />)
 		const checkBox = container.querySelector('.asCheck')
 		expect(checkBox).toBeEnabled()

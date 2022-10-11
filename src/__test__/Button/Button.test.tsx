@@ -3,14 +3,14 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { Button } from '../../components'
 
-describe(`Testing -> Button`, () => {
-	it(`to be enabled`, async () => {
+describe('Testing -> Button', () => {
+	it('To be enabled', async () => {
 		render(<Button onClick={() => {}} disabled={false} text='aftershoot' />)
 		const button = screen.getByRole('button', { name: /aftershoot/i })
 		expect(button).toBeEnabled()
 	})
 
-	it(`to check for onClick`, async () => {
+	it('To check for onClick', async () => {
 		const logSpy = jest.spyOn(console, 'log')
 		render(
 			<Button
@@ -37,10 +37,10 @@ describe(`Testing -> Button`, () => {
 		undefined,
 	]
 	for (let i = 0; i < variant.length; ++i) {
-		it(`to have classname with ${variant[i]} variant`, () => {
+		it('To have classname with ${variant[i]} variant', () => {
 			if (variant[i] === undefined) {
 				render(<Button onClick={() => {}} className='prac' />)
-				expect(screen.getByRole('button')).toHaveClass(`button-primary prac`)
+				expect(screen.getByRole('button')).toHaveClass('button-primary prac')
 				return
 			}
 			render(<Button onClick={() => {}} variant={`${variant[i]}`} className='prac' />)
@@ -48,7 +48,7 @@ describe(`Testing -> Button`, () => {
 		})
 	}
 
-	it(`to check whether button is disabled`, () => {
+	it('To check whether button is disabled', () => {
 		render(
 			<Button
 				data-testId='test2'

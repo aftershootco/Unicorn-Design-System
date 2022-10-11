@@ -127,7 +127,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 				<div
 					className='dropDown absolute m-2-t w-100 br-10'
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
-					data-testid='accountdetails'
+					data-testid='dropDownValues'
 					onKeyDown={onKeyDown}
 				>
 					{Object.keys(props.data).map((item, i) => {
