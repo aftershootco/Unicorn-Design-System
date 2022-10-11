@@ -80,7 +80,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
-						type={!showPassword ? 'text' : props.type}
+						type={!props.type ? 'text' : props.type !== 'password' ? props.type : !showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
