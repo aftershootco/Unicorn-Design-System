@@ -102,11 +102,12 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	)
 
 	return (
-		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
+		<div id='myDropDown' className='w-100 relative' data-testid={dataTestId}>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
 				onClick={() => setState((state) => !state)}
+				data-testid='dropDown'
 			>
 				<div
 					className='selectInput cursor-pointer'
@@ -120,12 +121,13 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 				</div>
 			</div>
 			{/* {The z-index must be greater than titlebar's z-index} */}
-			{state && <div className='closeOptions cursor-pointer' onClick={() => setState(false)} />}
+			{state && <div className='closeOptions cursor-pointer' data-testid='closeOptions' onClick={() => setState(false)} />}
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
 				<div
 					className='dropDown absolute m-2-t w-100 br-10'
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
+					data-testid='dropDownValues'
 					onKeyDown={onKeyDown}
 				>
 					{Object.keys(props.data).map((item, i) => {
@@ -140,7 +142,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
-								data-test-id={`${dataTestId}-${item}`}
+								data-testid={`${dataTestId}-${item}`}
 							>
 								{item}
 							</button>

@@ -6,7 +6,7 @@ export interface SwitchProps {
 	 * Varient type of a switch
 	 * @default filled
 	 */
-	varient?: 'filled' | 'outlined'
+	variant?: 'filled' | 'outlined'
 
 	/**
 	 * State of the switch
@@ -32,9 +32,10 @@ const Switch: React.FC<SwitchProps> = (props) => {
 
 	return (
 		<label
-			className={`${styles.switch} ${props.value ? styles.active : ''} ${props.varient === 'outlined' ? styles.outlined : ''}`}
+			className={`${styles.switch} ${props.value ? styles.active : ''} ${props.variant === 'outlined' ? styles.outlined : ''}`}
 			onClick={onClick}
 			style={props.style}
+			data-testid='test'
 		>
 			<span className={`${styles.round} ${styles.slider}`}></span>
 		</label>

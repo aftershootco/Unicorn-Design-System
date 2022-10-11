@@ -32,7 +32,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={`relative w-100 h-3 br-10 overflow-x-hidden ${props.className}`} style={props.style}>
+				<div data-testid='determinant' className={`relative w-100 h-3 br-10 overflow-x-hidden ${props.className}`} style={props.style}>
 					<div className={`absolute w-100 h-3 br-10 bg-43`} style={{ background: `${props.backgroundColor}` }} />
 					<div
 						className={`subline absolute h-3 br-10 bg-teal100`}
@@ -40,7 +40,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 					/>
 				</div>
 			) : (
-				<div className={`relative w-100 h-3 br-10 overflow-x-hidden ${props.className}`} style={props.style}>
+				<div data-testid='nonDeterminant' className={`relative w-100 h-3 br-10 overflow-x-hidden ${props.className}`} style={props.style}>
 					<div className={`absolute w-100 h-3 br-10 bg-43`} style={{ background: `${props.backgroundColor}` }} />
 					<div className={`subline inc absolute h-3 br-10 bg-teal100`} style={{ background: `${props.progressBarColor}` }} />
 					<div className={`subline dec absolute h-3 br-10 bg-teal100`} style={{ background: `${props.progressBarColor}` }} />
