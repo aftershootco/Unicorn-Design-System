@@ -1,19 +1,18 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import typescript from '@rollup/plugin-typescript'
-import dts from 'rollup-plugin-dts'
-import { terser } from 'rollup-plugin-terser'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import svg from 'rollup-plugin-svg'
-import postcss from 'rollup-plugin-postcss'
-import url from '@rollup/plugin-url'
-import postcssUrl from 'postcss-url'
-import svgr from '@svgr/rollup'
-import babel from 'rollup-plugin-babel'
-
+const commonjs = require('@rollup/plugin-commonjs')
+const resolve = require('@rollup/plugin-node-resolve')
+const typescript = require('@rollup/plugin-typescript')
+const url = require('@rollup/plugin-url')
+const svgr = require('@svgr/rollup')
+const postcssUrl = require('postcss-url')
+const babel = require('rollup-plugin-babel')
+const dts = require('rollup-plugin-dts')
+const peerDepsExternal = require('rollup-plugin-peer-deps-external')
+const postcss = require('rollup-plugin-postcss')
+const svg = require('rollup-plugin-svg')
+const { terser } = require('rollup-plugin-terser')
 const packageJson = require('./package.json')
 
-export default [
+module.exports = [
 	{
 		input: 'src/components/index.ts',
 		output: [
@@ -53,7 +52,7 @@ export default [
 	{
 		input: 'src/components/index.ts',
 		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-		plugins: [dts()],
+		plugins: [dts.default()],
 		external: [/\.scss$/],
 	},
 ]
