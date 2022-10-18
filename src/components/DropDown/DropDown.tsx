@@ -82,6 +82,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 
 	const onKeyDown = useCallback(
 		(e) => {
+			if (typeof props.value === 'number') return
 			const currentKey = e.key.toString().toUpperCase()
 			const prevKeyDiv = document.getElementById(prevKey)
 			const currentKeyDiv = document.getElementById(currentKey)
