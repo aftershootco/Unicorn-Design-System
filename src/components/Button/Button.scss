@@ -47,10 +47,11 @@
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		box-sizing: border-box;
 		border-radius: 32.3333px;
-		&:hover {
-			background: transparent !important;
-			pointer-events: none;
-		}
+	}
+	&:disabled:hover {
+		background: transparent !important;
+		border: 1px solid rgba(255, 255, 255, 0.3) !important;
+		pointer-events: none;
 	}
 }
 
