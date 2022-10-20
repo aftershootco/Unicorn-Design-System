@@ -35,9 +35,9 @@
 	@extend .color-black;
 
 	border: 1px solid rgba(255, 255, 255, 0.3) !important;
+	cursor: pointer;
 
 	&:hover {
-		cursor: pointer;
 		background-color: rgb(181, 181, 181) !important;
 		border: 1px solid rgb(181, 181, 181) !important;
 	}
@@ -47,11 +47,11 @@
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		box-sizing: border-box;
 		border-radius: 32.3333px;
-	}
-	&:disabled:hover {
-		background: transparent !important;
-		border: 1px solid rgba(255, 255, 255, 0.3) !important;
-		pointer-events: none;
+		&:hover {
+			background: transparent !important;
+			border: 1px solid rgba(255, 255, 255, 0.3) !important;
+			cursor: default !important;
+		}
 	}
 }
 
