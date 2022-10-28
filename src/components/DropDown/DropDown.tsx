@@ -50,11 +50,16 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
+	const [value, setValue] = useState('')
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
 		setHeight(viewportOffset.top + 65)
 	}, [])
+
+	useEffect(() => {
+		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key] === props.value)), 10)
+	}, [props.value, props.data])
 
 	useEffect(() => {
 		measureHeight()
@@ -75,10 +80,6 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 		},
 		[props.onChange]
 	)
-
-	const value = useMemo(() => {
-		return Object.keys(props.data).find((key) => props.data[key] === props.value)
-	}, [props.value, props.data])
 
 	const onKeyDown = useCallback(
 		(e) => {
