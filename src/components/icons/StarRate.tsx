@@ -1,11 +1,6 @@
 import React from 'react'
 
-interface Props {
-	className?: string
-	style?: React.CSSProperties
-}
-
-const StarRate: React.FC<Props> = (props) => {
+const StarRate: React.FC<React.SVGProps<SVGSVGElement>> = React.memo((props) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
@@ -22,6 +17,6 @@ const StarRate: React.FC<Props> = (props) => {
 			</g>
 		</svg>
 	)
-}
+})
 
 export default StarRate

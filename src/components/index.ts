@@ -23,7 +23,7 @@ import {
 	StarRate,
 	ArrowForwardRounded,
 	ChevronLeftIcon,
-} from './icons'
+} from './Icons'
 export {
 	Button,
 	ButtonProps,
