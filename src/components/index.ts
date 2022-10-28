@@ -9,11 +9,26 @@ import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/L
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
-
+import CircularLoader from './CircularLoader/CircularLoader'
+import {
+	ExpandMore,
+	ClearIcon,
+	ContactSupportIcon,
+	CheckCircle,
+	Check,
+	ArrowDownRounded,
+	ArrrowUpRounded,
+	CloseRounded,
+	ContentCopy,
+	StarRate,
+	ArrowForwardRounded,
+	ChevronLeftIcon,
+} from './icons'
 export {
 	Button,
 	ButtonProps,
 	CheckBox,
+	CircularLoader,
 	CheckBoxProps,
 	Switch,
 	SwitchProps,
@@ -33,4 +48,16 @@ export {
 	DividerProps,
 	LinearProgressBar,
 	LinearProgressBarProps,
+	ExpandMore,
+	ClearIcon,
+	ContactSupportIcon,
+	CheckCircle,
+	Check,
+	ArrowDownRounded,
+	ArrrowUpRounded,
+	CloseRounded,
+	ContentCopy,
+	StarRate,
+	ArrowForwardRounded,
+	ChevronLeftIcon,
 }

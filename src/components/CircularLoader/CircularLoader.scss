@@ -1,0 +1,44 @@
+@keyframes rotate_wheel {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate_wheel1 {
+	0% {
+		stroke-dasharray: 1px, 200px;
+		stroke-dashoffset: 0;
+	}
+
+	50% {
+		stroke-dasharray: 100px, 200px;
+		stroke-dashoffset: -15px;
+	}
+
+	100% {
+		stroke-dasharray: 100px, 200px;
+		stroke-dashoffset: -125px;
+	}
+}
+
+.loader {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	animation: 1.4s linear 0s infinite normal running rotate_wheel;
+}
+
+.circle {
+	animation: rotate_wheel1 1.4s ease-in-out infinite;
+}
+
+/* .circle {
+  stroke-dasharray: 100px, 200px;
+  stroke-dashoffset: -60px;
+} */
