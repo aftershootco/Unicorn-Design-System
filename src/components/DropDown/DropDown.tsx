@@ -40,6 +40,11 @@ export interface DropDownProps {
 	 * ID for Playwright testing.
 	 */
 	dataTestId?: string
+
+	/**
+	 * Children element.
+	 */
+	children?: JSX.Element
 }
 
 const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...props }) => {
@@ -148,6 +153,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 							</button>
 						)
 					})}
+					<div onClick={() => setState(false)}>{props.children}</div>
 				</div>
 			)}
 		</div>
