@@ -1,6 +1,7 @@
 import Button, { ButtonProps } from './Button/Button'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
+import CircularLoader from './CircularLoader/CircularLoader'
 import Dialog, { DialogProps } from './Dialog/Dialog'
 import Divider, { DividerProps } from './Divider/Divider'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
@@ -9,28 +10,27 @@ import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/L
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
-import CircularLoader from './CircularLoader/CircularLoader'
 
 import {
-	ExpandMore,
-	ClearIcon,
-	ContactSupportIcon,
-	CheckCircle,
-	Check,
 	ArrowDownRounded,
-	ArrrowUpRounded,
-	CloseRounded,
-	ContentCopy,
-	StarRate,
 	ArrowForwardRounded,
+	ArrrowUpRounded,
+	Check,
+	CheckCircle,
 	ChevronLeftIcon,
+	ChevronRightIcon,
+	ClearIcon,
+	CloseRounded,
+	ContactSupportIcon,
+	ContentCopy,
+	ExpandMore,
 	KeyBoardArrowDown,
 	KeyBoardArrowUp,
-	Menu,
-	ChevronRightIcon,
 	KeyBoardLeftIcon,
 	KeyBoardRightIcon,
-} from './Icons'
+	Menu,
+	StarRate,
+} from './Icon'
 
 export {
 	Button,
