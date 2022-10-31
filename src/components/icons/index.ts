@@ -10,6 +10,12 @@ import ContentCopy from './ContentCopy'
 import StarRate from './StarRate'
 import ArrowForwardRounded from './ArrowForwardRounded'
 import ChevronLeftIcon from './ChevronLeftIcon'
+import KeyBoardArrowDown from './KeyBoardArrowDown'
+import KeyBoardArrowUp from './KeyBoardArrowUp'
+import Menu from './Menu'
+import ChevronRightIcon from './ChevronRightIcon'
+import KeyBoardLeftIcon from './KeyBoardLeftIcon'
+import KeyBoardRightIcon from './KeyBoardRightIcon'
 
 export {
 	ClearIcon,
@@ -24,4 +30,10 @@ export {
 	StarRate,
 	ArrowForwardRounded,
 	ChevronLeftIcon,
+	KeyBoardArrowDown,
+	KeyBoardArrowUp,
+	Menu,
+	ChevronRightIcon,
+	KeyBoardLeftIcon,
+	KeyBoardRightIcon,
 }

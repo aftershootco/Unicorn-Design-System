@@ -10,6 +10,7 @@ import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 import CircularLoader from './CircularLoader/CircularLoader'
+
 import {
 	ExpandMore,
 	ClearIcon,
@@ -23,7 +24,14 @@ import {
 	StarRate,
 	ArrowForwardRounded,
 	ChevronLeftIcon,
+	KeyBoardArrowDown,
+	KeyBoardArrowUp,
+	Menu,
+	ChevronRightIcon,
+	KeyBoardLeftIcon,
+	KeyBoardRightIcon,
 } from './Icons'
+
 export {
 	Button,
 	ButtonProps,
@@ -60,4 +68,10 @@ export {
 	StarRate,
 	ArrowForwardRounded,
 	ChevronLeftIcon,
+	KeyBoardArrowDown,
+	KeyBoardArrowUp,
+	Menu,
+	ChevronRightIcon,
+	KeyBoardRightIcon,
+	KeyBoardLeftIcon,
 }
