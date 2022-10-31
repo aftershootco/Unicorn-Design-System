@@ -11,27 +11,7 @@ import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 
-import {
-	ArrowDownIcon,
-	ArrowForwardIcon,
-	ArrrowUpIcon,
-	CheckCircleIcon,
-	CheckIcon,
-	ChevronLeftIcon,
-	ChevronRightIcon,
-	ClearIcon,
-	CloseIcon,
-	ContactSupportIcon,
-	ContentCopyIcon,
-	ExpandMoreIcon,
-	KeyBoardArrowDownIcon,
-	KeyBoardArrowUpIcon,
-	KeyBoardLeftIcon,
-	KeyBoardRightIcon,
-	MenuIcon,
-	StarRateIcon,
-} from './Icons'
-
+export * from '../Icons'
 export {
 	Button,
 	ButtonProps,
@@ -56,22 +36,4 @@ export {
 	DividerProps,
 	LinearProgressBar,
 	LinearProgressBarProps,
-	ArrowDownIcon,
-	ArrowForwardIcon,
-	ArrrowUpIcon,
-	CheckCircleIcon,
-	CheckIcon,
-	ChevronLeftIcon,
-	ChevronRightIcon,
-	ClearIcon,
-	CloseIcon,
-	ContactSupportIcon,
-	ContentCopyIcon,
-	ExpandMoreIcon,
-	KeyBoardArrowDownIcon,
-	KeyBoardArrowUpIcon,
-	KeyBoardLeftIcon,
-	KeyBoardRightIcon,
-	MenuIcon,
-	StarRateIcon,
 }
