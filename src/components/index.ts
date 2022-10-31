@@ -26,8 +26,8 @@ import {
 	ExpandMoreIcon,
 	KeyBoardArrowDownIcon,
 	KeyBoardArrowUpIcon,
-	KeyBoardLeftIconIcon,
-	KeyBoardRightIconIcon,
+	KeyBoardLeftIcon,
+	KeyBoardRightIcon,
 	MenuIcon,
 	StarRateIcon,
 } from './Icons'
@@ -70,8 +70,8 @@ export {
 	ExpandMoreIcon,
 	KeyBoardArrowDownIcon,
 	KeyBoardArrowUpIcon,
-	KeyBoardLeftIconIcon,
-	KeyBoardRightIconIcon,
+	KeyBoardLeftIcon,
+	KeyBoardRightIcon,
 	MenuIcon,
 	StarRateIcon,
 }

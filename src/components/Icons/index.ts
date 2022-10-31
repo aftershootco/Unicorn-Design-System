@@ -12,8 +12,8 @@ import ContentCopyIcon from './ContentCopyIcon'
 import ExpandMoreIcon from './ExpandMoreIcon'
 import KeyBoardArrowDownIcon from './KeyBoardArrowDownIcon'
 import KeyBoardArrowUpIcon from './KeyBoardArrowUpIcon'
-import KeyBoardLeftIconIcon from './KeyBoardLeftIconIcon'
-import KeyBoardRightIconIcon from './KeyBoardRightIconIcon'
+import KeyBoardLeftIcon from './KeyBoardLeftIcon'
+import KeyBoardRightIcon from './KeyBoardRightIcon'
 import MenuIcon from './MenuIcon'
 import StarRateIcon from './StarRateIcon'
 
@@ -32,8 +32,8 @@ export {
 	ExpandMoreIcon,
 	KeyBoardArrowDownIcon,
 	KeyBoardArrowUpIcon,
-	KeyBoardLeftIconIcon,
-	KeyBoardRightIconIcon,
+	KeyBoardLeftIcon,
+	KeyBoardRightIcon,
 	MenuIcon,
 	StarRateIcon,
 }
