@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ContentCopy: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const ContentCopyIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	return (
 		<svg xmlns='http://www.w3.org/2000/svg' {...props} height='24px' viewBox='0 0 24 24' width='24px' fill='#FFFFFF'>
 			<path d='M0 0h24v24H0V0z' fill='none' />
@@ -9,4 +9,4 @@ const ContentCopy: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	)
 }
 
-export default React.memo(ContentCopy)
+export default React.memo(ContentCopyIcon)

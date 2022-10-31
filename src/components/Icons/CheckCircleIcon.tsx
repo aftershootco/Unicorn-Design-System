@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CheckCircle: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const CheckCircleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	return (
 		<svg xmlns='http://www.w3.org/2000/svg' {...props} height='24px' viewBox='0 0 24 24' width='24px' fill='#ffffff'>
 			<path d='M0 0h24v24H0V0z' fill='none' />
@@ -9,4 +9,4 @@ const CheckCircle: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	)
 }
 
-export default React.memo(CheckCircle)
+export default React.memo(CheckCircleIcon)

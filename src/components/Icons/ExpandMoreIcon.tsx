@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ExpandMore: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const ExpandMoreIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	return (
 		<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' {...props}>
 			<path d='M24 24H0V0h24v24z' fill='none' opacity='.87' />
@@ -8,4 +8,4 @@ const ExpandMore: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 		</svg>
 	)
 }
-export default React.memo(ExpandMore)
+export default React.memo(ExpandMoreIcon)

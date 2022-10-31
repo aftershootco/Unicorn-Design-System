@@ -1,39 +1,39 @@
-import ClearIcon from './ClearIcon'
-import ExpandMore from './ExpandMore'
-import ContactSupportIcon from './ContactSupport'
-import CheckCircle from './CheckCircle'
-import Check from './Check'
-import ArrowDownRounded from './ArrowDownRounded'
-import ArrrowUpRounded from './ArrrowUpRounded'
-import CloseRounded from './CloseRounded'
-import ContentCopy from './ContentCopy'
-import StarRate from './StarRate'
-import ArrowForwardRounded from './ArrowForwardRounded'
+import ArrowDownIcon from './ArrowDownIcon'
+import ArrowForwardIcon from './ArrowForwardIcon'
+import ArrrowUpIcon from './ArrrowUpIcon'
+import CheckCircleIcon from './CheckCircleIcon'
+import CheckIcon from './CheckIcon'
 import ChevronLeftIcon from './ChevronLeftIcon'
-import KeyBoardArrowDown from './KeyBoardArrowDown'
-import KeyBoardArrowUp from './KeyBoardArrowUp'
-import Menu from './Menu'
 import ChevronRightIcon from './ChevronRightIcon'
-import KeyBoardLeftIcon from './KeyBoardLeftIcon'
-import KeyBoardRightIcon from './KeyBoardRightIcon'
+import ClearIcon from './ClearIcon'
+import CloseIcon from './CloseIcon'
+import ContactSupportIcon from './ContactSupportIcon'
+import ContentCopyIcon from './ContentCopyIcon'
+import ExpandMoreIcon from './ExpandMoreIcon'
+import KeyBoardArrowDownIcon from './KeyBoardArrowDownIcon'
+import KeyBoardArrowUpIcon from './KeyBoardArrowUpIcon'
+import KeyBoardLeftIconIcon from './KeyBoardLeftIconIcon'
+import KeyBoardRightIconIcon from './KeyBoardRightIconIcon'
+import MenuIcon from './MenuIcon'
+import StarRateIcon from './StarRateIcon'
 
 export {
-	ClearIcon,
-	ExpandMore,
-	ContactSupportIcon,
-	CheckCircle,
-	Check,
-	ArrowDownRounded,
-	ArrrowUpRounded,
-	CloseRounded,
-	ContentCopy,
-	StarRate,
-	ArrowForwardRounded,
+	ArrowDownIcon,
+	ArrowForwardIcon,
+	ArrrowUpIcon,
+	CheckCircleIcon,
+	CheckIcon,
 	ChevronLeftIcon,
-	KeyBoardArrowDown,
-	KeyBoardArrowUp,
-	Menu,
 	ChevronRightIcon,
-	KeyBoardLeftIcon,
-	KeyBoardRightIcon,
+	ClearIcon,
+	CloseIcon,
+	ContactSupportIcon,
+	ContentCopyIcon,
+	ExpandMoreIcon,
+	KeyBoardArrowDownIcon,
+	KeyBoardArrowUpIcon,
+	KeyBoardLeftIconIcon,
+	KeyBoardRightIconIcon,
+	MenuIcon,
+	StarRateIcon,
 }

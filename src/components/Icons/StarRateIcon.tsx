@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StarRate: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const StarRateIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
@@ -19,4 +19,4 @@ const StarRate: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 	)
 }
 
-export default React.memo(StarRate)
+export default React.memo(StarRateIcon)
