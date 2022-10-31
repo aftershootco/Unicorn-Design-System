@@ -30,7 +30,7 @@ import {
 	KeyBoardRightIcon,
 	Menu,
 	StarRate,
-} from './Icon'
+} from './Icons'
 
 export {
 	Button,
