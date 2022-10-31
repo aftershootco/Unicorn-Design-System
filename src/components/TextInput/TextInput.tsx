@@ -69,6 +69,11 @@ export interface TextInputProps {
 	 * Any prefix code need to be added.
 	 */
 	prefix?: JSX.Element
+
+	/**
+	 * Maximum lenght of an input field.
+	 */
+	maxLength?: number
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
@@ -80,6 +85,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
+						maxLength={props.maxLength ? props.maxLength : 524288}
 						type={!props.type ? 'text' : props.type !== 'password' ? props.type : !showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
