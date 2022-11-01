@@ -17,7 +17,7 @@ export interface AccordionProps {
 	active: boolean
 
 	/**
-	 * @function to show or close the accordion
+	 * @function to show/close the accordion
 	 */
 	onChange: (value: boolean) => void
 }

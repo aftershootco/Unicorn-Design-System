@@ -1,3 +1,4 @@
+import Accordion, { AccordionProps } from './Accordion/Accordion'
 import Button, { ButtonProps } from './Button/Button'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
@@ -6,6 +7,7 @@ import Divider, { DividerProps } from './Divider/Divider'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
 import Label, { LabelProps } from './Label/Label'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
+import Slider, { SliderProps } from './Slider/Slider'
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
@@ -33,4 +35,8 @@ export {
 	DividerProps,
 	LinearProgressBar,
 	LinearProgressBarProps,
+	Slider,
+	SliderProps,
+	Accordion,
+	AccordionProps,
 }
