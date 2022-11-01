@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
 import './dropDown.scss'
 
@@ -13,7 +13,11 @@ export interface DropDownProps {
 	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
 	 */
 	data: {
-		[key: string]: string | number
+		[key: string]: {
+			title: string
+			value: string | number
+			[key: string]: any
+		}
 	}
 
 	/**
@@ -63,7 +67,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	}, [])
 
 	useEffect(() => {
-		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key] === props.value)), 10)
+		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key].title === props.value)), 10)
 	}, [props.value, props.data])
 
 	useEffect(() => {
@@ -141,12 +145,12 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 							<button
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={item}
-								id={props.value === props.data[item] ? 'apply' : item[0]}
+								id={props.value === props.data[item].title ? 'apply' : item[0]}
 								className={
 									'flex-row align-center justify-start options text-left word-break-all p-5-lr p-3-tb w-100 cursor-pointer ' +
-									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
+									(props.value === props.data[item].value ? 'bg-grey700B' : 'bg-grey700')
 								}
-								onClick={(e) => handleChange(e, props.data[item])}
+								onClick={(e) => handleChange(e, props.data[item].value)}
 								data-test-id={`${dataTestId}-${item}`}
 							>
 								{item}
