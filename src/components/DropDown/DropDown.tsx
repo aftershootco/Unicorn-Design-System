@@ -22,6 +22,11 @@ export interface DropDownProps {
 	className?: string
 
 	/**
+	 * Classes to be applied to the outer div of dropdown.
+	 */
+	outerClassName?: string
+
+	/**
 	 * Width of the dropdown
 	 */
 	width?: string
@@ -30,6 +35,11 @@ export interface DropDownProps {
 	 * Style to be applied to the dropdown.
 	 */
 	style?: React.CSSProperties
+
+	/**
+	 * Style to be applied on the outer div element
+	 */
+	outerStyle?: React.CSSProperties
 
 	/**
 	 * Function to be called when any option is clicked
@@ -109,7 +119,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	)
 
 	return (
-		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
+		<div id='myDropDown' className={'w-100 relative ' + props.outerClassName} style={{ ...props.outerStyle }} data-test-id={dataTestId}>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
