@@ -57,7 +57,7 @@ export interface DropDownProps {
 	children?: JSX.Element
 }
 
-const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...props }) => {
+const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
@@ -66,6 +66,23 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
 	const [value, setValue] = useState('')
+
+	const restProps: any = useMemo(() => {
+		const temp = { ...props }
+
+		delete temp.value
+		delete temp.data
+		delete temp.className
+		delete temp.outerClassName
+		delete temp.style
+		delete temp.outerStyle
+		delete temp.width
+		delete temp.onChange
+		delete temp.dataTestId
+		delete temp.children
+
+		return temp
+	}, [props])
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
@@ -119,7 +136,14 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	)
 
 	return (
-		<div id='myDropDown' className={'w-100 relative ' + props.outerClassName} style={{ ...props.outerStyle }} data-test-id={dataTestId}>
+		<div
+			{...restProps}
+			id='myDropDown'
+			className={'w-100 relative ' + props.outerClassName}
+			style={{ ...props.outerStyle }}
+			data-test-id={props.dataTestId}
+			ref={ref}
+		>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
@@ -157,7 +181,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
-								data-test-id={`${dataTestId}-${item}`}
+								data-test-id={`${props.dataTestId}-${item}`}
 							>
 								{item}
 							</button>
@@ -168,6 +192,10 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 			)}
 		</div>
 	)
+})
+
+DropDown.defaultProps = {
+	dataTestId: 'uds-dropdown',
 }
 
 export default React.memo(DropDown)
