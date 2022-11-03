@@ -11,12 +11,7 @@ export interface ToggleProps {
 	 * If true, first option is selected. Otherwise the other one.
 	 */
 	value: boolean
-
-	/**
-	 * Function to be called when toggle is changed.
-	 */
-	onClick: (value: boolean) => void
-
+	
 	/**
 	 * Options name for the toggle.
 	 */
@@ -24,6 +19,12 @@ export interface ToggleProps {
 		first: string
 		second: string
 	}
+	
+	/**
+	 * Function to be called when toggle is changed.
+	 */
+	onClick: (value: boolean) => void
+
 }
 
 const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {

@@ -3,6 +3,26 @@ import { classNames } from '../../utils'
 
 export interface ChipProps {
 	/**
+	 * Key of a div
+	 */
+	key?: number
+
+	/**
+	 * Is disabled?
+	 */
+	disabled?: boolean
+
+	/**
+	 * Type of the chip. Default is 'primary'
+	 */
+	variant?: 'primary' | 'secondary'
+
+	/**
+	 * Background color of the btn.
+	 */
+	backgroundColor?: string
+
+	/**
 	 * Text of the button.
 	 */
 	text?: string
@@ -11,11 +31,6 @@ export interface ChipProps {
 	 * Classes to be applied to the button
 	 */
 	className?: string
-
-	/**
-	 * Type of the chip. Default is 'primary'
-	 */
-	variant?: 'primary' | 'secondary' | 'tertiary'
 
 	/**
 	 * Style to be applied to the button.
@@ -33,7 +48,7 @@ export interface ChipProps {
 	onClick: () => void
 }
 
-const Chip: React.FC<ChipProps> = (props) => {
+const Chip: React.FC<ChipProps> = ({ disabled = false, ...props }) => {
 	return (
 		<button
 			className={classNames(

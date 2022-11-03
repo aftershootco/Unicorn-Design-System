@@ -23,6 +23,11 @@ export interface DropDownProps {
 	className?: string
 
 	/**
+	 * Classes to be applied to the outer div of dropdown.
+	 */
+	outerClassName?: string
+
+	/**
 	 * Width of the dropdown
 	 */
 	width?: string
@@ -33,18 +38,52 @@ export interface DropDownProps {
 	style?: React.CSSProperties
 
 	/**
+	 * Style to be applied on the outer div element
+	 */
+	outerStyle?: React.CSSProperties
+
+	/**
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (value: string) => void
+
+	/**
+	 * ID for Playwright testing.
+	 */
+	dataTestId?: string
+
+	/**
+	 * Children element.
+	 */
+	children?: JSX.Element
 }
 
-const DropDown: React.FC<DropDownProps> = (props) => {
+const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
 
 	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
+	const [prevKey, setPrevKey] = useState('')
+	const [value, setValue] = useState('')
+
+	const restProps: any = useMemo(() => {
+		const temp = { ...props }
+
+		delete temp.value
+		delete temp.data
+		delete temp.className
+		delete temp.outerClassName
+		delete temp.style
+		delete temp.outerStyle
+		delete temp.width
+		delete temp.onChange
+		delete temp.dataTestId
+		delete temp.children
+
+		return temp
+	}, [props])
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
@@ -52,23 +91,50 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 	}, [])
 
 	useEffect(() => {
+		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key] === props.value)), 10)
+	}, [props.value, props.data])
+
+	useEffect(() => {
 		measureHeight()
 		if (state) {
-			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' })
+			document.getElementById('apply')?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			document.getElementById('apply')?.focus()
 		}
 	}, [state])
 
-	const handleChange = React.useCallback((item: string | number) => {
-		props?.onChange(String(item))
+	const handleChange = React.useCallback(
+		(e, item: string | number) => {
+			e.preventDefault()
+			props?.onChange(String(item))
 
-		inputRef.current.click()
-		firstElement.current = null
-		lastElement.current = null
-	}, [])
+			inputRef.current.click()
+			firstElement.current = null
+			lastElement.current = null
+		},
+		[props.onChange]
+	)
 
-	const value = useMemo(() => {
-		return Object.keys(props.data).find((key) => props.data[key] === props.value)
-	}, [props.value, props.data])
+	const onKeyDown = React.useCallback(
+		(e) => {
+			if (typeof props.value === 'number') return
+			const currentKey = e.key.toString().toUpperCase()
+			const prevKeyDiv = document.getElementById(prevKey)
+			const currentKeyDiv = document.getElementById(currentKey)
+			const selectedKeyDiv = document.getElementById('apply')
+
+			prevKeyDiv?.classList.remove('bg-grey700B') // Remove bg from the prevKey
+
+			// If currentKey is first letter of the selected value
+			if (currentKey === props.value[0].toUpperCase()) {
+				selectedKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+				return
+			}
+			currentKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
+			currentKeyDiv?.classList.add('bg-grey700B')
+			setPrevKey(currentKey)
+		},
+		[prevKey]
+	)
 
 	return (
 		<div id='myDropDown' className='relative w-full'>
@@ -153,6 +219,10 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 			</Listbox>
 		</div>
 	)
+})
+
+DropDown.defaultProps = {
+	dataTestId: 'uds-dropdown',
 }
 
 export default React.memo(DropDown)

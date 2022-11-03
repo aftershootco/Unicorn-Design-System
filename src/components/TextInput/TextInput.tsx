@@ -68,6 +68,11 @@ export interface TextInputProps {
 	 * Any prefix code need to be added.
 	 */
 	prefix?: JSX.Element
+
+	/**
+	 * Maximum lenght of an input field.
+	 */
+	maxLength?: number
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
@@ -94,6 +99,30 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
+						onKeyDown={(e: any) => {
+							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
+								e.target.select()
+							}
+							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
+								const selectedText = getSelection().toString()
+								if (selectedText.length > 0) navigator.clipboard.writeText(selectedText)
+							}
+							if (e.metaKey && e.key === 'v') {
+								const initialText = e.target.value
+								const selectedText = getSelection().toString()
+								const cursorPosiiton = e.target.selectionStart
+								navigator.clipboard.readText().then((text) => {
+									const finalValue = selectedText.length
+										? initialText.replace(selectedText, text)
+										: initialText.slice(0, cursorPosiiton) + text + initialText.slice(cursorPosiiton)
+									props.onChange({
+										target: {
+											value: finalValue,
+										},
+									} as any)
+								})
+							}
+						}}
 					/>
 					{props.type === 'password' && (
 						<div
@@ -123,7 +152,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						)}
 						value={props.value}
 						placeholder={props.placeholder}
-						onChange={(e) => props.onChange(e)}
+						onChange={props.onChange}
 						disabled={props.disable}
 						style={props.style}
 					/>
