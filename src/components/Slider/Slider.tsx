@@ -39,10 +39,22 @@ const Slider: React.FC<SliderProps> = (props) => {
 		}
 	}
 
+	// let x =
+	// let y
+	// if (props.value <= props.step) {
+	// 	y = 0
+	// } else {
+	// 	y = props.step
+	// 	// y = (props.max / props.step) % props.max
+	// }
+
+	// let val = 0;
+	// val = val +
+
 	return (
 		<>
 			<div className='slider-container'>
-				<div className='slider-track' style={{ width: props.value }}></div>
+				<div className='slider-track' style={{ width: props.value + '%' }}></div>
 				<input className='slider-thumb' type='range' min='0' max='100' step={props.step} onChange={handleChange} value={props.value} />
 			</div>
 			{/* <input
