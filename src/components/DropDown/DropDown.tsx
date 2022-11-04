@@ -116,15 +116,18 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	const onKeyDown = useCallback(
 		(e) => {
 			if (typeof props.value === 'number') return
-			const currentKey = e.key.toString().toUpperCase()
-			const prevKeyDiv = document.getElementById(prevKey)
-			const currentKeyDiv = document.getElementById(currentKey)
+			const selectedKey = props.value[0]?.toUpperCase() ?? 'A'
 			const selectedKeyDiv = document.getElementById('apply')
+
+			const currentKey = e.key.toString()?.toUpperCase() ?? 'A'
+			const currentKeyDiv = document.getElementById(currentKey)
+
+			const prevKeyDiv = document.getElementById(prevKey)
 
 			prevKeyDiv?.classList.remove('bg-grey700B') // Remove bg from the prevKey
 
 			// If currentKey is first letter of the selected value
-			if (currentKey === props.value[0].toUpperCase()) {
+			if (currentKey === selectedKey) {
 				selectedKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
 				return
 			}
