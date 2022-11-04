@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
 import './dropDown.scss'
 
@@ -26,6 +26,11 @@ export interface DropDownProps {
 	className?: string
 
 	/**
+	 * Classes to be applied to the outer div of dropdown.
+	 */
+	outerClassName?: string
+
+	/**
 	 * Width of the dropdown
 	 */
 	width?: string
@@ -34,6 +39,11 @@ export interface DropDownProps {
 	 * Style to be applied to the dropdown.
 	 */
 	style?: React.CSSProperties
+
+	/**
+	 * Style to be applied on the outer div element
+	 */
+	outerStyle?: React.CSSProperties
 
 	/**
 	 * Function to be called when any option is clicked
@@ -51,7 +61,7 @@ export interface DropDownProps {
 	children?: JSX.Element
 }
 
-const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...props }) => {
+const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
@@ -60,6 +70,23 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
 	const [value, setValue] = useState('')
+
+	const restProps: any = useMemo(() => {
+		const temp = { ...props }
+
+		delete temp.value
+		delete temp.data
+		delete temp.className
+		delete temp.outerClassName
+		delete temp.style
+		delete temp.outerStyle
+		delete temp.width
+		delete temp.onChange
+		delete temp.dataTestId
+		delete temp.children
+
+		return temp
+	}, [props])
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
@@ -93,15 +120,18 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const onKeyDown = useCallback(
 		(e) => {
 			if (typeof props.value === 'number') return
-			const currentKey = e.key.toString().toUpperCase()
-			const prevKeyDiv = document.getElementById(prevKey)
-			const currentKeyDiv = document.getElementById(currentKey)
+			const selectedKey = props.value[0]?.toUpperCase() ?? 'A'
 			const selectedKeyDiv = document.getElementById('apply')
+
+			const currentKey = e.key.toString()?.toUpperCase() ?? 'A'
+			const currentKeyDiv = document.getElementById(currentKey)
+
+			const prevKeyDiv = document.getElementById(prevKey)
 
 			prevKeyDiv?.classList.remove('bg-grey700B') // Remove bg from the prevKey
 
 			// If currentKey is first letter of the selected value
-			if (currentKey === props.value[0].toUpperCase()) {
+			if (currentKey === selectedKey) {
 				selectedKeyDiv?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'nearest' })
 				return
 			}
@@ -113,7 +143,14 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	)
 
 	return (
-		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
+		<div
+			{...restProps}
+			id='myDropDown'
+			className={'w-100 relative ' + props.outerClassName}
+			style={{ ...props.outerStyle }}
+			data-test-id={props.dataTestId}
+			ref={ref}
+		>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
@@ -151,7 +188,7 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 									(props.value === props.data[item].value ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item].value)}
-								data-test-id={`${dataTestId}-${item}`}
+								data-test-id={`${props.dataTestId}-${item}`}
 							>
 								{item}
 							</button>
@@ -162,6 +199,10 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 			)}
 		</div>
 	)
+})
+
+DropDown.defaultProps = {
+	dataTestId: 'uds-dropdown',
 }
 
 export default React.memo(DropDown)
