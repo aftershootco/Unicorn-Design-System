@@ -2,9 +2,16 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
 import './dropDown.scss'
 
+interface DropdownData {
+	label: string | JSX.Element
+	value: string | number | boolean
+	[key: string]: any
+}
+
 export interface DropDownProps {
 	/**
 	 * Current value selected of the dropdown
+	 * It is the key of the dropdown object.
 	 */
 	value: string | number
 
@@ -13,11 +20,7 @@ export interface DropDownProps {
 	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
 	 */
 	data: {
-		[key: string]: {
-			title: string
-			value: string | number
-			[key: string]: any
-		}
+		[key: string | number]: DropdownData
 	}
 
 	/**
@@ -48,7 +51,7 @@ export interface DropDownProps {
 	/**
 	 * Function to be called when any option is clicked
 	 */
-	onChange: (value: string) => void
+	onChange: (clickedOn: DropdownData) => void
 
 	/**
 	 * ID for Playwright testing.
@@ -59,6 +62,16 @@ export interface DropDownProps {
 	 * Children element.
 	 */
 	children?: JSX.Element
+
+	/**
+	 * To be shown when none is selected.
+	 */
+	placeholder?: string
+
+	/**
+	 * Place holder element
+	 */
+	placeholderData?: { [key: string | number]: DropdownData }
 }
 
 const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
@@ -69,7 +82,6 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
-	const [value, setValue] = useState('')
 
 	const restProps: any = useMemo(() => {
 		const temp = { ...props }
@@ -88,15 +100,50 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		return temp
 	}, [props])
 
-	const measureHeight = React.useCallback(() => {
+	const [selected, setSelected] = useState<string | JSX.Element>()
+	const [data, setData] = useState<typeof props.data>(props.data)
+
+	// To make sure dropdown not exceeds the page.
+	const measureHeight = useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
 		setHeight(viewportOffset.top + 65)
 	}, [])
 
+	// Tp use updated data.
 	useEffect(() => {
-		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key].title === props.value)), 10)
-	}, [props.value, props.data])
+		if (props.placeholderData) {
+			setData({
+				...props.placeholderData,
+				...props.data,
+			})
+			return
+		}
+		if (props.placeholder) {
+			setData({
+				'': { label: props.placeholder, value: '' },
+				...props.data,
+			})
+		} else setData(props.data)
+	}, [props.data, props.placeholder])
 
+	// To update the "props.value" in case "props.data" changes.
+	useEffect(() => {
+		setTimeout(() => {
+			const valueExist = Object.keys(data).find((key) => String(key) == String(props.value))
+			if (valueExist) setSelected(data[valueExist].label)
+			else {
+				// show placeholder.
+				if (props.placeholderData) {
+					setSelected(props.placeholderData[Object.keys(props.placeholderData)[0]].label)
+					return
+				}
+				if (props.placeholder) setSelected(data[''].label)
+				else setSelected('')
+			}
+		}, 10)
+	}, [props.value, data])
+
+	// To get the selected value into view when dropdown clicked.
 	useEffect(() => {
 		measureHeight()
 		if (state) {
@@ -105,10 +152,11 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		}
 	}, [state])
 
+	// To handle onChange.
 	const handleChange = React.useCallback(
-		(e, item: string | number) => {
+		(e, clickedOn: DropdownData) => {
 			e.preventDefault()
-			props.onChange(String(item))
+			props.onChange(clickedOn)
 
 			inputRef.current.click()
 			firstElement.current = null
@@ -117,6 +165,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		[props.onChange]
 	)
 
+	// Key Down event for searching values with keys.
 	const onKeyDown = useCallback(
 		(e) => {
 			if (typeof props.value === 'number') return
@@ -161,7 +210,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					ref={inputRef}
 					style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', display: 'inline-block' }}
 				>
-					{value}
+					{selected}
 				</div>
 				<div className={state ? 'arrowUp' : 'arrowDown'}>
 					<DownArrow />
@@ -176,21 +225,21 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					style={{ maxHeight: `calc(100vh - ${height}px)`, width: props.width ? props.width : '' }}
 					onKeyDown={onKeyDown}
 				>
-					{Object.keys(props.data).map((item, i) => {
-						let objectLength = Object.keys(props.data).length
+					{Object.keys(data).map((_key, i) => {
+						let objectLength = Object.keys(data).length
 						return (
 							<button
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
-								key={item}
-								id={props.value === props.data[item].title ? 'apply' : item[0]}
+								key={_key}
+								id={props.value == _key ? 'apply' : data[_key].label[0]}
 								className={
 									'flex-row align-center justify-start options text-left word-break-all p-5-lr p-3-tb w-100 cursor-pointer ' +
-									(props.value === props.data[item].value ? 'bg-grey700B' : 'bg-grey700')
+									(props.value === _key ? 'bg-grey700B' : 'bg-grey700')
 								}
-								onClick={(e) => handleChange(e, props.data[item].value)}
-								data-test-id={`${props.dataTestId}-${item}`}
+								onClick={(e) => handleChange(e, data[_key])}
+								data-test-id={`${props.dataTestId}-${_key}`}
 							>
-								{item}
+								{data[_key].label}
 							</button>
 						)
 					})}
