@@ -1,4 +1,3 @@
-import Accordion, { AccordionProps } from './Accordion/Accordion'
 import Button, { ButtonProps } from './Button/Button'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
@@ -37,6 +36,4 @@ export {
 	LinearProgressBarProps,
 	Slider,
 	SliderProps,
-	Accordion,
-	AccordionProps,
 }
