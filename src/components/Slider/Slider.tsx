@@ -33,41 +33,16 @@ const Slider: React.FC<SliderProps> = (props) => {
 		props.onChange(Number(event.target.value))
 	}, [])
 
-	const getBackgroundSize = () => {
-		return {
-			backgroundSize: `${(props.value * 100) / props.max}% 100%`,
-		}
-	}
-
-	// let x =
-	// let y
-	// if (props.value <= props.step) {
-	// 	y = 0
-	// } else {
-	// 	y = props.step
-	// 	// y = (props.max / props.step) % props.max
-	// }
-
-	// let val = 0;
-	// val = val +
-
 	return (
-		<>
-			<div className='slider-container'>
-				<div className='slider-track' style={{ width: props.value + '%' }}></div>
-				<input className='slider-thumb' type='range' min='0' max='100' step={props.step} onChange={handleChange} value={props.value} />
-			</div>
-			{/* <input
-				className='slider-input'
-				type='range'
-				defaultValue={props.value}
-				onChange={handleChange}
-				min={props.min}
-				max={props.max}
-				step={props.step}
-				style={getBackgroundSize()}
-			/> */}
-		</>
+		<input
+			type='range'
+			value={props.value}
+			min={props.min}
+			max={props.max}
+			step={props.step}
+			onChange={handleChange}
+			style={{ backgroundSize: ((props.value - props.min) * 100) / (props.max - props.min) + '%' }}
+		/>
 	)
 }
 
