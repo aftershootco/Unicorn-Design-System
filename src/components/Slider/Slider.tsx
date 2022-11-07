@@ -5,6 +5,7 @@ const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) =>
 	return (
 		<input
 			{...props}
+			className={`slider-input ${props.className}`}
 			type='range'
 			style={{
 				...props.style,
