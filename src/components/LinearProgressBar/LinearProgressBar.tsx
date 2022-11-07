@@ -1,21 +1,11 @@
 import React from 'react'
 import './LinearProgressBar.scss'
 
-export interface LinearProgressBarProps {
+export interface LinearProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Set the value to change between determinant and indeterminant, 0 for indeterminant
 	 */
 	value?: number
-
-	/**
-	 * Classes to be applied to the progress bar.
-	 */
-	className?: string
-
-	/**
-	 * Set custom styles
-	 */
-	style?: React.CSSProperties
 
 	/**
 	 * Background color of progress bar

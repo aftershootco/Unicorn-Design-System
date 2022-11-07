@@ -1,17 +1,7 @@
 import React from 'react'
 import './Chip.scss'
 
-export interface ChipProps {
-	/**
-	 * Key of a div
-	 */
-	key?: number
-
-	/**
-	 * Is disabled?
-	 */
-	disabled?: boolean
-
+export interface ChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Type of the chip. Default is 'primary'
 	 */
@@ -26,39 +16,19 @@ export interface ChipProps {
 	 * Text of the button.
 	 */
 	text?: string
-
-	/**
-	 * Inner component to be rendered inside the chip.
-	 */
-	children?: React.ReactNode
-
-	/**
-	 * Classes to be applied to the button
-	 */
-	className?: string
-
-	/**
-	 * Style to be applied to the button.
-	 */
-	style?: React.CSSProperties
-
-	/**
-	 * Function to be called when hit a button
-	 */
-	onClick: () => void
 }
 
-const Chip: React.FC<ChipProps> = ({ disabled = false, ...props }) => {
+const Chip: React.FC<ChipProps> = (props) => {
 	return (
 		<button
-			key={props.key}
+			{...props}
 			className={
 				'text-h5 color-white cursor-pointer ' +
 				`prefer-${props.variant ? props.variant : 'primary'} ${props.className} ` +
-				`disabled-${disabled} `
+				`disabled-${props.disabled} `
 			}
 			style={{ background: `${props.backgroundColor}`, border: `1px solid ${props.backgroundColor}`, ...props.style }}
-			onClick={!disabled && props.onClick}
+			onClick={!props.disabled && props.onClick}
 		>
 			{props.text || props.children}
 		</button>

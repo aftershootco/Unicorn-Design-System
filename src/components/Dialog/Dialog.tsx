@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../Button/Button'
 import './Dialog.scss'
 
-export interface DialogProps {
+export interface DialogProps extends React.DialogHTMLAttributes<HTMLDialogElement> {
 	/**
 	 * @string Primary/First Button Text
 	 */
@@ -14,19 +14,9 @@ export interface DialogProps {
 	negativeText?: string
 
 	/**
-	 * CSS style object
+	 * @function for onClose Callback on the Dialog Box
 	 */
-	style?: React.CSSProperties
-
-	/**
-	 * Children nodes to be passed as arguements to the dialog box
-	 */
-	children: React.ReactNode
-
-	/**
-	 * @function for onClose callback on the Dialog box
-	 */
-	onClose: () => void
+	onClose?: () => void
 
 	/**
 	 * @function for onClick Callback on the primary button
@@ -42,6 +32,7 @@ export interface DialogProps {
 const Dialog: React.FC<DialogProps> = (props) => {
 	return (
 		<dialog
+			{...props}
 			open={true}
 			aria-labelledby='simple-dialog-title'
 			onKeyUp={(e) => {
@@ -52,7 +43,6 @@ const Dialog: React.FC<DialogProps> = (props) => {
 				}
 			}}
 			className='default-dialog relative bg-grey800 p-10 p-8-b br-10'
-			style={props.style}
 		>
 			{props.children}
 			<div className={'flex-col align-center ' + (props?.positiveText ? 'p-6-t' : 'p-0-t')}>

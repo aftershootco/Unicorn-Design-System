@@ -3,41 +3,11 @@ import { ReactComponent as EyeOff } from '../../assets/svg/EyeOff.svg'
 import { ReactComponent as EyeOn } from '../../assets/svg/EyeOn.svg'
 import styles from './styles.module.scss'
 
-export interface TextInputProps {
-	/**
-	 * Type of the input
-	 */
-	type?: 'text' | 'password' | 'number' | 'file'
-
-	/**
-	 * Placeholder of the input
-	 */
-	placeholder?: string
-
-	/**
-	 * Classes to be applied to the input field.
-	 */
-	className?: string
-
-	/**
-	 * Event to be triggered when there is an input change
-	 */
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-
-	/**
-	 * Function to be called when hit input field.
-	 */
-	onClick?: () => void
-
+export interface TextInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement>, 'prefix'> {
 	/**
 	 * Value of the input
 	 */
 	value: string
-
-	/**
-	 * Is the input disabled?
-	 */
-	disable?: boolean
 
 	/**
 	 * Type of the input field.
@@ -56,11 +26,6 @@ export interface TextInputProps {
 	adornmentStartStyle?: {}
 
 	/**
-	 * Styles to be applied to the input field.
-	 */
-	style?: {}
-
-	/**
 	 * what types of input field it will accept. Like in the case of file, what extensions will be accepted.
 	 */
 	accept?: string
@@ -71,7 +36,7 @@ export interface TextInputProps {
 	prefix?: JSX.Element
 }
 
-const TextInput: React.FC<TextInputProps> = (props) => {
+const TextInput: React.FC<TextInputProps> = (props: TextInputProps) => {
 	const [showPassword, setShowPassword] = useState(props.type === 'password')
 
 	return (
@@ -80,13 +45,13 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
+						disabled={props.disabled}
 						type={!props.type ? 'text' : props.type !== 'password' ? props.type : !showPassword ? 'text' : props.type}
 						className={`${props.type === 'password' && 'relative'} ${styles.inputBox} ${props.inputProperties}`}
 						value={props.value}
 						placeholder={props.placeholder}
 						onChange={!props.variant || props.variant === 'primary' ? props.onChange : () => {}}
 						onClick={props.variant === 'secondary' ? props.onClick : () => {}}
-						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
 						onKeyDown={(e: any) => {
@@ -130,12 +95,12 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 				<div className={`relative ${props?.className}`}>
 					{props.prefix}
 					<input
+						disabled={props.disabled}
 						type='text'
 						className={`${styles.inputBox} ${props.inputProperties} relative`}
 						value={props.value}
 						placeholder={props.placeholder}
 						onChange={props.onChange}
-						disabled={props.disable}
 						style={props.style}
 					/>
 

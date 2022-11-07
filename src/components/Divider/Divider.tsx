@@ -1,22 +1,12 @@
 import React from 'react'
 import './Divider.scss'
 
-export interface DividerProps {
+export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Type of Divider
 	 * @default horizontal
 	 */
 	varient?: 'horizontal' | 'vertical'
-
-	/**
-	 * Classes to be applied.
-	 */
-	className?: string
-
-	/**
-	 * Styles to be applied.
-	 */
-	style?: React.CSSProperties
 }
 
 const Divider: React.FC<DividerProps> = (props) => {

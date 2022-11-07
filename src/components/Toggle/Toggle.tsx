@@ -1,17 +1,7 @@
 import React from 'react'
 import './Toggle.scss'
 
-export interface ToggleProps {
-	/**
-	 * Styles to be applied on the toggle.
-	 */
-	style?: React.CSSProperties
-
-	/**
-	 * If true, first option is selected. Otherwise the other one.
-	 */
-	value: boolean
-	
+export interface ToggleProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Options name for the toggle.
 	 */
@@ -19,21 +9,15 @@ export interface ToggleProps {
 		first: string
 		second: string
 	}
-	
-	/**
-	 * Function to be called when toggle is changed.
-	 */
-	onClick: (value: boolean) => void
-
 }
 
 const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
 	return (
 		<div className='toggler flex-row'>
-			<button className='yearly cursor-pointer text-h4-bold color-white' onClick={() => props.onClick(true)}>
+			<button {...props} className='yearly cursor-pointer text-h4-bold color-white'>
 				{props.options.first}
 			</button>
-			<button className='monthly cursor-pointer two text-h4-bold color-white' onClick={() => props.onClick(false)}>
+			<button {...props} className='monthly cursor-pointer two text-h4-bold color-white'>
 				{props.options.second}
 			</button>
 

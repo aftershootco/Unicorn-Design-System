@@ -1,27 +1,17 @@
 import React from 'react'
 
-export interface LabelProps {
+export interface LabelProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Label of the associated input.
 	 */
 	label: string
-
-	/**
-	 * Classes to be applied.
-	 */
-	className?: string
-
-	/**
-	 * Inside text or component to be rendered.
-	 */
-	children?: React.ReactNode | string
 }
 
-const Label: React.FC<LabelProps> = ({ label, className = '', children }) => {
+const Label: React.FC<LabelProps> = (props) => {
 	return (
 		<div className='flex-col' style={{ flex: '1' }}>
-			<div className={`${className}`}>{label}</div>
-			{children}
+			<div className={`${props.className}`}>{props.label}</div>
+			{props.children}
 		</div>
 	)
 }
