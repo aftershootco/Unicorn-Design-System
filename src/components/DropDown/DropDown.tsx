@@ -22,6 +22,11 @@ export interface DropDownProps {
 	className?: string
 
 	/**
+	 * Classes to be applied to the outer div of dropdown.
+	 */
+	outerClassName?: string
+
+	/**
 	 * Width of the dropdown
 	 */
 	width?: string
@@ -32,6 +37,11 @@ export interface DropDownProps {
 	style?: React.CSSProperties
 
 	/**
+	 * Style to be applied on the outer div element
+	 */
+	outerStyle?: React.CSSProperties
+
+	/**
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (value: string) => void
@@ -40,9 +50,14 @@ export interface DropDownProps {
 	 * ID for Playwright testing.
 	 */
 	dataTestId?: string
+
+	/**
+	 * Children element.
+	 */
+	children?: JSX.Element
 }
 
-const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...props }) => {
+const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
 	const inputRef = useRef(null)
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
@@ -50,11 +65,33 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	const [state, setState] = useState(false)
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
+	const [value, setValue] = useState('')
+
+	const restProps: any = useMemo(() => {
+		const temp = { ...props }
+
+		delete temp.value
+		delete temp.data
+		delete temp.className
+		delete temp.outerClassName
+		delete temp.style
+		delete temp.outerStyle
+		delete temp.width
+		delete temp.onChange
+		delete temp.dataTestId
+		delete temp.children
+
+		return temp
+	}, [props])
 
 	const measureHeight = React.useCallback(() => {
 		const viewportOffset = inputRef.current.getBoundingClientRect()
 		setHeight(viewportOffset.top + 65)
 	}, [])
+
+	useEffect(() => {
+		setTimeout(() => setValue(Object.keys(props.data).find((key) => props.data[key] === props.value)), 10)
+	}, [props.value, props.data])
 
 	useEffect(() => {
 		measureHeight()
@@ -75,10 +112,6 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 		},
 		[props.onChange]
 	)
-
-	const value = useMemo(() => {
-		return Object.keys(props.data).find((key) => props.data[key] === props.value)
-	}, [props.value, props.data])
 
 	const onKeyDown = useCallback(
 		(e) => {
@@ -103,7 +136,14 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 	)
 
 	return (
-		<div id='myDropDown' className='w-100 relative' data-test-id={dataTestId}>
+		<div
+			{...restProps}
+			id='myDropDown'
+			className={'w-100 relative ' + props.outerClassName}
+			style={{ ...props.outerStyle }}
+			data-test-id={props.dataTestId}
+			ref={ref}
+		>
 			<div
 				className={'default-dropDown p-5-lr p-2-t text-h4 bg-transparent br-100 w-100 color-off-white cursor-pointer ' + props.className}
 				style={{ paddingBottom: '9px', ...props.style }}
@@ -141,16 +181,21 @@ const DropDown: React.FC<DropDownProps> = ({ dataTestId = 'uds-dropdown', ...pro
 									(props.value === props.data[item] ? 'bg-grey700B' : 'bg-grey700')
 								}
 								onClick={(e) => handleChange(e, props.data[item])}
-								data-test-id={`${dataTestId}-${item}`}
+								data-test-id={`${props.dataTestId}-${item}`}
 							>
 								{item}
 							</button>
 						)
 					})}
+					<div onClick={() => setState(false)}>{props.children}</div>
 				</div>
 			)}
 		</div>
 	)
+})
+
+DropDown.defaultProps = {
+	dataTestId: 'uds-dropdown',
 }
 
 export default React.memo(DropDown)
