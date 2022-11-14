@@ -3,6 +3,52 @@ module.exports = {
 	jit: true,
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
+		fontSize: {
+			xs: ['10px', {
+				lineHeight: "160%",
+				fontWeight: "400",
+			}],
+			"xs-bold": ['10px', {
+				lineHeight: "160%",
+				fontWeight: "600",
+			}],
+			sm: ['12px', {
+				lineHeight: "133%",
+				fontWeight: "400",
+			}],
+			base: ['14px', {
+				lineHeight: "143%",
+				fontWeight: "400",
+			}],
+			"base-bold" : ['14px', {
+				lineHeight: "143%",
+				fontWeight: "500",
+			}],
+			lg: ["16px", {
+				lineHeight: "150%",
+				fontWeight: "600",
+			}],
+			xl: ["18px", {
+				lineHeight: "133%",
+				fontWeight: "600",
+			}],
+			'2xl': ["20px", {
+				lineHeight: "140%",
+				fontWeight: "400",
+			}],
+			'3xl': ["26px", {
+				lineHeight: "123%",
+				fontWeight: "400",
+			}],
+			'4xl': ["28px", {
+				lineHeight: "114%",
+				fontWeight: "600",
+			}],
+			'5xl': ["42px", {
+				lineHeight: "104%",
+				fontWeight: "600",
+			}],
+		},
 		extend: {
 			spacing: {
 				1: 'var(--val)',
