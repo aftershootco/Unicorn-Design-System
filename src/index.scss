@@ -5,10 +5,23 @@
 @layer base {
 	:root {
 		--val: 0.25rem;
+		--font-size: 2px;
+		--font-size-lg: 8px;
+		--font-size-xl: 9px;
+		--font-size-2xl: 10px;
+		--font-size-3xl: 13px;
+		--font-size-4xl: 14px;
+		--font-size-5xl: 21px;
 	}
 	@media screen and (max-width: 1440px), screen and (max-height: 940px) {
 		:root {
 			--val: 0.2rem;
+			--font-size-lg: 7px;
+			--font-size-xl: 8px;
+			--font-size-2xl: 9px;
+			--font-size-3xl: 12px;
+			--font-size-4xl: 13px;
+			--font-size-5xl: 20px;
 		}
 	}
 }

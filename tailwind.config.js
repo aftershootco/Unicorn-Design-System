@@ -4,47 +4,47 @@ module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontSize: {
-			xs: ['10px', {
+			xs: ['calc(var(--font-size)*5)', {
 				lineHeight: "160%",
 				fontWeight: "400",
 			}],
-			"xs-bold": ['10px', {
+			"xs-bold": ['calc(var(--font-size)*5)', {
 				lineHeight: "160%",
 				fontWeight: "600",
 			}],
-			sm: ['12px', {
+			sm: ['calc(var(--font-size)*6)', {
 				lineHeight: "133%",
 				fontWeight: "400",
 			}],
-			base: ['14px', {
+			base: ['calc(var(--font-size)*7)', {
 				lineHeight: "143%",
 				fontWeight: "400",
 			}],
-			"base-bold" : ['14px', {
+			"base-bold" : ['calc(var(--font-size)*7)', {
 				lineHeight: "143%",
 				fontWeight: "500",
 			}],
-			lg: ["16px", {
+			lg: ["calc(var(--font-size-lg)*2)", {
 				lineHeight: "150%",
 				fontWeight: "600",
 			}],
-			xl: ["18px", {
+			xl: ["calc(var(--font-size-xl)*2)", {
 				lineHeight: "133%",
 				fontWeight: "600",
 			}],
-			'2xl': ["20px", {
+			'2xl': ["calc(var(--font-size-2xl)*2)", {
 				lineHeight: "140%",
 				fontWeight: "400",
 			}],
-			'3xl': ["26px", {
+			'3xl': ["calc(var(--font-size-3xl)*2)", {
 				lineHeight: "123%",
 				fontWeight: "400",
 			}],
-			'4xl': ["28px", {
+			'4xl': ["calc(var(--font-size-4xl)*2)", {
 				lineHeight: "114%",
 				fontWeight: "600",
 			}],
-			'5xl': ["42px", {
+			'5xl': ["calc(var(--font-size-5xl)*2)", {
 				lineHeight: "104%",
 				fontWeight: "600",
 			}],
