@@ -111,20 +111,20 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 
 	// To use updated data.
 	useEffect(() => {
-		if (props.placeholderData) {
-			setData({
-				...props.placeholderData,
-				...props.data,
-			})
-			return
-		}
-		if (props.placeholder) {
-			setData({
-				'': { label: props.placeholder, value: '' },
-				...props.data,
-			})
-		} else setData(props.data)
-	}, [props.data, props.placeholder, props.placeholderData])
+		setTimeout(() => {
+			if (props.placeholderData !== undefined) {
+				setData({
+					...props.placeholderData,
+					...props.data,
+				})
+			} else if (props.placeholder !== undefined) {
+				setData({
+					'': { label: props.placeholder, value: '' },
+					...props.data,
+				})
+			} else setData(props.data)
+		}, 10)
+	}, [props.data])
 
 	// To update the "props.value" in case "props.data" changes.
 	useEffect(() => {
