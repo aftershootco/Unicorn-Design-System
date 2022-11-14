@@ -112,27 +112,27 @@ module.exports = {
 				lineHeight: "143%",
 				fontWeight: "500",
 			}],
-			lg: ["calc(var(--font-size-lg)*2)", {
+			lg: ["var(--font-size-lg)", {
 				lineHeight: "150%",
 				fontWeight: "600",
 			}],
-			xl: ["calc(var(--font-size-xl)*2)", {
+			xl: ["var(--font-size-xl)", {
 				lineHeight: "133%",
 				fontWeight: "600",
 			}],
-			'2xl': ["calc(var(--font-size-2xl)*2)", {
+			'2xl': ["var(--font-size-2xl)", {
 				lineHeight: "140%",
 				fontWeight: "400",
 			}],
-			'3xl': ["calc(var(--font-size-3xl)*2)", {
+			'3xl': ["var(--font-size-3xl)", {
 				lineHeight: "123%",
 				fontWeight: "400",
 			}],
-			'4xl': ["calc(var(--font-size-4xl)*2)", {
+			'4xl': ["var(--font-size-4xl)", {
 				lineHeight: "114%",
 				fontWeight: "600",
 			}],
-			'5xl': ["calc(var(--font-size-5xl)*2)", {
+			'5xl': ["var(--font-size-5xl)", {
 				lineHeight: "104%",
 				fontWeight: "600",
 			}],
