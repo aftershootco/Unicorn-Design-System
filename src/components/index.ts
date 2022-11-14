@@ -1,11 +1,12 @@
-import '../index.scss'
+import '../index.scss';
 // import Button, { ButtonProps } from './Button/Button'
 // import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 // import Chip, { ChipProps } from './Chip/Chip'
 // import Dialog, { DialogProps } from './Dialog/Dialog'
 // import Divider, { DividerProps } from './Divider/Divider'
 // import DropDown, { DropDownProps } from './DropDown/DropDown'
-import Label from './Label/Label'
+import Label from './Label/Label';
+import Slider from './Slider/Slider';
 // import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 // import Switch, { SwitchProps } from './Switch/Switch'
 // import TextInput, { TextInputProps } from './TextInput/TextInput'
@@ -13,6 +14,7 @@ import Label from './Label/Label'
 
 export {
 	Label,
+	Slider,
 	// LabelProps,
 	// Button,
 	// ButtonProps,
@@ -34,4 +36,5 @@ export {
 	// DividerProps,
 	// LinearProgressBar,
 	// LinearProgressBarProps,
-}
+};
+
