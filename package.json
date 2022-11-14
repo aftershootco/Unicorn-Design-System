@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.69",
+	"version": "1.0.70",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -30,6 +30,7 @@
 		"@storybook/addon-essentials": "^6.5.10",
 		"@storybook/addon-interactions": "^6.5.10",
 		"@storybook/addon-links": "^6.5.10",
+		"@storybook/addon-postcss": "^2.0.0",
 		"@storybook/html": "^6.5.10",
 		"@storybook/preset-scss": "^1.0.3",
 		"@storybook/react": "^6.5.10",
