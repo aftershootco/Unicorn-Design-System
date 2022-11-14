@@ -109,7 +109,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		setHeight(viewportOffset.top + 65)
 	}, [])
 
-	// Tp use updated data.
+	// To use updated data.
 	useEffect(() => {
 		if (props.placeholderData) {
 			setData({
@@ -124,7 +124,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 				...props.data,
 			})
 		} else setData(props.data)
-	}, [props.data, props.placeholder])
+	}, [props.data, props.placeholder, props.placeholderData])
 
 	// To update the "props.value" in case "props.data" changes.
 	useEffect(() => {
