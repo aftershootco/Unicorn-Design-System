@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 
-export interface SliderProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    step: number 
+const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+	return (
+		<>
+			<input {...props} type='range' className={'bg-red-900'} />
+			<div className='text-red-500'>HEllo</div>
+		</>
+	)
 }
 
-const Slider:React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
-    return (
-        <input type="range" min={props.min} max={props.max} step={props.step} value={props.value} />
-    )
-}
-
-export default React.memo(Slider);
+export default React.memo(Slider)
