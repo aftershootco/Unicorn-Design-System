@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.67",
+	"version": "1.0.68",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -9,8 +9,7 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "start-storybook -p 6006",
-		"build-storybook": "build-storybook",
-		"prepare": "husky install"
+		"build-storybook": "build-storybook"
 	},
 	"repository": {
 		"url": "https://github.com/aftershootco/Unicorn-Design-System",
