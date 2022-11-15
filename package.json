@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.71",
+	"version": "1.0.72",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -21,6 +21,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
+		"@aftershootco/unicorn-icons": "^1.0.12",
 		"@babel/core": "^7.18.13",
 		"@rollup/plugin-commonjs": "^22.0.2",
 		"@rollup/plugin-node-resolve": "^13.3.0",
