@@ -34,11 +34,29 @@ $offWhite: rgba(255, 255, 255, 0.7);
 
 $yellow100: #e7a523;
 $yellow200: #d6963a;
+$yellow300: #d7972e;
+$yellow400: #c8881f;
 
 $dirtyGreen: #b4b060;
 
 $red100: #ec6d62;
 $red200: #cf564d;
+
+.color-yellow100 {
+	color: $yellow100;
+}
+
+.color-yellow200 {
+	color: $yellow200;
+}
+
+.color-yellow300 {
+	color: $yellow300;
+}
+
+.color-yellow400 {
+	color: $yellow400;
+}
 
 .color-white {
 	color: $white;
@@ -162,6 +180,14 @@ $red200: #cf564d;
 
 .bg-yellow200 {
 	background-color: $yellow200;
+}
+
+.bg-yellow300 {
+	background-color: $yellow300;
+}
+
+.bg-yellow400 {
+	background-color: $yellow400;
 }
 
 .caret-transparent {
