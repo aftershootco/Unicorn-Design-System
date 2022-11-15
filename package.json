@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/unicorn-design-system",
-	"version": "1.0.71",
+	"version": "1.0.72",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -9,7 +9,9 @@
 	"scripts": {
 		"build": "rollup -c",
 		"dev": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"build-storybook": "build-storybook",
+		"prepare": "husky install",
+		"local-test": "rm -rf dist && yarn && yarn build && cp -r ./dist/* ../AfterShoot-Desktop-App/node_modules/@aftershootco/unicorn-design-system/dist"
 	},
 	"repository": {
 		"url": "https://github.com/aftershootco/Unicorn-Design-System",
