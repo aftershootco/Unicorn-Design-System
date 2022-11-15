@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://i.imgur.com/buSetTc.png" alt="Unicorn Design System">
+    <img src="https://i.imgur.com/NvJAvCy.png" alt="Unicorn Design System">
     <h1>Unicorn Design System</h1>
     <strong>Unicorn Design System is Aftershoot's inbuilt library for using different react components with custom configurations in their Desktop app.</strong>
 </div>
@@ -31,30 +31,6 @@ yarn
 
 ```sh
 yarn build
-```
-
-## How to Publish?
-
-To publish the library, follow the below steps -
-
-1. Push all your changes on the `main` branch.
-2. Update the version in the `package.json` file.
-3. Login to the npm. This step will require you to enter your npm `username`, `password`, `email`, and `OTP` sent to the email.
-
-```sh
-npm login
-```
-
-4. Build with the following the command (Make sure there are no errors during build)
-
-```sh
-yarn build
-```
-
-5. Now run the following command to publish your package to the npm.
-
-```sh
-npm publish --access=public
 ```
 
 ## How to Run Storybook?
