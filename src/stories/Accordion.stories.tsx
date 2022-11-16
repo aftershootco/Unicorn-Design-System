@@ -1,5 +1,5 @@
-import React from 'react'
 import { Meta, Story } from '@storybook/react'
+import React from 'react'
 import { Accordion, AccordionProps } from '../components'
 
 export default {
@@ -10,6 +10,9 @@ export default {
 const Template: Story<AccordionProps> = (args: AccordionProps) => <Accordion {...args} />
 
 const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+	header: 'Header',
+	body: 'Body',
+}
 
 export { Default }
