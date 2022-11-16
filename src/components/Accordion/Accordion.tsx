@@ -23,7 +23,7 @@ const Accordion: React.FC<AccordionProps> = React.forwardRef((props, ref: any) =
 
 	return (
 		<div className='w-full cursor-pointer rounded bg-gray-800 text-lg' onClick={onClick} ref={ref}>
-			<div className='align-center flex w-full p-3'>
+			<div className='flex w-full items-center p-3'>
 				<KeyBoardArrowRightIcon className={`text-gray-400 transition-all ${expanded ? 'rotate-90' : 'rotate-0'}`} />
 				<div className={`mx-2 text-ellipsis text-gray-50 ${props.headerClassName}`} style={props.headerStyle}>
 					{props.header}
