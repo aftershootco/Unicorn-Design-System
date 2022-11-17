@@ -16,13 +16,18 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Icon in Button
 	 */
 	suffixIcon?: JSX.Element
+
+	/**
+	 * Either a button text or a react component.
+	 */
+	children?: React.ReactNode
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
 	const variantStyles = useMemo(() => {
 		switch (props.variant) {
 			case 'primary':
-				return 'bg-blue-500 border-transparent hover:bg-blue-300 hover:border-red-100 disabled:bg-gray-500 '
+				return 'bg-blue-500 border-transparent hover:bg-blue-300 disabled:bg-gray-500 '
 
 			case 'secondary':
 				return 'bg-red-400 border-transparent hover:bg-red-500 hover:border-red-100 disabled:bg-gray-500 '
@@ -43,12 +48,12 @@ const Button: React.FC<ButtonProps> = (props) => {
 			className={
 				`align-center flex ${
 					props.suffixIcon ? 'justify-between' : 'justify-center'
-				} w-full cursor-pointer rounded-lg border py-3 px-5 text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
+				} w-full cursor-pointer rounded-lg border py-3 px-5 text-base-bold text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
 				variantStyles
 			}
 			{...props}
 		>
-			<span>{props.text}</span> {props.suffixIcon}
+			<span>{props.text || props.children}</span> {props.suffixIcon}
 		</button>
 	)
 }
