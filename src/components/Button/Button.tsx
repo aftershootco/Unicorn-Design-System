@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 			className={
 				`align-center flex ${
 					props.suffixIcon ? 'justify-between' : 'justify-center'
-				} w-full cursor-pointer rounded-lg border py-3 px-5 text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
+				} w-full cursor-pointer rounded-lg border py-3 px-5 text-base-bold text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
 				variantStyles
 			}
 			{...props}

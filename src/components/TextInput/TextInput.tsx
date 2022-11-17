@@ -63,12 +63,17 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 
 	return (
 		<>
-			{props.label && <div className='text-white-1000 mb-2'>{props.label}</div>}
+			{props.label && (
+				<div className='text-white-1000 mb-2 flex items-center justify-between'>
+					<span className='text-base-bold text-gray-50'>{props.label}</span>
+					<span className='text-xs text-gray-200'> Optional</span>
+				</div>
+			)}
 			<div className='relative flex'>
 				<input
 					{...props}
 					className={
-						'relative w-full rounded-lg border bg-transparent py-2 pl-2 ' +
+						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold ' +
 						(variantStyle === ErrorState.active &&
 							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
 						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +

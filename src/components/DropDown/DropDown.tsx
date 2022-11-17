@@ -207,7 +207,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		<div {...restProps} className='relative w-full' ref={ref}>
 			<div className='flex flex-row' ref={inputRef} onClick={() => setState((state) => !state)}>
 				<input
-					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-[32px] text-gray-200'
+					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-[32px] text-base-bold text-gray-200'
 					value={selected}
 				/>
 				<div className='absolute right-0 cursor-pointer py-2 pr-2'>
@@ -225,7 +225,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
 				<div
-					className='absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll rounded-lg border border-gray-500 bg-gray-800 text-gray-50'
+					className='absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll rounded-lg border border-gray-500 bg-gray-800 text-base-bold text-gray-50'
 					style={{
 						maxHeight: `calc(100vh - ${height}px)`,
 					}}
