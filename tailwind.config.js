@@ -205,6 +205,9 @@ module.exports = {
 				2.5: 'calc(var(--val) * 2.5)',
 				3.5: 'calc(var(--val) * 3.5)',
 			},
+			transitionProperty: {
+				width: 'width'
+			},
 		},
 		animation: {
 			inc: 'increase 2s infinite',
