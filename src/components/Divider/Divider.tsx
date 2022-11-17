@@ -1,5 +1,4 @@
 import React from 'react';
-import './Divider.scss';
 
 export interface DividerProps {
 	/**
@@ -20,7 +19,12 @@ export interface DividerProps {
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
-	return <div className={'bg-[#808080]' + (props.varient && props.varient === 'vertical' ? 'h-full w-[1px]' : 'h-[1px] w-full') + props.className} style={props.style} />
+	return (
+		<div
+			className={'bg-[#808080]' + (props.varient && props.varient === 'vertical' ? 'h-full w-[1px]' : 'h-[1px] w-full') + props.className}
+			style={props.style}
+		/>
+	)
 }
 
 export default React.memo(Divider)

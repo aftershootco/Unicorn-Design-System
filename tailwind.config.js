@@ -89,6 +89,9 @@ module.exports = {
 		},
 	},
 	theme: {
+		fontFamily: {
+			'lato' : ['lato', 'ui-sans-serif']
+		},
 		fontSize: {
 			xs: [
 				'calc(var(--font-size)*5)',

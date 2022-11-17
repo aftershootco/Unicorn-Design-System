@@ -31,18 +31,24 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={`relative w-full h-[.75rem] rounded-xl overflow-x-hidden ${props.className}`} style={props.style}>
-					<div className={`absolute w-full h-[.75rem] rounded-xl bg-gray-600`} style={{ background: `${props.backgroundColor}` }} />
+				<div className={`relative h-[.75rem] w-full overflow-x-hidden rounded-xl ${props.className}`} style={props.style}>
+					<div className={`absolute h-[.75rem] w-full rounded-xl bg-gray-600`} style={{ background: `${props.backgroundColor}` }} />
 					<div
-						className={`transition-width absolute h-[.75rem] rounded-xl bg-[#1da0bc]`}
+						className={`absolute h-[.75rem] rounded-xl bg-[#1da0bc] transition-width`}
 						style={{ background: `${props.progressBarColor}`, width: props.value + '%' }}
 					/>
 				</div>
 			) : (
-				<div className={`relative w-full h-[.75rem] rounded-xl overflow-x-hidden ${props.className}`} style={props.style}>
-					<div className={`absolute w-full h-[.75rem] rounded-xl bg-[#434343]`} style={{ background: `${props.backgroundColor}` }} />
-					<div className={`transition-width animate-inc absolute h-[.75rem] rounded-xl bg-[#0e505e]`} style={{ background: `${props.progressBarColor}` }} />
-					<div className={`transition-width animate-dec absolute h-[.75rem] rounded-xl bg-[#0e505e]`} style={{ background: `${props.progressBarColor}` }} />
+				<div className={`relative h-[.75rem] w-full overflow-x-hidden rounded-xl ${props.className}`} style={props.style}>
+					<div className={`absolute h-[.75rem] w-full rounded-xl bg-[#434343]`} style={{ background: `${props.backgroundColor}` }} />
+					<div
+						className={`absolute h-[.75rem] animate-inc rounded-xl bg-[#0e505e] transition-width`}
+						style={{ background: `${props.progressBarColor}` }}
+					/>
+					<div
+						className={`absolute h-[.75rem] animate-dec rounded-xl bg-[#0e505e] transition-width`}
+						style={{ background: `${props.progressBarColor}` }}
+					/>
 				</div>
 			)}
 		</>
