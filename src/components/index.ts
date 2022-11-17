@@ -3,6 +3,7 @@ import Button, { ButtonProps } from './Button/Button'
 import Label from './Label/Label'
 import Slider from './Slider/Slider'
 import DropDown, { DropDownProps } from './DropDown/DropDown'
+import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
 import '../index.scss'
 
-export { Accordion, AccordionProps, Button, ButtonProps, Label, Slider, DropDown, DropDownProps }
+export { Accordion, AccordionProps, Button, ButtonProps, Label, Slider, DropDown, DropDownProps, ToolTip, ToolTipProps }
