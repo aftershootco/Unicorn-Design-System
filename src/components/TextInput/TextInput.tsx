@@ -2,6 +2,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement> {
 	/**
+	 * Heading for Input
+	 */
+	label?: string
+
+	/**
 	 * Value of the input
 	 */
 	value?: any
@@ -57,54 +62,58 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	}, [props.error])
 
 	return (
-		<div className='relative flex'>
-			<input
-				{...props}
-				className={
-					'relative w-full rounded-lg border bg-transparent py-2 pl-2 ' +
-					(variantStyle === ErrorState.active &&
-						'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
-					(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
-					(props.readOnly ? ' cursor-default ' : '') +
-					(props.suffixIcon ? ' pr-[32px]' : ' pr-2')
-				}
-				placeholder={props.placeholder}
-				value={props.value}
-				onFocus={onFocus}
-				onKeyDown={(e: any) => {
-					if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
-						e.target.select()
+		<>
+			{props.label && <div className='text-white-1000 mb-2'>{props.label}</div>}
+			<div className='relative flex'>
+				<input
+					{...props}
+					className={
+						'relative w-full rounded-lg border bg-transparent py-2 pl-2 ' +
+						(variantStyle === ErrorState.active &&
+							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
+						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
+						(props.readOnly ? ' cursor-default ' : '') +
+						(props.suffixIcon ? ' pr-[32px]' : ' pr-2')
 					}
-					if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
-						const selectedText = getSelection().toString()
-						if (selectedText.length > 0) navigator.clipboard.writeText(selectedText)
-					}
-					if (e.metaKey && e.key === 'v') {
-						const initialText = e.target.value
-						const selectedText = getSelection().toString()
-						const cursorPosiiton = e.target.selectionStart
-						navigator.clipboard.readText().then((text) => {
-							const finalValue = selectedText.length
-								? initialText.replace(selectedText, text)
-								: initialText.slice(0, cursorPosiiton) + text + initialText.slice(cursorPosiiton)
-							props.onChange({
-								target: {
-									value: finalValue,
-								},
-							} as any)
-						})
-					}
-				}}
-			/>
-			<div ref={inputRef} className='absolute right-0 cursor-pointer py-2 pr-2'>
-				{props.suffixIcon}
+					placeholder={props.placeholder}
+					value={props.value}
+					onFocus={onFocus}
+					onKeyDown={(e: any) => {
+						if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
+							e.target.select()
+						}
+						if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
+							const selectedText = getSelection().toString()
+							if (selectedText.length > 0) navigator.clipboard.writeText(selectedText)
+						}
+						if (e.metaKey && e.key === 'v') {
+							const initialText = e.target.value
+							const selectedText = getSelection().toString()
+							const cursorPosiiton = e.target.selectionStart
+							navigator.clipboard.readText().then((text) => {
+								const finalValue = selectedText.length
+									? initialText.replace(selectedText, text)
+									: initialText.slice(0, cursorPosiiton) + text + initialText.slice(cursorPosiiton)
+								props.onChange({
+									target: {
+										value: finalValue,
+									},
+								} as any)
+							})
+						}
+					}}
+				/>
+				<div ref={inputRef} className='absolute right-0 cursor-pointer py-2 pr-2'>
+					{props.suffixIcon}
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
 export default TextInput
 
 TextInput.defaultProps = {
+	label: '',
 	suffixIcon: null,
 }

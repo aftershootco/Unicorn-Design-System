@@ -1,7 +1,7 @@
-import '../index.scss'
-import Label from './Label/Label'
-import Slider from './Slider/Slider'
 import Accordion, { AccordionProps } from './Accordion/Accordion'
 import Button, { ButtonProps } from './Button/Button'
+import Label from './Label/Label'
+import Slider from './Slider/Slider'
+import '../index.scss'
 
-export { Label, Slider, Button, ButtonProps, Accordion, AccordionProps }
+export { Accordion, AccordionProps, Button, ButtonProps, Label, Slider }
