@@ -15,8 +15,8 @@ const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
 					className={`w-4/5 rounded-sm bg-gradient-to-b ${
 						!props.disabled
 							? 'from-blue-600 to-blue-600'
-							: 'from-grey-1000 to-grey-1000 opacity-40'
-					} bg-no-repeat bg-grey-1000 slider-input ${props.className}`}
+							: 'from-gray-1000 to-gray-1000 opacity-40'
+					} bg-no-repeat bg-gray-1000 slider-input ${props.className}`}
 					type='range'
 					style={{
 						...props.style,
