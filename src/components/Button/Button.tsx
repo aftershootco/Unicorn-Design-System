@@ -19,7 +19,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-	const classesName = useMemo(() => {
+	const variantStyles = useMemo(() => {
 		switch (props.variant) {
 			case 'primary':
 				return 'bg-blue-500 border-transparent hover:bg-blue-300 hover:border-red-100 disabled:bg-gray-500 '
@@ -41,10 +41,10 @@ const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
 			className={
-				`align-center flex flex-row ${
+				`align-center flex ${
 					props.suffixIcon ? 'justify-between' : 'justify-center'
 				} w-full cursor-pointer rounded-lg border py-3 px-5 text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
-				classesName
+				variantStyles
 			}
 			{...props}
 		>
