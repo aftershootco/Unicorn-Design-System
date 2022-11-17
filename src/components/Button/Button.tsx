@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 	const variantStyles = useMemo(() => {
 		switch (props.variant) {
 			case 'primary':
-				return 'bg-blue-500 border-transparent hover:bg-blue-300 hover:border-red-100 disabled:bg-gray-500 '
+				return 'bg-blue-500 border-transparent hover:bg-blue-300 disabled:bg-gray-500 '
 
 			case 'secondary':
 				return 'bg-red-400 border-transparent hover:bg-red-500 hover:border-red-100 disabled:bg-gray-500 '
