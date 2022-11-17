@@ -26,7 +26,7 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 		<div
 			className={
 				'relative h-[1.75rem] w-[1.75rem] cursor-pointer flex-col content-center justify-center rounded-md border-2 border-solid border-gray-400 bg-transparent opacity-50 hover:brightness-150' +
-				(!props.value && 'opacity-100 border-2 border-solid border-gray-50')
+				(!props.value && 'border-2 border-solid border-gray-50 opacity-100')
 			}
 			onClick={onClick}
 		>
