@@ -16,4 +16,4 @@ const Switch:React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => 
 	);
 };
 
-export default Switch;
+export default React.memo(Switch);
