@@ -27,13 +27,10 @@ const ToolTip: React.FC<ToolTipProps> = (props) => {
 		switch (props.position) {
 			case 'Top':
 				return 'bottom-full'
-
 			case 'Bottom':
 				return 'top-full'
-
 			case 'Right':
 				return '-right-full'
-
 			case 'Left':
 				return '-left-full'
 		}
@@ -56,4 +53,4 @@ const ToolTip: React.FC<ToolTipProps> = (props) => {
 	)
 }
 
-export default ToolTip
+export default React.memo(ToolTip)

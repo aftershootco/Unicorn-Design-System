@@ -28,16 +28,12 @@ const Button: React.FC<ButtonProps> = (props) => {
 		switch (props.variant) {
 			case 'primary':
 				return 'bg-blue-500 border-transparent hover:bg-blue-300 disabled:bg-gray-500 '
-
 			case 'secondary':
 				return 'bg-red-400 border-transparent hover:bg-red-500 hover:border-red-100 disabled:bg-gray-500 '
-
 			case 'negative':
 				return 'bg-gray-600 border-transparent hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50 '
-
 			case 'outline':
 				return 'text-gray-50 bg-transparent border-gray-400 hover:border-gray-200 disabled:text-gray-200 '
-
 			default:
 				return ''
 		}
