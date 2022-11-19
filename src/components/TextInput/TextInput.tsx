@@ -61,29 +61,8 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 		}
 	}, [props.error])
 
-	return (
-		<>
-			{props.label && (
-				<div className='text-white-1000 mb-2 flex items-center justify-between'>
-					<span className='text-base-bold text-gray-50'>{props.label}</span>
-					<span className='text-xs text-gray-200'> Optional</span>
-				</div>
-			)}
-			<div className='relative flex'>
-				<input
-					{...props}
-					className={
-						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold ' +
-						(variantStyle === ErrorState.active &&
-							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
-						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
-						(props.readOnly ? ' cursor-default ' : '') +
-						(props.suffixIcon ? ' pr-[32px]' : ' pr-2')
-					}
-					placeholder={props.placeholder}
-					value={props.value}
-					onFocus={onFocus}
-					onKeyDown={(e: any) => {
+
+	const onKeyDown = useCallback((e: any) => {
 						if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
 							e.target.select()
 						}
@@ -106,7 +85,30 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 								} as any)
 							})
 						}
-					}}
+					},[])
+	return (
+		<>
+			{props.label && (
+				<div className='text-white-1000 mb-2 flex items-center justify-between'>
+					<span className='text-base-bold text-gray-50'>{props.label}</span>
+					<span className='text-xs text-gray-200'>Optional</span>
+				</div>
+			)}
+			<div className='relative flex'>
+				<input
+					{...props}
+					className={
+						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold ' +
+						(variantStyle === ErrorState.active &&
+							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
+						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
+						(props.readOnly ? ' cursor-default ' : '') +
+						(props.suffixIcon ? ' pr-[32px] ' : ' pr-2 ') +  (props.className)
+					}
+					placeholder={props.placeholder}
+					value={props.value}
+					onFocus={onFocus}
+					onKeyDown={onKeyDown}
 				/>
 				<div ref={inputRef} className='absolute right-0 cursor-pointer py-2 pr-2'>
 					{props.suffixIcon}
@@ -116,9 +118,5 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 	)
 }
 
-export default TextInput
+export default React.memo(TextInput)
 
-TextInput.defaultProps = {
-	label: '',
-	suffixIcon: null,
-}
