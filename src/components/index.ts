@@ -9,6 +9,7 @@ import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/L
 import Switch, { SwitchProps } from './Switch/Switch'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
+import Carousel, { CarouselProps } from './Carousel/Carousel'
 
 export {
 	Button,
@@ -33,4 +34,6 @@ export {
 	DividerProps,
 	LinearProgressBar,
 	LinearProgressBarProps,
+	Carousel,
+	CarouselProps,
 }
