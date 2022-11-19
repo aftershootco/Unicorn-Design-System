@@ -25,12 +25,12 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	return (
 		<div
 			className={
-				'relative h-[1.75rem] w-[1.75rem] cursor-pointer flex-col content-center justify-center rounded-md border-2 border-solid border-gray-400 bg-transparent opacity-50 hover:brightness-150' +
+				'relative h-7 w-7 cursor-pointer flex-col content-center justify-center rounded-md border-2 border-solid border-gray-400 bg-transparent opacity-50 hover:brightness-150' +
 				(!props.value && 'border-2 border-solid border-gray-50 opacity-100')
 			}
 			onClick={onClick}
 		>
-			{props.value && <Check className='w-[1.5rem]' />}
+			{props.value && <Check className='w-6' />}
 		</div>
 	)
 }

@@ -27,7 +27,7 @@ const Chip: React.FC<ChipProps> = ({ disabled = false, ...props }) => {
 		<button
 			{...props}
 			className={
-				'cursor-pointer font-lato text-sm font-normal leading-[150%] text-[#ffffff] ' +
+				'cursor-pointer font-lato text-sm text-white' +
 				`prefer-${props.variant ? props.variant : 'primary'} ${props.className} ` +
 				`disabled-${disabled} border-2 border-solid ${props.backgroundColor}`
 			}

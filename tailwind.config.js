@@ -173,6 +173,7 @@ module.exports = {
 		},
 		extend: {
 			spacing: {
+				px: '1px',
 				1: 'var(--val)',
 				2: 'calc(var(--val) * 2)',
 				3: 'calc(var(--val) * 3)',
@@ -202,7 +203,6 @@ module.exports = {
 				72: 'calc(var(--val) * 72)',
 				80: 'calc(var(--val) * 80)',
 				96: 'calc(var(--val) * 96)',
-				px: '1px',
 				0.5: 'calc(var(--val) * 0.5)',
 				1.5: 'calc(var(--val) * 1.5)',
 				2.5: 'calc(var(--val) * 2.5)',
