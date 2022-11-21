@@ -13,13 +13,12 @@ const Tabs: React.FC<TabsProps> = (props) => {
 
 	return (
 		<nav className='relative flex'>
-			<div className='absolute -bottom-5 h-1 rounded-lg bg-gray-50 duration-300' ref={sliderRef} style={{ left: '12px', width: '8rem' }} />
+			<div className='= absolute -bottom-5 h-1 rounded-lg bg-gray-50 duration-300' ref={sliderRef} style={{ left: '12px', width: '8rem' }} />
 			{props.tabsList.map((item) => {
 				return (
 					<div
-						className='relative my-0 mx-3 flex cursor-pointer justify-center text-2xl text-gray-50'
+						className='relative my-0 mx-3 flex min-w-8 cursor-pointer justify-center text-2xl text-gray-50'
 						onClick={(e) => indicator(e.target)}
-						style={{ minWidth: '8rem' }}
 					>
 						{item}
 					</div>
