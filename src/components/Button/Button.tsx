@@ -16,11 +16,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Icon in Button
 	 */
 	suffixIcon?: JSX.Element
-
-	/**
-	 * Either a button text or a react component.
-	 */
-	children?: React.ReactNode
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -49,7 +44,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 			}
 			{...props}
 		>
-			<span>{props.text || props.children}</span> {props.suffixIcon}
+			<>{props.text || props.children}</> {props.suffixIcon}
 		</button>
 	)
 }
