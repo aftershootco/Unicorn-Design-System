@@ -89,9 +89,7 @@ module.exports = {
 		},
 	},
 	theme: {
-		fontFamily: {
-			'lato' : ['lato', 'ui-sans-serif']
-		},
+		fontFamily: {},
 		fontSize: {
 			xs: [
 				'calc(var(--font-size)*5)',
@@ -209,7 +207,7 @@ module.exports = {
 				3.5: 'calc(var(--val) * 3.5)',
 			},
 			transitionProperty: {
-				width: 'width'
+				width: 'width',
 			},
 		},
 		animation: {
