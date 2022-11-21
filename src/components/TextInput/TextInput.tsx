@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement> {
@@ -48,12 +49,6 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 		}
 	}, [props.error])
 
-	// const onBlur = () => {
-	//   if (props.error) {
-	//     setClasses('invalid');
-	//   }
-	// };
-
 	useEffect(() => {
 		if (props.error) {
 			setClasses('invalid')
@@ -84,6 +79,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			})
 		}
 	}, [])
+
 	return (
 		<>
 			{props.label && (
@@ -95,17 +91,15 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			<div className='relative flex'>
 				<input
 					{...props}
-					className={
-						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold ' +
-						(variantStyle === ErrorState.active &&
-							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
-						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
-						(props.readOnly ? ' cursor-default ' : '') +
-						(props.suffixIcon ? ' pr-8 ' : ' pr-2 ') +
+					className={clsx(
+						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold',
+						variantStyle === ErrorState.active &&
+							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200',
+						variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50',
+						props.readOnly && 'cursor-default',
+						props.suffixIcon ? 'pr-8' : 'pr-2',
 						props.className
-					}
-					placeholder={props.placeholder}
-					value={props.value}
+					)}
 					onFocus={onFocus}
 					onKeyDown={onKeyDown}
 				/>

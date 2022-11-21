@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { KeyBoardArrowDownIcon } from '@aftershootco/unicorn-icons'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 interface DropdownData {
 	label: string | JSX.Element

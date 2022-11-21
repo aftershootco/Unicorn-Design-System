@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './ToolTip.scss'
 
@@ -7,7 +8,7 @@ export interface ToolTipProps {
 	title: string
 }
 
-const ToolTip: React.FC<ToolTipProps> = (props) => {
+const ToolTip: React.FC<ToolTipProps> = React.memo((props) => {
 	const [show, setShow] = useState(false)
 	const hoverRef = useRef(null)
 	const [cl, setCl] = useState(0)
@@ -19,7 +20,7 @@ const ToolTip: React.FC<ToolTipProps> = (props) => {
 		}, 100)
 	}, [props.children])
 
-	const ToolTipPosition = useMemo(() => {
+	const toolTipPosition = useMemo(() => {
 		switch (props.position) {
 			case 'Top':
 				return 'bottom-full'
@@ -36,13 +37,16 @@ const ToolTip: React.FC<ToolTipProps> = (props) => {
 		<div onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} className='relative flex flex-row items-center justify-center'>
 			<div ref={hoverRef}>{props.children}</div>
 			{show && (
-				<div className={'w-30 fixed z-[1700] my-2 cursor-pointer rounded-lg bg-green-500 p-2 ' + ToolTipPosition} style={{ top: `${cl}px` }}>
+				<div
+					className={clsx('w-30 fixed z-[1700] my-2 cursor-pointer rounded-lg bg-green-500 p-2', toolTipPosition)}
+					style={{ top: `${cl}px` }}
+				>
 					{props.title}
 					<div className={`absolute inline-block align-middle arrow-${props.position} z-[100]`} />
 				</div>
 			)}
 		</div>
 	)
-}
+})
 
-export default React.memo(ToolTip)
+export default ToolTip
