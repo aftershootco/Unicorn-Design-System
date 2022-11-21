@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React, { useMemo } from 'react'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -36,12 +37,14 @@ const Button: React.FC<ButtonProps> = (props) => {
 
 	return (
 		<button
-			className={
-				`align-center flex ${
-					props.suffixIcon ? 'justify-between' : 'justify-center'
-				} w-full cursor-pointer rounded-lg border py-3 px-5 text-base-bold text-slate-100 disabled:pointer-events-none disabled:cursor-default ` +
-				variantStyles
-			}
+			className={clsx(
+				'align-center flex w-full cursor-pointer',
+				props.suffixIcon ? 'justify-between' : 'justify-center',
+				'rounded-lg border py-3 px-5 text-base-bold text-slate-100',
+				'disabled:pointer-events-none disabled:cursor-default',
+				variantStyles,
+				props.className
+			)}
 			{...props}
 		>
 			<>{props.text || props.children}</> {props.suffixIcon}
