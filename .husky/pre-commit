@@ -4,4 +4,4 @@
 # npx --no-install pretty-quick
 # npx pretty-quick --staged
 # yarn lint-staged
-yarn version --no-git-tag-version --patch && git add .
+# yarn version --no-git-tag-version --patch && git add .
