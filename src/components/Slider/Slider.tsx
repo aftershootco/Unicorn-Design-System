@@ -5,7 +5,6 @@ const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) =>
 	return (
 		<div className={`flex h-8 w-full items-center justify-center rounded`}>
 			<input
-				{...props}
 				disabled={props.disabled}
 				className={`h-8 w-4/5 rounded-sm bg-gradient-to-b ${
 					!props.disabled ? 'from-blue-600 to-blue-600' : 'from-gray-50 to-gray-50 opacity-40'

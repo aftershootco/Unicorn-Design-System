@@ -7,10 +7,8 @@ const RadioButtons: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
 		<label
 			className={`relative cursor-pointer text-3xl ${
 				props.disabled
-					? 'hover:bg-gray-50 hover:opacity-1'
-					: 'hover:opacity-70'
-			} ${
-				props.disabled ? 'bg-gray-50 opacity-75' : 'bg-gray-50 opacity-90'
+					? 'hover:bg-gray-50 hover:opacity-1 bg-gray-50 opacity-75'
+					: 'hover:opacity-70 bg-gray-50 opacity-90'
 			}`}
 		>
 			<input

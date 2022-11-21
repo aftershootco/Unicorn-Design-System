@@ -1,28 +1,18 @@
 import React from 'react';
 
-export interface DividerProps {
+export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Type of Divider
 	 * @default horizontal
 	 */
-	varient?: 'horizontal' | 'vertical'
-
-	/**
-	 * Classes to be applied.
-	 */
-	className?: string
-
-	/**
-	 * Styles to be applied.
-	 */
-	style?: React.CSSProperties
+	variant?: 'horizontal' | 'vertical'
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
 	return (
 		<div
-			className={'bg-gray-50/10' + (props.varient && props.varient === 'vertical' ? 'h-full w-px' : 'h-px w-full') + props.className}
-			style={props.style}
+			{...props}
+			className={'bg-gray-50/10' + (props.variant && props.variant === 'vertical' ? 'h-full w-px' : 'h-px w-full') + props.className}
 		/>
 	)
 }

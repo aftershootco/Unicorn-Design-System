@@ -18,7 +18,7 @@ const Chip: React.FC<ChipProps> = (props) => {
 	return props.text === 'Text' ? (
 		<button
 			{...props}
-			className={`font-[archivo] text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg ${
+			className={`text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg ${
 				!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30'
 			} 
                 ${props.selected &&
@@ -31,7 +31,7 @@ const Chip: React.FC<ChipProps> = (props) => {
 	) : (
 		<button
 			{...props}
-			className={`relative font-[archivo] text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg pr-6 ${
+			className={`relative text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg pr-6 ${
 				!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30'
 			}
             ${props.selected &&

@@ -1,11 +1,9 @@
 import React from 'react';
-import './Switch.scss';
 
 const Switch:React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
 	return (
 		<label className={`relative inline-block w-11 h-7 && ${props.disabled && 'bg-blue-300 opacity-20 rounded-full'}`}>
 			<input 
-                {...props}
                 disabled={props.disabled} 
                 checked={props.checked}
                 type='checkbox' 
