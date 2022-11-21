@@ -15,7 +15,7 @@ export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 	onChange: (value: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-const CheckBox: React.FC<CheckBoxProps> = (props) => {
+const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 	const onClick = useCallback(
 		(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 			props.onChange(!props.value, e)
@@ -29,13 +29,14 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 				'relative h-7 w-7 cursor-pointer flex-col content-center justify-center',
 				'rounded-md border-2 border-solid border-gray-400 bg-transparent opacity-50',
 				'hover:brightness-150',
-				!props.value && 'border-2 border-solid border-gray-50 opacity-100'
+				!props.value && 'border-2 border-solid border-gray-50 opacity-100',
+				props.className
 			)}
 			onClick={onClick}
 		>
 			{props.value && <Check className='w-6' />}
 		</div>
 	)
-}
+})
 
-export default React.memo(CheckBox)
+export default CheckBox

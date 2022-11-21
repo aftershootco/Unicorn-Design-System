@@ -1,4 +1,5 @@
-import React from 'react';
+import clsx from 'clsx'
+import React from 'react'
 
 export interface LinearProgressBarProps {
 	/**
@@ -31,24 +32,15 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={`relative h-3 w-full overflow-x-hidden rounded-xl ${props.className}`} style={props.style}>
-					<div className={`absolute h-3 w-full rounded-xl bg-gray-50/10`} style={{ background: `${props.backgroundColor}` }} />
-					<div
-						className={`absolute h-3 rounded-xl bg-blue-400 transition-width`}
-						style={{ background: `${props.progressBarColor}`, width: props.value + '%' }}
-					/>
+				<div className={clsx('relative h-3 w-full overflow-x-hidden rounded-xl', props.className)} style={props.style}>
+					<div className={`absolute h-3 w-full rounded-xl bg-gray-50/10 bg-[${props.backgroundColor}]`} />
+					<div className={`absolute h-3 rounded-xl bg-blue-400 transition-width bg-[${props.progressBarColor}] w-[${props.value}%]`} />
 				</div>
 			) : (
-				<div className={`relative h-3 w-full overflow-x-hidden rounded-xl ${props.className}`} style={props.style}>
-					<div className={`absolute h-3 w-full rounded-xl bg-gray-50/10`} style={{ background: `${props.backgroundColor}` }} />
-					<div
-						className={`absolute h-3 animate-inc rounded-xl bg-blue-400 transition-width`}
-						style={{ background: `${props.progressBarColor}` }}
-					/>
-					<div
-						className={`absolute h-3 animate-dec rounded-xl bg-blue-400 transition-width`}
-						style={{ background: `${props.progressBarColor}` }}
-					/>
+				<div className={clsx('relative h-3 w-full overflow-x-hidden rounded-xl', props.className)} style={props.style}>
+					<div className={`absolute h-3 w-full rounded-xl bg-gray-50/10 bg-[${props.backgroundColor}]`} />
+					<div className={`absolute h-3 animate-inc rounded-xl bg-blue-400 transition-width bg-[${props.progressBarColor}]`} />
+					<div className={`absolute h-3 animate-dec rounded-xl bg-blue-400 transition-width bg-[${props.progressBarColor}]`} />
 				</div>
 			)}
 		</>
@@ -57,8 +49,8 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
 
 LinearProgressBar.defaultProps = {
 	value: 0,
-	backgroundColor: '#434343',
-	progressBarColor: '#1da0bc',
+	backgroundColor: 'rgba(226, 226, 226, 0.1)',
+	progressBarColor: '#2279CE',
 }
 
 export default React.memo(LinearProgressBar)

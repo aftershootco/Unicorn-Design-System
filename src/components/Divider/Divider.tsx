@@ -1,4 +1,5 @@
-import React from 'react';
+import clsx from 'clsx'
+import React from 'react'
 
 export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
@@ -8,13 +9,8 @@ export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
 	variant?: 'horizontal' | 'vertical'
 }
 
-const Divider: React.FC<DividerProps> = (props) => {
-	return (
-		<div
-			{...props}
-			className={'bg-gray-50/10' + (props.variant && props.variant === 'vertical' ? 'h-full w-px' : 'h-px w-full') + props.className}
-		/>
-	)
-}
+const Divider: React.FC<DividerProps> = React.memo((props) => {
+	return <div {...props} className={clsx('bg-gray-50/10', props.variant === 'vertical' ? 'h-full w-px' : 'h-px w-full', props.className)} />
+})
 
-export default React.memo(Divider)
+export default Divider

@@ -1,54 +1,38 @@
-import React from 'react';
-import './Chip.scss';
+import clsx from 'clsx'
+import React from 'react'
 
-export interface ChipProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    /**
-     * @string to select the variant of Chip
-     */
-	text?: 'Text' | 'Purple' | 'Blue';
+export interface ChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	/**
+	 * @boolean for whether the Chip is selected
+	 */
+	selected: boolean
 
-    /**
-     * @boolean for whether the Chip is selected
-     */
-	selected: boolean;
+	/**
+	 * @string to select the variant of Chip
+	 */
+	text?: string
+
+	/**
+	 * Styles to give to chip if selected.
+	 */
+	selectedClassName?: string
 }
 
-const Chip: React.FC<ChipProps> = (props) => {
-	return props.text === 'Text' ? (
+const Chip: React.FC<ChipProps> = React.memo((props) => {
+	return (
 		<button
 			{...props}
-			className={`text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg ${
-				!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30'
-			} 
-                ${props.selected &&
-                !props.disabled &&
-                'bg-blue-400 border-blue-400 hover:border-blue-400'
-            } `}
+			className={clsx(
+				'rounded-lg border border-gray-50/25 py-1 px-3 text-lg text-gray-50',
+				!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30',
+				props.selected && !props.disabled && 'border-blue-400 bg-blue-400 hover:border-blue-400',
+				props.selected && props.selectedClassName,
+				props.className
+			)}
 		>
-			{props.text}
+			{props.text || props.children}
 		</button>
-	) : (
-		<button
-			{...props}
-			className={`relative text-gray-50 text-lg py-1 px-3 border border-gray-50/25 rounded-lg pr-6 ${
-				!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30'
-			}
-            ${props.selected &&
-            !props.disabled &&
-            (props.text === 'Purple'
-                ? 'bg-violet-700 border-violet-700 hover:border-violet-700'
-                : 'bg-blue-700 border-blue-700 hover:border-blue-700')
-            }`}
-		>
-			{props.text}
-			<div
-				className={`absolute w-2 h-2 ${
-					props.text === 'Purple' ? 'bg-violet-400' : 'bg-blue-500'
-				} ${props.disabled && 'bg-gray-500'} rounded-full top-4 right-2`}
-			></div>
-		</button>
-	);
-};
+	)
+})
 
-export default React.memo(Chip);
+export default Chip
