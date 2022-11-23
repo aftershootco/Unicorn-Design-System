@@ -3,11 +3,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement> {
 	/**
-	 * Heading for Input
-	 */
-	label?: string
-
-	/**
 	 * Value of the input
 	 */
 	value?: any
@@ -19,9 +14,14 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	variant?: 'primary' | 'secondary' | 'tertiary'
 
 	/**
-	 * what types of input field it will accept. Like in the case of file, what extensions will be accepted.
+	 * Heading for Input
 	 */
-	accept?: string
+	label?: string
+
+	/**
+	 * Whether the input is optional or not.
+	 */
+	optional?: boolean
 
 	/**
 	 * SVG icon
@@ -39,7 +39,7 @@ enum ErrorState {
 	'invalid' = 'invalid',
 }
 
-const TextInput: React.FC<TextInputProps> = (props) => {
+const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	const iconRef = useRef<HTMLDivElement>(null)
 	const [variantStyle, setClasses] = useState('active')
 
@@ -85,7 +85,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			{props.label && (
 				<div className='text-white-1000 mb-2 flex items-center justify-between'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
-					<span className='text-xs text-gray-200'>Optional</span>
+					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
 				</div>
 			)}
 			<div className='relative flex'>
@@ -109,6 +109,6 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			</div>
 		</>
 	)
-}
+})
 
-export default React.memo(TextInput)
+export default TextInput
