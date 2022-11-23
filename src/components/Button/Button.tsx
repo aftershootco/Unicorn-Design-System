@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 			case 'primary':
 				return 'bg-blue-500 border-transparent hover:bg-blue-300 disabled:bg-gray-500 '
 			case 'secondary':
-				return 'bg-red-400 border-transparent hover:bg-red-500 hover:border-red-100 disabled:bg-gray-500 '
+				return 'bg-red-400 border-transparent hover:bg-red-500 hover:border-red-400 disabled:bg-gray-500 '
 			case 'negative':
 				return 'bg-gray-600 border-transparent hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50 '
 			case 'outline':

@@ -173,6 +173,9 @@ module.exports = {
 			minWidth: {
 				8: '8rem'
 			},
+			borderRadius: {
+				'lgg': '0.5rem',
+			},
 			spacing: {
 				px: '1px',
 				1: 'var(--val)',
