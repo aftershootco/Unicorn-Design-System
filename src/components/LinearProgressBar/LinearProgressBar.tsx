@@ -5,7 +5,7 @@ export interface LinearProgressBarProps {
 	/**
 	 * Set the value to change between determinant and indeterminant, 0 for indeterminant
 	 */
-	value: number
+	value?: number
 
 	/**
 	 * Variant for linearprogressbar
