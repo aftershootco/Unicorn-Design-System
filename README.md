@@ -1,7 +1,7 @@
 <div align="center">
-    <img src="https://i.imgur.com/buSetTc.png" alt="Unicorn Design System">
-    <h1>Unicorn Design System</h1>
-    <strong>Unicorn Design System is Aftershoot's inbuilt library for using different react components with custom configurations in their Desktop app.</strong>
+    <img src="https://i.imgur.com/buSetTc.png" alt="Pegasus">
+    <h1>Pegasus</h1>
+    <strong>Pegasus is Aftershoot's inbuilt library for using different react components with custom configurations in their Desktop app.</strong>
 </div>
 <br>
 <div align="center">

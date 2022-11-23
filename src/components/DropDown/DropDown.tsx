@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { KeyBoardArrowDownIcon } from '@aftershootco/unicorn-icons'
+import clsx from 'clsx'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 interface DropdownData {
 	label: string | JSX.Element
@@ -205,9 +206,9 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 
 	return (
 		<div {...restProps} className='relative w-full' ref={ref}>
-			<div className='flex flex-row' ref={inputRef} onClick={() => setState((state) => !state)}>
+			<div className='flex' ref={inputRef} onClick={() => setState((state) => !state)}>
 				<input
-					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-[32px] text-base-bold text-gray-200'
+					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
 					value={selected}
 				/>
 				<div className='absolute right-0 cursor-pointer py-2 pr-2'>
@@ -222,13 +223,15 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					onClick={() => setState(false)}
 				/>
 			)}
+
 			{/* {Drop Down for Accountdetails, Settings} */}
 			{state && (
 				<div
-					className='absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll rounded-lg border border-gray-500 bg-gray-800 text-base-bold text-gray-50'
-					style={{
-						maxHeight: `calc(100vh - ${height}px)`,
-					}}
+					className={clsx(
+						'absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll',
+						'rounded-lg border border-gray-500 bg-gray-800 text-base-bold text-gray-50'
+					)}
+					style={{ maxHeight: `calc(100vh - ${height}px)` }}
 					onKeyDown={onKeyDown}
 				>
 					{Object.keys(data).map((_key, i) => {
@@ -238,10 +241,12 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 								ref={i === 0 ? firstElement : i === objectLength - 1 ? lastElement : null}
 								key={_key}
 								id={props.value == _key ? 'apply' : data[_key].label[0]}
-								className={
-									'word-break-all flex w-full cursor-pointer items-center justify-start border-none px-5 py-3 text-left text-gray-500 outline-none hover:bg-gray-50/10 active:bg-gray-800 ' +
-									(props.value === _key && ' bg-red-300 text-blue-400')
-								}
+								className={clsx(
+									'word-break-all flex w-full cursor-pointer items-center justify-start',
+									'border-none px-5 py-3 text-left text-gray-500 outline-none',
+									'hover:bg-gray-50/10 active:bg-gray-800',
+									props.value === _key && 'bg-red-300 text-blue-400'
+								)}
 								onClick={(e) => handleChange(e, data[_key])}
 								data-test-id={`${props.dataTestId}-${_key}`}
 							>

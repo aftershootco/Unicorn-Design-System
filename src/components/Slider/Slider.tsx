@@ -1,14 +1,18 @@
-import React from 'react';
-import './Slider.scss';
+import clsx from 'clsx'
+import React from 'react'
+import './Slider.scss'
 
-const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
+const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = React.memo((props) => {
 	return (
-		<div className={`flex h-8 w-full items-center justify-center rounded`}>
+		<div className='flex h-8 w-full items-center justify-center rounded'>
 			<input
-				disabled={props.disabled}
-				className={`h-8 w-4/5 rounded-sm bg-gradient-to-b ${
-					!props.disabled ? 'from-blue-600 to-blue-600' : 'from-gray-50 to-gray-50 opacity-40'
-				} bg-gray-50 bg-no-repeat slider-input cursor-pointer ${props.className}`}
+				{...props}
+				className={clsx(
+					'h-8 w-4/5 cursor-pointer rounded-sm',
+					'slider-input bg-gray-50 bg-gradient-to-b bg-no-repeat',
+					!props.disabled ? 'from-blue-600 to-blue-600' : 'from-gray-50 to-gray-50 opacity-40',
+					props.className
+				)}
 				type='range'
 				style={{
 					...props.style,
@@ -17,6 +21,6 @@ const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) =>
 			/>
 		</div>
 	)
-}
+})
 
-export default React.memo(Slider)
+export default Slider

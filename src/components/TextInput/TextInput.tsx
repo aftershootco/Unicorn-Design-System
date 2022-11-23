@@ -1,11 +1,7 @@
+import clsx from 'clsx'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement> {
-	/**
-	 * Heading for Input
-	 */
-	label?: string
-
 	/**
 	 * Value of the input
 	 */
@@ -18,9 +14,14 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	variant?: 'primary' | 'secondary' | 'tertiary'
 
 	/**
-	 * what types of input field it will accept. Like in the case of file, what extensions will be accepted.
+	 * Heading for Input
 	 */
-	accept?: string
+	label?: string
+
+	/**
+	 * Whether the input is optional or not.
+	 */
+	optional?: boolean
 
 	/**
 	 * SVG icon
@@ -38,7 +39,7 @@ enum ErrorState {
 	'invalid' = 'invalid',
 }
 
-const TextInput: React.FC<TextInputProps> = (props) => {
+const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	const iconRef = useRef<HTMLDivElement>(null)
 	const [variantStyle, setClasses] = useState('active')
 
@@ -47,12 +48,6 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			setClasses('active')
 		}
 	}, [props.error])
-
-	// const onBlur = () => {
-	//   if (props.error) {
-	//     setClasses('invalid');
-	//   }
-	// };
 
 	useEffect(() => {
 		if (props.error) {
@@ -84,28 +79,27 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			})
 		}
 	}, [])
+
 	return (
 		<>
 			{props.label && (
 				<div className='text-white-1000 mb-2 flex items-center justify-between'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
-					<span className='text-xs text-gray-200'>Optional</span>
+					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
 				</div>
 			)}
 			<div className='relative flex'>
 				<input
 					{...props}
-					className={
-						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold ' +
-						(variantStyle === ErrorState.active &&
-							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200') +
-						(variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50') +
-						(props.readOnly ? ' cursor-default ' : '') +
-						(props.suffixIcon ? ' pr-8 ' : ' pr-2 ') +
+					className={clsx(
+						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold',
+						variantStyle === ErrorState.active &&
+							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200',
+						variantStyle === ErrorState.invalid && ' border-red-400 text-gray-50',
+						props.readOnly && 'cursor-default',
+						props.suffixIcon ? 'pr-8' : 'pr-2',
 						props.className
-					}
-					placeholder={props.placeholder}
-					value={props.value}
+					)}
 					onFocus={onFocus}
 					onKeyDown={onKeyDown}
 				/>
@@ -115,6 +109,6 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 			</div>
 		</>
 	)
-}
+})
 
-export default React.memo(TextInput)
+export default TextInput

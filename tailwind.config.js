@@ -170,6 +170,9 @@ module.exports = {
 			],
 		},
 		extend: {
+			minWidth: {
+				8: '8rem'
+			},
 			spacing: {
 				px: '1px',
 				1: 'var(--val)',
