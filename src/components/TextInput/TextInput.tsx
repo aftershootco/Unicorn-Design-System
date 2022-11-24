@@ -74,6 +74,11 @@ export interface TextInputProps {
 	 * Maximum lenght of an input field.
 	 */
 	maxLength?: number
+
+	/**
+	 * Autofocus input
+	 */
+	autoFocus?: boolean
 }
 
 const TextInput: React.FC<TextInputProps> = (props) => {
@@ -95,6 +100,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 						disabled={props.disable}
 						style={props.style}
 						accept={props.accept}
+						autoFocus={props.autoFocus ?? false}
 						onKeyDown={(e: any) => {
 							if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
 								e.target.select()
