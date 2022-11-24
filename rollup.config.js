@@ -45,7 +45,7 @@ module.exports = [
 			typescript({ tsconfig: './tsconfig.json' }),
 			terser(),
 			babel({
-				exclude: ['node_modules/**', 'src/stories/**'],
+				exclude: ['node_modules/**', 'src/stories/**', 'src/**/*.stories.tsx'],
 			}),
 		],
 	},
