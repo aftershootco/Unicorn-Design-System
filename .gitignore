@@ -6,3 +6,4 @@ package-lock.json
 .DS_Store
 dist
 yarn-error.log
+.storybook/index.css
