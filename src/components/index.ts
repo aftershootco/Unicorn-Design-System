@@ -5,6 +5,21 @@ import DropDown, { DropDownProps } from './DropDown/DropDown'
 import Slider from './Slider/Slider'
 import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
 import Tabs, { TabsProps } from './Tabs/Tabs'
+import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import '../index.scss'
 
-export { Accordion, AccordionProps, Button, ButtonProps, Slider, DropDown, DropDownProps, ToolTip, ToolTipProps, Tabs, TabsProps }
+export {
+	LinearProgressBar,
+	LinearProgressBarProps,
+	Accordion,
+	AccordionProps,
+	Button,
+	ButtonProps,
+	Slider,
+	DropDown,
+	DropDownProps,
+	ToolTip,
+	ToolTipProps,
+	Tabs,
+	TabsProps,
+}
