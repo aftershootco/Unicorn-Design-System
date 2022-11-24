@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Slider } from '../components';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { Slider } from '../components'
 
 export default {
 	title: 'component/Slider',
@@ -14,5 +14,4 @@ Default.args = {
 	value: '10',
 }
 
-export { Default };
-
+export { Default }
