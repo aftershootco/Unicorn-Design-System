@@ -35,4 +35,4 @@ const Chip: React.FC<ChipProps> = React.memo((props) => {
 	)
 })
 
-export default Chip
+export default React.memo(Chip)

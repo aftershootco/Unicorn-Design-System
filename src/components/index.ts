@@ -6,6 +6,7 @@ import Slider from './Slider/Slider'
 import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
 import Tabs, { TabsProps } from './Tabs/Tabs'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
+import Chip, { ChipProps } from './Chip/Chip'
 import '../index.scss'
 
 export {
@@ -15,6 +16,8 @@ export {
 	AccordionProps,
 	Button,
 	ButtonProps,
+	Chip,
+	ChipProps,
 	Slider,
 	DropDown,
 	DropDownProps,
