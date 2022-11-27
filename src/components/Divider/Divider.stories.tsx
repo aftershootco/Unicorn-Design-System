@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Divider, DividerProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { Divider, DividerProps } from '..'
 
 export default {
 	title: 'component/Divider',
@@ -14,5 +14,4 @@ Default.args = {
 	variant: 'horizontal',
 }
 
-export { Default };
-
+export { Default }

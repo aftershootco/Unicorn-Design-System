@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Button, ButtonProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { Button, ButtonProps } from '..'
 
 export default {
 	title: 'component/Button',
@@ -15,5 +15,4 @@ Default.args = {
 	variant: 'primary',
 }
 
-export { Default };
-
+export { Default }

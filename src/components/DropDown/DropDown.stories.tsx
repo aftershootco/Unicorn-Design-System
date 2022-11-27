@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { DropDown, DropDownProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { DropDown, DropDownProps } from '..'
 
 export default {
 	title: 'component/DropDown',
@@ -14,5 +14,4 @@ Default.args = {
 	value: 'dropdown',
 }
 
-export { Default };
-
+export { Default }

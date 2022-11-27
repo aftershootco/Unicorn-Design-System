@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { TextInput, TextInputProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { TextInput, TextInputProps } from '..'
 
 export default {
 	title: 'component/TextInput',
@@ -14,5 +14,4 @@ Default.args = {
 	value: 'aftershoot',
 }
 
-export { Default };
-
+export { Default }

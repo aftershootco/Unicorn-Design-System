@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { LinearProgressBar, LinearProgressBarProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { LinearProgressBar, LinearProgressBarProps } from '..'
 
 export default {
 	title: 'component/LinearProgressBar',
@@ -12,8 +12,7 @@ const Template: Story<LinearProgressBarProps> = (args: LinearProgressBarProps) =
 const Default = Template.bind({})
 Default.args = {
 	value: 0,
-    variant: 'secondary',
+	variant: 'secondary',
 }
 
-export { Default };
-
+export { Default }

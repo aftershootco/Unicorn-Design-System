@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { CheckBox, CheckBoxProps } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { CheckBox, CheckBoxProps } from '..'
 
 export default {
 	title: 'component/CheckBox',
@@ -14,5 +14,4 @@ Default.args = {
 	value: false,
 }
 
-export { Default };
-
+export { Default }

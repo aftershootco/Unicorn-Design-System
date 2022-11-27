@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Switch } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { Switch } from '..'
 
 export default {
 	title: 'component/Switch',
@@ -14,5 +14,4 @@ Default.args = {
 	checked: true,
 }
 
-export { Default };
-
+export { Default }

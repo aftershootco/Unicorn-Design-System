@@ -11,7 +11,10 @@ const Template: Story<React.InputHTMLAttributes<HTMLInputElement>> = (args: Reac
 
 const Default = Template.bind({})
 Default.args = {
-	value: '10',
+	min: 1,
+	max: 10,
+	value: 5,
+	steps: 1,
 }
 
 export { Default }

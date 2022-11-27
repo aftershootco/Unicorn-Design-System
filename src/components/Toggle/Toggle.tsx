@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 import './Toggle.scss'
 
@@ -26,31 +27,29 @@ export interface ToggleProps {
 	onClick: (value: boolean) => void
 }
 
-const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
+const Toggle: React.FC<ToggleProps> = React.memo((props) => {
 	return (
-		<div className='relative flex-row rounded-lgg border border-gray-50/10 ' style={{ width: '240px' }}>
-			<button style={{ width: '120px' }} className='rounded-lgg bg-transparent duration-100 ' onClick={() => props.onClick(true)}>
+		<div className='relative w-[240px] flex-row rounded-lgg border border-gray-50/10'>
+			<button className='w-[120px] rounded-lgg bg-transparent duration-100' onClick={() => props.onClick(true)}>
 				{props.options.first}
 			</button>
 			<button
-				style={{ marginLeft: '112px', width: '120px' }}
-				className='absolute cursor-pointer rounded-lgg bg-transparent text-gray-50 duration-100'
+				className='absolute ml-[112px] w-[120px] cursor-pointer rounded-lgg bg-transparent text-gray-50 duration-100'
 				onClick={() => props.onClick(false)}
 			>
 				{props.options.second}
 			</button>
 
 			<button
-				className={
-					' color-white absolute z-10 rounded-lgg text-base-bold text-gray-50 duration-100' +
-					(!props.value ? ' translate-x-1/2  bg-blue-400' : '')
-				}
-				style={{ width: '120px' }}
+				className={clsx(
+					' color-white absolute z-10 w-[120px] rounded-lgg text-base-bold text-gray-50 duration-100',
+					!props.value && ' translate-x-1/2  bg-blue-400'
+				)}
 			>
 				{props.value ? props.options.first : props.options.second}
 			</button>
 		</div>
 	)
-}
+})
 
-export default React.memo(Toggle)
+export default Toggle

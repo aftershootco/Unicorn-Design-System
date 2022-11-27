@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { RadioButtons } from '..';
+import { Meta, Story } from '@storybook/react'
+import React from 'react'
+import { RadioButtons } from '..'
 
 export default {
 	title: 'component/RadioButtons',
@@ -14,5 +14,4 @@ Default.args = {
 	checked: true,
 }
 
-export { Default };
-
+export { Default }
