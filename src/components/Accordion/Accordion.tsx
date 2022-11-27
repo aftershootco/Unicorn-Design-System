@@ -9,7 +9,7 @@ export interface AccordionProps {
 	headerClassName?: string
 	headerStyle?: React.CSSProperties
 
-	body: string | JSX.Element
+	children: string | JSX.Element
 	bodyClassName?: string
 	bodyStyle?: React.CSSProperties
 }
@@ -25,7 +25,7 @@ const Accordion: React.FC<AccordionProps> = React.forwardRef((props, ref: any) =
 			</div>
 			{props.expanded && (
 				<div className={`mx-9 w-full transform p-2 text-base text-gray-200 ${props.bodyClassName}`} style={props.bodyStyle}>
-					{props.body}
+					{props.children}
 				</div>
 			)}
 		</div>

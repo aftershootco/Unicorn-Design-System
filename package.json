@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "2.0.0-rc-3",
+	"version": "2.0.0-rc-4",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -10,7 +10,8 @@
 		"build": "rollup -c",
 		"dev": "start-storybook -p 6006 && npx tailwindcss -c tailwind.config.js -i ./src/index.scss -o ./.storybook/index.css --watch",
 		"build-storybook": "build-storybook",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"local-test": "rm -rf dist && yarn && yarn build && cp -r ./dist/* ../AfterShoot-Desktop-App/node_modules/@aftershootco/pegasus/dist"
 	},
 	"repository": {
 		"url": "https://github.com/aftershootco/Unicorn-Design-System",
