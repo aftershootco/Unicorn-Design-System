@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import React from 'react'
-import './Toggle.scss'
 
 export interface ToggleProps {
 	/**
