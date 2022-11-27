@@ -8,7 +8,7 @@
 	"module": "dist/index.esm.js",
 	"scripts": {
 		"build": "rollup -c",
-		"dev": "start-storybook -p 6006 && npx tailwindcss -c tailwind.config.js -i ./src/index.scss -o ./.storybook/index.css --watch",
+		"dev": "start-storybook -p 6006 & npx tailwindcss -c tailwind.config.js -i ./src/index.scss -o ./.storybook/index.css --watch",
 		"build-storybook": "build-storybook",
 		"prepare": "husky install",
 		"local-test": "rm -rf dist && yarn && yarn build && cp -r ./dist/* ../AfterShoot-Desktop-App/node_modules/@aftershootco/pegasus/dist"
