@@ -10,7 +10,7 @@ export interface LinearProgressBarProps {
 	/**
 	 * Variant for linearprogressbar
 	 */
-	variant?: 'primary' | 'lgbt'
+	variant?: 'primary' | 'secondary'
 
 	/**
 	 * Classes to be applied to the progress bar.

@@ -1,23 +1,24 @@
 import '../index.scss'
 import Accordion, { AccordionProps } from './Accordion/Accordion'
 import Button, { ButtonProps } from './Button/Button'
-import DropDown, { DropDownProps } from './DropDown/DropDown'
-import Slider from './Slider/Slider'
-import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
-import Tabs, { TabsProps } from './Tabs/Tabs'
-import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
+import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
-import '../index.scss'
+import Divider, { DividerProps } from './Divider/Divider'
+import DropDown, { DropDownProps } from './DropDown/DropDown'
+import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
+import RadioButtons from './RadioButton/RadioButton'
+import Slider from './Slider/Slider'
+import Switch from './Switch/Switch'
+import Tabs, { TabsProps } from './Tabs/Tabs'
+import TextInput, { TextInputProps } from './TextInput/TextInput'
+import Toggle, { ToggleProps } from './Toggle/Toggle'
+import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
 
 export {
-	LinearProgressBar,
-	LinearProgressBarProps,
 	Accordion,
 	AccordionProps,
 	Button,
 	ButtonProps,
-	Chip,
-	ChipProps,
 	Slider,
 	DropDown,
 	DropDownProps,
@@ -25,4 +26,18 @@ export {
 	ToolTipProps,
 	Tabs,
 	TabsProps,
+	CheckBox,
+	CheckBoxProps,
+	Chip,
+	ChipProps,
+	Divider,
+	DividerProps,
+	LinearProgressBar,
+	LinearProgressBarProps,
+	RadioButtons,
+	Switch,
+	TextInput,
+	TextInputProps,
+	Toggle,
+	ToggleProps,
 }
