@@ -3,9 +3,8 @@ import React, { useRef } from 'react'
 
 export interface AccordionProps {
 	expanded?: boolean
-	onChange?: () => void
+	onChange?: (value: boolean) => void
 
-	onClick?: (e: any) => void
 	onClickIcon?: (e: any) => void
 
 	header: string | JSX.Element
@@ -13,7 +12,7 @@ export interface AccordionProps {
 	headerStyle?: React.CSSProperties
 	children: JSX.Element
 	suffixIcon?: JSX.Element
-	className?:string
+	className?: string
 }
 
 const Accordion: React.FC<AccordionProps> = (props) => {
@@ -21,11 +20,11 @@ const Accordion: React.FC<AccordionProps> = (props) => {
 
 	const toggleAccordion = (e) => {
 		e.stopPropagation()
-		props.onClick(e)
+		props.onChange(!props.expanded)
 	}
 
 	return (
-		<div className='w-full cursor-pointer rounded bg-gray-800 text-lg mb-2 py-3 px-4'>
+		<div className='mb-2 w-full cursor-pointer rounded bg-gray-800 py-3 px-4 text-lg'>
 			<div className='flex w-full items-center justify-between' onClick={toggleAccordion}>
 				<div className='flex items-center'>
 					<ArrowIcon className={`text-gray-400 transition-all duration-300 ${props.expanded ? 'rotate-90' : 'rotate-0'}`} />
@@ -46,7 +45,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
 					overflow: props.expanded ? 'visible' : 'hidden',
 				}}
 				ref={contentSpace}
-				className={`px-4 ${props.expanded ? 'my-2' : 'py-0'} w-full text-base text-gray-200 transition-height duration-300 ease-in-out`}
+				className={`px-4 ${props.expanded ? 'my-2' : 'py-0'} transition-height w-full text-base text-gray-200 duration-300 ease-in-out`}
 			>
 				{props.children}
 			</div>
