@@ -1,11 +1,9 @@
 import { ArrowIcon } from '@aftershootco/unicorn-icons'
-import React, { useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 
 export interface AccordionProps {
 	expanded?: boolean
 	onChange?: (value: boolean) => void
-
-	onClickIcon?: (e: any) => void
 
 	header: string | JSX.Element
 	headerClassName?: string
@@ -15,13 +13,16 @@ export interface AccordionProps {
 	className?: string
 }
 
-const Accordion: React.FC<AccordionProps> = (props) => {
+const Accordion: React.FC<AccordionProps> = React.memo((props) => {
 	const contentSpace = useRef(null)
 
-	const toggleAccordion = (e) => {
-		e.stopPropagation()
-		props.onChange(!props.expanded)
-	}
+	const toggleAccordion = useCallback(
+		(e) => {
+			e.stopPropagation()
+			props.onChange(!props.expanded)
+		},
+		[props.onChange]
+	)
 
 	return (
 		<div className='mb-2 w-full cursor-pointer rounded bg-gray-800 py-3 px-4 text-lg'>
@@ -51,6 +52,6 @@ const Accordion: React.FC<AccordionProps> = (props) => {
 			</div>
 		</div>
 	)
-}
+})
 
-export default React.memo(Accordion)
+export default Accordion
