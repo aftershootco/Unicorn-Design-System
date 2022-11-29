@@ -1,5 +1,5 @@
+import clsx from 'clsx'
 import React, { useCallback, useRef } from 'react'
-
 export interface TabsProps {
 	tabs: string[]
 	onChange: (index: number) => void
@@ -18,12 +18,12 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 	)
 
 	return (
-		<nav className='relative flex'>
-			<div className='absolute bottom-5 left-3 h-1 w-32 rounded-lg bg-gray-50 duration-300' ref={sliderRef} />
+		<nav className={clsx('relative flex')}>
+			<div className='absolute top-11 left-3 h-[1px] w-32 rounded-lg bg-gray-50 duration-300' ref={sliderRef} />
 			{props.tabs.map((tab, index) => {
 				return (
 					<div
-						className='relative my-0 mx-3 flex min-w-8 cursor-pointer justify-center text-2xl text-gray-50'
+						className={clsx('my-0 mx-3 flex min-w-8 cursor-pointer justify-center text-2xl text-gray-50')}
 						onClick={(e) => shiftIndicator(e, index)}
 					>
 						{tab}
