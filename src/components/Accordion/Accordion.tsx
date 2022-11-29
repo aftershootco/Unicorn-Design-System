@@ -11,12 +11,9 @@ export interface AccordionProps {
 	header: string | JSX.Element
 	headerClassName?: string
 	headerStyle?: React.CSSProperties
-
 	children: JSX.Element
-	bodyClassName?: string
-	bodyStyle?: React.CSSProperties
-
 	suffixIcon?: JSX.Element
+	className?:string
 }
 
 const Accordion: React.FC<AccordionProps> = (props) => {
@@ -37,7 +34,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
 					</div>
 				</div>
 
-				<div onClick={props.onClickIcon}>{props.suffixIcon}</div>
+				<div>{props.suffixIcon}</div>
 			</div>
 
 			<div
@@ -49,9 +46,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
 					overflow: props.expanded ? 'visible' : 'hidden',
 				}}
 				ref={contentSpace}
-				className={`px-4 ${props.expanded ? 'my-2' : 'py-0'} w-full text-base text-gray-200 transition-height duration-300 ease-in-out ${
-					props.bodyClassName
-				}`}
+				className={`px-4 ${props.expanded ? 'my-2' : 'py-0'} w-full text-base text-gray-200 transition-height duration-300 ease-in-out`}
 			>
 				{props.children}
 			</div>
