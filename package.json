@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "2.0.0-rc-5",
+	"version": "2.0.0-rc-6",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -22,11 +22,11 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@aftershootco/unicorn-icons-1": "^1.0.0",
-		"@babel/core": "^7.20.2",
+		"@aftershootco/unicorn-icons": "^1.1.0",
+		"@babel/core": "^7.20.5",
 		"@rollup/plugin-commonjs": "^23.0.3",
 		"@rollup/plugin-node-resolve": "^15.0.1",
-		"@rollup/plugin-typescript": "^10.0.0",
+		"@rollup/plugin-typescript": "^10.0.1",
 		"@rollup/plugin-url": "^8.0.1",
 		"@storybook/addon-actions": "^6.5.13",
 		"@storybook/addon-essentials": "^6.5.13",

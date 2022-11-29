@@ -1,4 +1,4 @@
-import { ArrowIcon } from '@aftershootco/unicorn-icons-1'
+import { ArrowIcon } from '@aftershootco/unicorn-icons'
 import React, { useEffect, useRef, useState } from 'react'
 
 export interface AccordionProps {
