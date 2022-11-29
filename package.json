@@ -22,7 +22,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@aftershootco/unicorn-icons": "^1.0.12",
+		"@aftershootco/unicorn-icons-1": "^1.0.0",
 		"@babel/core": "^7.20.2",
 		"@rollup/plugin-commonjs": "^23.0.3",
 		"@rollup/plugin-node-resolve": "^15.0.1",
