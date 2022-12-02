@@ -1,7 +1,12 @@
 import clsx from 'clsx'
-import React, { useCallback, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export interface TabsProps {
+	/**
+	 * The current selected tab.
+	 */
+	selected: number
+
 	/**
 	 * The tabs to display.
 	 */
@@ -21,14 +26,11 @@ export interface TabsProps {
 const Tabs: React.FC<TabsProps> = React.memo((props) => {
 	const sliderRef = useRef(null)
 
-	const shiftIndicator = useCallback(
-		(e, index: number) => {
-			sliderRef.current.style.width = e.target.offsetWidth + 'px'
-			sliderRef.current.style.left = e.target.offsetLeft + 'px'
-			props.onChange(index)
-		},
-		[props.onChange]
-	)
+	useEffect(() => {
+		const doc = document.getElementById(props.tabs[props.selected])
+		sliderRef.current.style.width = doc.offsetWidth + 'px'
+		sliderRef.current.style.left = doc.offsetLeft + 'px'
+	}, [props.selected])
 
 	return (
 		<nav className='w-full flex-col'>
@@ -36,12 +38,13 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 				{props.tabs.map((tab, index) => {
 					return (
 						<div
+							id={tab}
 							className={clsx(
 								'mx-3 flex min-w-8 cursor-pointer justify-center py-3 text-2xl text-gray-50',
 								'first-of-type:ml-8',
 								props.className
 							)}
-							onClick={(e) => shiftIndicator(e, index)}
+							onClick={() => props.onChange(index)}
 							key={tab}
 						>
 							{tab}
