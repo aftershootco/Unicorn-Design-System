@@ -11,7 +11,7 @@ const Template: Story<TabsProps> = (args: TabsProps) => <Tabs {...args} />
 
 const Default = Template.bind({})
 Default.args = {
-	tabsList: ['1', '2', '3', '4'],
+	tabs: ['Articles', 'Videos', 'AfterShoot'],
 }
 
 export { Default }
