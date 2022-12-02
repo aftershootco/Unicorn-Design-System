@@ -14,7 +14,7 @@ const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) =>
 					type='range'
 					style={{
 						...props.style,
-						backgroundSize: ((80 - 10) * 100) / (100 - 0) + '%',
+						backgroundSize: ((Number(props.value) - Number(props.step)) * 100) / (Number(props.max) - Number(props.min)) + '%',
 					}}
 				/>
 			</div>
