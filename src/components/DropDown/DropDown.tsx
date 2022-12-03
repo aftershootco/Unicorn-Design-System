@@ -1,4 +1,4 @@
-import { KeyBoardArrowDownIcon } from '@aftershootco/unicorn-icons'
+import { DropDownIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
@@ -232,9 +232,9 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					className='w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
 					value={selected}
 				/>
-				<KeyBoardArrowDownIcon
+				<DropDownIcon
 					className={clsx(
-						'absolute top-[10%] right-2 h-8 w-8 transform-gpu cursor-pointer transition duration-300',
+						'absolute top-[30%] right-4 h-4 w-4 transform-gpu cursor-pointer text-gray-400 transition duration-300',
 						expanded ? 'rotate-180' : 'rotate-0'
 					)}
 				/>
