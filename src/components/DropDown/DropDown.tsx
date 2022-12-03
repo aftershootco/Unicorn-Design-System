@@ -94,7 +94,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	const firstElement = useRef(null)
 	const lastElement = useRef(null)
 
-	const [state, setState] = useState(false)
+	const [expanded, setExpanded] = useState(false)
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
 
@@ -161,7 +161,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	// To get the selected value into view when dropdown clicked.
 	useEffect(() => {
 		measureHeight()
-		if (state) {
+		if (expanded) {
 			document.getElementById('apply')?.scrollIntoView({
 				behavior: 'auto',
 				block: 'start',
@@ -169,7 +169,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 			})
 			document.getElementById('apply')?.focus()
 		}
-	}, [state])
+	}, [expanded])
 
 	// To handle onChange.
 	const handleChange = React.useCallback(
@@ -227,27 +227,30 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
 				</div>
 			)}
-			<div className='flex' ref={inputRef} onClick={() => setState((state) => !state)}>
+			<div className='relative flex' ref={inputRef} onClick={() => setExpanded((state) => !state)}>
 				<input
-					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
+					className='w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
 					value={selected}
 				/>
-				<div className='absolute right-0 cursor-pointer py-2 pr-2'>
-					<KeyBoardArrowDownIcon />
-				</div>
+				<KeyBoardArrowDownIcon
+					className={clsx(
+						'absolute top-[10%] right-2 h-8 w-8 transform-gpu cursor-pointer transition duration-300',
+						expanded ? 'rotate-180' : 'rotate-0'
+					)}
+				/>
 			</div>
 			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
 
 			{/* {The z-index must be greater than titlebar's z-index} */}
-			{state && (
+			{expanded && (
 				<div
 					className='fixed inset-0 z-[1600] flex cursor-pointer items-center justify-between bg-transparent'
-					onClick={() => setState(false)}
+					onClick={() => setExpanded(false)}
 				/>
 			)}
 
 			{/* {Drop Down for Accountdetails, Settings} */}
-			{state && (
+			{expanded && (
 				<div
 					className={clsx(
 						'absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll',
@@ -276,7 +279,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 							</button>
 						)
 					})}
-					<div onClick={() => setState(false)}>{props.children}</div>
+					<div onClick={() => setExpanded(false)}>{props.children}</div>
 				</div>
 			)}
 		</div>
