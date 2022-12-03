@@ -86,7 +86,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	}, [])
 
 	return (
-		<div className='flex-col'>
+		<div className='w-full flex-col'>
 			{props.label && (
 				<div className='text-white-1000 mb-2 flex items-center justify-between px-1'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
