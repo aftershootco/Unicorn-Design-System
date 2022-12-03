@@ -17,11 +17,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Icon in Button
 	 */
 	suffixIcon?: JSX.Element
-
-	onClick?: () => void
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = React.memo((props) => {
 	const variantStyles = useMemo(() => {
 		switch (props.variant) {
 			case 'primary':
@@ -43,10 +41,11 @@ const Button: React.FC<ButtonProps> = (props) => {
 		<button
 			{...props}
 			className={clsx(
-				'align-center flex w-full cursor-pointer border text-gray-50',
+				'flex w-fit cursor-pointer items-center border text-gray-50',
 				props.suffixIcon ? 'justify-between' : 'justify-center',
-				'rounded-lg py-3 px-5 text-base-bold',
+				'rounded-lg py-3 text-base-bold',
 				'disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
+				props.suffixIcon ? 'px-5' : 'px-8',
 				variantStyles,
 				props.className
 			)}
@@ -54,6 +53,6 @@ const Button: React.FC<ButtonProps> = (props) => {
 			<>{props.text || props.children}</> {props.suffixIcon}
 		</button>
 	)
-}
+})
 
-export default React.memo(Button)
+export default Button

@@ -17,7 +17,7 @@ module.exports = {
 				'calc(var(--font-size)*5)',
 				{
 					lineHeight: '160%',
-					fontWeight: '600',
+					fontWeight: '500',
 				},
 			],
 			sm: [
@@ -45,14 +45,14 @@ module.exports = {
 				'var(--font-size-lg)',
 				{
 					lineHeight: '150%',
-					fontWeight: '600',
+					fontWeight: '500',
 				},
 			],
 			xl: [
 				'var(--font-size-xl)',
 				{
 					lineHeight: '133%',
-					fontWeight: '600',
+					fontWeight: '500',
 				},
 			],
 			'2xl': [
@@ -73,14 +73,14 @@ module.exports = {
 				'var(--font-size-4xl)',
 				{
 					lineHeight: '114%',
-					fontWeight: '600',
+					fontWeight: '500',
 				},
 			],
 			'5xl': [
 				'var(--font-size-5xl)',
 				{
 					lineHeight: '104%',
-					fontWeight: '600',
+					fontWeight: '500',
 				},
 			],
 		},

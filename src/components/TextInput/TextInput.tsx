@@ -19,6 +19,11 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	label?: string
 
 	/**
+	 * Description for Input.
+	 */
+	description?: string
+
+	/**
 	 * Whether the input is optional or not.
 	 */
 	optional?: boolean
@@ -83,7 +88,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	return (
 		<>
 			{props.label && (
-				<div className='text-white-1000 mb-2 flex items-center justify-between'>
+				<div className='text-white-1000 mb-2 flex items-center justify-between px-1'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
 					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
 				</div>
@@ -107,6 +112,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 					{props.suffixIcon}
 				</div>
 			</div>
+			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
 		</>
 	)
 })
