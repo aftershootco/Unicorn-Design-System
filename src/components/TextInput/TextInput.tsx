@@ -104,7 +104,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 					className={clsx(
 						'relative w-full rounded-lg border bg-transparent py-2 pl-2 text-base-bold',
 						variantStyle === ErrorState.ACTIVE &&
-							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-green-500 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200',
+							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-blue-400 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200',
 						variantStyle === ErrorState.INACTIVE && 'border-red-400 text-gray-50',
 						props.readOnly && 'cursor-default',
 						props.suffixIcon ? 'pr-8' : 'pr-2',
