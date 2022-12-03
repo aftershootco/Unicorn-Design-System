@@ -12,6 +12,28 @@ const Template: Story<DropDownProps> = (args: DropDownProps) => <DropDown {...ar
 const Default = Template.bind({})
 Default.args = {
 	value: 'dropdown',
+	data: {
+		dropdown: {
+			label: 'Dropdown',
+			value: 'dropdown',
+		},
+		dropdown1: {
+			label: 'Dropdown 1',
+			value: 'dropdown1',
+		},
+		dropdown2: {
+			label: 'Dropdown 2',
+			value: 'dropdown2',
+		},
+		dropdown3: {
+			label: 'Dropdown 3',
+			value: 'dropdown3',
+		},
+		other: {
+			label: 'Other',
+			value: 'other',
+		},
+	},
 }
 
 export { Default }

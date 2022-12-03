@@ -49,6 +49,21 @@ export interface DropDownProps {
 	outerStyle?: React.CSSProperties
 
 	/**
+	 * Heading for Input
+	 */
+	label?: string
+
+	/**
+	 * Description for Input.
+	 */
+	description?: string
+
+	/**
+	 * Whether the input is optional or not.
+	 */
+	optional?: boolean
+
+	/**
 	 * Function to be called when any option is clicked
 	 */
 	onChange: (clickedOn: DropdownData) => void
@@ -205,7 +220,13 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	)
 
 	return (
-		<div {...restProps} className='relative w-full' ref={ref}>
+		<div {...restProps} className={clsx('relative w-full', props.outerClassName)} ref={ref}>
+			{props.label && (
+				<div className='text-white-1000 mb-2 flex items-center justify-between px-1'>
+					<span className='text-base-bold text-gray-50'>{props.label}</span>
+					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
+				</div>
+			)}
 			<div className='flex' ref={inputRef} onClick={() => setState((state) => !state)}>
 				<input
 					className='relative w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
@@ -215,6 +236,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					<KeyBoardArrowDownIcon />
 				</div>
 			</div>
+			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
 
 			{/* {The z-index must be greater than titlebar's z-index} */}
 			{state && (
@@ -243,9 +265,9 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 								id={props.value == _key ? 'apply' : data[_key].label[0]}
 								className={clsx(
 									'word-break-all flex w-full cursor-pointer items-center justify-start',
-									'border-none px-5 py-3 text-left text-gray-500 outline-none',
+									'border-none px-5 py-3 text-left text-gray-50 outline-none',
 									'hover:bg-gray-50/10 active:bg-gray-800',
-									props.value === _key && 'bg-red-300 text-blue-400'
+									props.value === _key && 'bg-blue-300/20 text-blue-400'
 								)}
 								onClick={(e) => handleChange(e, data[_key])}
 								data-test-id={`${props.dataTestId}-${_key}`}
