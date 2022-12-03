@@ -37,6 +37,11 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	 * Error in input
 	 */
 	error?: boolean
+
+	/**
+	 * The classname for the wrapper div.
+	 */
+	wrapperClassName?: string
 }
 
 enum ErrorState {
@@ -86,7 +91,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	}, [])
 
 	return (
-		<div className='w-full flex-col'>
+		<div className={clsx('w-full flex-col', props.wrapperClassName)}>
 			{props.label && (
 				<div className='text-white-1000 mb-2 flex items-center justify-between px-1'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
