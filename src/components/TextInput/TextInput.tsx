@@ -86,7 +86,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	}, [])
 
 	return (
-		<>
+		<div className='flex-col'>
 			{props.label && (
 				<div className='text-white-1000 mb-2 flex items-center justify-between px-1'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
@@ -113,7 +113,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 				</div>
 			</div>
 			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
-		</>
+		</div>
 	)
 })
 
