@@ -13,8 +13,8 @@ const Default = Template.bind({})
 Default.args = {
 	value: true,
 	options: {
-		first: 'one',
-		second: 'two',
+		first: 'Yearly',
+		second: 'Monthly',
 	},
 	onClick: null,
 }
