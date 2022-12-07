@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import DownArrow from '../SVG/DownArrow'
 import './dropDown.scss'
 
-interface DropdownData {
+export interface DropdownData {
 	label: string | JSX.Element
 	value: string | number | boolean
 	[key: string]: any

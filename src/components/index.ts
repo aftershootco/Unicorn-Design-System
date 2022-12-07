@@ -3,7 +3,7 @@ import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
 import Dialog, { DialogProps } from './Dialog/Dialog'
 import Divider, { DividerProps } from './Divider/Divider'
-import DropDown, { DropDownProps } from './DropDown/DropDown'
+import DropDown, { DropDownProps, DropdownData } from './DropDown/DropDown'
 import Label, { LabelProps } from './Label/Label'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import Switch, { SwitchProps } from './Switch/Switch'
@@ -22,6 +22,7 @@ export {
 	LabelProps,
 	DropDown,
 	DropDownProps,
+	DropdownData,
 	Dialog,
 	DialogProps,
 	Chip,
