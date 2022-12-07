@@ -5,7 +5,7 @@ import './Switch.scss'
 const Switch: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = React.memo((props) => {
 	return (
 		<label className={clsx('relative inline-block h-7 w-11', props.disabled && 'rounded-full bg-blue-300 opacity-20')}>
-			<input {...props} disabled={props.disabled} checked={props.checked} type='checkbox' className='switch-input h-0 w-0 opacity-0' />
+			<input {...props} type='checkbox' className='switch-input h-0 w-0 opacity-0' />
 			<span
 				className={clsx(
 					'absolute top-0 left-0 right-0 bottom-0 cursor-pointer rounded-3xl',
