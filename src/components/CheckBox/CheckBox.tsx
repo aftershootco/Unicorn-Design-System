@@ -13,6 +13,9 @@ export interface CheckBoxProps {
 	 * Function to be called when checkbox is checked.
 	 */
 	onChange: (value: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+
+	className?: string
+	iconClassName?: string
 }
 
 const CheckBox: React.FC<CheckBoxProps> = (props) => {
@@ -26,12 +29,13 @@ const CheckBox: React.FC<CheckBoxProps> = (props) => {
 	return (
 		<div
 			className={
-				'asCheck relative bg-transparent flex-col align-center justify-center cursor-pointer w-7 h-7 ' +
-				(props.value ? 'as-checked' : 'as-unchecked')
+				'asCheck align-center relative cursor-pointer flex-col justify-center bg-transparent ' +
+				(props.value ? 'as-checked ' : 'as-unchecked ') +
+				props.className
 			}
 			onClick={onClick}
 		>
-			{props.value && <Check className='w-6' />}
+			{props.value && <Check className={props.iconClassName} />}
 		</div>
 	)
 }
