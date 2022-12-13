@@ -39,7 +39,7 @@ const Accordion: React.FC<AccordionProps> = React.memo((props) => {
 			<div
 				ref={contentSpace}
 				className={clsx(
-					'transition-height min-h-0 w-full px-4 text-base text-gray-200 duration-300 ease-in-out',
+					'transition-height min-h-0 w-full text-base text-gray-200 duration-300 ease-in-out',
 					props.expanded ? 'my-2 h-auto overflow-visible opacity-100' : 'h-0 overflow-hidden py-0 opacity-0'
 				)}
 			>
