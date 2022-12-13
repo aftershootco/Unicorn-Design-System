@@ -98,7 +98,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 					{props.optional && <span className='text-xs text-gray-200'>Optional</span>}
 				</div>
 			)}
-			<div className='relative flex'>
+			<div className='relative flex items-center'>
 				<input
 					{...props}
 					className={clsx(
