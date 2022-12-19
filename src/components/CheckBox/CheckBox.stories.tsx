@@ -12,6 +12,7 @@ const Template: Story<CheckBoxProps> = (args: CheckBoxProps) => <CheckBox {...ar
 const Default = Template.bind({})
 Default.args = {
 	value: false,
+	disabled: false,
 }
 
 export { Default }
