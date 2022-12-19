@@ -32,18 +32,21 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 	return (
 		<div
 			className={clsx(
-				'flex cursor-pointer items-center justify-center !bg-gray-50/30',
-				'rounded-sm border border-solid border-gray-400 bg-transparent opacity-50',
-				props.value && 'hover:brightness-150',
-				props.disabled && '!bg-transparent',
+				'w-fit rounded-sm border border-solid border-gray-400 p-0.5',
+				props.disabled ? 'cursor-default bg-transparent' : 'cursor-pointer bg-gray-50/30',
 				props.className
 			)}
 			onClick={onClick}
 		>
 			{props.value ? (
-				<CheckIcon className={clsx('h-3/4 w-3/4 rounded-sm bg-blue-400', props.disabled && '!bg-gray-50/30')} />
+				<CheckIcon
+					className={clsx(
+						'h-5 w-5 rounded-sm transition-all duration-300',
+						props.disabled ? 'bg-gray-50/30' : 'bg-blue-400 hover:bg-blue-300'
+					)}
+				/>
 			) : (
-				!props.disabled && <div className={clsx('h-3/4 w-3/4 rounded-sm hover:bg-gray-50/30')}></div>
+				<div className={clsx('h-5 w-5 rounded-sm transition-all duration-300', !props.disabled && 'hover:bg-gray-50/30')} />
 			)}
 		</div>
 	)

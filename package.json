@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "2.0.0-rc-27",
+	"version": "2.0.0-rc-28",
 	"description": "",
 	"author": "",
 	"license": "ISC",
@@ -22,9 +22,9 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@aftershootco/unicorn-icons": "^1.1.15",
+		"@aftershootco/unicorn-icons": "^1.1.17",
 		"@babel/core": "^7.20.5",
-		"@rollup/plugin-commonjs": "^23.0.5",
+		"@rollup/plugin-commonjs": "^24.0.0",
 		"@rollup/plugin-node-resolve": "^15.0.1",
 		"@rollup/plugin-typescript": "^10.0.1",
 		"@rollup/plugin-url": "^8.0.1",
@@ -52,7 +52,7 @@
 		"prettier-plugin-tailwindcss": "^0.2.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"rollup": "^3.7.4",
+		"rollup": "^3.7.5",
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-dts": "^5.0.0",
 		"rollup-plugin-images": "^1.0.0",
