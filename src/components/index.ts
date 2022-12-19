@@ -8,7 +8,7 @@ import DropDown, { DropDownProps } from './DropDown/DropDown'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import RadioButtons from './RadioButton/RadioButton'
 import Slider from './Slider/Slider'
-import Switch from './Switch/Switch'
+import Switch, { SwitchProps } from './Switch/Switch'
 import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
@@ -36,6 +36,7 @@ export {
 	LinearProgressBarProps,
 	RadioButtons,
 	Switch,
+	SwitchProps,
 	TextInput,
 	TextInputProps,
 	Toggle,

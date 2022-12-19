@@ -2,18 +2,41 @@ import clsx from 'clsx'
 import React from 'react'
 import './Switch.scss'
 
-const Switch: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = React.memo((props) => {
+export interface SwitchProps {
+	disabled?: boolean
+	value: boolean
+	className?: string
+	onChange: (value: boolean) => void
+}
+
+const Switch: React.FC<SwitchProps> = React.memo((props) => {
 	return (
-		<label className={clsx('relative inline-block h-7 w-11', props.disabled && 'rounded-full bg-blue-300 opacity-20')}>
-			<input {...props} type='checkbox' className='switch-input h-0 w-0 opacity-0' />
-			<span
+		<div
+			className={clsx(
+				'flex h-9 w-16 items-center rounded-full p-1',
+				props.disabled
+					? props.value
+						? 'pointer-events-none bg-blue-300'
+						: 'pointer-events-none bg-gray-50'
+					: props.value
+					? 'cursor-pointer bg-blue-400'
+					: 'cursor-pointer bg-gray-50'
+			)}
+			onClick={() => props.onChange(!props.value)}
+		>
+			<div
 				className={clsx(
-					'absolute top-0 left-0 right-0 bottom-0 cursor-pointer rounded-3xl',
-					'bg-gray-50/10 transition-[0.4s]',
-					`before:absolute before:bottom-1 before:w-6 before:rounded-[50%] before:bg-white before:transition-[0.4s] before:content-['']`
+					'h-7 w-7 rounded-full  shadow-md duration-300 ease-in-out',
+					props.disabled
+						? props.value
+							? 'translate-x-full bg-gray-50'
+							: 'bg-gray-50'
+						: props.value
+						? 'translate-x-full bg-white'
+						: 'bg-white'
 				)}
-			/>
-		</label>
+			></div>
+		</div>
 	)
 })
 
