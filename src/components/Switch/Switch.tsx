@@ -17,10 +17,10 @@ const Switch: React.FC<SwitchProps> = React.memo((props) => {
 				props.disabled
 					? props.value
 						? 'pointer-events-none bg-blue-300'
-						: 'pointer-events-none bg-gray-50'
+						: 'pointer-events-none bg-gray-50/10'
 					: props.value
 					? 'cursor-pointer bg-blue-400'
-					: 'cursor-pointer bg-gray-50'
+					: 'cursor-pointer bg-gray-50/10'
 			)}
 			onClick={() => props.onChange(!props.value)}
 		>
