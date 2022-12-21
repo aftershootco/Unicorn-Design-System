@@ -13,7 +13,7 @@ const Switch: React.FC<SwitchProps> = React.memo((props) => {
 	return (
 		<div
 			className={clsx(
-				'flex h-9 w-16 items-center rounded-full p-1',
+				'flex w-12 items-center rounded-full p-1',
 				props.disabled
 					? props.value
 						? 'pointer-events-none bg-blue-300'
@@ -26,7 +26,7 @@ const Switch: React.FC<SwitchProps> = React.memo((props) => {
 		>
 			<div
 				className={clsx(
-					'h-7 w-7 rounded-full  shadow-md duration-300 ease-in-out',
+					'h-5 w-5 rounded-full shadow-md duration-300 ease-in-out',
 					props.disabled
 						? props.value
 							? 'translate-x-full bg-gray-50'
