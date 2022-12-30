@@ -1,11 +1,11 @@
-import React from 'react';
-import './LinearProgressBar.scss';
+import React from 'react'
+import './LinearProgressBar.scss'
 
 export interface LinearProgressBarProps {
 	/**
 	 * Set the value to change between determinant and indeterminant, 0 for indeterminant
 	 */
-	value?: number
+	value?: number | string
 
 	/**
 	 * Variant for linearprogressbar
