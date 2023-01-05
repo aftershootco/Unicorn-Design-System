@@ -27,7 +27,7 @@ const Accordion: React.FC<AccordionProps> = React.memo((props) => {
 	)
 
 	return (
-		<div className='mb-2 w-full cursor-pointer rounded bg-gray-800 p-4 text-lg' id={props.id}>
+		<div className={clsx('mb-2 w-full cursor-pointer rounded bg-gray-800 p-4 text-lg', props.className)} id={props.id}>
 			<div className='flex w-full items-center justify-between' onClick={toggleAccordion}>
 				<div className='flex items-center'>
 					<ArrowIcon className={clsx('text-gray-400 transition-all duration-300', props.expanded ? 'rotate-90' : 'rotate-0')} />
