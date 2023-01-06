@@ -270,7 +270,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 									'word-break-all flex w-full cursor-pointer items-center justify-start',
 									'border-none px-5 py-3 text-left text-gray-50 outline-none',
 									'hover:bg-gray-50/10 active:bg-gray-800',
-									props.value === _key && 'bg-blue-300/20 text-blue-400'
+									String(props.value) === _key && 'bg-blue-300/20 text-blue-400'
 								)}
 								onClick={(e) => handleChange(e, data[_key])}
 								data-test-id={`${props.dataTestId}-${_key}`}
