@@ -21,7 +21,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
 	const variantStyles = useMemo(() => {
-		switch (props.variant) {
+		const variant = props.variant ?? 'primary'
+		switch (variant) {
 			case 'primary':
 				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
 			case 'secondary':
