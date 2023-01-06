@@ -10,7 +10,7 @@ export interface AccordionProps {
 	header: string | JSX.Element
 	headerClassName?: string
 	headerStyle?: React.CSSProperties
-	children: JSX.Element
+	children: React.ReactNode
 	suffixIcon?: JSX.Element
 	className?: string
 }

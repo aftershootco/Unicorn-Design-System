@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './ToolTip.scss'
 
 export interface ToolTipProps {
-	children?: JSX.Element
+	children?: React.ReactNode
 	position?: 'Top' | 'Bottom' | 'Right' | 'Left'
 	title: string
 }

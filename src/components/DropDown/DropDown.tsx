@@ -76,7 +76,7 @@ export interface DropDownProps {
 	/**
 	 * Children element.
 	 */
-	children?: JSX.Element
+	children?: React.ReactNode
 
 	/**
 	 * To be shown when none is selected.
