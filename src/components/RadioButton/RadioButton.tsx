@@ -1,25 +1,32 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { useCallback } from 'react'
+export interface RadioButtonProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+	selected: boolean | string
+	disabled?: boolean
+	onChange?: (selected: boolean, event?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+}
 
-const RadioButtons: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = React.memo((props) => {
+const RadioButton: React.FC<RadioButtonProps> = React.memo((props) => {
+	const onClick = useCallback(
+		(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+			props.onChange(!props.selected, e)
+		},
+		[props.onChange, props.selected]
+	)
+
 	return (
-		<label
+		<div
 			className={clsx(
-				'text-3x relative cursor-pointer',
-				props.disabled ? 'hover:opacity-1 bg-gray-50 opacity-75 hover:bg-gray-50' : 'bg-gray-50 opacity-90 hover:opacity-70'
+				'flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-gray-50/30 bg-gray-50/10 hover:brightness-110',
+				props.disabled && '!bg-gray-50/30 hover:!brightness-95',
+				props.className
 			)}
+			onClick={onClick}
 		>
-			<input {...props} type='radio' className='absolute h-5 w-5 cursor-pointer opacity-30' />
-			<span className={'absolute top-px left-px h-5 w-5 rounded-[50%] bg-black opacity-70'} />
-			<span
-				className={clsx(
-					'absolute top-1 left-1 h-3 w-3 rounded-[50%]',
-					props.checked && props.disabled ? 'bg-gray-50 opacity-75' : 'bg-blue-400 opacity-75',
-					!props.checked && 'opacity-0'
-				)}
-			/>
-		</label>
+			<div
+				className={clsx('h-3 w-3 rounded-full', !props.selected ? 'hover:bg-gray-50/30' : 'bg-blue-400', props.disabled && '!bg-gray-200')}
+			></div>
+		</div>
 	)
 })
-
-export default RadioButtons
+export default RadioButton
