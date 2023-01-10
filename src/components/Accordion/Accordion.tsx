@@ -10,7 +10,10 @@ export interface AccordionProps {
 	header: string | JSX.Element
 	headerClassName?: string
 	headerStyle?: React.CSSProperties
+
 	children: React.ReactNode
+	childrenClassName?: string
+
 	suffixIcon?: JSX.Element
 	className?: string
 }
@@ -41,7 +44,8 @@ const Accordion: React.FC<AccordionProps> = React.memo((props) => {
 				ref={contentSpace}
 				className={clsx(
 					'transition-height min-h-0 w-full text-base text-gray-200 duration-300 ease-in-out',
-					props.expanded ? 'mt-2 h-auto overflow-visible opacity-100' : 'h-0 overflow-hidden py-0 opacity-0'
+					props.expanded ? 'mt-2 h-auto overflow-visible opacity-100' : 'h-0 overflow-hidden py-0 opacity-0',
+					props.childrenClassName
 				)}
 			>
 				{props.children}
