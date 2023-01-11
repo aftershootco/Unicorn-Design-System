@@ -18,8 +18,8 @@ export interface ChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 	selectedClassName?: string
 }
 
-const Chip: React.FC<ChipProps> = React.forwardRef(
-	React.memo((props, ref) => {
+const Chip: React.FC<ChipProps> = React.memo(
+	React.forwardRef((props, ref: any) => {
 		return (
 			<button
 				{...props}
