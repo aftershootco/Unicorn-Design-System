@@ -2,7 +2,7 @@ import { DropDownIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-interface DropdownData {
+export interface DropdownData {
 	label: string | JSX.Element
 	value: string | number | boolean
 	[key: string]: any
@@ -17,7 +17,7 @@ export interface DropDownProps {
 
 	/**
 	 * Options to be shown when dropdown is opened.
-	 * @Example: { 'Option 1': 'Option 1', 'Option 2': 'Option 2' }
+	 * @example { 'Option 1': { label: 'Label 1', value: 'Value 1' }, 'Option 2': { label: 'Label 2', value: 'Value 2' } }
 	 */
 	data: {
 		[key: string | number]: DropdownData

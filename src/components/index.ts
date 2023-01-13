@@ -4,7 +4,7 @@ import Button, { ButtonProps } from './Button/Button'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
 import Divider, { DividerProps } from './Divider/Divider'
-import DropDown, { DropDownProps } from './DropDown/DropDown'
+import DropDown, { DropdownData, DropDownProps } from './DropDown/DropDown'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import RadioButtons from './RadioButton/RadioButton'
 import Slider from './Slider/Slider'
@@ -21,6 +21,7 @@ export {
 	ButtonProps,
 	Slider,
 	DropDown,
+	DropdownData,
 	DropDownProps,
 	ToolTip,
 	ToolTipProps,
