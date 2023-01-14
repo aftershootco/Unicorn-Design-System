@@ -1,6 +1,7 @@
 import '../index.scss'
 import Accordion, { AccordionProps } from './Accordion/Accordion'
 import Button, { ButtonProps } from './Button/Button'
+import Carousel, { CarouselProps } from './Carousel/Carousel'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
 import Divider, { DividerProps } from './Divider/Divider'
@@ -19,6 +20,8 @@ export {
 	AccordionProps,
 	Button,
 	ButtonProps,
+	Carousel,
+	CarouselProps,
 	Slider,
 	DropDown,
 	DropdownData,
