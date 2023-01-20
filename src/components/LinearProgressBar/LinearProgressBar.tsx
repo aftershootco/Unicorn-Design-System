@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 import './LinearProgressBar.scss'
 
@@ -37,11 +38,11 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={`relative h-2 w-full overflow-x-hidden rounded-xl`}>
-					<div className={`absolute h-2 w-full rounded-xl bg-gray-50/10`} style={{ background: `${props.backgroundColor}` }} />
+				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
+					<div className='absolute h-2 w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					{variant === 'primary' ? (
 						<div
-							className={`subline absolute h-2 rounded-xl bg-blue-400`}
+							className='subline absolute h-2 rounded-xl bg-blue-400'
 							style={{
 								background: `${props.progressBarColor}`,
 								width: props.value + '%',
@@ -49,7 +50,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 						/>
 					) : (
 						<div
-							className={`subline absolute h-2 rounded-xl`}
+							className='subline absolute h-2 rounded-xl'
 							style={{
 								background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
 								width: props.value + '%',
@@ -58,11 +59,10 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 					)}
 				</div>
 			) : (
-				<div className={`relative h-2 w-full overflow-x-hidden rounded-xl`}>
-					<div className={`absolute h-2 w-full rounded-xl bg-gray-50/10`} style={{ background: `${props.backgroundColor}` }} />
-
+				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
+					<div className='absolute h-2 w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					<div
-						className={`subline inc absolute h-2 rounded-xl bg-blue-400`}
+						className='subline inc absolute h-2 rounded-xl bg-blue-400'
 						style={
 							variant === 'primary'
 								? { background: `${props.progressBarColor}` }
@@ -72,7 +72,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 						}
 					/>
 					<div
-						className={`subline dec absolute h-2 rounded-xl bg-blue-400`}
+						className='subline dec absolute h-2 rounded-xl bg-blue-400'
 						style={
 							variant === 'primary'
 								? { background: `${props.progressBarColor}` }
