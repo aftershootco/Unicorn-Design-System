@@ -229,7 +229,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 			)}
 			<div className='relative flex' ref={inputRef} onClick={() => setExpanded((state) => !state)}>
 				<input
-					className='w-full cursor-pointer rounded-lg border bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
+					className='w-full cursor-pointer rounded-lg border border-gray-50/10 bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
 					value={selected}
 				/>
 				<DropDownIcon
