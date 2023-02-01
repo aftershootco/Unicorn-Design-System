@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			className={clsx(
 				'flex w-fit cursor-pointer items-center border text-gray-50',
 				props.suffixIcon ? 'justify-between' : 'justify-center',
-				'rounded-lg py-3 text-base-bold',
+				'rounded-lg py-3 text-base-bold transition-all duration-300',
 				'disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
 				props.suffixIcon ? 'px-5' : 'px-8',
 				variantStyles,
