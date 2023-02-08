@@ -3,10 +3,17 @@ import { Listbox, Transition } from '@headlessui/react'
 import { DropDownIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 
+export interface HeadlessDropdownData {
+	label: string | JSX.Element
+	value: string | number | boolean
+	[key: string]: any
+}
 export interface HeadlessDropdownProps {
-	value?: number
-	onChange?: (e: any) => void
-	data?: { [key: string]: { value: number; label: string } }
+	value: string | number
+	onChange: (clickedOn: HeadlessDropdownData) => void
+	data: {
+		[key: string | number]: HeadlessDropdownData
+	}
 }
 
 const HeadlessDropdown: React.FC<HeadlessDropdownProps> = React.forwardRef((props: HeadlessDropdownProps, ref: any) => {
