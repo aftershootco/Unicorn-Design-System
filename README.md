@@ -75,4 +75,4 @@ yarn storybook
 
 -   Akash Singh — [Github](https://github.com/frannkenstein)
 -   Shaney Waris — [Github](https://github.com/ShaneyWaris)
--   Yash Johri — [Github](https://github.com/yash1200) ..
+-   Yash Johri — [Github](https://github.com/yash1200) 
