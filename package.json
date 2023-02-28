@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "The core UI library for Aftershoot",
 	"author": "Aftershoot",
 	"license": "ISC",
@@ -11,6 +11,7 @@
 		"dev": "start-storybook -p 6006 & npx tailwindcss -c tailwind.config.js -i ./src/index.scss -o ./.storybook/index.css --watch",
 		"build-storybook": "build-storybook",
 		"prepare": "husky install",
+		"deploy-storybook": "yarn build-storybook && storybook-to-ghpages",
 		"local-test": "rm -rf dist && yarn && yarn build && cp -r ./dist/* ../AfterShoot-Desktop-App/node_modules/@aftershootco/pegasus/dist"
 	},
 	"repository": {
@@ -38,6 +39,7 @@
 		"@storybook/manager-webpack5": "^6.5.16",
 		"@storybook/preset-scss": "^1.0.3",
 		"@storybook/react": "^6.5.16",
+		"@storybook/storybook-deployer": "^2.8.16",
 		"@storybook/testing-library": "^0.0.13",
 		"@svgr/rollup": "^6.5.1",
 		"@types/react": "^18.0.27",
