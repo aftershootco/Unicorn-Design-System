@@ -24,7 +24,11 @@ const RadioButton: React.FC<RadioButtonProps> = React.memo((props) => {
 			onClick={onClick}
 		>
 			<div
-				className={clsx('h-3 w-3 rounded-full', !props.selected ? 'hover:bg-gray-50/30' : 'bg-blue-400', props.disabled && '!bg-gray-200')}
+				className={clsx(
+					'h-3 w-3 rounded-full',
+					!props.selected ? 'hover:bg-gray-50/30' : 'bg-blue-400 hover:bg-blue-500',
+					props.disabled && '!bg-gray-200'
+				)}
 			></div>
 		</div>
 	)

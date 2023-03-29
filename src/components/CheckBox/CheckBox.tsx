@@ -42,7 +42,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 				<CheckIcon
 					className={clsx(
 						'h-5 w-5 rounded-sm transition-all duration-300',
-						props.disabled ? 'bg-gray-50/30' : 'bg-blue-400 hover:bg-blue-300'
+						props.disabled ? 'bg-gray-50/30' : 'bg-blue-400 hover:bg-blue-500'
 					)}
 				/>
 			) : (
