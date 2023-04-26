@@ -29,12 +29,12 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	optional?: boolean
 
 	/**
-	 * SVG icon
+	 * SVG icon for prefixIcon
 	 */
 	prefixIcon?: JSX.Element
 
 	/**
-	 * SVG icon
+	 * SVG icon for suffixIcon
 	 */
 	suffixIcon?: JSX.Element
 
