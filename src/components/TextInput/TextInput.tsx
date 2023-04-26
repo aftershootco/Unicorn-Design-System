@@ -31,6 +31,11 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	/**
 	 * SVG icon
 	 */
+	prefixIcon?: JSX.Element
+
+	/**
+	 * SVG icon
+	 */
 	suffixIcon?: JSX.Element
 
 	/**
@@ -99,6 +104,9 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 				</div>
 			)}
 			<div className='relative flex items-center'>
+				<div ref={iconRef} className='absolute left-2 cursor-pointer'>
+					{props.prefixIcon}
+				</div>
 				<input
 					{...props}
 					className={clsx(
@@ -107,6 +115,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 							'border-gray-50/10  text-gray-200 hover:border-gray-200 hover:text-gray-200 focus:border-blue-400 focus:text-gray-50 disabled:pointer-events-none disabled:border-gray-50/30 disabled:bg-gray-50/30 disabled:text-gray-200',
 						variantStyle === ErrorState.INACTIVE && 'border-red-400 text-gray-50',
 						props.readOnly && 'cursor-default',
+						props.prefixIcon && 'pl-8',
 						props.suffixIcon ? 'pr-8' : 'pr-2',
 						props.className
 					)}
