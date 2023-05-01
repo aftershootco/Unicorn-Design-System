@@ -104,7 +104,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 				</div>
 			)}
 			<div className='relative flex items-center'>
-				<div ref={iconRef} className='absolute left-4 bottom-6 cursor-pointer'>
+				<div ref={iconRef} className='absolute left-4 bottom-6 cursor-pointer py-2 pl-2'>
 					{props.prefixIcon}
 				</div>
 				<input
@@ -122,7 +122,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 					onFocus={onFocus}
 					onKeyDown={onKeyDown}
 				/>
-				<div ref={iconRef} className='absolute right-2 bottom-6 cursor-pointer py-2 pr-2'>
+				<div ref={iconRef} className='absolute right-4 bottom-6 cursor-pointer py-2 pr-2'>
 					{props.suffixIcon}
 				</div>
 			</div>
