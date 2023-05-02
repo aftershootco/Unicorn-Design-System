@@ -87,6 +87,8 @@ export interface DropDownProps {
 	 * Place holder element
 	 */
 	placeholderData?: { [key: string | number]: DropdownData }
+
+	inputClassName?: string
 }
 
 const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
@@ -229,12 +231,14 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 			)}
 			<div className='relative flex' ref={inputRef} onClick={() => setExpanded((state) => !state)}>
 				<input
-					className='w-full cursor-pointer rounded-lg border border-gray-50/10 bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200'
+					className={`w-full cursor-pointer rounded-lg border border-gray-50/10 bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200 ${
+						props.inputClassName ?? ''
+					}`}
 					value={selected}
 				/>
 				<DropDownIcon
 					className={clsx(
-						'absolute top-[30%] right-4 h-4 w-4 transform-gpu cursor-pointer text-gray-400 transition duration-300',
+						'absolute right-4 top-[30%] h-4 w-4 transform-gpu cursor-pointer text-gray-400 transition duration-300',
 						expanded ? 'rotate-180' : 'rotate-0'
 					)}
 				/>
