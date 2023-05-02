@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement & HTMLDivElement> {
 	/**
@@ -55,7 +55,7 @@ enum ErrorState {
 }
 
 const TextInput: React.FC<TextInputProps> = React.memo((props) => {
-	const iconRef = useRef<HTMLDivElement>(null)
+	// const iconRef = useRef<HTMLDivElement>(null)
 	const [variantStyle, setClasses] = useState(ErrorState.ACTIVE)
 
 	const onFocus = useCallback(() => {
@@ -104,9 +104,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 				</div>
 			)}
 			<div className='relative flex items-center'>
-				<div ref={iconRef} className='absolute left-4 bottom-6 cursor-pointer py-2 pl-2'>
-					{props.prefixIcon}
-				</div>
+				<div className='absolute left-4 cursor-pointer py-2 pl-2'>{props.prefixIcon}</div>
 				<input
 					{...props}
 					className={clsx(
@@ -122,9 +120,7 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 					onFocus={onFocus}
 					onKeyDown={onKeyDown}
 				/>
-				<div ref={iconRef} className='absolute right-4 bottom-6 cursor-pointer py-2 pr-2'>
-					{props.suffixIcon}
-				</div>
+				<div className='absolute right-4 cursor-pointer py-2 pr-2'>{props.suffixIcon}</div>
 			</div>
 			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
 		</div>
