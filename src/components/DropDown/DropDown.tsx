@@ -13,7 +13,7 @@ export interface DropDownProps {
 	 * Current value selected of the dropdown
 	 * It is the key of the dropdown object.
 	 */
-	value: string | number
+	value: string | number | JSX.Element
 
 	/**
 	 * Options to be shown when dropdown is opened.
@@ -117,7 +117,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		return temp
 	}, [props])
 
-	const [selected, setSelected] = useState<any>()
+	const [selected, setSelected] = useState<string | number | JSX.Element>()
 	const [data, setData] = useState<typeof props.data>(props.data)
 
 	// To make sure dropdown not exceeds the page.
@@ -146,7 +146,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	// To update the "props.value" in case "props.data" changes.
 	useEffect(() => {
 		setTimeout(() => {
-			const valueExist = Object.keys(data).find((key) => String(key) == String(props.value))
+			const valueExist = Object.keys(data).find((key) => String(data[key].value) === String(props.value))
 			if (valueExist) setSelected(data[valueExist].label)
 			else {
 				// show placeholder.
@@ -230,12 +230,13 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 				</div>
 			)}
 			<div className='relative flex' ref={inputRef} onClick={() => setExpanded((state) => !state)}>
-				<input
-					className={`w-full cursor-pointer rounded-lg border border-gray-50/10 bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200 ${
+				<div
+					className={`w-full cursor-pointer overflow-hidden text-ellipsis rounded-lg border border-gray-50/10 bg-transparent py-2 pl-2 pr-8 text-base-bold text-gray-200 ${
 						props.inputClassName ?? ''
 					}`}
-					value={selected}
-				/>
+				>
+					{selected}
+				</div>
 				<DropDownIcon
 					className={clsx(
 						'absolute right-4 top-[30%] h-4 w-4 transform-gpu cursor-pointer text-gray-400 transition duration-300',
