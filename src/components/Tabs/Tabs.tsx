@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export interface TabsProps {
 	/**
@@ -24,37 +24,51 @@ export interface TabsProps {
 }
 
 const Tabs: React.FC<TabsProps> = React.memo((props) => {
-	const sliderRef = useRef(null)
+	const { onChange, tabs, className, selected } = props
+	const [activeTabIndex, setActiveTabIndex] = useState(selected ?? 0)
+	const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0)
+	const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0)
+
+	const tabsRef = useRef([])
 
 	useEffect(() => {
-		const doc = document.getElementById(props.tabs[props.selected])
-		sliderRef.current.style.width = doc.offsetWidth + 'px'
-		sliderRef.current.style.left = doc.offsetLeft + 'px'
-	}, [props.selected])
+		function setTabPosition() {
+			const currentTab = tabsRef.current[activeTabIndex]
+			setTabUnderlineLeft(currentTab?.offsetLeft ?? 0)
+			setTabUnderlineWidth(currentTab?.clientWidth ?? 0)
+		}
+
+		setTabPosition()
+		window.addEventListener('resize', setTabPosition)
+
+		return () => window.removeEventListener('resize', setTabPosition)
+	}, [activeTabIndex])
+
+	const handleChange = (index: number) => {
+		setActiveTabIndex(index)
+		onChange(index)
+	}
 
 	return (
-		<nav className='w-full flex-col'>
-			<div className='flex w-full'>
-				{props.tabs.map((tab, index) => {
+		<nav className='relative w-full'>
+			<div className='flex border-b border-gray-600'>
+				{tabs.map((tab, index) => {
 					return (
-						<div
-							id={tab}
-							className={clsx(
-								'mx-3 flex min-w-8 cursor-pointer justify-center py-3 text-2xl text-gray-50',
-								'first-of-type:ml-8',
-								props.className
-							)}
-							onClick={() => props.onChange(index)}
-							key={tab}
+						<button
+							key={index}
+							ref={(element) => (tabsRef.current[index] = element)}
+							className={clsx('min-w-8 justify-center p-3 text-2xl text-gray-50', className)}
+							onClick={() => handleChange(index)}
 						>
 							{tab}
-						</div>
+						</button>
 					)
 				})}
 			</div>
-			<div className='relative h-[1px] w-full bg-gray-600'>
-				<div className='absolute left-8 h-[1px] w-32 rounded-lg bg-gray-50 duration-200' ref={sliderRef} />
-			</div>
+			<span
+				className='absolute bottom-0 block h-[1px] bg-gray-50 transition-all duration-200'
+				style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+			/>
 		</nav>
 	)
 })
