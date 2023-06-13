@@ -13,6 +13,7 @@ const Default = Template.bind({})
 Default.args = {
 	value: false,
 	disabled: false,
+	varient: 'primary',
 }
 
 export { Default }
