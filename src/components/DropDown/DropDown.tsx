@@ -179,19 +179,16 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 			let updatedKey = currentKey
 
 			if (e.key === 'ArrowUp') {
-				console.log(key, 'keyPressed')
 				if (+updatedKey > 0) {
 					updatedKey = String(+updatedKey - 1)
 				}
-				console.log(key, 'keyPressed')
 			} else if (e.key === 'ArrowDown') {
-				console.log(key, 'keyPressed')
 				if (+updatedKey < 8) {
 					updatedKey = String(+updatedKey + 1)
 				}
-				console.log(key, 'keyPressed')
 			} else if (e.key === 'Enter') {
-				console.log(key, 'keyPressed')
+				e.preventDefault()
+				e.stopPropagation()
 				setExpanded(false)
 				return
 			}
