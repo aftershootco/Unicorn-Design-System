@@ -99,6 +99,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	const [expanded, setExpanded] = useState(false)
 	const [height, setHeight] = useState(0)
 	const [prevKey, setPrevKey] = useState('')
+	const [currentKey, setCurrentKey] = useState<string>('0')
 
 	const restProps: any = useMemo(() => {
 		const temp = { ...props }
@@ -173,12 +174,42 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 		}
 	}, [expanded])
 
+	const handleKeyDown = useCallback(
+		(e, key) => {
+			let updatedKey = currentKey
+
+			if (e.key === 'ArrowUp') {
+				console.log(key, 'keyPressed')
+				if (+updatedKey > 0) {
+					updatedKey = String(+updatedKey - 1)
+				}
+				console.log(key, 'keyPressed')
+			} else if (e.key === 'ArrowDown') {
+				console.log(key, 'keyPressed')
+				if (+updatedKey < 8) {
+					updatedKey = String(+updatedKey + 1)
+				}
+				console.log(key, 'keyPressed')
+			} else if (e.key === 'Enter') {
+				console.log(key, 'keyPressed')
+				setExpanded(false)
+				return
+			}
+
+			setCurrentKey(updatedKey) // Update the state variable
+
+			props.onChange(data[updatedKey])
+		},
+		[currentKey, props.onChange]
+	)
+
 	// To handle onChange.
 	const handleChange = React.useCallback(
 		(e, clickedOn: DropdownData) => {
 			e.preventDefault()
 			props.onChange(clickedOn)
 
+			setCurrentKey(clickedOn.value.toString() ?? '0')
 			inputRef.current.click()
 			firstElement.current = null
 			lastElement.current = null
@@ -279,6 +310,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 								)}
 								onClick={(e) => handleChange(e, data[_key])}
 								data-test-id={`${props.dataTestId}-${_key}`}
+								onKeyDown={(e) => handleKeyDown(e, _key)}
 							>
 								{data[_key].label}
 							</button>
