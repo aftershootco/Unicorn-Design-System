@@ -1,7 +1,6 @@
-import { CheckIcon } from '@aftershootco/unicorn-icons'
+import { CheckIcon, TickIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 import React, { useCallback } from 'react'
-import { TickIcon } from '../../assets'
 export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 	/**
 	 * Value of the checkbox.
@@ -41,7 +40,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 				<div
 					className={clsx(
 						'w-fit rounded-sm border border-solid border-gray-400 p-0.5',
-						props.disabled ? 'cursor-default bg-transparent' : 'cursor-pointer bg-gray-50/30',
+						props.disabled ? 'pointer-events-none cursor-default bg-transparent' : 'cursor-pointer bg-gray-50/30',
 						props.className
 					)}
 					onClick={onClick}
@@ -60,7 +59,10 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 			)}
 			{props.variant === 'secondary' && (
 				<div
-					className={clsx(props.parentClassname, props.disabled ? '' : 'my-auto cursor-pointer border border-solid p-[1px]')}
+					className={clsx(
+						props.parentClassname,
+						props.disabled ? 'pointer-events-none' : 'my-auto cursor-pointer border border-solid p-[1px]'
+					)}
 					style={{
 						background: !props.value ? (props.color ? props.color : 'rgb(226 226 226/0.3)') : 'transparent',
 						borderColor: props.value ? (props.color ? props.color : 'rgb(226 226 226/0.3)') : 'rgb(226 226 226/0.3)',
@@ -75,7 +77,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 							)}
 							style={{ background: props.value ? (props.color ? props.color : 'rgb(34 121 206)') : 'transparent' }}
 						>
-							<img src={TickIcon} alt='tick' />
+							<TickIcon />
 						</div>
 					) : (
 						<div className={clsx(props.childClassname, 'transition-all duration-300')}></div>
@@ -89,6 +91,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 CheckBox.defaultProps = {
 	variant: 'secondary',
 	parentClassname: 'w-5 h-5 rounded-sm',
+	disabled: false,
 }
 
 export default CheckBox
