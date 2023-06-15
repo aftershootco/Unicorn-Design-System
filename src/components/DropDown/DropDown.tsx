@@ -175,7 +175,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 	}, [expanded])
 
 	const handleKeyDown = useCallback(
-		(e, key) => {
+		(e) => {
 			let updatedKey = currentKey
 
 			if (e.key === 'ArrowUp') {
@@ -183,7 +183,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 					updatedKey = String(+updatedKey - 1)
 				}
 			} else if (e.key === 'ArrowDown') {
-				if (+updatedKey < 8) {
+				if (+updatedKey < Object.keys(data).length - 1) {
 					updatedKey = String(+updatedKey + 1)
 				}
 			} else if (e.key === 'Enter') {
@@ -307,7 +307,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 								)}
 								onClick={(e) => handleChange(e, data[_key])}
 								data-test-id={`${props.dataTestId}-${_key}`}
-								onKeyDown={(e) => handleKeyDown(e, _key)}
+								onKeyDown={(e) => handleKeyDown(e)}
 							>
 								{data[_key].label}
 							</button>
