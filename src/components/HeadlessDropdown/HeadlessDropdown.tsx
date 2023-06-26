@@ -9,18 +9,21 @@ export interface HeadlessDropdownData {
 	[key: string]: any
 }
 export interface HeadlessDropdownProps {
-	value: string | number
-	onChange: (clickedOn: HeadlessDropdownData) => void
-	data: {
+	value?: string | number
+	onChange?: (clickedOn: HeadlessDropdownData) => void
+	data?: {
 		[key: string | number]: HeadlessDropdownData
 	}
+	className?: string
 }
 
 const HeadlessDropdown: React.FC<HeadlessDropdownProps> = React.forwardRef((props: HeadlessDropdownProps, ref: any) => {
 	return (
 		<Listbox value={props.data[props.value.toString()]} onChange={props.onChange}>
 			<div className='relative mt-1'>
-				<Listbox.Button className={clsx('relative w-full cursor-pointer rounded-md border border-gray-200/50 py-2 pl-3 pr-10 text-left')}>
+				<Listbox.Button
+					className={clsx('relative w-full cursor-pointer rounded-md border border-gray-200/50 py-2 pl-3 pr-10 text-left', props.className)}
+				>
 					{({ open }) => (
 						<>
 							<span className='block truncate text-base text-gray-200'>{props.data[props.value.toString()].label}</span>
