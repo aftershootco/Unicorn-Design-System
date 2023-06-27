@@ -29,3 +29,8 @@
 *::-webkit-scrollbar {
 	display: none;
 }
+
+.showScrollbar ::-webkit-scrollbar {
+	display: block;
+	width: 3px;
+}

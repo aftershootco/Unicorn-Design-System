@@ -34,7 +34,7 @@ const HeadlessDropdown: React.FC<HeadlessDropdownProps> = React.forwardRef((prop
 					)}
 				</Listbox.Button>
 				<Transition as={Fragment} leave='transition ease-in duration-100' leaveFrom='opacity-100' leaveTo='opacity-0'>
-					<Listbox.Options className='absolute z-50 mt-1 w-full overflow-auto rounded-md border border-gray-600 bg-gray-800 py-px text-base focus:outline-none'>
+					<Listbox.Options className='showScrollbar absolute z-50 mt-1 max-h-72 w-full overflow-y-scroll rounded-md border border-gray-600 bg-gray-800 py-px text-base focus:outline-none'>
 						{Object.keys(props.data).map((categories) => (
 							<Listbox.Option
 								key={categories}
