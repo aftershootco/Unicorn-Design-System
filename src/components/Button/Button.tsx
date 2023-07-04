@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			case 'primary':
 				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
 			case 'secondary':
-				return 'bg-gray-600 border-gray-600 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
 			case 'negative':
 				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
 			case 'outline':
