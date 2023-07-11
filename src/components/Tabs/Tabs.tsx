@@ -40,7 +40,7 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 						<div
 							id={tab}
 							className={clsx(
-								'mx-3 flex min-w-8 cursor-pointer justify-center py-3 text-2xl text-gray-50',
+								'text-bold mx-3 flex min-w-8 cursor-pointer justify-center py-3 text-gray-50',
 								'first-of-type:ml-8',
 								props.className
 							)}

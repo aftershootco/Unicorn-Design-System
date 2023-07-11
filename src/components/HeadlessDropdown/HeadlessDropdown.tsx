@@ -9,18 +9,21 @@ export interface HeadlessDropdownData {
 	[key: string]: any
 }
 export interface HeadlessDropdownProps {
-	value: string | number
-	onChange: (clickedOn: HeadlessDropdownData) => void
-	data: {
+	value?: string | number
+	onChange?: (clickedOn: HeadlessDropdownData) => void
+	data?: {
 		[key: string | number]: HeadlessDropdownData
 	}
+	className?: string
 }
 
 const HeadlessDropdown: React.FC<HeadlessDropdownProps> = React.forwardRef((props: HeadlessDropdownProps, ref: any) => {
 	return (
 		<Listbox value={props.data[props.value.toString()]} onChange={props.onChange}>
 			<div className='relative mt-1'>
-				<Listbox.Button className={clsx('relative w-full cursor-pointer rounded-md border border-gray-200/50 py-2 pl-3 pr-10 text-left')}>
+				<Listbox.Button
+					className={clsx('relative w-full cursor-pointer rounded-md border border-gray-200/50 py-2 pl-3 pr-10 text-left', props.className)}
+				>
 					{({ open }) => (
 						<>
 							<span className='block truncate text-base text-gray-200'>{props.data[props.value.toString()].label}</span>
@@ -31,7 +34,7 @@ const HeadlessDropdown: React.FC<HeadlessDropdownProps> = React.forwardRef((prop
 					)}
 				</Listbox.Button>
 				<Transition as={Fragment} leave='transition ease-in duration-100' leaveFrom='opacity-100' leaveTo='opacity-0'>
-					<Listbox.Options className='absolute z-50 mt-1 w-full overflow-auto rounded-md border border-gray-600 bg-gray-800 py-px text-base focus:outline-none'>
+					<Listbox.Options className='showScrollbar absolute z-50 mt-1 max-h-72 w-full overflow-y-scroll rounded-md border border-gray-600 bg-gray-800 py-px text-base focus:outline-none'>
 						{Object.keys(props.data).map((categories) => (
 							<Listbox.Option
 								key={categories}
