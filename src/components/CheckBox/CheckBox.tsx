@@ -3,6 +3,26 @@ import clsx from 'clsx'
 import React, { useCallback } from 'react'
 export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 	/**
+	 *
+	 */
+	variant?: 'primary' | 'secondary'
+
+	/**
+	 * Parent div classes
+	 */
+	parentClassname?: string
+
+	/**
+	 * child div classes
+	 */
+	childClassname?: string
+
+	/**
+	 * color of a checkbox
+	 */
+	color?: string
+
+	/**
 	 * Value of the checkbox.
 	 * @Default false
 	 */
@@ -13,12 +33,6 @@ export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 	 * @Default false
 	 */
 	disabled?: boolean
-
-	variant?: 'primary' | 'secondary'
-
-	parentClassname?: string
-	childClassname?: string
-	color?: string
 
 	/**
 	 * Function to be called when checkbox is checked.
@@ -89,7 +103,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 })
 
 CheckBox.defaultProps = {
-	variant: 'secondary',
+	variant: 'primary',
 	parentClassname: 'w-5 h-5 rounded-sm',
 	disabled: false,
 }

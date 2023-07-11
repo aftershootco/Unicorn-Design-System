@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "1.0.17",
+	"version": "1.0.18",
 	"description": "The core UI library for Aftershoot",
 	"author": "Aftershoot",
 	"license": "ISC",
@@ -23,7 +23,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@aftershootco/unicorn-icons": "^1.1.37",
+		"@aftershootco/unicorn-icons": "^1.1.38",
 		"@babel/core": "^7.20.12",
 		"@headlessui/react": "^1.7.10",
 		"@rollup/plugin-commonjs": "^24.0.1",
