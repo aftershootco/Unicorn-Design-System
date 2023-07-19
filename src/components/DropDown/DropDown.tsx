@@ -89,6 +89,8 @@ export interface DropDownProps {
 	placeholderData?: { [key: string | number]: DropdownData }
 
 	inputClassName?: string
+
+	maxHeight?: string
 }
 
 const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps, ref: any) => {
@@ -261,7 +263,7 @@ const DropDown: React.FC<DropDownProps> = React.forwardRef((props: DropDownProps
 						'absolute z-[1700] mt-2 flex w-full flex-col overflow-y-scroll',
 						'rounded-lg border border-gray-500 bg-gray-800 text-base-bold text-gray-50'
 					)}
-					style={{ maxHeight: `calc(100vh - ${height}px)` }}
+					style={{ maxHeight: props.maxHeight ?? `calc(100vh - ${height}px)` }}
 					onKeyDown={onKeyDown}
 				>
 					{Object.keys(data).map((_key, i) => {
