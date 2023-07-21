@@ -14,8 +14,7 @@ import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
-import HeadlessDropdown, { HeadlessDropdownData, HeadlessDropdownProps } from './HeadlessDropdown/HeadlessDropdown'
-import NewDropDown, { NewDropDownProps, NewDropdownData } from './NewDropDown/NewDropDown'
+import HeadlessDropDown, { HeadlessDropDownProps, HeadlessDropDownData } from './HeadlessDropDown/HeadlessDropDown'
 
 export {
 	Accordion,
@@ -47,10 +46,7 @@ export {
 	TextInputProps,
 	Toggle,
 	ToggleProps,
-	HeadlessDropdown,
-	HeadlessDropdownData,
-	HeadlessDropdownProps,
-	NewDropDown,
-	NewDropDownProps,
-	NewDropdownData,
+	HeadlessDropDown,
+	HeadlessDropDownProps,
+	HeadlessDropDownData,
 }
