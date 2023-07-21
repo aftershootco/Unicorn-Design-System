@@ -170,15 +170,11 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 											text-gray-50 ${selected ? 'bg-blue-300/20' : ''} hover:bg-gray-50/10 ${active ? 'bg-gray-50/10' : ''} }`
 											}
 											value={data[profile].label}
+											onClick={() => handleChange(data[profile])}
 										>
 											{({ selected }) => (
 												<>
-													<span
-														onClick={() => handleChange(data[profile])}
-														className={`block truncate ${selected ? 'font-medium' : ''}`}
-													>
-														{data[profile].label}
-													</span>
+													<span className={`block truncate ${selected ? 'font-medium' : ''}`}>{data[profile].label}</span>
 												</>
 											)}
 										</Listbox.Option>
