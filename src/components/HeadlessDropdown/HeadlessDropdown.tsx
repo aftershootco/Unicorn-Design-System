@@ -85,6 +85,11 @@ export interface HeadlessDropDownProps {
 	 * 'max-h-[value]'  <- format
 	 */
 	maxHeightClassName?: string
+
+	/**
+	 * To disable the dropdown
+	 */
+	disabled?: boolean
 }
 
 const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDownProps) => {
@@ -138,6 +143,7 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 			<div className='w-full'>
 				<Listbox
 					value={selectedValue}
+					disabled={props.disabled}
 					// onChange={() => handleChange}
 				>
 					{({ open }) => (
