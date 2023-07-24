@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import clsx from 'clsx'
+import { DropDownIcon } from '@aftershootco/unicorn-icons'
 import { Listbox, Transition } from '@headlessui/react'
-import { ArrowDownIcon, DropDownIcon } from '@aftershootco/unicorn-icons'
+import clsx from 'clsx'
+import React, { Fragment, useEffect, useState } from 'react'
 
 export interface HeadlessDropDownData {
 	label: string | JSX.Element
