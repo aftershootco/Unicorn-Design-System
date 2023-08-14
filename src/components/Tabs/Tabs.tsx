@@ -52,8 +52,8 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 	)
 
 	return (
-		<nav className='relative w-full'>
-			<div className='flex border-b border-gray-600'>
+		<nav className='relative w-full px-5'>
+			<div className='flex border-b border-gray-600 px-2'>
 				{props.tabs.map((tab, index) => {
 					return (
 						<button
