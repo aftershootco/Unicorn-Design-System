@@ -59,7 +59,7 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 						<button
 							key={index}
 							ref={(element) => (tabsRef.current[index] = element)}
-							className={clsx('min-w-8 justify-center p-3 text-2xl text-gray-50', props.className)}
+							className={clsx('min-w-8 justify-center p-3 text-xl text-gray-50', props.className)}
 							onClick={() => handleChange(index)}
 						>
 							{tab}
