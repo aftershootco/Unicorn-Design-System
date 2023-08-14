@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface TabsProps {
 	/**
@@ -24,8 +24,7 @@ export interface TabsProps {
 }
 
 const Tabs: React.FC<TabsProps> = React.memo((props) => {
-	const { onChange, tabs, className, selected } = props
-	const [activeTabIndex, setActiveTabIndex] = useState(selected ?? 0)
+	const [activeTabIndex, setActiveTabIndex] = useState(props.selected ?? 0)
 	const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0)
 	const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0)
 
@@ -44,20 +43,23 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 		return () => window.removeEventListener('resize', setTabPosition)
 	}, [activeTabIndex])
 
-	const handleChange = (index: number) => {
-		setActiveTabIndex(index)
-		onChange(index)
-	}
+	const handleChange = useCallback(
+		(index: number) => {
+			setActiveTabIndex(index)
+			props.onChange(index)
+		},
+		[activeTabIndex, props.onChange]
+	)
 
 	return (
 		<nav className='relative w-full'>
 			<div className='flex border-b border-gray-600'>
-				{tabs.map((tab, index) => {
+				{props.tabs.map((tab, index) => {
 					return (
 						<button
 							key={index}
 							ref={(element) => (tabsRef.current[index] = element)}
-							className={clsx('min-w-8 justify-center p-3 text-2xl text-gray-50', className)}
+							className={clsx('min-w-8 justify-center p-3 text-2xl text-gray-50', props.className)}
 							onClick={() => handleChange(index)}
 						>
 							{tab}

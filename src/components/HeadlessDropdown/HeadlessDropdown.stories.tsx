@@ -1,13 +1,13 @@
-import React from 'react'
 import { Meta, Story } from '@storybook/react'
-import { HeadlessDropdown, HeadlessDropdownProps } from '..'
+import React from 'react'
+import { HeadlessDropDown, HeadlessDropDownProps } from '..'
 
 export default {
-	title: 'component/HeadlessDropdown',
-	component: HeadlessDropdown,
+	title: 'component/DropDown',
+	component: HeadlessDropDown,
 } as Meta
 
-const Template: Story<HeadlessDropdownProps> = (args: HeadlessDropdownProps) => <HeadlessDropdown {...args} />
+const Template: Story<HeadlessDropDownProps> = (args: HeadlessDropDownProps) => <HeadlessDropDown {...args} />
 
 const Default = Template.bind({})
 Default.args = {

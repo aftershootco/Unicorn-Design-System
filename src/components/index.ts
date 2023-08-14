@@ -6,6 +6,7 @@ import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
 import Divider, { DividerProps } from './Divider/Divider'
 import DropDown, { DropdownData, DropDownProps } from './DropDown/DropDown'
+import HeadlessDropDown, { HeadlessDropDownData, HeadlessDropDownProps } from './HeadlessDropdown/HeadlessDropdown'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import RadioButtons from './RadioButton/RadioButton'
 import Slider from './Slider/Slider'
@@ -14,7 +15,6 @@ import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
-import HeadlessDropdown, { HeadlessDropdownData, HeadlessDropdownProps } from './HeadlessDropdown/HeadlessDropdown'
 
 export {
 	Accordion,
@@ -23,30 +23,30 @@ export {
 	ButtonProps,
 	Carousel,
 	CarouselProps,
-	Slider,
-	DropDown,
-	DropdownData,
-	DropDownProps,
-	ToolTip,
-	ToolTipProps,
-	Tabs,
-	TabsProps,
 	CheckBox,
 	CheckBoxProps,
 	Chip,
 	ChipProps,
 	Divider,
 	DividerProps,
+	DropDown,
+	DropdownData,
+	DropDownProps,
+	HeadlessDropDown,
+	HeadlessDropDownData,
+	HeadlessDropDownProps,
 	LinearProgressBar,
 	LinearProgressBarProps,
 	RadioButtons,
+	Slider,
 	Switch,
 	SwitchProps,
+	Tabs,
+	TabsProps,
 	TextInput,
 	TextInputProps,
 	Toggle,
 	ToggleProps,
-	HeadlessDropdown,
-	HeadlessDropdownData,
-	HeadlessDropdownProps,
+	ToolTip,
+	ToolTipProps,
 }
