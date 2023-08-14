@@ -21,6 +21,11 @@ export interface TabsProps {
 	 * The class name to apply to the tabs.
 	 */
 	className?: string
+
+	/**
+	 * The class name to apply to the tabs text.
+	 */
+	textClassName?: string
 }
 
 const Tabs: React.FC<TabsProps> = React.memo((props) => {
@@ -59,7 +64,7 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 						<button
 							key={index}
 							ref={(element) => (tabsRef.current[index] = element)}
-							className={clsx('min-w-8 justify-center p-3 text-xl text-gray-50', props.className)}
+							className={clsx('min-w-8 justify-center p-3 ', props.className, props.textClassName ?? ' text-lg text-gray-50')}
 							onClick={() => handleChange(index)}
 						>
 							{tab}
