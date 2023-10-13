@@ -53,7 +53,7 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 			setActiveTabIndex(index)
 			props.onChange(index)
 		},
-		[activeTabIndex, props.onChange]
+		[props.onChange]
 	)
 
 	return (
