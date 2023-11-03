@@ -66,9 +66,8 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 							ref={(element) => (tabsRef.current[index] = element)}
 							className={clsx('min-w-8 justify-center p-3 ', props.className, props.textClassName ?? ' text-lg text-gray-50')}
 							onClick={() => handleChange(index)}
-						>
-							{tab}
-						</button>
+							dangerouslySetInnerHTML={{ __html: tab }}
+						></button>
 					)
 				})}
 			</div>
