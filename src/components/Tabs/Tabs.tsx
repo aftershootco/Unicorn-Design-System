@@ -35,6 +35,8 @@ const Tabs: React.FC<TabsProps> = React.memo((props) => {
 
 	const tabsRef = useRef([])
 
+	useEffect(() => setActiveTabIndex(props.selected ?? 0), [props.selected])
+
 	useEffect(() => {
 		function setTabPosition() {
 			const currentTab = tabsRef.current[activeTabIndex]
