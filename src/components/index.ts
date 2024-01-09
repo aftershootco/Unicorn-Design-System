@@ -9,6 +9,7 @@ import DropDown, { DropdownData, DropDownProps } from './DropDown/DropDown'
 import HeadlessDropDown, { HeadlessDropDownData, HeadlessDropDownProps } from './HeadlessDropdown/HeadlessDropdown'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import RadioButtons from './RadioButton/RadioButton'
+import ScrollingComponent, { ScrollingComponentProps } from './ScrollingComponent/ScrollingComponent'
 import Slider from './Slider/Slider'
 import Switch, { SwitchProps } from './Switch/Switch'
 import Tabs, { TabsProps } from './Tabs/Tabs'
@@ -38,6 +39,8 @@ export {
 	LinearProgressBar,
 	LinearProgressBarProps,
 	RadioButtons,
+	ScrollingComponent,
+	ScrollingComponentProps,
 	Slider,
 	Switch,
 	SwitchProps,
