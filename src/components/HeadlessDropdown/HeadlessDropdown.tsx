@@ -41,7 +41,7 @@ export interface HeadlessDropDownProps {
 
 	/**
 	 * Prefix for button
-	 * ex: Sort By: [Property]
+	 * @example Sort By: [Property]
 	 */
 	buttonPrefix?: string
 
