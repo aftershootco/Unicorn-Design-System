@@ -5,7 +5,7 @@ import Carousel, { CarouselProps } from './Carousel/Carousel'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
 import Divider, { DividerProps } from './Divider/Divider'
-import DropDown, { DropdownData, DropDownProps } from './DropDown/DropDown'
+
 import HeadlessDropDown, { HeadlessDropDownData, HeadlessDropDownProps } from './HeadlessDropdown/HeadlessDropdown'
 import LinearProgressBar, { LinearProgressBarProps } from './LinearProgressBar/LinearProgressBar'
 import RadioButtons from './RadioButton/RadioButton'
@@ -15,7 +15,6 @@ import Switch, { SwitchProps } from './Switch/Switch'
 import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
-import ToolTip, { ToolTipProps } from './ToolTip/ToolTip'
 
 export {
 	Accordion,
@@ -30,9 +29,6 @@ export {
 	ChipProps,
 	Divider,
 	DividerProps,
-	DropDown,
-	DropdownData,
-	DropDownProps,
 	HeadlessDropDown,
 	HeadlessDropDownData,
 	HeadlessDropDownProps,
@@ -50,6 +46,4 @@ export {
 	TextInputProps,
 	Toggle,
 	ToggleProps,
-	ToolTip,
-	ToolTipProps,
 }
