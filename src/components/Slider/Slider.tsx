@@ -4,7 +4,7 @@ import './Slider.scss'
 const Slider: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (props) => {
 	return (
 		<>
-			<div className={`flex h-[34px] w-full items-center justify-center rounded`}>
+			<div {...props} className={`flex h-[34px] w-full items-center justify-center rounded`}>
 				<input
 					{...props}
 					disabled={props.disabled}

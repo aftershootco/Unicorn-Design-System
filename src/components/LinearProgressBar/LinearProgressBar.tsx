@@ -4,6 +4,11 @@ import './LinearProgressBar.scss'
 
 export interface LinearProgressBarProps {
 	/**
+	 * id for the progress bar
+	 */
+	id?: string
+
+	/**
 	 * Set the value to change between determinant and indeterminant, 0 for indeterminant
 	 */
 	value?: number | string
@@ -38,7 +43,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
+				<div id={props.id} className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
 					<div className='absolute h-2 w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					{variant === 'primary' ? (
 						<div

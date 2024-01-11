@@ -11,6 +11,11 @@ export interface HeadlessDropDownData {
 
 export interface HeadlessDropDownProps {
 	/**
+	 * id for the dropdown
+	 */
+	id?: string
+
+	/**
 	 * Current value selected of the dropdown
 	 * It is the key of the dropdown object.
 	 */
@@ -172,7 +177,7 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 	}
 
 	return (
-		<div className={clsx('flex w-full flex-col gap-1', props.outerClassName)}>
+		<div id={props.id} className={clsx('flex w-full flex-col gap-1', props.outerClassName)}>
 			{props.label && (
 				<div className='text-white-1000 flex items-center justify-between px-1'>
 					<span className='text-base-bold text-gray-50'>{props.label}</span>
@@ -189,8 +194,8 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 						<div className='relative mt-1 text-base'>
 							<Listbox.Button
 								className={clsx(
-									'relative flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-50/10 px-3 py-2 text-left focus:outline-none',
-									props.inputClassName ?? ''
+									props.inputClassName ?? '',
+									'relative flex w-full cursor-pointer items-center justify-between rounded-lg border border-gray-50/10 px-3 py-2 text-left focus:outline-none'
 								)}
 							>
 								{variant !== 'multiple' ? (

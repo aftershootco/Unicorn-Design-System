@@ -3,6 +3,11 @@ import React, { useEffect, useRef, useState } from 'react'
 // import { useAppStore } from '../../Context'
 
 export interface ScrollingComponentProps {
+	/**
+	 * id for the scrolling component
+	 */
+	id?: string
+
 	isDrawer?: boolean
 	/**
 	 * Children element.
@@ -84,6 +89,7 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 const ScrollingArrow = (props) => {
 	return (
 		<div
+			id={props.id}
 			className={`absolute z-[3] cursor-pointer flex-col items-center justify-center rounded-full border border-gray-700 bg-gray-600 p-0.5 ${
 				props.move > 0 ? 'right-0' : 'left-0 rotate-180'
 			}`}

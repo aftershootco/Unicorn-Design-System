@@ -11,8 +11,13 @@ const Template: Story<AccordionProps> = (args: AccordionProps) => <Accordion {..
 
 const Default = Template.bind({})
 Default.args = {
-	header: 'Header',
+	header: 'Storybook Accordion Title',
 	body: 'Body',
+	children: (
+		<div className='w-[63%] flex-col items-start'>
+			<div className='text-ellipsis pb-2 text-base text-gray-50'>Storybook accordion </div>
+		</div>
+	),
 }
 
 export { Default }

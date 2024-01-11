@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './ToolTip.scss'
 
-export interface ToolTipProps {
+export interface ToolTipProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode
 	position?: 'Top' | 'Bottom' | 'Right' | 'Left'
 	title: string
@@ -34,7 +34,12 @@ const ToolTip: React.FC<ToolTipProps> = React.memo((props) => {
 	}, [props.position])
 
 	return (
-		<div onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} className='relative flex flex-row items-center justify-center'>
+		<div
+			{...props}
+			onMouseEnter={() => setShow(true)}
+			onMouseLeave={() => setShow(false)}
+			className='relative flex flex-row items-center justify-center'
+		>
 			<div ref={hoverRef}>{props.children}</div>
 			{show && (
 				<div

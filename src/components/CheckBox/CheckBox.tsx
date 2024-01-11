@@ -49,7 +49,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 	)
 
 	return (
-		<>
+		<div id={props.id}>
 			{props.variant === 'primary' && (
 				<div
 					className={clsx(
@@ -98,7 +98,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 					)}
 				</div>
 			)}
-		</>
+		</div>
 	)
 })
 
