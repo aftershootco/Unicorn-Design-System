@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
@@ -17,9 +17,17 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Icon in Button
 	 */
 	suffixIcon?: JSX.Element
+
+	/**
+	 *
+	 */
+	disableText?: JSX.Element | string
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
+	const [disable, setDisable] = useState(false)
+	const [text, setText] = useState<string | JSX.Element>(props.text)
+
 	const variantStyles = useMemo(() => {
 		const variant = props.variant ?? 'primary'
 		switch (variant) {
@@ -38,9 +46,22 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 		}
 	}, [props.variant])
 
+	const onClick = useCallback(() => {
+		if (props.disableText) {
+			setDisable(true)
+			setText(props.disableText)
+			props.onClick
+			setDisable(false)
+			setText(props.text)
+			return
+		}
+		props.onClick
+	}, [props.disableText, props.text, props.onClick])
+
 	return (
 		<button
 			{...props}
+			onClick={onClick}
 			className={clsx(
 				'flex w-fit cursor-pointer items-center border text-gray-50',
 				props.suffixIcon ? 'justify-between' : 'justify-center',
@@ -50,8 +71,9 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 				variantStyles,
 				props.className
 			)}
+			disabled={disable}
 		>
-			<>{props.text || props.children}</> {props.suffixIcon}
+			<>{text || props.children}</> {props.suffixIcon}
 		</button>
 	)
 })
