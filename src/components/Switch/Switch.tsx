@@ -3,6 +3,7 @@ import React from 'react'
 import './Switch.scss'
 
 export interface SwitchProps {
+	id?: string
 	disabled?: boolean
 	value: boolean
 	className?: string
@@ -12,6 +13,7 @@ export interface SwitchProps {
 const Switch: React.FC<SwitchProps> = React.memo((props) => {
 	return (
 		<div
+			id={props.id}
 			className={clsx(
 				'flex w-12 items-center rounded-full p-1',
 				props.disabled

@@ -16,6 +16,7 @@ const RadioButton: React.FC<RadioButtonProps> = React.memo((props) => {
 
 	return (
 		<div
+			id={props.id}
 			className={clsx(
 				'flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-gray-50/30 bg-gray-50/10 hover:brightness-110',
 				props.disabled && '!bg-gray-50/30 hover:!brightness-95',

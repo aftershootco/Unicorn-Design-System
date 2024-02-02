@@ -2,6 +2,12 @@ import clsx from 'clsx'
 import React from 'react'
 export interface CarouselProps {
 	/**
+	 *
+	 * id for the carousel
+	 */
+
+	id?: string
+	/**
 	 * ClassName for the outer div.
 	 */
 	className?: string

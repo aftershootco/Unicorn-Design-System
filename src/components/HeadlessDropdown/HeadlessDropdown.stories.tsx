@@ -3,7 +3,7 @@ import React from 'react'
 import { HeadlessDropDown, HeadlessDropDownProps } from '..'
 
 export default {
-	title: 'component/DropDown',
+	title: 'component/HeadlessDropdown',
 	component: HeadlessDropDown,
 } as Meta
 

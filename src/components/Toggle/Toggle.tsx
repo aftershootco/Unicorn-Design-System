@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { Button } from '../'
 
-export interface ToggleProps {
+export interface ToggleProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
 	/**
 	 * Styles to be applied on the toggle.
 	 */
@@ -29,7 +29,7 @@ export interface ToggleProps {
 
 const Toggle: React.FC<ToggleProps> = React.memo((props: ToggleProps) => {
 	return (
-		<div className='relative flex w-[100%] rounded-lg border border-white/10'>
+		<div id={props.id} className='relative flex w-[100%] rounded-lg border border-white/10'>
 			<Button
 				className='!w-[50%] cursor-pointer rounded-lg bg-transparent py-2 text-base text-gray-50 outline-none'
 				variant='transparent'
