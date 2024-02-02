@@ -1,86 +1,59 @@
-import React from 'react'
-import './Button.scss'
+import clsx from 'clsx'
+import React, { useMemo } from 'react'
 
-export interface ButtonProps {
-	/**
-	 * Classes to be applied to the button
-	 */
-	className?: string
-
-	/**
-	 * Is button disabled?
-	 * @Default false
-	 */
-	disabled?: boolean
-
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Text of the button
 	 */
 	text?: string
 
 	/**
-	 * Either a button text or a react component.
-	 */
-	children?: React.ReactNode
-
-	/**
-	 * Style to be applied to the button.
-	 */
-	style?: React.CSSProperties
-
-	/**
 	 * Button varient.
 	 * @Default 'primary'
 	 */
-	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'pause' | 'save' | 'white-filled' | 'facebook'
+	variant?: 'primary' | 'secondary' | 'negative' | 'outline' | 'transparent'
 
 	/**
-	 * Function to be called when hit a button
+	 * Icon in Button
 	 */
-	onClick: (e?: any) => void
-
-	/**
-	 * Type of the button.
-	 */
-	type?: 'button' | 'submit' | 'reset'
-
-	/**
-	 * Id of the div item.
-	 */
-	id?: string
-
-	/**
-	 * To check which button is clicked with same onClick function.
-	 */
-	dataId?: string
-
-	/**
-	 * ID used to identify the button during testing.
-	 */
-	dataTestId?: string
+	suffixIcon?: JSX.Element
 }
 
-const Button: React.FC<ButtonProps> = React.forwardRef((props, ref: any) => {
+const Button: React.FC<ButtonProps> = React.memo((props) => {
+	const variantStyles = useMemo(() => {
+		const variant = props.variant ?? 'primary'
+		switch (variant) {
+			case 'primary':
+				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
+			case 'secondary':
+				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case 'negative':
+				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case 'outline':
+				return 'bg-transparent border-gray-400 hover:border-gray-200'
+			case 'transparent':
+				return 'border-transparent'
+			default:
+				return ''
+		}
+	}, [props.variant])
+
 	return (
 		<button
 			{...props}
-			id={props.id}
-			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
-			style={props.style}
-			ref={ref}
-			type={props.type || 'button'}
-			data-id={props.dataId}
-			data-test-id={props.dataTestId}
-			disabled={props.disabled}
-			onClick={props.disabled ? null : props.onClick}
+			className={clsx(
+				'flex w-fit cursor-pointer items-center border text-gray-50',
+				props.suffixIcon ? 'justify-between' : 'justify-center',
+				'rounded-lg py-3 text-base-bold',
+				'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
+				props.suffixIcon ? 'px-5' : 'px-8',
+				variantStyles,
+				props.className
+			)}
 		>
-			{props.text || props.children}
+			<>{props.text || props.children}</> {props.suffixIcon}
 		</button>
 	)
 })
 
-Button.defaultProps = {
-	variant: 'primary',
-}
-
-export default React.memo(Button)
+export default Button

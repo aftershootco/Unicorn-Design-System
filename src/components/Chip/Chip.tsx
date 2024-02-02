@@ -1,68 +1,41 @@
+import clsx from 'clsx'
 import React from 'react'
-import './Chip.scss'
 
-export interface ChipProps {
+export interface ChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
-	 * Key of a div
+	 * @boolean for whether the Chip is selected
 	 */
-	key?: number
+	selected: boolean
 
 	/**
-	 * Is disabled?
-	 */
-	disabled?: boolean
-
-	/**
-	 * Type of the chip. Default is 'primary'
-	 */
-	variant?: 'primary' | 'secondary'
-
-	/**
-	 * Background color of the btn.
-	 */
-	backgroundColor?: string
-
-	/**
-	 * Text of the button.
+	 * @string to select the variant of Chip
 	 */
 	text?: string
 
 	/**
-	 * Inner component to be rendered inside the chip.
+	 * Styles to give to chip if selected.
 	 */
-	children?: React.ReactNode
-
-	/**
-	 * Classes to be applied to the button
-	 */
-	className?: string
-
-	/**
-	 * Style to be applied to the button.
-	 */
-	style?: React.CSSProperties
-
-	/**
-	 * Function to be called when hit a button
-	 */
-	onClick: () => void
+	selectedClassName?: string
 }
 
-const Chip: React.FC<ChipProps> = ({ disabled = false, ...props }) => {
-	return (
-		<button
-			key={props.key}
-			className={
-				'text-h5 color-white cursor-pointer ' +
-				`prefer-${props.variant ? props.variant : 'primary'} ${props.className} ` +
-				`disabled-${disabled} `
-			}
-			style={{ background: `${props.backgroundColor}`, border: `1px solid ${props.backgroundColor}`, ...props.style }}
-			onClick={!disabled && props.onClick}
-		>
-			{props.text || props.children}
-		</button>
-	)
-}
+const Chip: React.FC<ChipProps> = React.memo(
+	React.forwardRef((props, ref: any) => {
+		return (
+			<button
+				{...props}
+				ref={ref}
+				className={clsx(
+					'rounded-lg border border-gray-50/25 px-3 py-1 text-lg text-gray-50',
+					!props.disabled ? 'hover:border-gray-50/100' : 'text-gray-50/30',
+					props.selected && !props.disabled && 'border-blue-400 bg-blue-400 hover:border-blue-400',
+					props.className,
+					props.selected && props.selectedClassName
+				)}
+			>
+				{props.text || props.children}
+			</button>
+		)
+	})
+)
 
-export default React.memo(Chip)
+export default Chip
