@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
@@ -17,9 +17,17 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Icon in Button
 	 */
 	suffixIcon?: JSX.Element
+
+	/**
+	 * whether the button should be disabled while action is being performed
+	 * Only use when the action is async function
+	 */
+	toBeDisabled?: boolean
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
+	const [isDisabled, setDisabled] = useState(false)
+
 	const variantStyles = useMemo(() => {
 		const variant = props.variant ?? 'primary'
 		switch (variant) {
@@ -38,9 +46,24 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 		}
 	}, [props.variant])
 
+	const handleOnClick = useCallback(
+		async (e) => {
+			if (props.toBeDisabled) {
+				setDisabled(true)
+				await props.onClick(e)
+				setDisabled(false)
+				return
+			}
+			props.onClick && props.onClick(e)
+		},
+		[props.toBeDisabled, props.text, props.onClick]
+	)
+
 	return (
 		<button
 			{...props}
+			onClick={handleOnClick}
+			disabled={isDisabled || props.disabled}
 			className={clsx(
 				'flex w-fit cursor-pointer items-center border text-gray-50',
 				props.suffixIcon ? 'justify-between' : 'justify-center',
