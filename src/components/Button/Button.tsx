@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			}
 			props.onClick && props.onClick(e)
 		},
-		[props.toBeDisabled, props.text, props.onClick]
+		[props.toBeDisabled, props.onClick]
 	)
 
 	return (
