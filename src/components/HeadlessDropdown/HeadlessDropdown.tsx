@@ -5,6 +5,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 export interface HeadlessDropDownData {
 	label: string | JSX.Element
+	suffixIcon?: JSX.Element
 	value: string | number | boolean
 	[key: string]: any
 }
@@ -122,6 +123,11 @@ export interface HeadlessDropDownProps {
 	 * Whether to show radio button before each option
 	 */
 	showRadioButton?: boolean
+
+	/**
+	 * Show suffix icon for each option
+	 */
+	showSuffixIcon?: boolean
 }
 
 const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDownProps) => {
@@ -244,13 +250,17 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 												{({ selected }) => (
 													<div className='flex items-center gap-2'>
 														{props.showRadioButton && (
-															<div className='flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-gray-50/30 bg-gray-50/10'>
-																{selected && <div className='h-3 w-3 rounded-full bg-blue-400'></div>}
+															<div className='flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border border-gray-50/30 bg-gray-50/10'>
+																{selected && <div className='h-2 w-2 rounded-full bg-blue-400'></div>}
 															</div>
 														)}
-														<span className={`block truncate ${isMultiSelected || selected ? 'font-medium' : ''}`}>
-															{data[profile].label}
-														</span>
+														<div className='flex w-full items-center justify-between'>
+															<span className={`block truncate ${isMultiSelected || selected ? 'font-medium' : ''}`}>
+																{data[profile].label}
+															</span>
+															{props.showSuffixIcon && data[profile].suffixIcon}
+														</div>
+
 														{isMultiSelected && (
 															<span className={`flex items-center pl-1.5 text-white`}>
 																<svg
