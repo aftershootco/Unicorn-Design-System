@@ -1,6 +1,6 @@
 import '../index.scss'
 import Accordion, { AccordionProps } from './Accordion/Accordion'
-import Button, { ButtonProps } from './Button/Button'
+import Button, { ButtonProps, ButtonVariant } from './Button/Button'
 import Carousel, { CarouselProps } from './Carousel/Carousel'
 import CheckBox, { CheckBoxProps } from './CheckBox/CheckBox'
 import Chip, { ChipProps } from './Chip/Chip'
@@ -16,14 +16,12 @@ import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 
-import { ButtomVariant } from './Button/Button'
-
 export {
 	Accordion,
 	AccordionProps,
-	ButtomVariant,
 	Button,
 	ButtonProps,
+	ButtonVariant,
 	Carousel,
 	CarouselProps,
 	CheckBox,
