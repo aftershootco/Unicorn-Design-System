@@ -1,7 +1,8 @@
+import clsx from 'clsx'
 import React from 'react'
-import './Toggle.scss'
+import { Button } from '../'
 
-export interface ToggleProps {
+export interface ToggleProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
 	/**
 	 * Styles to be applied on the toggle.
 	 */
@@ -11,7 +12,7 @@ export interface ToggleProps {
 	 * If true, first option is selected. Otherwise the other one.
 	 */
 	value: boolean
-	
+
 	/**
 	 * Options name for the toggle.
 	 */
@@ -19,29 +20,38 @@ export interface ToggleProps {
 		first: string
 		second: string
 	}
-	
+
 	/**
 	 * Function to be called when toggle is changed.
 	 */
 	onClick: (value: boolean) => void
-
 }
 
-const Toggle: React.FC<ToggleProps> = (props: ToggleProps) => {
+const Toggle: React.FC<ToggleProps> = React.memo((props: ToggleProps) => {
 	return (
-		<div className='toggler flex-row'>
-			<button className='yearly cursor-pointer text-h4-bold color-white' onClick={() => props.onClick(true)}>
-				{props.options.first}
-			</button>
-			<button className='monthly cursor-pointer two text-h4-bold color-white' onClick={() => props.onClick(false)}>
-				{props.options.second}
-			</button>
-
-			<button className={'toggle_button text-h4-bold color-white cursor-pointer' + (!props.value ? ' toggleButton' : '')}>
+		<div id={props.id} className='relative flex w-[100%] rounded-lg border border-white/10'>
+			<Button
+				className='!w-[50%] cursor-pointer rounded-lg bg-transparent py-2 text-base text-gray-50 outline-none'
+				variant='transparent'
+				text={props.options.first}
+				onClick={() => props.onClick(true)}
+			/>
+			<Button
+				className='!w-[50%] cursor-pointer bg-transparent py-2 text-base text-gray-50 outline-none'
+				variant='transparent'
+				text={props.options.second}
+				onClick={() => props.onClick(false)}
+			/>
+			<button
+				className={clsx(
+					'text-gray-5 absolute z-[1] h-full w-[50%] cursor-pointer rounded-lg bg-blue-400 text-base transition-all hover:bg-blue-500',
+					!props.value && ' translate-x-[100%]'
+				)}
+			>
 				{props.value ? props.options.first : props.options.second}
 			</button>
 		</div>
 	)
-}
+})
 
-export default React.memo(Toggle)
+export default Toggle

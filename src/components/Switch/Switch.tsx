@@ -1,44 +1,45 @@
-import React, { useCallback } from 'react'
-import styles from './styles.module.scss'
+import clsx from 'clsx'
+import React from 'react'
+import './Switch.scss'
 
 export interface SwitchProps {
-	/**
-	 * Varient type of a switch
-	 * @default filled
-	 */
-	varient?: 'filled' | 'outlined'
-
-	/**
-	 * State of the switch
-	 * @default false
-	 */
-	value?: boolean
-
-	/**
-	 * Style applied.
-	 */
-	style?: React.CSSProperties
-
-	/**
-	 * Function to be called when switch is changed
-	 */
+	id?: string
+	disabled?: boolean
+	value: boolean
+	className?: string
 	onChange: (value: boolean) => void
 }
 
-const Switch: React.FC<SwitchProps> = (props) => {
-	const onClick = useCallback(() => {
-		props.onChange(!props.value)
-	}, [props.onChange, props.value])
-
+const Switch: React.FC<SwitchProps> = React.memo((props) => {
 	return (
-		<label
-			className={`${styles.switch} ${props.value ? styles.active : ''} ${props.varient === 'outlined' ? styles.outlined : ''}`}
-			onClick={onClick}
-			style={props.style}
+		<div
+			id={props.id}
+			className={clsx(
+				'flex w-12 items-center rounded-full p-1',
+				props.disabled
+					? props.value
+						? 'pointer-events-none bg-blue-300'
+						: 'pointer-events-none bg-gray-50/10'
+					: props.value
+					? 'cursor-pointer bg-blue-400'
+					: 'cursor-pointer bg-gray-50/10'
+			)}
+			onClick={() => props.onChange(!props.value)}
 		>
-			<span className={`${styles.round} ${styles.slider}`}></span>
-		</label>
+			<div
+				className={clsx(
+					'h-5 w-5 rounded-full shadow-md duration-300 ease-in-out',
+					props.disabled
+						? props.value
+							? 'translate-x-full bg-gray-50'
+							: 'bg-gray-50'
+						: props.value
+						? 'translate-x-full bg-white'
+						: 'bg-white'
+				)}
+			></div>
+		</div>
 	)
-}
+})
 
-export default React.memo(Switch)
+export default Switch

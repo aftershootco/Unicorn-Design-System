@@ -1,11 +1,22 @@
+import clsx from 'clsx'
 import React from 'react'
 import './LinearProgressBar.scss'
 
 export interface LinearProgressBarProps {
 	/**
+	 * id for the progress bar
+	 */
+	id?: string
+
+	/**
 	 * Set the value to change between determinant and indeterminant, 0 for indeterminant
 	 */
-	value?: number
+	value?: number | string
+
+	/**
+	 * Variant for linearprogressbar
+	 */
+	variant?: 'primary' | 'secondary'
 
 	/**
 	 * Classes to be applied to the progress bar.
@@ -28,32 +39,57 @@ export interface LinearProgressBarProps {
 	progressBarColor?: string
 }
 
-const LinearProgressBar: React.FC<LinearProgressBarProps> = (props) => {
+const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primary', ...props }) => {
 	return (
 		<>
 			{props.value > 0 ? (
-				<div className={`relative w-100 h-3 m-4-t br-10 overflow-x-hidden ${props.className}`} style={props.style}>
-					<div className={`absolute w-100 h-3 br-10 bg-43`} style={{ background: `${props.backgroundColor}` }} />
-					<div
-						className={`subline absolute h-3 br-10 bg-teal100`}
-						style={{ background: `${props.progressBarColor}`, width: props.value + '%' }}
-					/>
+				<div id={props.id} className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
+					<div className='absolute h-2 w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
+					{variant === 'primary' ? (
+						<div
+							className='subline absolute h-2 rounded-xl bg-blue-400'
+							style={{
+								background: `${props.progressBarColor}`,
+								width: props.value + '%',
+							}}
+						/>
+					) : (
+						<div
+							className='subline absolute h-2 rounded-xl'
+							style={{
+								background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
+								width: props.value + '%',
+							}}
+						/>
+					)}
 				</div>
 			) : (
-				<div className={`relative w-100 h-3 m-4-t br-10 overflow-x-hidden ${props.className}`} style={props.style}>
-					<div className={`absolute w-100 h-3 br-10 bg-43`} style={{ background: `${props.backgroundColor}` }} />
-					<div className={`subline inc absolute h-3 br-10 bg-teal100`} style={{ background: `${props.progressBarColor}` }} />
-					<div className={`subline dec absolute h-3 br-10 bg-teal100`} style={{ background: `${props.progressBarColor}` }} />
+				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
+					<div className='absolute h-2 w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
+					<div
+						className='subline inc absolute h-2 rounded-xl bg-blue-400'
+						style={
+							variant === 'primary'
+								? { background: `${props.progressBarColor}` }
+								: {
+										background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
+								  }
+						}
+					/>
+					<div
+						className='subline dec absolute h-2 rounded-xl bg-blue-400'
+						style={
+							variant === 'primary'
+								? { background: `${props.progressBarColor}` }
+								: {
+										background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
+								  }
+						}
+					/>
 				</div>
 			)}
 		</>
 	)
-}
-
-LinearProgressBar.defaultProps = {
-	value: 0,
-	backgroundColor: '#434343',
-	progressBarColor: '#1da0bc',
 }
 
 export default React.memo(LinearProgressBar)

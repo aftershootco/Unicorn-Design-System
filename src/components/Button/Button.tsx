@@ -1,86 +1,90 @@
-import React from 'react'
-import './Button.scss'
+import clsx from 'clsx'
+import React, { useCallback, useMemo, useState } from 'react'
 
-export interface ButtonProps {
-	/**
-	 * Classes to be applied to the button
-	 */
-	className?: string
+export enum ButtomVariant {
+	Primary = 'primary',
+	Secondary = 'secondary',
+	Negative = 'negative',
+	Outline = 'outline',
+	Transparent = 'transparent',
+}
 
-	/**
-	 * Is button disabled?
-	 * @Default false
-	 */
-	disabled?: boolean
-
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Text of the button
 	 */
 	text?: string
 
 	/**
-	 * Either a button text or a react component.
-	 */
-	children?: React.ReactNode
-
-	/**
-	 * Style to be applied to the button.
-	 */
-	style?: React.CSSProperties
-
-	/**
 	 * Button varient.
 	 * @Default 'primary'
 	 */
-	variant?: 'primary' | 'secondary' | 'tertiary' | 'alert' | 'pause' | 'save' | 'white-filled' | 'facebook'
+	variant?: ButtomVariant
 
 	/**
-	 * Function to be called when hit a button
+	 * Icon in Button
 	 */
-	onClick: (e?: any) => void
+	suffixIcon?: JSX.Element
 
 	/**
-	 * Type of the button.
+	 * whether the button should be disabled while action is being performed
+	 * Only use when the action is async function
 	 */
-	type?: 'button' | 'submit' | 'reset'
-
-	/**
-	 * Id of the div item.
-	 */
-	id?: string
-
-	/**
-	 * To check which button is clicked with same onClick function.
-	 */
-	dataId?: string
-
-	/**
-	 * ID used to identify the button during testing.
-	 */
-	dataTestId?: string
+	disableDuringCallback?: boolean
 }
 
-const Button: React.FC<ButtonProps> = React.forwardRef((props, ref: any) => {
+const Button: React.FC<ButtonProps> = React.memo((props) => {
+	const [isDisabled, setDisabled] = useState(props.disabled)
+
+	const variantStyles = useMemo(() => {
+		const variant = props.variant ?? ButtomVariant.Primary
+		switch (variant) {
+			case ButtomVariant.Primary:
+				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
+			case ButtomVariant.Secondary:
+				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case ButtomVariant.Negative:
+				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case ButtomVariant.Outline:
+				return 'bg-transparent border-gray-400 hover:border-gray-200'
+			case ButtomVariant.Transparent:
+				return 'border-transparent'
+			default:
+				return ''
+		}
+	}, [props.variant])
+
+	const handleOnClick = useCallback(
+		async (e) => {
+			if (props.disableDuringCallback) {
+				setDisabled(true)
+				await props.onClick(e)
+				setDisabled(false)
+				return
+			}
+			props.onClick && props.onClick(e)
+		},
+		[props.disableDuringCallback, props.onClick]
+	)
+
 	return (
 		<button
 			{...props}
-			id={props.id}
-			className={`${props.variant ? `button-${props.variant}` : `button-primary`} ` + `${props.className}`}
-			style={props.style}
-			ref={ref}
-			type={props.type || 'button'}
-			data-id={props.dataId}
-			data-test-id={props.dataTestId}
-			disabled={props.disabled}
-			onClick={props.disabled ? null : props.onClick}
+			onClick={handleOnClick}
+			disabled={isDisabled || props.disabled}
+			className={clsx(
+				'flex w-fit cursor-pointer items-center border text-gray-50',
+				props.suffixIcon ? 'justify-between' : 'justify-center',
+				'rounded-lg py-3 text-base-bold',
+				'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
+				props.suffixIcon ? 'px-5' : 'px-8',
+				variantStyles,
+				props.className
+			)}
 		>
-			{props.text || props.children}
+			<>{props.text || props.children}</> {props.suffixIcon}
 		</button>
 	)
 })
 
-Button.defaultProps = {
-	variant: 'primary',
-}
-
-export default React.memo(Button)
+export default Button

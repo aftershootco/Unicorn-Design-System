@@ -1,26 +1,16 @@
+import clsx from 'clsx'
 import React from 'react'
-import './Divider.scss'
 
-export interface DividerProps {
+export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Type of Divider
 	 * @default horizontal
 	 */
-	varient?: 'horizontal' | 'vertical'
-
-	/**
-	 * Classes to be applied.
-	 */
-	className?: string
-
-	/**
-	 * Styles to be applied.
-	 */
-	style?: React.CSSProperties
+	variant?: 'horizontal' | 'vertical'
 }
 
-const Divider: React.FC<DividerProps> = (props) => {
-	return <div className={(props.varient && props.varient === 'vertical' ? 'vertical ' : 'horizontal ') + props.className} style={props.style} />
-}
+const Divider: React.FC<DividerProps> = React.memo((props) => {
+	return <div {...props} className={clsx('bg-gray-50/10', props.variant === 'vertical' ? 'h-full w-px' : 'h-px w-full', props.className)} />
+})
 
-export default React.memo(Divider)
+export default Divider
