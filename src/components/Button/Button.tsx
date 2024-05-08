@@ -26,7 +26,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
-	const [isDisabled, setDisabled] = useState(false)
+	const [isDisabled, setDisabled] = useState(props.disabled)
 
 	const variantStyles = useMemo(() => {
 		const variant = props.variant ?? 'primary'
