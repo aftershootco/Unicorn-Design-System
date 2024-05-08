@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 import { Button } from '../'
+import { ButtomVariant } from '../Button/Button'
 
 export interface ToggleProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'> {
 	/**
@@ -32,13 +33,13 @@ const Toggle: React.FC<ToggleProps> = React.memo((props: ToggleProps) => {
 		<div id={props.id} className='relative flex w-[100%] rounded-lg border border-white/10'>
 			<Button
 				className='!w-[50%] cursor-pointer rounded-lg bg-transparent py-2 text-base text-gray-50 outline-none'
-				variant='transparent'
+				variant={ButtomVariant.Transparent}
 				text={props.options.first}
 				onClick={() => props.onClick(true)}
 			/>
 			<Button
 				className='!w-[50%] cursor-pointer bg-transparent py-2 text-base text-gray-50 outline-none'
-				variant='transparent'
+				variant={ButtomVariant.Transparent}
 				text={props.options.second}
 				onClick={() => props.onClick(false)}
 			/>
