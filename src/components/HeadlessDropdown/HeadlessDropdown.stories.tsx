@@ -12,6 +12,8 @@ const Template: Story<HeadlessDropDownProps> = (args: HeadlessDropDownProps) => 
 const Default = Template.bind({})
 Default.args = {
 	value: 'dropdown',
+	showRadioButton: false,
+	variant: 'single',
 	data: {
 		dropdown: {
 			label: 'Dropdown',

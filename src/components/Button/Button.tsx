@@ -1,6 +1,14 @@
 import clsx from 'clsx'
 import React, { useCallback, useMemo, useState } from 'react'
 
+export enum ButtomVariant {
+	Primary = 'primary',
+	Secondary = 'secondary',
+	Negative = 'negative',
+	Outline = 'outline',
+	Transparent = 'transparent',
+}
+
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Text of the button
@@ -11,7 +19,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Button varient.
 	 * @Default 'primary'
 	 */
-	variant?: 'primary' | 'secondary' | 'negative' | 'outline' | 'transparent'
+	variant?: ButtomVariant
 
 	/**
 	 * Icon in Button
@@ -29,17 +37,17 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 	const [isDisabled, setDisabled] = useState(props.disabled)
 
 	const variantStyles = useMemo(() => {
-		const variant = props.variant ?? 'primary'
+		const variant = props.variant ?? ButtomVariant.Primary
 		switch (variant) {
-			case 'primary':
+			case ButtomVariant.Primary:
 				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
-			case 'secondary':
+			case ButtomVariant.Secondary:
 				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-			case 'negative':
+			case ButtomVariant.Negative:
 				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-			case 'outline':
+			case ButtomVariant.Outline:
 				return 'bg-transparent border-gray-400 hover:border-gray-200'
-			case 'transparent':
+			case ButtomVariant.Transparent:
 				return 'border-transparent'
 			default:
 				return ''
