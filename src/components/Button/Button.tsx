@@ -22,7 +22,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * whether the button should be disabled while action is being performed
 	 * Only use when the action is async function
 	 */
-	toBeDisabled?: boolean
+	disableDuringCallback?: boolean
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 
 	const handleOnClick = useCallback(
 		async (e) => {
-			if (props.toBeDisabled) {
+			if (props.disableDuringCallback) {
 				setDisabled(true)
 				await props.onClick(e)
 				setDisabled(false)
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			}
 			props.onClick && props.onClick(e)
 		},
-		[props.toBeDisabled, props.onClick]
+		[props.disableDuringCallback, props.onClick]
 	)
 
 	return (
