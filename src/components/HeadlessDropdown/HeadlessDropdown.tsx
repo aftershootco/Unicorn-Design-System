@@ -8,6 +8,22 @@ export interface HeadlessDropDownData {
 	suffixIcon?: JSX.Element
 	value: string | number | boolean
 	[key: string]: any
+
+	/**
+	 * Option that should be disabled from being selected
+	 */
+	disabledOption?: boolean
+
+	/**
+	 * To regulate disabled option styles
+	 */
+	disabledOptionClassName?: string
+
+	/**
+	 *
+	 * @returns Callback function for disabled option
+	 */
+	disabledOptionCallback?: () => void
 }
 
 export interface HeadlessDropDownProps {
@@ -169,12 +185,21 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 	}, [props.value, data, props.placeholder])
 
 	const handleChange = (profile: HeadlessDropDownData) => {
+		if (profile?.disabledOption) {
+			profile.disabledOptionCallback && profile?.disabledOptionCallback()
+			return
+		}
+
 		setSelected(profile.label)
 		props.onChange(profile)
 	}
 
 	const handleMultiSelect = (e, profile: HeadlessDropDownData) => {
 		e.preventDefault()
+		if (profile?.disabledOption) {
+			profile.disabledOptionCallback && profile?.disabledOptionCallback()
+			return
+		}
 		setSelected(props.value)
 		props.onChange(profile)
 	}
@@ -239,8 +264,10 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 												key={profileIdx}
 												data-test-id={`${props.dataTestId}-${profile}`}
 												className={({ selected, active }) =>
-													`relative cursor-pointer select-none py-3 pl-5 pr-4 
-											text-gray-50 ${isMultiSelected || selected ? 'bg-blue-300/20' : ''} hover:bg-gray-50/10 ${active ? 'bg-gray-50/10' : ''} }`
+													`relative cursor-pointer select-none py-3 pl-5 pr-4 text-gray-50 hover:bg-gray-50/10
+											 		${isMultiSelected || selected ? 'bg-blue-300/20' : ''} ${data[profile]?.disabledOptionClassName} 
+											 		${data[profile]?.disabledOption ? 'opacity-50' : ''}  
+											 		${active ? 'bg-gray-50/10' : ''}`
 												}
 												value={data[profile].label}
 												onClick={(e) => {
