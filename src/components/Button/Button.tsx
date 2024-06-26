@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React, { useCallback, useMemo, useState } from 'react'
 
-export enum ButtomVariant {
+export enum ButtonVariant {
 	Primary = 'primary',
 	Secondary = 'secondary',
 	Negative = 'negative',
@@ -19,7 +19,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	 * Button varient.
 	 * @Default 'primary'
 	 */
-	variant?: ButtomVariant
+	variant?: ButtonVariant
 
 	/**
 	 * Icon in Button
@@ -37,17 +37,17 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 	const [isDisabled, setDisabled] = useState(props.disabled)
 
 	const variantStyles = useMemo(() => {
-		const variant = props.variant ?? ButtomVariant.Primary
+		const variant = props.variant ?? ButtonVariant.Primary
 		switch (variant) {
-			case ButtomVariant.Primary:
+			case ButtonVariant.Primary:
 				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
-			case ButtomVariant.Secondary:
+			case ButtonVariant.Secondary:
 				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-			case ButtomVariant.Negative:
+			case ButtonVariant.Negative:
 				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-			case ButtomVariant.Outline:
+			case ButtonVariant.Outline:
 				return 'bg-transparent border-gray-400 hover:border-gray-200'
-			case ButtomVariant.Transparent:
+			case ButtonVariant.Transparent:
 				return 'border-transparent'
 			default:
 				return ''

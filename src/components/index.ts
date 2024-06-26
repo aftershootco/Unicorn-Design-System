@@ -16,14 +16,14 @@ import Tabs, { TabsProps } from './Tabs/Tabs'
 import TextInput, { TextInputProps } from './TextInput/TextInput'
 import Toggle, { ToggleProps } from './Toggle/Toggle'
 
-import { ButtomVariant } from './Button/Button'
+import { ButtonVariant } from './Button/Button'
 
 export {
 	Accordion,
 	AccordionProps,
-	ButtomVariant,
 	Button,
 	ButtonProps,
+	ButtonVariant,
 	Carousel,
 	CarouselProps,
 	CheckBox,
