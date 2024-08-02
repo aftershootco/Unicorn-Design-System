@@ -71,14 +71,14 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 	}, [props.error])
 
 	const onKeyDown = useCallback((e: any) => {
-		if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'a') {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'a') {
 			e.target.select()
 		}
-		if ((e.metaKey || (!(process.platform === 'darwin') && e.ctrlKey)) && e.key === 'c') {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'c') {
 			const selectedText = getSelection().toString()
 			if (selectedText.length > 0) navigator.clipboard.writeText(selectedText)
 		}
-		if (e.metaKey && e.key === 'v') {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'v') {
 			const initialText = e.target.value
 			const selectedText = getSelection().toString()
 			const cursorPosiiton = e.target.selectionStart
