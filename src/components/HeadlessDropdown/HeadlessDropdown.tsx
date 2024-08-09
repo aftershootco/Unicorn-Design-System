@@ -5,7 +5,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 export interface HeadlessDropDownData {
 	label: string | JSX.Element
-	suffixIcon?: JSX.Element
+	suffixicon?: JSX.Element
 	value: string | number | boolean
 	[key: string]: any
 
@@ -144,12 +144,12 @@ export interface HeadlessDropDownProps {
 	/**
 	 * Show suffix icon for each option
 	 */
-	showSuffixIcon?: boolean
+	showsuffixicon?: boolean
 }
 
 const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDownProps) => {
 	const { variant = 'single' } = props
-	const [selectedValue, setSelected] = useState<string | number | any | JSX.Element>()
+	const [selectedValue, setSelected] = useState<string | number | any | JSX.Element>('')
 	const [data, setData] = useState(props.data)
 	// DropDown.defaultProps = {
 	// 	dataTestId: 'uds-dropdown',
@@ -290,7 +290,7 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 															<span className={`block truncate ${isMultiSelected || selected ? 'font-medium' : ''}`}>
 																{data[profile].label}
 															</span>
-															{props.showSuffixIcon && data[profile].suffixIcon}
+															{props.showsuffixicon && data[profile].suffixicon}
 														</div>
 
 														{isMultiSelected && (

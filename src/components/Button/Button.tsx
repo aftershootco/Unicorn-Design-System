@@ -24,13 +24,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	/**
 	 * Icon in Button
 	 */
-	suffixIcon?: JSX.Element
+	suffixicon?: JSX.Element
 
 	/**
 	 * whether the button should be disabled while action is being performed
 	 * Only use when the action is async function
 	 */
-	disableDuringCallback?: boolean
+	disableduringcallback?: boolean
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 
 	const handleOnClick = useCallback(
 		async (e) => {
-			if (props.disableDuringCallback) {
+			if (props.disableduringcallback) {
 				setDisabled(true)
 				await props.onClick(e)
 				setDisabled(false)
@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			}
 			props.onClick && props.onClick(e)
 		},
-		[props.disableDuringCallback, props.onClick]
+		[props.disableduringcallback, props.onClick]
 	)
 
 	return (
@@ -74,15 +74,15 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			disabled={isDisabled || props.disabled}
 			className={clsx(
 				'flex w-fit cursor-pointer items-center border text-gray-50',
-				props.suffixIcon ? 'justify-between' : 'justify-center',
+				props.suffixicon ? 'justify-between' : 'justify-center',
 				'rounded-lg py-3 text-base-bold',
 				'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
-				props.suffixIcon ? 'px-5' : 'px-8',
+				props.suffixicon ? 'px-5' : 'px-8',
 				variantStyles,
 				props.className
 			)}
 		>
-			<>{props.text || props.children}</> {props.suffixIcon}
+			<>{props.text || props.children}</> {props.suffixicon}
 		</button>
 	)
 })

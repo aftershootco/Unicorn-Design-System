@@ -34,9 +34,9 @@ export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputEleme
 	prefixIcon?: JSX.Element
 
 	/**
-	 * SVG icon for suffixIcon
+	 * SVG icon for suffixicon
 	 */
-	suffixIcon?: JSX.Element
+	suffixicon?: JSX.Element
 
 	/**
 	 * Error in input
@@ -114,13 +114,13 @@ const TextInput: React.FC<TextInputProps> = React.memo((props) => {
 						variantStyle === ErrorState.INACTIVE && 'border-red-400 text-gray-50',
 						props.readOnly && 'cursor-default',
 						props.prefixIcon ? 'pl-12' : 'pl-3',
-						props.suffixIcon ? 'pr-8' : 'pr-2',
+						props.suffixicon ? 'pr-8' : 'pr-2',
 						props.className
 					)}
 					onFocus={onFocus}
 					onKeyDown={onKeyDown}
 				/>
-				<div className='absolute right-4 cursor-pointer py-2 pr-2'>{props.suffixIcon}</div>
+				<div className='absolute right-4 cursor-pointer py-2 pr-2'>{props.suffixicon}</div>
 			</div>
 			{props.description && <div className='mt-2 overflow-hidden text-ellipsis pl-1 text-xs text-gray-200'>{props.description}</div>}
 		</div>
