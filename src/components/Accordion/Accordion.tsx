@@ -14,7 +14,7 @@ export interface AccordionProps {
 	children: React.ReactNode
 	childrenClassName?: string
 
-	suffixIcon?: JSX.Element
+	suffixicon?: JSX.Element
 	className?: string
 }
 
@@ -38,7 +38,7 @@ const Accordion: React.FC<AccordionProps> = React.memo((props) => {
 						{props.header}
 					</div>
 				</div>
-				<div>{props.suffixIcon}</div>
+				<div>{props.suffixicon}</div>
 			</div>
 			<div
 				ref={contentSpace}
