@@ -66,10 +66,11 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 		},
 		[props.disableduringcallback, props.onClick]
 	)
+	const { disableduringcallback, ...rest } = props
 
 	return (
 		<button
-			{...props}
+			{...rest}
 			onClick={handleOnClick}
 			disabled={isDisabled || props.disabled}
 			className={clsx(
