@@ -55,8 +55,6 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 		}
 	}, [props.variant])
 
-	
-
 	const handleOnClick = useCallback(
 		async (e) => {
 			if (props.disableduringcallback) {
