@@ -34,6 +34,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const Button: React.FC<ButtonProps> = React.memo((props) => {
+	const { disableduringcallback, ...rest } = props
 	const [isDisabled, setDisabled] = useState(false)
 
 	const variantStyles = useMemo(() => {
@@ -69,7 +70,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 
 	return (
 		<button
-			{...props}
+			{...rest}
 			onClick={handleOnClick}
 			disabled={isDisabled || props.disabled}
 			className={clsx(
