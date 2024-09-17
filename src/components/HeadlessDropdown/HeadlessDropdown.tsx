@@ -212,6 +212,17 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 		if (variant === 'multiple') return props?.value.find((el) => el === value) ? true : false
 	}
 
+	const onChange = (e) => {
+		handleChange(data[e])
+	}
+
+	const listBoxProps =
+		variant === 'multiple'
+			? {}
+			: {
+					onChange,
+			  }
+
 	return (
 		<div id={props.id} className={clsx('flex w-full flex-col gap-1', props.outerClassName)}>
 			{props.label && (
@@ -221,11 +232,7 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 				</div>
 			)}
 			<div className='w-full'>
-				<Listbox
-					value={selectedValue}
-					disabled={props.disabled}
-					//  onChange={() =>{}}
-				>
+				<Listbox value={selectedValue} disabled={props.disabled} {...listBoxProps}>
 					{({ open }) => (
 						<div className='relative mt-1 text-base'>
 							<Listbox.Button
