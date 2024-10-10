@@ -38,7 +38,7 @@ export interface LinearProgressBarProps {
 	 */
 	progressBarColor?: string
 	/**
-	 * changes the inner subline
+	 * changes the inner subline(!)
 	 */
 	innerClassName?: string
 }
@@ -51,7 +51,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 					<div className='absolute h-full w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					{variant === 'primary' ? (
 						<div
-							className={clsx('subline absolute  rounded-xl bg-blue-400', props.innerClassName)}
+							className={clsx('subline absolute h-2 rounded-xl bg-blue-400', props.innerClassName)}
 							style={{
 								background: `${props.progressBarColor}`,
 								width: props.value + '%',
@@ -59,7 +59,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 						/>
 					) : (
 						<div
-							className={clsx('subline absolute  rounded-xl', props.innerClassName)}
+							className={clsx('subline absolute h-2 rounded-xl', props.innerClassName)}
 							style={{
 								background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
 								width: props.value + '%',
@@ -71,7 +71,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
 					<div className='absolute h-full w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					<div
-						className={clsx('subline  inc  absolute  rounded-xl bg-blue-400', props.innerClassName)}
+						className={clsx('subline  inc absolute h-2  rounded-xl bg-blue-400', props.innerClassName)}
 						style={
 							variant === 'primary'
 								? { background: `${props.progressBarColor}` }
@@ -81,7 +81,7 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 						}
 					/>
 					<div
-						className={clsx('subline dec  absolute  rounded-xl bg-blue-400', props.innerClassName)}
+						className={clsx('subline dec absolute h-2  rounded-xl bg-blue-400', props.innerClassName)}
 						style={
 							variant === 'primary'
 								? { background: `${props.progressBarColor}` }
