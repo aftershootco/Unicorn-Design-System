@@ -16,12 +16,13 @@ export interface ScrollingComponentProps {
 
 	className?: string
 }
+
+const HORIZONTAL_SCROLL_OFFSET = 150
+
 const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingComponentProps) => {
 	const { isDrawer } = props
 	const containerOverFlowing = useRef<HTMLDivElement>(null)
 	const [visible, setVisible] = useState({ left: false, right: true })
-	const HORIZONTAL_SCROLL_OFFSET = 150
-	// const isDrawer = useAppStore((state) => state.drawer)
 
 	useEffect(() => {
 		if (containerOverFlowing.current) {
@@ -36,10 +37,17 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 
 	const move = (index) => {
 		const refContainer = containerOverFlowing.current
+		if (!refContainer) return
 
-		if (index === 1 && refContainer) {
+		const firstChild = refContainer.children[0] as HTMLElement
+		const offSetWidth = firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
+
+		if (index === 1) {
 			if (refContainer.scrollWidth >= refContainer.clientWidth) {
-				refContainer.scrollLeft += HORIZONTAL_SCROLL_OFFSET
+				refContainer.scrollTo({
+					left: refContainer.scrollLeft + offSetWidth,
+					behavior: 'smooth',
+				})
 			}
 
 			if (refContainer.scrollWidth - refContainer.clientWidth < refContainer.scrollLeft + 10) {
@@ -47,9 +55,12 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 			} else if (!visible.left && refContainer.scrollLeft > 0) {
 				setVisible({ ...visible, left: true })
 			}
-		} else if (index === -1 && refContainer) {
+		} else if (index === -1) {
 			if (refContainer.scrollLeft > 0) {
-				refContainer.scrollLeft -= HORIZONTAL_SCROLL_OFFSET
+				refContainer.scrollTo({
+					left: refContainer.scrollLeft - offSetWidth,
+					behavior: 'smooth',
+				})
 			}
 
 			if (refContainer.scrollLeft === 0) {
