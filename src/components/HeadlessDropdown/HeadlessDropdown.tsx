@@ -195,8 +195,12 @@ const HeadlessDropDown: React.FC<HeadlessDropDownProps> = (props: HeadlessDropDo
 				return
 			}
 		}
-		props.onChange(profile)
+		if (profile?.disabledOption) {
+			profile.disabledOptionCallback && profile?.disabledOptionCallback()
+			return
+		}
 		setSelected(profile.label)
+		props.onChange(profile)
 	}
 
 	const handleMultiSelect = (e, profile: HeadlessDropDownData) => {
