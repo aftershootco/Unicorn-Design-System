@@ -37,10 +37,12 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 
 	const move = (index) => {
 		const refContainer = containerOverFlowing.current
-		const firstChild = refContainer.children[0] as HTMLElement
-		const offSetWidth = firstChild.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
+		if (!refContainer) return
 
-		if (index === 1 && refContainer) {
+		const firstChild = refContainer.children[0] as HTMLElement
+		const offSetWidth = firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
+
+		if (index === 1) {
 			if (refContainer.scrollWidth >= refContainer.clientWidth) {
 				refContainer.scrollTo({
 					left: refContainer.scrollLeft + offSetWidth,
@@ -53,7 +55,7 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 			} else if (!visible.left && refContainer.scrollLeft > 0) {
 				setVisible({ ...visible, left: true })
 			}
-		} else if (index === -1 && refContainer) {
+		} else if (index === -1) {
 			if (refContainer.scrollLeft > 0) {
 				refContainer.scrollTo({
 					left: refContainer.scrollLeft - offSetWidth,
