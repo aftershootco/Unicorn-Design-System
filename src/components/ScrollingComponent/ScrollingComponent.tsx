@@ -14,13 +14,18 @@ export interface ScrollingComponentProps {
 	 */
 	children?: React.ReactNode
 
+	/**
+	 * Scrolling fffset width, High priority
+	 */
+	scrollingWidth?: number
+
 	className?: string
 }
 
 const HORIZONTAL_SCROLL_OFFSET = 150
 
 const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingComponentProps) => {
-	const { isDrawer } = props
+	const { isDrawer, scrollingWidth } = props
 	const containerOverFlowing = useRef<HTMLDivElement>(null)
 	const [visible, setVisible] = useState({ left: false, right: true })
 
@@ -40,7 +45,7 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 		if (!refContainer) return
 
 		const firstChild = refContainer.children[0] as HTMLElement
-		const offSetWidth = firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
+		const offSetWidth = scrollingWidth ? scrollingWidth : firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
 
 		if (index === 1) {
 			if (refContainer.scrollWidth >= refContainer.clientWidth) {
