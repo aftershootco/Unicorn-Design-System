@@ -19,13 +19,15 @@ export interface ScrollingComponentProps {
 	 */
 	scrollingWidth?: number
 
+	parentClassName?: string
+
 	className?: string
 }
 
 const HORIZONTAL_SCROLL_OFFSET = 150
 
 const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingComponentProps) => {
-	const { isDrawer, scrollingWidth } = props
+	const { isDrawer, parentClassName = '', scrollingWidth = 0 } = props
 	const containerOverFlowing = useRef<HTMLDivElement>(null)
 	const [visible, setVisible] = useState({ left: false, right: true })
 
@@ -45,7 +47,7 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 		if (!refContainer) return
 
 		const firstChild = refContainer.children[0] as HTMLElement
-		const offSetWidth = scrollingWidth ? scrollingWidth : firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET
+		const offSetWidth = scrollingWidth || (firstChild?.offsetWidth ?? HORIZONTAL_SCROLL_OFFSET)
 
 		if (index === 1) {
 			if (refContainer.scrollWidth >= refContainer.clientWidth) {
@@ -88,7 +90,7 @@ const ScrollingComponent: React.FC<ScrollingComponentProps> = (props: ScrollingC
 	}
 
 	return (
-		<div className={clsx('relative z-[3] flex w-full flex-row items-center')}>
+		<div className={clsx('relative z-[3] flex w-full flex-row items-center', parentClassName)}>
 			{visible.right && <ScrollingArrow move={1} onClick={() => move(1)} />}
 			<div
 				onScroll={onListScroll}
