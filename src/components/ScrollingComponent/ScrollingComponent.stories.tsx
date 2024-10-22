@@ -33,6 +33,7 @@ Default.args = {
 			</div>
 		)
 	}),
+	parentClassName: 'p-10',
 }
 
 export { Default }
