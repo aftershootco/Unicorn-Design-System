@@ -3,7 +3,14 @@ import clsx from 'clsx'
 import React, { useCallback } from 'react'
 import { cn } from '../../utils/cn'
 
-export type TCheckboxVariant = 'sm' | 'md' | 'lg'
+export enum CheckboxVariant {
+	Small = 'sm',
+	Medium = 'md',
+	Large = 'lg',
+}
+
+export type TCheckboxVariant = `${CheckboxVariant}`
+
 export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 	/**
 	 *
@@ -73,8 +80,8 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 							className={cn(
 								'pointer-events-auto h-5 w-5 rounded-[0.063rem] bg-blue-400 transition-all duration-200 ease-in-out  group-hover:bg-blue-300',
 								props.disabled && 'bg-gray-50/30',
-								props.size === 'sm' && 'h-[0.875rem] w-[0.875rem]', // 14px
-								props.size === 'lg' && 'h-[1.25rem] w-[1.25rem]' //20px
+								props.size === CheckboxVariant.Small && 'h-[0.875rem] w-[0.875rem]', // 14px
+								props.size === CheckboxVariant.Large && 'h-[1.25rem] w-[1.25rem]' //20px
 								// size md is default
 							)}
 						/>
