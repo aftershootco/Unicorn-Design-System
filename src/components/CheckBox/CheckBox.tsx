@@ -2,6 +2,8 @@ import { TickIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 import React, { useCallback } from 'react'
 import { cn } from '../../utils/cn'
+
+export type TCheckboxVariant = 'sm' | 'md' | 'lg'
 export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 	/**
 	 *
@@ -27,7 +29,7 @@ export interface CheckBoxProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 	 * pre defined size of a checkbox
 	 */
 
-	size?: 'sm' | 'md' | 'lg'
+	size?: TCheckboxVariant
 
 	/**
 	 * Value of the checkbox.
