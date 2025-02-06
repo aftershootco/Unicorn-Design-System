@@ -69,7 +69,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 			{props.variant === 'primary' && (
 				<div
 					className={cn(
-						'grid w-max cursor-pointer place-items-center rounded-sm border border-solid border-gray-50/10 bg-gray-50/10 p-[0.156rem] transition-all duration-200 ease-in-out  group-hover:border-gray-400',
+						'grid w-max cursor-pointer place-items-center rounded-[0.188rem] border border-solid border-gray-50/10 bg-gray-50/10 p-[0.156rem] transition-all duration-200 ease-in-out  group-hover:border-gray-400',
 						props.disabled && 'pointer-events-none cursor-default bg-transparent',
 						props.className
 					)}
@@ -78,17 +78,18 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 					{props.value ? (
 						<CheckIcon
 							className={cn(
-								'pointer-events-auto h-5 w-5 rounded-[0.063rem] bg-blue-400 transition-all duration-200 ease-in-out  group-hover:bg-blue-300',
+								'pointer-events-auto h-[0.844rem] w-[0.844rem] rounded-[0.063rem] bg-blue-400 transition-all duration-200 ease-in-out  group-hover:bg-blue-300',
 								props.disabled && 'bg-gray-50/30',
-								props.size === CheckboxVariant.Small && 'h-[0.875rem] w-[0.875rem]', // 14px
-								props.size === CheckboxVariant.Large && 'h-[1.25rem] w-[1.25rem]' //20px
-								// size md is default
+								// padding around the check icon is 2.5px
+								props.size === CheckboxVariant.Small && 'h-[0.719rem] w-[0.719rem]', // 14px - 2.5px
+								props.size === CheckboxVariant.Large && 'h-[1.094rem] w-[1.094rem]' //20px - 2.5px
+								// size md is default - 16px - 2.5px
 							)}
 						/>
 					) : (
 						<div
 							className={cn(
-								'h-5 w-5 rounded-[0.063rem] transition-all duration-200 ease-in-out',
+								'h-[0.844rem] w-[0.844rem] rounded-[0.063rem] transition-all duration-200 ease-in-out',
 								!props.disabled && 'group-hover:bg-gray-50/20'
 							)}
 						/>
