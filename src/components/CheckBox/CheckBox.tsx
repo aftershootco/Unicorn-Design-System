@@ -1,7 +1,7 @@
 import { TickIcon } from '@aftershootco/unicorn-icons'
 import clsx from 'clsx'
 import React, { useCallback } from 'react'
-import { cn } from '../../utils/cn'
+import { cn } from '../../utils'
 
 export enum CheckboxVariant {
 	Small = 'sm',
