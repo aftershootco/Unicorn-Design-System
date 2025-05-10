@@ -10,7 +10,6 @@
 }
 
 .subline.secondary {
-	/* this replaces the inline background: `linear-gradient(...)` */
 	background: linear-gradient(
 		270deg,
 		#7e68b0 -3.96%,
@@ -24,11 +23,11 @@
 }
 
 .inc {
-	animation: inc-transform 2s infinite ease-in-out both;
+	animation: inc-transform 2.5s 0.5s infinite ease-in-out both;
 }
 
 .dec {
-	animation: dec-transform 2s 0.5s infinite ease-in-out both;
+	animation: dec-transform 2.5s 0.5s infinite ease-in-out both;
 }
 
 @keyframes inc-transform {
