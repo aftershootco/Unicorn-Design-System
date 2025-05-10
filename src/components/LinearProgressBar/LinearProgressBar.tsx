@@ -44,7 +44,6 @@ export interface LinearProgressBarProps {
 }
 
 const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primary', ...props }) => {
-	console.log('vibhor: ', props.value)
 	return (
 		<>
 			{props.value > 0 ? (
