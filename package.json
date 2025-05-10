@@ -1,6 +1,6 @@
 {
 	"name": "@aftershootco/pegasus",
-	"version": "1.0.50",
+	"version": "1.0.51",
 	"description": "The core UI library for Aftershoot",
 	"author": "Aftershoot",
 	"license": "ISC",
@@ -80,7 +80,8 @@
 	],
 	"types": "dist/index.d.ts",
 	"dependencies": {
-		"clsx": "^1.2.1"
+		"clsx": "^1.2.1",
+		"tailwind-merge": "^3.2.0"
 	},
 	"keywords": [
 		"unicorn",
