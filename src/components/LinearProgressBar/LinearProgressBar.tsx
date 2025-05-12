@@ -48,48 +48,43 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({ variant = 'primar
 		<>
 			{props.value > 0 ? (
 				<div id={props.id} className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
-					<div className='absolute h-full w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
+					<div className='absolute h-full w-full rounded rounded-2xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
 					{variant === 'primary' ? (
 						<div
-							className={clsx('subline absolute h-2 rounded-xl bg-blue-400', props.innerClassName)}
+							className={clsx('subline absolute h-2 rounded rounded-2xl bg-blue-400', props.innerClassName)}
 							style={{
 								background: `${props.progressBarColor}`,
-								width: props.value + '%',
+								transform: `scaleX(${Number(props.value) / 100})`,
 							}}
 						/>
 					) : (
 						<div
-							className={clsx('subline absolute h-2 rounded-xl', props.innerClassName)}
+							className={clsx('subline secondary absolute h-2 rounded rounded-2xl', props.innerClassName)}
 							style={{
-								background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
-								width: props.value + '%',
+								transform: `scaleX(${Number(props.value) / 100})`,
 							}}
 						/>
 					)}
 				</div>
 			) : (
-				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-xl', props.className)}>
-					<div className='absolute h-full w-full rounded-xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
-					<div
-						className={clsx('subline  inc absolute h-2  rounded-xl bg-blue-400', props.innerClassName)}
-						style={
-							variant === 'primary'
-								? { background: `${props.progressBarColor}` }
-								: {
-										background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
-								  }
-						}
-					/>
-					<div
-						className={clsx('subline dec absolute h-2  rounded-xl bg-blue-400', props.innerClassName)}
-						style={
-							variant === 'primary'
-								? { background: `${props.progressBarColor}` }
-								: {
-										background: `linear-gradient(270deg, #7E68B0 -3.96%, #008AD2 20.51%, #21B24B 42.89%, #FFC40E 64.99%, #F6821F 87.25%, #EF4023 109.23%, #7E68B0 128.71%)`,
-								  }
-						}
-					/>
+				<div className={clsx('relative h-2 w-full overflow-x-hidden rounded-2xl', props.className)}>
+					<div className='absolute h-full w-full rounded rounded-2xl bg-gray-50/10' style={{ background: `${props.backgroundColor}` }} />
+					{variant === 'primary' ? (
+						<div
+							className={clsx('subline inc absolute h-2 rounded rounded-2xl bg-blue-400', props.innerClassName)}
+							style={{ background: `${props.progressBarColor}` }}
+						/>
+					) : (
+						<div className={clsx('subline secondary inc absolute h-2 rounded rounded-2xl bg-blue-400', props.innerClassName)} />
+					)}
+					{variant === 'primary' ? (
+						<div
+							className={clsx('subline dec absolute h-2 rounded rounded-2xl bg-blue-400', props.innerClassName)}
+							style={{ background: `${props.progressBarColor}` }}
+						/>
+					) : (
+						<div className={clsx('subline secondary dec absolute h-2 rounded rounded-2xl bg-blue-400', props.innerClassName)} />
+					)}
 				</div>
 			)}
 		</>
