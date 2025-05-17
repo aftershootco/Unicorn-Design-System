@@ -1,6 +1,5 @@
 import { ArrowForwardIcon } from '@aftershootco/unicorn-icons'
 import { Meta, Story } from '@storybook/react'
-import React from 'react'
 import { Button, ButtonProps } from '..'
 
 export default {
@@ -14,6 +13,7 @@ const Default = Template.bind({})
 Default.args = {
 	text: 'Button',
 	variant: 'primary',
+	disabled: false,
 	suffixIcon: <ArrowForwardIcon className='h-4 w-4 pl-14' />,
 }
 
