@@ -74,11 +74,11 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 			onClick={handleOnClick}
 			disabled={isDisabled || props.disabled}
 			className={clsx(
-				'flex w-fit cursor-pointer items-center border text-gray-50',
+				'flex w-fit cursor-pointer items-center border text-white',
 				props.suffixicon ? 'justify-between' : 'justify-center',
 				'rounded-lg py-3 text-base-bold',
 				'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
-				props.suffixicon ? 'px-5' : 'px-8',
+				'px-5',
 				variantStyles,
 				props.className
 			)}
