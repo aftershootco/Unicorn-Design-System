@@ -78,7 +78,7 @@ const CheckBox: React.FC<CheckBoxProps> = React.memo((props) => {
 					{props.value ? (
 						<CheckIcon
 							className={cn(
-								'pointer-events-auto h-[0.844rem] w-[0.844rem] rounded-[0.063rem] bg-blue-400 transition-all duration-200 ease-in-out  group-hover:bg-blue-300',
+								'pointer-events-auto h-[0.844rem] w-[0.844rem] rounded-sm bg-blue-400 transition-all duration-200 ease-in-out  group-hover:bg-blue-300',
 								props.disabled && 'bg-gray-50/30',
 								// padding around the check icon is 2.5px
 								props.size === CheckboxVariant.Small && 'h-[0.719rem] w-[0.719rem]', // 14px - 2.5px
