@@ -33,64 +33,62 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	disableduringcallback?: boolean
 }
 
-const Button = React.memo(
-	React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-		const { disableduringcallback, ...rest } = props
-		const [isDisabled, setDisabled] = useState(false)
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+	const { disableduringcallback, ...rest } = props
+	const [isDisabled, setDisabled] = useState(false)
 
-		const variantStyles = useMemo(() => {
-			const variant = props.variant ?? ButtonVariant.Primary
-			switch (variant) {
-				case ButtonVariant.Primary:
-					return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
-				case ButtonVariant.Secondary:
-					return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-				case ButtonVariant.Negative:
-					return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
-				case ButtonVariant.Outline:
-					return 'bg-transparent border-gray-400 hover:border-gray-200'
-				case ButtonVariant.Transparent:
-					return 'border-transparent'
-				default:
-					return ''
+	const variantStyles = useMemo(() => {
+		const variant = props.variant ?? ButtonVariant.Primary
+		switch (variant) {
+			case ButtonVariant.Primary:
+				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
+			case ButtonVariant.Secondary:
+				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case ButtonVariant.Negative:
+				return 'bg-red-400 border-red-400 hover:bg-red-500 hover:border-red-500 disabled:bg-gray-50/10 disabled:border-gray-50/10'
+			case ButtonVariant.Outline:
+				return 'bg-transparent border-gray-400 hover:border-gray-200'
+			case ButtonVariant.Transparent:
+				return 'border-transparent'
+			default:
+				return ''
+		}
+	}, [props.variant])
+
+	const handleOnClick = useCallback(
+		async (e) => {
+			if (props.disableduringcallback) {
+				setDisabled(true)
+				await props.onClick(e)
+				setDisabled(false)
+				return
 			}
-		}, [props.variant])
+			props.onClick && props.onClick(e)
+		},
+		[props.disableduringcallback, props.onClick]
+	)
 
-		const handleOnClick = useCallback(
-			async (e) => {
-				if (props.disableduringcallback) {
-					setDisabled(true)
-					await props.onClick(e)
-					setDisabled(false)
-					return
-				}
-				props.onClick && props.onClick(e)
-			},
-			[props.disableduringcallback, props.onClick]
-		)
-
-		return (
-			<button
-				{...rest}
-				ref={ref}
-				onClick={handleOnClick}
-				disabled={isDisabled || props.disabled}
-				className={clsx(
-					'flex w-fit cursor-pointer items-center border text-gray-50',
-					props.suffixicon ? 'justify-between' : 'justify-center',
-					'rounded-lg py-3 text-base-bold',
-					'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
-					props.suffixicon ? 'px-5' : 'px-8',
-					variantStyles,
-					props.className
-				)}
-			>
-				<>{props.text || props.children}</> {props.suffixicon}
-			</button>
-		)
-	})
-)
+	return (
+		<button
+			{...rest}
+			ref={ref}
+			onClick={handleOnClick}
+			disabled={isDisabled || props.disabled}
+			className={clsx(
+				'flex w-fit cursor-pointer items-center border text-gray-50',
+				props.suffixicon ? 'justify-between' : 'justify-center',
+				'rounded-lg py-3 text-base-bold',
+				'focus:outline-none disabled:pointer-events-none disabled:cursor-default disabled:text-gray-200',
+				props.suffixicon ? 'px-5' : 'px-8',
+				variantStyles,
+				props.className
+			)}
+		>
+			<>{props.text || props.children}</> {props.suffixicon}
+		</button>
+	)
+})
 
 Button.displayName = 'Button'
 
-export default Button
+export default React.memo(Button)
