@@ -33,7 +33,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	disableduringcallback?: boolean
 }
 
-const Button: React.FC<ButtonProps> = React.memo((props) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 	const { disableduringcallback, ...rest } = props
 	const [isDisabled, setDisabled] = useState(false)
 
@@ -71,6 +71,7 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 	return (
 		<button
 			{...rest}
+			ref={ref}
 			onClick={handleOnClick}
 			disabled={isDisabled || props.disabled}
 			className={clsx(
@@ -88,4 +89,6 @@ const Button: React.FC<ButtonProps> = React.memo((props) => {
 	)
 })
 
-export default Button
+Button.displayName = 'Button'
+
+export default React.memo(Button)
