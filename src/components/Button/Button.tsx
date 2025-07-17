@@ -22,12 +22,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 	variant?: ButtonVariant
 
 	/**
-	 * Disabled
-	 * @default false
-	 */
-	disabled?: boolean
-
-	/**
 	 * Icon in Button
 	 */
 	suffixicon?: JSX.Element
