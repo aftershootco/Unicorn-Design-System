@@ -41,7 +41,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
 		const variant = props.variant ?? ButtonVariant.Primary
 		switch (variant) {
 			case ButtonVariant.Primary:
-				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-500 disabled:border-gray-500 disabled:text-gray-200'
+				return 'bg-blue-400 border-blue-400 hover:bg-blue-300 hover:border-blue-300 disabled:bg-gray-800 disabled:border-gray-800 disabled:text-gray-600'
 			case ButtonVariant.Secondary:
 				return 'bg-gray-700 border-gray-700 hover:bg-gray-50/30 hover:border-gray-50/30 disabled:bg-gray-50/10 disabled:border-gray-50/10'
 			case ButtonVariant.Negative:
